@@ -12,8 +12,30 @@
         }
         .datepicker {
 	    margin-top: 30px;
-	}
-
+	    }   
+        .myButton {
+        background-color:#4a5e71;
+        border-radius:5px;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-size: 15px;
+        padding: 18px 6px;
+        }
+        .myButton:hover {
+        background-color:#394959;
+        }
+        .myButton:active {
+        position:relative;
+        top:1px;
+        }
+        .w-container{
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: auto;
+            flex-direction: column;
+        }
         /* Pyramid Chart Styling */
         .pyramid-chart {
             display: flex;
@@ -25,8 +47,19 @@
         .pyramid-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
+	.pyramid-row2 {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 150px;
+        }
+	.pyramid-row3 {
+            display: flex;
+            justify-content: space-between;
+            margin-left: auto;
+        }
+
 
         .pyramid-box {
             border: 1px solid #ddd;
@@ -90,10 +123,11 @@
     <h1>Numerology</h1>
     
     <div class="datepicker">
-    <label for="dob">Enter your Date of Birth:</label><br>
+    <label for="dob">Enter your Date of Birth:</label><br><br>
     <input type="date" id="dob">
-    <button onclick="calculateNumerology()">Calculate</button></div>
+    <button onclick="calculateNumerology()" class="myButton">Calculate</button></div>
 
+<div class="w-container">
     <!-- Pyramid Chart -->
     <div class="pyramid-chart">
         <div class="pyramid-row">
@@ -112,6 +146,30 @@
 	<div class="pyramid-row">
             <div class="pyramid-box top" id="lifePathBox">
                 <!-- Display life path -->
+            </div>
+        </div>
+        <div class="pyramid-row">
+            <div class="pyramid-row2">
+                <div class="pyramid-box" id="XWBox">
+                <!-- Display day path -->
+                </div>
+                <div class="pyramid-box" id="IMBox">
+                <!-- Display month path -->
+                </div>
+                <div class="pyramid-box" id="JMBox">
+                <!-- Display year1 path -->
+                </div>
+            </div>
+            <div class="pyramid-row3">
+                <div class="pyramid-box" id="KNBox">
+                <!-- Display day path -->
+                </div>
+                <div class="pyramid-box" id="LNBox">
+                <!-- Display month path -->
+                </div>
+                <div class="pyramid-box" id="VUBox">
+                <!-- Display year1 path -->
+                </div>
             </div>
         </div>
         <div class="pyramid-row">
@@ -136,28 +194,7 @@
                 <!-- Display year2 path -->
             </div>
         </div>
-	<div class="pyramid-row">
-            <div class="pyramid-box" id="XWBox">
-                <!-- Display day path -->
-            </div>
-            <div class="pyramid-box" id="IMBox">
-                <!-- Display month path -->
-            </div>
-            <div class="pyramid-box" id="JMBox">
-                <!-- Display year1 path -->
-            </div>
-        </div>
-	<div class="pyramid-row">
-	<div class="pyramid-box" id="KNBox">
-                <!-- Display day path -->
-            </div>
-            <div class="pyramid-box" id="LNBox">
-                <!-- Display month path -->
-            </div>
-            <div class="pyramid-box" id="VUBox">
-                <!-- Display year1 path -->
-            </div>
-	</div>
+	    
 	
     </div>
 
@@ -188,7 +225,7 @@
             <td id="3majortable">-</td>
         </tr>
     </table>
-
+</div>
     <script>
         function calculateNumerology() {
             // Get the date of birth from the input field
