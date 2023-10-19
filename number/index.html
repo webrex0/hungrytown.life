@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerology Charts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .datepicker {
+	    margin-top: 30px;
+	}
+
+        /* Pyramid Chart Styling */
+        .pyramid-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .pyramid-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .pyramid-box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            width: 100px;
+            background-color: #f0f0f0;
+        }
+
+        .pyramid-box.top {
+            background-color: #0080ff;
+            color: #fff;
+        }
+
+        /* Table Chart Styling */
+        .table-chart {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        .table-chart th, .table-chart td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .table-chart th {
+            background-color: #0080ff;
+            color: white;
+        }
+	/* Date Picker Styling */
+	*,
+	*:before,
+	*:after{
+    	padding: 0;
+    	margin: 0;
+    	box-sizing: border-box;
+	}
+	input[type="date"]{
+    	background-color: #0080ff;
+    	padding: 15px;
+    	font-family: "Roboto Mono",monospace;
+    	color: #ffffff;
+    	font-size: 18px;
+    	border: none;
+    	outline: none;
+    	border-radius: 5px;
+	}
+	::-webkit-calendar-picker-indicator{
+    	background-color: #ffffff;
+    	padding: 5px;
+    	cursor: pointer;
+    	border-radius: 3px;
+	}
+
+    </style>
+</head>
+<body>
+
+    <h1>Numerology</h1>
+    
+    <div class="datepicker">
+    <label for="dob">Enter your Date of Birth:</label>
+    <input type="date" id="dob">
+    <button onclick="calculateNumerology()">Calculate</button></div>
+
+    <!-- Pyramid Chart -->
+    <div class="pyramid-chart">
+        <div class="pyramid-row">
+            <div class="pyramid-box" id="QPBox">
+                <!-- Display life path -->
+            </div>
+        </div>
+        <div class="pyramid-row">
+            <div class="pyramid-box" id="NOBox">
+                <!-- Display day + month path -->
+            </div>
+            <div class="pyramid-box" id="MOBox">
+                <!-- Display year path -->
+            </div>
+        </div>
+	<div class="pyramid-row">
+            <div class="pyramid-box top" id="lifePathBox">
+                <!-- Display life path -->
+            </div>
+        </div>
+        <div class="pyramid-row">
+            <div class="pyramid-box" id="dayMonthPathBox">
+                <!-- Display day + month path -->
+            </div>
+            <div class="pyramid-box" id="yearPathBox">
+                <!-- Display year path -->
+            </div>
+        </div>
+        <div class="pyramid-row">
+            <div class="pyramid-box" id="dayPathBox">
+                <!-- Display day path -->
+            </div>
+            <div class="pyramid-box" id="monthPathBox">
+                <!-- Display month path -->
+            </div>
+            <div class="pyramid-box" id="year1PathBox">
+                <!-- Display year1 path -->
+            </div>
+            <div class="pyramid-box" id="year2PathBox">
+                <!-- Display year2 path -->
+            </div>
+        </div>
+	<div class="pyramid-row">
+            <div class="pyramid-box" id="XWBox">
+                <!-- Display day path -->
+            </div>
+            <div class="pyramid-box" id="IMBox">
+                <!-- Display month path -->
+            </div>
+            <div class="pyramid-box" id="JMBox">
+                <!-- Display year1 path -->
+            </div>
+            <div class="pyramid-box" id="NONEBox">
+                <!-- Display day path -->
+            </div>
+	    <div class="pyramid-box" id="KNBox">
+                <!-- Display day path -->
+            </div>
+            <div class="pyramid-box" id="LNBox">
+                <!-- Display month path -->
+            </div>
+            <div class="pyramid-box" id="VUBox">
+                <!-- Display year1 path -->
+            </div>
+        </div>
+	
+    </div>
+
+    <!-- Table Chart -->
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <th>Number Analysis</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>Main Character</td>
+            <td id="lifetable">-</td>
+        </tr>
+        <tr>
+            <td>Subconscious Numbers</td>
+            <td id="subtable">-</td>
+        </tr>
+        <tr>
+            <td>Inner Number</td>
+            <td id="innertable">-</td>
+        </tr>
+        <tr>
+            <td>Circumcenter Number</td>
+            <td id="circtable">-</td>
+        </tr>
+        <tr>
+            <td>3 Major Doctrines Annalysis</td>
+            <td id="3majortable">-</td>
+        </tr>
+    </table>
+
+    <script>
+        function calculateNumerology() {
+            // Get the date of birth from the input field
+            var dobInput = document.getElementById("dob");
+            var dob = new Date(dobInput.value);
+
+            // Calculate numerology values
+            var day = dob.getDate();
+            var month = dob.getMonth() + 1; // Months are zero-based
+            var year = dob.getFullYear();
+
+            var dayPathNumber = calculateLifePathNumber(day);
+            var monthPathNumber = calculateLifePathNumber(month);
+            var year1PathNumber = calculateLifePathNumber(Math.floor(year / 100)); // First two digits
+            var year2PathNumber = calculateLifePathNumber(year % 100); // Last two digits
+
+            var dayMonthPath = calculateLifePathNumber(dayPathNumber + monthPathNumber);
+            var yearPath = calculateLifePathNumber(year1PathNumber + year2PathNumber);
+            var lifePathNumber = calculateLifePathNumber(dayPathNumber + monthPathNumber + year1PathNumber + year2PathNumber);
+	    var NOPath = calculateLifePathNumber(yearPath + lifePathNumber);
+  	    var MOPath = calculateLifePathNumber(dayMonthPath + lifePathNumber);
+	    var QPPath = calculateLifePathNumber(NOPath + MOPath);
+	    var IMPath = calculateLifePathNumber(dayPathNumber + dayMonthPath);
+            var JMPath = calculateLifePathNumber(monthPathNumber + dayMonthPath);
+	    var XWPath = calculateLifePathNumber(IMPath + JMPath);
+	    var KNPath = calculateLifePathNumber(year1PathNumber + yearPath);
+            var LNPath = calculateLifePathNumber(year2PathNumber + yearPath);
+            var VUPath = calculateLifePathNumber(KNPath + LNPath);
+
+	    var SubPath = calculateLifePathNumber(lifePathNumber + dayPathNumber + year2PathNumber);
+  	    var InnerPath = calculateLifePathNumber(lifePathNumber + dayMonthPath + yearPath);
+	    var CircPath = calculateLifePathNumber(XWPath + QPPath + VUPath);
+
+            // Display the result in the pyramid chart
+            document.getElementById("lifePathBox").innerText = lifePathNumber;
+            document.getElementById("dayMonthPathBox").innerText = dayMonthPath;
+            document.getElementById("yearPathBox").innerText = yearPath;
+            document.getElementById("dayPathBox").innerText = dayPathNumber;
+            document.getElementById("monthPathBox").innerText = monthPathNumber;
+            document.getElementById("year1PathBox").innerText = year1PathNumber;
+            document.getElementById("year2PathBox").innerText = year2PathNumber;
+	    document.getElementById("NOBox").innerText = NOPath;
+	    document.getElementById("MOBox").innerText = MOPath;
+	    document.getElementById("QPBox").innerText = QPPath;
+	    document.getElementById("IMBox").innerText = IMPath;
+            document.getElementById("JMBox").innerText = JMPath;
+            document.getElementById("XWBox").innerText = XWPath;
+     	    document.getElementById("KNBox").innerText = KNPath;
+            document.getElementById("LNBox").innerText = LNPath;
+            document.getElementById("VUBox").innerText = VUPath;
+
+            // Display the result in the table chart
+            document.getElementById("lifetable").innerText = lifePathNumber;
+            document.getElementById("subtable").innerText = SubPath;
+            document.getElementById("innertable").innerText = InnerPath;
+            document.getElementById("circtable").innerText = CircPath;
+            document.getElementById("3majortable").innerText = `${XWPath} ${QPPath} ${VUPath}`;
+        }
+
+        function calculateLifePathNumber(number) {
+            // Reduce the number to a single digit by adding its digits
+            while (number > 9) {
+                number = number.toString().split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+            }
+            return number;
+        }
+    </script>
+
+</body>
+</html>
