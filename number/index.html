@@ -206,24 +206,100 @@
             <th>Result</th>
         </tr>
         <tr>
-            <td>Main Character</td>
+            <td style="text-align: left;">Main Character</td>
             <td id="lifetable">-</td>
         </tr>
         <tr>
-            <td>Subconscious Numbers</td>
+            <td colspan="2" id="explain1box" style="color:red; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain2box" style="color:red; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain3box" style="color:red; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Subconscious Numbers</td>
             <td id="subtable">-</td>
         </tr>
         <tr>
-            <td>Inner Number</td>
+            <td style="text-align: left;">Inner Number</td>
             <td id="innertable">-</td>
         </tr>
         <tr>
-            <td>Circumcenter Number</td>
+            <td style="text-align: left;">Circumcenter Number</td>
             <td id="circtable">-</td>
         </tr>
         <tr>
-            <td>3 Major Doctrines Annalysis</td>
+            <td style="text-align: left;">3 Major Doctrines Annalysis</td>
             <td id="3majortable">-</td>
+        </tr>
+    </table>
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <th >Number Analysis</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <th colspan="2">Your Main Personal Group Number</th>
+        </tr>
+        <tr>
+            <td rowspan="2" style="text-align: left;">Your fundamental</td>
+            <td id="IJMtable">-</td>
+            
+        </tr>
+        <tr>
+            <td id="KLNtable">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Your Concealing real feelings</td>
+            <td id="MNOtable">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+        <tr>
+            <td rowspan="2" style="text-align: left;">Situation w Friends & Job</td>
+            <td id="JMWtable">-</td>
+            
+        </tr>
+        <tr>
+            <td id="IMXtable">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Relationship w Friends & Job</td>
+            <td id="XWStable">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+            <td rowspan="2" style="text-align: left;">Situation w Children & Staff Team</td>
+            <td id="NOQtable">-</td>
+            
+        </tr>
+        <tr>
+            <td id="MOPtable">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Relationship w Children & Staff Team</td>
+            <td id="QPRtable">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+            <td rowspan="2" style="text-align: left;">Situation w family & your Old days</td>
+            <td id="KNVtable">-</td>
+            
+        </tr>
+        <tr>
+            <td id="LNUtable">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Relationship w family & Old days</td>
+            <td id="VUTtable">-</td>
         </tr>
     </table>
 </div>
@@ -246,19 +322,19 @@
             var dayMonthPath = calculateLifePathNumber(dayPathNumber + monthPathNumber);
             var yearPath = calculateLifePathNumber(year1PathNumber + year2PathNumber);
             var lifePathNumber = calculateLifePathNumber(dayPathNumber + monthPathNumber + year1PathNumber + year2PathNumber);
-	    var NOPath = calculateLifePathNumber(yearPath + lifePathNumber);
-  	    var MOPath = calculateLifePathNumber(dayMonthPath + lifePathNumber);
-	    var QPPath = calculateLifePathNumber(NOPath + MOPath);
-	    var IMPath = calculateLifePathNumber(dayPathNumber + dayMonthPath);
+	        var NOPath = calculateLifePathNumber(yearPath + lifePathNumber);
+  	        var MOPath = calculateLifePathNumber(dayMonthPath + lifePathNumber);
+	        var QPPath = calculateLifePathNumber(NOPath + MOPath);
+	        var IMPath = calculateLifePathNumber(dayPathNumber + dayMonthPath);
             var JMPath = calculateLifePathNumber(monthPathNumber + dayMonthPath);
-	    var XWPath = calculateLifePathNumber(IMPath + JMPath);
-	    var KNPath = calculateLifePathNumber(year1PathNumber + yearPath);
+	        var XWPath = calculateLifePathNumber(IMPath + JMPath);
+	        var KNPath = calculateLifePathNumber(year1PathNumber + yearPath);
             var LNPath = calculateLifePathNumber(year2PathNumber + yearPath);
             var VUPath = calculateLifePathNumber(KNPath + LNPath);
 
-	    var SubPath = calculateLifePathNumber(lifePathNumber + dayPathNumber + year2PathNumber);
-  	    var InnerPath = calculateLifePathNumber(lifePathNumber + dayMonthPath + yearPath);
-	    var CircPath = calculateLifePathNumber(XWPath + QPPath + VUPath);
+	        var SubPath = calculateLifePathNumber(lifePathNumber + dayPathNumber + year2PathNumber);
+  	        var InnerPath = calculateLifePathNumber(lifePathNumber + dayMonthPath + yearPath);
+	        var CircPath = calculateLifePathNumber(XWPath + QPPath + VUPath);
 
             // Display the result in the pyramid chart
             document.getElementById("lifePathBox").innerText = lifePathNumber;
@@ -268,10 +344,10 @@
             document.getElementById("monthPathBox").innerText = monthPathNumber;
             document.getElementById("year1PathBox").innerText = year1PathNumber;
             document.getElementById("year2PathBox").innerText = year2PathNumber;
-	    document.getElementById("NOBox").innerText = NOPath;
-	    document.getElementById("MOBox").innerText = MOPath;
-	    document.getElementById("QPBox").innerText = QPPath;
-	    document.getElementById("IMBox").innerText = IMPath;
+	        document.getElementById("NOBox").innerText = NOPath;
+	        document.getElementById("MOBox").innerText = MOPath;
+	        document.getElementById("QPBox").innerText = QPPath;
+	        document.getElementById("IMBox").innerText = IMPath;
             document.getElementById("JMBox").innerText = JMPath;
             document.getElementById("XWBox").innerText = XWPath;
      	    document.getElementById("KNBox").innerText = KNPath;
@@ -284,6 +360,87 @@
             document.getElementById("innertable").innerText = InnerPath;
             document.getElementById("circtable").innerText = CircPath;
             document.getElementById("3majortable").innerText = `${XWPath} ${QPPath} ${VUPath}`;
+
+            document.getElementById("IJMtable").innerText = `${dayPathNumber} ${monthPathNumber} ${dayMonthPath}`;
+            document.getElementById("KLNtable").innerText = `${year1PathNumber} ${year2PathNumber} ${yearPath}`;
+            document.getElementById("MNOtable").innerText = `${dayMonthPath} ${yearPath} ${lifePathNumber}`;
+
+            document.getElementById("JMWtable").innerText = `${monthPathNumber} ${dayMonthPath} ${JMPath}`;
+            document.getElementById("IMXtable").innerText = `${dayPathNumber} ${dayMonthPath} ${IMPath}`;
+            document.getElementById("XWStable").innerText = `${IMPath} ${JMPath} ${XWPath}`;
+
+            document.getElementById("NOQtable").innerText = `${yearPath} ${lifePathNumber} ${NOPath}`;
+            document.getElementById("MOPtable").innerText = `${dayMonthPath} ${lifePathNumber} ${MOPath}`;
+            document.getElementById("QPRtable").innerText = `${NOPath} ${MOPath} ${QPPath}`;
+
+            document.getElementById("KNVtable").innerText = `${year1PathNumber} ${yearPath} ${KNPath}`;
+            document.getElementById("LNUtable").innerText = `${year2PathNumber} ${yearPath} ${LNPath}`;
+            document.getElementById("VUTtable").innerText = `${KNPath} ${LNPath} ${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedData1 = [
+                { number: 1, result: "Positive - Leadership, Creator, Independent; Negative- Egoistic, Arrogant 领导, 创造, 独立" },
+                { number: 2, result: "Positive - Communicate, Gentleness, Patience 沟通, 温和, 耐心"  },
+                { number: 3, result: "Positive - Action, Prestige, Expression 行动, 威信, 表达"  },
+                { number: 4, result: "Positive - Planning, Knowledgeable, Stability 规划, 知识, 稳定"  },
+                { number: 5, result: "Positive - Direction, Humorous, Adventure 方向, 幽默, 冒险"  },
+                { number: 6, result: "Positive - Wealthy, Loyalty, Visionize 财富, 忠诚, 远见" },
+                { number: 7, result: "Positive - Popularity, Intuition 人缘, 直觉"  },
+                { number: 8, result: "Positive - Responsibility, Attractive, Good-Looking 责任, 魅力, 面善"  },
+                { number: 9, result: "Positive - Opportunity, Recognition, Successful 机会, 认同, 成功"  }
+            ];
+            // Define predefined data and results for matching
+            var predefinedData2 = [
+                { number: 1, result: "Negative - Egoistic, Arrogant 自我, 傲慢" },
+                { number: 2, result: "Negative - Dependence, Indecision 依赖, 犹豫不决" },
+                { number: 3, result: "Negative - Capricious, Exaggerate 任性, 夸张" },
+                { number: 4, result: "Negative - Egoistic, Arrogant 直觉, 教条" },
+                { number: 5, result: "Negative - Gnosis, Dogma 固执, 猜疑" },
+                { number: 6, result: "Negative - Picky, Wasteful 挑剔, 浪费" },
+                { number: 7, result: "Negative - Slow and Indifferent, laziness 迟缓冷漠, 懒惰" },
+                { number: 8, result: "Negative - Preasure, Negative 压力, 消极" },
+                { number: 9, result: "Negative - Greedy, Unprincipled 贪心, 无原则" },
+            ];
+            // Define predefined data and results for matching
+            var predefinedData3 = [
+                { number: 1, result: "Concern - Not Be Seen, 2nd Role 不被重视, 做配角" },
+                { number: 2, result: "Concern - Lonely, No Support 独处, 无依靠" },
+                { number: 3, result: "Concern - Restricted, Bored 被限制，无聊" },
+                { number: 4, result: "Concern - Changes, Not Stable 变化, 不稳定" },
+                { number: 5, result: "Concern - Responsible 承担责任" },
+                { number: 6, result: "Concern - Promised 承诺兑现" },
+                { number: 7, result: "Concern - Cheated 被欺骗" },
+                { number: 8, result: "Concern - Pitied, Mediocre 被怜悯，平庸" },
+                { number: 9, result: "Concern - Hopeless 希望落空" },
+            ];
+
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData1) {
+                if (data.number === lifePathNumber) {
+                    matchedResult1 = data.result;
+                    break;
+                }
+            }
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData2) {
+                if (data.number === lifePathNumber) {
+                    matchedResult2 = data.result;
+                    break;
+                }
+            }
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData3) {
+                if (data.number === lifePathNumber) {
+                    matchedResult3 = data.result;
+                    break;
+                }
+            }
+            document.getElementById("explain1box").innerText = `${matchedResult1}`;
+            document.getElementById("explain2box").innerText = `${matchedResult2}`;
+            document.getElementById("explain3box").innerText = `${matchedResult3}`;
         }
 
         function calculateLifePathNumber(number) {
@@ -293,6 +450,7 @@
             }
             return number;
         }
+       
     </script>
 
 </body>
