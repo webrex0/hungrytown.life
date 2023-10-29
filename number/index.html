@@ -91,6 +91,20 @@
             background-color: #0080ff;
             color: white;
         }
+
+        .table-chart2 {
+            width: 85%;
+            margin-top: -20px;
+            margin-bottom: -20px;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+        .table-chart2 th, .table-chart2 td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
 	/* Date Picker Styling */
 	*,
 	*:before,
@@ -212,14 +226,24 @@
             <td id="lifetable">-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain1box" style="color:red; text-align: left; font-size: small;">-</td>
+            <td colspan="2" id="explain0box" style="color:purple; font-size: small;">-</td>
+        </tr>
+    </table>
+    <table class="table-chart2" id="resultTable">
+        <tr>
+            <td style="color:green; text-align: left; font-size: small;">Positive</td>
+            <td id="explain1box" style="color:green; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain2box" style="color:red; text-align: left; font-size: small;">-</td>
+            <td style="color:red; text-align: left; font-size: small;">Negative</td>
+            <td id="explain2box" style="color:red; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain3box" style="color:red; text-align: left; font-size: small;">-</td>
+            <td style="color:blue; text-align: left; font-size: small;">Concern</td>
+            <td id="explain3box" style="color:blue; text-align: left; font-size: small;">-</td>
         </tr>
+    </table>
+    <table class="table-chart" id="resultTable">
         <tr>
             <td style="text-align: left;">Subconscious Numbers</td>
             <td id="subtable">-</td>
@@ -234,13 +258,13 @@
         </tr>
         <tr>
             <td style="text-align: left;">3 Major Doctrines Annalysis</td>
-            <td id="3majortable">-</td>
+            <td id="3majortable" style="max-width: 50px;">-</td>
         </tr>
     </table>
     <table class="table-chart" id="resultTable">
         <tr>
             <th >Number Analysis</th>
-            <th>Result</th>
+            <th >Result</th>
         </tr>
         <tr>
             <th colspan="2">Your Main Personal Group Number</th>
@@ -380,43 +404,62 @@
             document.getElementById("VUTtable").innerText = `${KNPath} ${LNPath} ${VUPath}`;
 
             // Define predefined data and results for matching
+            var predefinedData0 = [
+                { number: 1, result: "1 - Independent, Alone 独立，一个人" },
+                { number: 2, result: "2 - Expression, Communicate 表达，沟通"  },
+                { number: 3, result: "3 - Grumpy, Action 脾气，行动"  },
+                { number: 4, result: "4 - Planning, Proposal 规划，策划"  },
+                { number: 5, result: "5 - Direction, Obstacle 方向，阻碍"  },
+                { number: 6, result: "6 - Wealthy, Wisdom 钱，智慧" },
+                { number: 7, result: "7 - Friends, Connection 朋友，人脉"  },
+                { number: 8, result: "8 - Responsibility, Pressure 责任，压力"  },
+                { number: 9, result: "9 - Successful, Opportunity 成功，机会"  }
+            ];
+            // Define predefined data and results for matching
             var predefinedData1 = [
-                { number: 1, result: "Positive - Leadership, Creator, Independent; Negative- Egoistic, Arrogant 领导, 创造, 独立" },
-                { number: 2, result: "Positive - Communicate, Gentleness, Patience 沟通, 温和, 耐心"  },
-                { number: 3, result: "Positive - Action, Prestige, Expression 行动, 威信, 表达"  },
-                { number: 4, result: "Positive - Planning, Knowledgeable, Stability 规划, 知识, 稳定"  },
-                { number: 5, result: "Positive - Direction, Humorous, Adventure 方向, 幽默, 冒险"  },
-                { number: 6, result: "Positive - Wealthy, Loyalty, Visionize 财富, 忠诚, 远见" },
-                { number: 7, result: "Positive - Popularity, Intuition 人缘, 直觉"  },
-                { number: 8, result: "Positive - Responsibility, Attractive, Good-Looking 责任, 魅力, 面善"  },
-                { number: 9, result: "Positive - Opportunity, Recognition, Successful 机会, 认同, 成功"  }
+                { number: 1, result: "Leadership, Creator, Independent; Negative- Egoistic, Arrogant 领导, 创造, 独立" },
+                { number: 2, result: "Communicate, Gentleness, Patience 沟通, 温和, 耐心"  },
+                { number: 3, result: "Action, Prestige, Expression 行动, 威信, 表达"  },
+                { number: 4, result: "Planning, Knowledgeable, Stability 规划, 知识, 稳定"  },
+                { number: 5, result: "Direction, Humorous, Adventure 方向, 幽默, 冒险"  },
+                { number: 6, result: "Wealthy, Loyalty, Visionize 财富, 忠诚, 远见" },
+                { number: 7, result: "Popularity, Intuition 人缘, 直觉"  },
+                { number: 8, result: "Responsibility, Attractive, Good-Looking 责任, 魅力, 面善"  },
+                { number: 9, result: "Opportunity, Recognition, Successful 机会, 认同, 成功"  }
             ];
             // Define predefined data and results for matching
             var predefinedData2 = [
-                { number: 1, result: "Negative - Egoistic, Arrogant 自我, 傲慢" },
-                { number: 2, result: "Negative - Dependence, Indecision 依赖, 犹豫不决" },
-                { number: 3, result: "Negative - Capricious, Exaggerate 任性, 夸张" },
-                { number: 4, result: "Negative - Egoistic, Arrogant 直觉, 教条" },
-                { number: 5, result: "Negative - Gnosis, Dogma 固执, 猜疑" },
-                { number: 6, result: "Negative - Picky, Wasteful 挑剔, 浪费" },
-                { number: 7, result: "Negative - Slow and Indifferent, laziness 迟缓冷漠, 懒惰" },
-                { number: 8, result: "Negative - Preasure, Negative 压力, 消极" },
-                { number: 9, result: "Negative - Greedy, Unprincipled 贪心, 无原则" },
+                { number: 1, result: "Egoistic, Arrogant 自我, 傲慢" },
+                { number: 2, result: "Dependence, Indecision 依赖, 犹豫不决" },
+                { number: 3, result: "Capricious, Exaggerate 任性, 夸张" },
+                { number: 4, result: "Egoistic, Arrogant 直觉, 教条" },
+                { number: 5, result: "Gnosis, Dogma 固执, 猜疑" },
+                { number: 6, result: "Picky, Wasteful 挑剔, 浪费" },
+                { number: 7, result: "Slow and Indifferent, laziness 迟缓冷漠, 懒惰" },
+                { number: 8, result: "Preasure, Negative 压力, 消极" },
+                { number: 9, result: "Greedy, Unprincipled 贪心, 无原则" },
             ];
             // Define predefined data and results for matching
             var predefinedData3 = [
-                { number: 1, result: "Concern - Not Be Seen, 2nd Role 不被重视, 做配角" },
-                { number: 2, result: "Concern - Lonely, No Support 独处, 无依靠" },
-                { number: 3, result: "Concern - Restricted, Bored 被限制，无聊" },
-                { number: 4, result: "Concern - Changes, Not Stable 变化, 不稳定" },
-                { number: 5, result: "Concern - Responsible 承担责任" },
-                { number: 6, result: "Concern - Promised 承诺兑现" },
-                { number: 7, result: "Concern - Cheated 被欺骗" },
-                { number: 8, result: "Concern - Pitied, Mediocre 被怜悯，平庸" },
-                { number: 9, result: "Concern - Hopeless 希望落空" },
+                { number: 1, result: "Not Be Seen, 2nd Role 不被重视, 做配角" },
+                { number: 2, result: "Lonely, No Support 独处, 无依靠" },
+                { number: 3, result: "Restricted, Bored 被限制，无聊" },
+                { number: 4, result: "Changes, Not Stable 变化, 不稳定" },
+                { number: 5, result: "Responsible 承担责任" },
+                { number: 6, result: "Promised 承诺兑现" },
+                { number: 7, result: "Cheated 被欺骗" },
+                { number: 8, result: "Pitied, Mediocre 被怜悯，平庸" },
+                { number: 9, result: "Hopeless 希望落空" },
             ];
 
             // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData0) {
+                if (data.number === lifePathNumber) {
+                    matchedResult0 = data.result;
+                    break;
+                }
+            }
             var matchedResult = "No match found";
             for (var data of predefinedData1) {
                 if (data.number === lifePathNumber) {
@@ -440,9 +483,11 @@
                     break;
                 }
             }
+            document.getElementById("explain0box").innerText = `${matchedResult0}`;
             document.getElementById("explain1box").innerText = `${matchedResult1}`;
             document.getElementById("explain2box").innerText = `${matchedResult2}`;
             document.getElementById("explain3box").innerText = `${matchedResult3}`;
+            
         }
 
         function calculateLifePathNumber(number) {
