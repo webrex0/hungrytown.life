@@ -269,6 +269,9 @@
             <td style="text-align: left;">3 Major Doctrines Annalysis</td>
             <td id="3majortable">-</td>
         </tr>
+        <tr>
+            <td colspan="2" id="explain7box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
     </table>
     <table class="table-chart" id="resultTable">
         <tr>
@@ -370,6 +373,25 @@
 	        var SubPath = calculateLifePathNumber(lifePathNumber + dayPathNumber + year2PathNumber);
   	        var InnerPath = calculateLifePathNumber(lifePathNumber + dayMonthPath + yearPath);
 	        var CircPath = calculateLifePathNumber(XWPath + QPPath + VUPath);
+
+            // Combine the three path numbers into a single string for matching
+            var majorcombination = `${XWPath}-${QPPath}-${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedDataMajor = {
+                "3-6-3": "年轻时对他们来说是一种历练，或者因为家庭的环境比较享受生活，到中年的时候比较有机会往更高的地方去发展，但是由于年轻时比较辛苦，所以不舍得请员工，中年的发展期可能会因此受眼，大法获得理想的财富。然而，这样的人老年时比较享受生活。所以建议要多请员工，这样到晚年的时候才 不用像年轻时那么辛苦，才能更好的享文生活。",
+                "6-6-9": "他们无论在年轻时还是在中年时，都比较容易有收获，也能赚到钱。在他们生活的圈子里，处于比较中间的位置，是一种比上不足比下有余的状态，因此容易有攀比心。建议他们要小心理财，不然会过度开销，甚全有可能入不敷出。因为他们人生最佳的状态是在晚年，所以建议这样的人，年经的时候多积累一些资产，置办一些产业，比如房产、知识产权等，未来可以变现，为晚年积累一些财富。",
+                "9-6-6": "这类人年轻的时候就有达到辉煌的机会，他们很容易在年轻时就比同龄人取得更好的成就，并且他们一般这一辈子都不会差到哪里去。需要提醒的是，也正是肉为年轻时很容易赚到钱，到后面可能就不会太努力，但其实他们可以更好。因此建议他们不要太容易满足于现况，也不要活在情绪里，用过去的经验和心情去随意批评人家，因为后面可能会有更好、更大的机会和财富。",
+                "3-3-9": "这类人是典型的先苦后甜，但年轻时跟周围的人相比，总感觉他人创富比更轻松，总觉得自己需要更努力，所以要学会坚持，因为他们人生最好的阶段在晚年。所以年轻的时候，要多积累本事、多积累产业，到了晚年可以将这些变现。这类人到晚年，也可能因为孩子获得比较好的生活。",
+                "6-3-6": "这类人年轻时就比较容易赚到钱，到中年的时候比较有挑战，而这种挑战更多来自于自己的懈念，因为年轻时赚到钱，到申年就去享受了，没有太努力，却发现花钱的速度比生钱的速度快很多，到老年又会萌起再创业或投资的念头，这时候会发现咱就算有经验，咱的体力和恩维跟不上年轻人。所以建议这类人，在甲年的时候要换一个更厉害的圈子，学会借力。",
+                "9-3-3": "这类人年轻的时候比较容易赚到钱, 也辉煌过, 到中年的时候要换一种活法, 换一种赚钱的方式, 换一个更高层的圈子, 才能持续往上走, 因此, 在40岁以前, 他们要拼尽全力，这样到中年的时候，也不会差到哪里去。同时也要让自己增值，让自己多长点本事，因为请的员工都看不上，如果自己有本事，就能带着团队往前移动。给这类人的建议是，年轻时候要攒点钱，因为年轻时太辛苦了，到了老年就想好好享受生活了。",
+                "3-9-6": "这类人年轻的时候都比较需要历练，到中年会有很大的一个飞跃，会有很大的收获。他们最难熬的是在年轻的时候，但是一旦过了这不时期，他们就会一直和一个字很有缘，就是投资的“投”，他们一直到老都会在不断地做投资或者做事业。",
+                "6-9-3": "这类人年轻时会很不错，尤其是到了中年会更取得很好的成就，但由于往往太过于有远见，进行的投资可能无法在自己想要的时间内有回报，所以往往到了晚年身边的现金流没有那么充裕，因为钱都放在重资产上，或者掌握在儿孙那里。",
+                "9-9-9": "这类人一生机会很多，但也往往因为机会大对，不懂得珍惜。所以，这样的人是否能够有成就，取快于自己的态度。另外，他们对于名牌货会特别有感觉，所以建议他们要多去卖一些能保值、变现的产业，不然会拥有很多“惨”。"
+            };
+
+            // Check for a match in the predefined data
+            var matchedResult7 = predefinedDataMajor[majorcombination] || "No match found";
 
             // Display the result in the pyramid chart
             document.getElementById("lifePathBox").innerText = lifePathNumber;
@@ -559,6 +581,7 @@
             document.getElementById("explain4box").innerText = `${matchedResult4}`;
             document.getElementById("explain5box").innerText = `${matchedResult5}`;
             document.getElementById("explain6box").innerText = `${matchedResult6}`;
+            document.getElementById("explain7box").innerText = `${matchedResult7}`;
             
         }
 
