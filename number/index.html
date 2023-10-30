@@ -249,12 +249,21 @@
             <td id="subtable">-</td>
         </tr>
         <tr>
+            <td colspan="2" id="explain4box" style="color:purple; text-align: left; font-size: 10.5px;">-</td>
+        </tr>
+        <tr>
             <td style="text-align: left;">Inner Number</td>
             <td id="innertable">-</td>
         </tr>
         <tr>
+            <td colspan="2" id="explain5box" style="color:purple; text-align: left; font-size: 10.5px;">-</td>
+        </tr>
+        <tr>
             <td style="text-align: left;">Circumcenter Number</td>
             <td id="circtable">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain6box" style="color:purple; text-align: left; font-size: 10.5px;">-</td>
         </tr>
         <tr>
             <td style="text-align: left;">3 Major Doctrines Annalysis</td>
@@ -451,6 +460,42 @@
                 { number: 8, result: "Pitied, Mediocre 被怜悯，平庸" },
                 { number: 9, result: "Hopeless 希望落空" },
             ];
+             // Define predefined data and results for matching Subconcious 
+             var predefinedData4 = [
+                { number: 1, result: "内在的创造力驱使他成为一个团体中的领袖人物，制造气氛，带动大家。" },
+                { number: 2, result: "有合作与反抗的矛盾性，使他们具有外刚内柔的特质。感性及愿意付出。" },
+                { number: 3, result: "情绪敏感，表达直接，率直，行事迅速，性情偏于急躁。缺乏耐心与恒心。" },
+                { number: 4, result: "聪明而且善于学习新的知识，但是他们往往不想让人知道他们在努力学习。" },
+                { number: 5, result: "有人生方向的5号,喜欢按照自己的原则来做事,往往给人感觉固执已见。" },
+                { number: 6, result: "富有创意，他们的头脑中总是有很多的计划和从根本上的解决问题的方案" },
+                { number: 7, result: "心智敏锐，信任开放，富有正义感的他们，会把朋友放在第一位。" },
+                { number: 8, result: "想法多，期望得到很多，有关财富，权利及尊重，也会去努力争取。" },
+                { number: 9, result: "有更高层次的直觉智慧，机遇，但往往会比较贪心，想要永无止境的往上爬。" },
+            ];
+             // Define predefined data and results for matching Inner Path
+             var predefinedData5 = [
+                { number: 1, result: "自信且有创造力，创造是他们的特质。他们会带领人，不愿意听从别人的意见和接受他人的方法，不喜欢死板，教条主义。" },
+                { number: 2, result: "合作与平衡, 性情温和并赋予合作精神1但如果不能掌控好尺度, 会走向反面而呈现退缩的状态, 这种矛盾会是使他们看起来外表刚强则内心软弱。" },
+                { number: 3, result: "积极表达与否取决于他们敏感的情绪，表面平和内心急躁，冷漠心情的背后，更多的是一颗热真枕并渴望帮助别人的心。" },
+                { number: 4, result: "需要建立稳定及安全感，精策划，有时会因为分析过度困惑而停下来。表面看乐观，其实内心比较容易低落或负面。" },
+                { number: 5, result: "他前期配合常被人误解以为他是好说话的人，但是一旦他觉得没有必要在配合的时候，就会转身离开，因为他的内心其实比较固执，有自己的个性。" },
+                { number: 6, result: "完美主义者，对人对己要求很高，不断自我改进，受理想主义牵引，对财富敏感，同时有很对创意。" },
+                { number: 7, result: "信任他人并愿意与人分享，充满野心与梦想，他们心地善良，乐于助人，但是比较情绪化。不愿意正面承认对钱的欲望，实际内心是渴望的。" },
+                { number: 8, result: "可以承担很多压力，也有能力追求他们向往的财富，常会在精神和物质。控制与服从。被动与野心之间的矛盾，挣扎，透过丰富的物质层面会驱使他们最终走向与完成自己的使命。" },
+                { number: 9, result: "具有正直的品德与超人的智慧，有很多新奇的想法并善于整合，他们是极富创意的天然领袖，他们极具魅力的天赋轻易感召与领导他人。" },
+            ];
+             // Define predefined data and results for matching circ
+             var predefinedData6 = [
+                { number: 1, result: "No data" },
+                { number: 2, result: "No data" },
+                { number: 3, result: "理想主义者 【外心数字为3的分析】这类型的人有许多稀奇古怪的主意。理想主义者讲感觉。只要感觉对了,什么都好谈,在爱情世界里理想主义者享受爱情，不在乎天长地久，只有曾经拥有。然而，他们缺乏实际行动及执行能力，他们偏向于沟通与构思、出主意，喜欢指派他人代为执行。过于愤世嫉俗的性格成为他们合理化的理由，导致他们停滞不前。理想主义者享受第一，喜欢品牌，容易给他人一种炫耀的感觉。通常理想主义者外表都给人感觉很富有，事实上可能没有你想象的那样富裕。作为金钱的投资，他们偏向营造门面，以获取现在的最大利益化，所以不着急在创业期间购置重资产，反而会做多项其他投资。在爱情世界里，他们渴望惊喜，追求浪漫，对如何过节相对讲究，你无法满足他的感觉，后面的日子你可想而知的闹腾。裸婚对他们来说是对爱情忠贞的表达方式之一。" },
+                { number: 4, result: "No data" },
+                { number: 5, result: "No data" },
+                { number: 6, result: "No data" },
+                { number: 7, result: "No data" },
+                { number: 8, result: "No data" },
+                { number: 9, result: "No data" },
+            ];
 
             // Check for a match in the predefined data
             var matchedResult = "No match found";
@@ -483,10 +528,37 @@
                     break;
                 }
             }
+             // Check for a match in the predefined data subconcious
+             var matchedResult = "No match found";
+            for (var data of predefinedData4) {
+                if (data.number === SubPath) {
+                    matchedResult4 = data.result;
+                    break;
+                }
+            }
+             // Check for a match in the predefined data innerpath
+             var matchedResult = "No match found";
+            for (var data of predefinedData5) {
+                if (data.number === InnerPath) {
+                    matchedResult5 = data.result;
+                    break;
+                }
+            }
+              // Check for a match in the predefined data circ
+              var matchedResult = "No match found";
+            for (var data of predefinedData6) {
+                if (data.number === CircPath) {
+                    matchedResult6 = data.result;
+                    break;
+                }
+            }
             document.getElementById("explain0box").innerText = `${matchedResult0}`;
             document.getElementById("explain1box").innerText = `${matchedResult1}`;
             document.getElementById("explain2box").innerText = `${matchedResult2}`;
             document.getElementById("explain3box").innerText = `${matchedResult3}`;
+            document.getElementById("explain4box").innerText = `${matchedResult4}`;
+            document.getElementById("explain5box").innerText = `${matchedResult5}`;
+            document.getElementById("explain6box").innerText = `${matchedResult6}`;
             
         }
 
