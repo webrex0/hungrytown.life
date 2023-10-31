@@ -290,8 +290,17 @@
             <td id="KLNtable">-</td>
         </tr>
         <tr>
+            <td colspan="2" id="explain81box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain82box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
             <td style="text-align: left;">Your Concealing real feelings</td>
             <td id="MNOtable">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain83box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr style="border-bottom:1px solid black">
             <td colspan="100%"></td>
@@ -300,14 +309,22 @@
         <tr>
             <td rowspan="2" style="text-align: left;">Situation w Friends & Job</td>
             <td id="JMWtable">-</td>
-            
         </tr>
         <tr>
             <td id="IMXtable">-</td>
         </tr>
         <tr>
+            <td colspan="2" id="explain84box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain85box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
             <td style="text-align: left;">Relationship w Friends & Job</td>
             <td id="XWStable">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain86box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr style="border-bottom:1px solid black">
             <td colspan="100%"></td>
@@ -321,8 +338,17 @@
             <td id="MOPtable">-</td>
         </tr>
         <tr>
+            <td colspan="2" id="explain87box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain88box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
             <td style="text-align: left;">Relationship w Children & Staff Team</td>
             <td id="QPRtable">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain89box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr style="border-bottom:1px solid black">
             <td colspan="100%"></td>
@@ -330,14 +356,22 @@
         <tr>
             <td rowspan="2" style="text-align: left;">Situation w family & your Old days</td>
             <td id="KNVtable">-</td>
-            
         </tr>
         <tr>
             <td id="LNUtable">-</td>
         </tr>
         <tr>
+            <td colspan="2" id="explain90box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain91box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
             <td style="text-align: left;">Relationship w family & Old days</td>
             <td id="VUTtable">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="explain92box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
     </table>
 </div>
@@ -392,6 +426,163 @@
 
             // Check for a match in the predefined data
             var matchedResult7 = predefinedDataMajor[majorcombination] || "No match found";
+
+            // Combine the three path numbers into a single string for matching 81group
+            var IJMcombination = `${dayPathNumber}-${monthPathNumber}-${dayMonthPath}`;
+            var KLNcombination = `${year1PathNumber}-${year2PathNumber}-${yearPath}`;
+            var MNOcombination = `${dayMonthPath}-${yearPath}-${lifePathNumber}`;
+
+            var JMWcombination = `${monthPathNumber}-${dayMonthPath}-${JMPath}`;
+            var IMXcombination = `${dayPathNumber}-${dayMonthPath}-${IMPath}`;
+            var XWScombination = `${IMPath}-${JMPath}-${XWPath}`;
+
+            var NOQcombination = `${yearPath}-${lifePathNumber}-${NOPath}`;
+            var MOPcombination = `${dayMonthPath}-${lifePathNumber}-${MOPath}`;
+            var QPRcombination = `${NOPath}-${MOPath}-${QPPath}`;
+
+            var KNVcombination = `${year1PathNumber}-${yearPath}-${KNPath}`;
+            var LNUcombination = `${year2PathNumber}-${yearPath}-${LNPath}`;
+            var VUTcombination = `${KNPath}-${LNPath}-${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedData81 = {
+                "1-1-2": "独立能力强，执行还是管理都是一把好手，不过自我矛盾。这组密码你要柔软一点，做太多吃力不讨好的事。帮别人自己吃亏！离婚密码。你多在乎别人的意见就可以破解离婚了。",
+                "1-2-3": "有主见和明确的目标。说话很扎心很直接不留情面，说话犀利。",
+
+                "2-1-3": "虽然有主见和明确的目标。但是说话比较委婉和嘴甜",
+                "1-3-4": "创新能力比较强",
+
+                "3-1-4": "模仿能力比较强",
+                "1-4-5": "有自信的问题，特别没自信，没自信的把事情从头做到尾。争抢的心不强，保守，缺乏勇气。不喜欢独处。",
+
+                "4-1-5": "有时候爱自由但又怕失去安全感，越想亲密越怕失去自由。适合做政治人物或领导。",
+                "1-5-6": "如果这事情跟你无关，都不会太感兴趣。一个人走到五方大地才能赚钱！要多往外走！往外走你就能赚钱。不要呆在家里不要呆在办公室。",
+
+                "5-1-6": "感觉比较重要，找到了感觉就会不要命的把事情完成。",
+                "1-6-7": "热情好客，骨子还是很现实",
+
+                "6-1-7": "看得太远而跟现在做的东西不太符合实际。",
+                "1-7-8": "比较有自己的主见，肯不肯为梦想而卖命取决于他人给你的梦想值不值得。",
+
+                "7-1-8": "比较随和，比较享受。时间都耗在朋友的事情。",
+                "1-8-9": "一个人承担很多压力就会成功。反之逃避压力成就就会很小。先为难自己在为难他人",
+
+                "8-1-9": "只要给他压力他就出成绩。这种孩子逼他，他的成就越大",
+                "1-9-1": "执行展开可能性很多，如果没有成功就会浪费很多时间",
+
+                "9-1-1": "机会比较多，却过度自我，而导致后面不愉快。",
+                "2-2-4": "喜欢说话喜欢聊天，把秘密告诉他等于告诉全世界。话多了不小心说出去，适合做服务行业。做广告他是高手！",
+                "2-3-5": "外表柔和友善但是内心很自我。",
+
+                "3-2-5": "讲话太快，祸从口出",
+                "2-4-6": "先说了在做在想再赚钱426先策划再说再赚钱。",
+
+                "4-2-6": "给老板找麻烦的人。卖的是性价比，别人都信任他。这种销售很实在，不会宰你很老实销售。",
+                "2-5-7": "感觉相对比较温和,拒绝你看不上的人。命好的密码,人见人爱1花见花开,服务VIP客户。",
+
+                "5-2-7": "会没有原则性的力挺你喜欢的人。伤害你不喜欢的人，会比较两极端。",
+                "2-6-8": "满足他人的需求，成交的过程耗时比较长。很喜欢提钱提金融的人",
+
+                "6-2-8": "财富善用口才得来的。卖投资理财机会。",
+                "2-7-9": "温柔亲切，感情丰富。所以活的很累。",
+
+                "7-2-9": "人缘旺盛，自己招架不住，让自己陷入情绪中特别是男女关系里。",
+                "2-8-1": "促成高手，他一定要结果的。忙碌健谈的人，有一点点压力，今天做的事今天一定要做完。做不完他睡不着觉。有情绪在里面。要学会排解情绪。",
+
+                "8-2-1": "只能表扬不能批评。对不合心意的言语很固执，压力来自于他的家庭。",
+                "2-9-2": "过度敏感，容易钻牛角尖。过度配合他人而忽略自己的工作。",
+
+                "9-2-2": "很多机会，需要沟通，参与的自信才能事半功倍。",
+                "3-3-6": "有强烈的精神追求，脾气急有赌性不要吸引赌博，投资不能投机！不一定赌钱但赌爽，喝酒跟别人杠上了他知道喝了这杯会醉他赌着会喝下去。我偏不信了很强！轻微激将法他就赌给你看。这组密码有钱啊。脾气性子上来钱和智慧就没了。脾气控制好会很有钱的。",
+
+                "3-4-7": "为了更快的完成任务，往往有指挥他人的感觉。让人感到不舒服。",
+
+                "4-3-7": "前期过度重规划，导致在会议中会令他人不舒服。执行中又有变动，让他人觉得前面挨骂白挨了。",
+                "3-5-8": "冲动，因仗义挺身而出，而给自己埋了个大雷。要三思而后行。",
+
+                "5-3-8": "你是否能被他激活，取决于你喜不喜欢他人。",
+                "3-6-9": "越努力越幸运的的你，学到了认知，累计了经验，得到了本事。",
+
+                "6-3-9": "你很聪明如果因为不够勤快，就会错过了成功的机会。",
+                "3-7-1": "急躁的性格会给自己带来是非之祸。",
+
+                "7-3-1": "好心协助他人协调关系，把自己陷入在一个两面不是人的境地。",
+                "3-8-2": "忙忙碌碌认为是为了他人，换来极大的情绪化和脾气。当你看清楚了，都是为了自己，事情就明朗了。",
+
+                "8-3-2": "你需要有伟大的梦想来支持你而发奋图强。",
+                "3-9-3": "感情用事，重感情，讲义气，脾气也相对不小。",
+
+                "9-3-3": "机会比较多，得靠后天的努力，会有更出彩的结果。",
+                "4-4-8": "房产密码，会策划大事情。不愿意干小事，买房一定能赚钱，房产运最好的一组。很容易策划到最后纸上谈兵没有行动。特别压力特别在乎利益在乎回报率。不值得的事从来不干。",
+                "4-5-9": "经历多次的尝试后才会找到方向和目标。所以前期换赛道不代表失败而是一个旅程。",
+
+                "5-4-9": "缺乏变通的能力，认准了一件事，想尽办法就是要得到。",
+                "4-6-1": "前期的你容易自卑，愿意花时间和精力学习，会越学越好。",
+
+                "6-4-1": "非常聪明，事情会比较多而需要时间来做总结。不能骄傲，还有很多值得学习的地方。",
+                "4-7-2": "容易遇见给你建议的朋友。",
+
+                "7-4-2": "比较喜欢给别人建议。",
+                "4-8-3": "忙而乱，对情感模糊。懂的东西很懂，不懂的东西啥都不懂。喜欢成熟的人。",
+
+                "8-4-3": "想法多而乱，执行力弱",
+                "4-9-4": "先做出结果再过程中不断总结，会有更好的方案和机会。。",
+
+                "9-4-4": "在巨人榜上规划更成功。",
+                "5-5-1": "一定能成功的号码，顶级人才的号码。有很多心结放不下。重复纠结一个场景。思想传统，需要有人带领。很容易迷茫方向太多，最关键最致命的是太执着。要懂得放下过去。放下是一种智慧，放下一种格局。原谅别人放过自己。",
+                "5-6-2": "买大件的东西不还价，但是一买小件的东西就还价。",
+
+                "6-5-2": "大钱不算算小钱",
+                "5-7-3": "高端贵人的密码。有钱人都喜欢这组号码的人，这组号码的人混进有钱人堆特别容易成功。大家都喜欢他和他成交。贵人缘特别好。",
+                "7-5-3": "能力超强得领导人，很容易被人利用。是猎头公司猎头的对象。",
+                "5-8-4": "执着于你的感觉开不开心。",
+
+                "8-5-4": "执着和纠结于以前的事情和情绪中。",
+                "5-9-5": "多出去走走，增加更多的见识。只有经历跟经验过，才找到更好的定位。",
+
+                "9-5-5": "要珍惜机会和完成达标的那一刻。因为他人要的不光是你的点子。",
+                "6-6-3": "人生有大起大落，钱来了又走了。投资不要都放在一个蓝里。最好投资在房产。",
+                "6-7-4": "花钱给贵人得到方案",
+
+                "7-6-4": "很有横财运，容易得到遗产，容易得到别人投资。",
+                "6-8-5": "喜欢研究喜欢修理，投资回报很难。做的事业不错的人品一定不错。",
+
+                "8-6-5": "聪明固执很牛气。事业压力大，有敬畏心就有边界感就能登上巅峰。",
+                "6-9-6": "点石成金的号码, 要嘛是钱要嘛是成功, 很有生意眼光, 很会发现生意, 并且分析生意, 而且直觉力第六感极强。他感觉这个事能行一定行, 对696的人来讲总结经验来讲很重要",
+
+                "9-6-6": "投资很容易赚钱, 只要抓住机会就赚很多钱。不会在同一个抗里面跌倒2次。能用以前的经验赚到更多的机会和钱。一个很能承担风险的生意人。966的人成功一次很重要。或者找到榜样很重要。",
+                "7-7-5": "人缘号码, 可以做私域粉丝, 不能利用人。利用人就身边出现小人。人脉给你机会也给你阻碍。互利就好1心态要正。上司会给你提拔, 做网红很好。身边有很多人脉。做直播的网红号码。",
+                "7-8-6": "贵人给你压力你就能赚钱。多骂成就高。",
+
+                "8-7-6": "把压力给贵人，贵人还好卖单而你又能赚到钱。",
+                "7-9-7": "有贵人但需要先付出才会有更多的可能性。",
+
+                "9-7-7": "容易获得别人的机会，但如果你不够勤奋，机会就会溜走。",
+                "8-8-7": "离婚密码，压力大会赶走贵人。有时候会发脾气忍不住骂人。情绪是这组密码的天敌。能带领一群人成功。容易上瘾，女孩很容易染上吸烟喝酒。容易虚荣心，脾气很大。自己找压力",
+                "8-9-8": "做了才能更确定你的方向，不做梦想都是空谈。",
+                
+                "9-8-8": "容易得到他人的认可，但是要有配合的团队，光靠自己的力量还是难成事。",
+                "9-9-9": "有生意头脑，有生意眼光，有谈资，给人一种什么都能聊的感觉，交际广，容易有很多圈子。每个本事会一点。机遇太多很容易换赛道。很容易什么都没有。要珍惜机会不能贪心，做事专一就可以有大成就。",
+
+
+            };
+
+            // Check for a match in the predefined data
+            var matchedResult81 = predefinedData81[IJMcombination] || "No match found";
+            var matchedResult82 = predefinedData81[KLNcombination] || "No match found";
+            var matchedResult83 = predefinedData81[MNOcombination] || "No match found";
+
+            var matchedResult84 = predefinedData81[JMWcombination] || "No match found";
+            var matchedResult85 = predefinedData81[IMXcombination] || "No match found";
+            var matchedResult86 = predefinedData81[XWScombination] || "No match found";
+
+            var matchedResult87 = predefinedData81[NOQcombination] || "No match found";
+            var matchedResult88 = predefinedData81[MOPcombination] || "No match found";
+            var matchedResult89 = predefinedData81[QPRcombination] || "No match found";
+
+            var matchedResult90 = predefinedData81[KNVcombination] || "No match found";
+            var matchedResult91 = predefinedData81[LNUcombination] || "No match found";
+            var matchedResult92 = predefinedData81[VUTcombination] || "No match found";
 
             // Display the result in the pyramid chart
             document.getElementById("lifePathBox").innerText = lifePathNumber;
@@ -582,6 +773,22 @@
             document.getElementById("explain5box").innerText = `${matchedResult5}`;
             document.getElementById("explain6box").innerText = `${matchedResult6}`;
             document.getElementById("explain7box").innerText = `${matchedResult7}`;
+
+            document.getElementById("explain81box").innerText = `${matchedResult81}`;
+            document.getElementById("explain82box").innerText = `${matchedResult82}`;
+            document.getElementById("explain83box").innerText = `${matchedResult83}`;
+
+            document.getElementById("explain84box").innerText = `${matchedResult84}`;
+            document.getElementById("explain85box").innerText = `${matchedResult85}`;
+            document.getElementById("explain86box").innerText = `${matchedResult86}`;
+
+            document.getElementById("explain87box").innerText = `${matchedResult87}`;
+            document.getElementById("explain88box").innerText = `${matchedResult88}`;
+            document.getElementById("explain89box").innerText = `${matchedResult89}`;
+
+            document.getElementById("explain90box").innerText = `${matchedResult90}`;
+            document.getElementById("explain91box").innerText = `${matchedResult91}`;
+            document.getElementById("explain92box").innerText = `${matchedResult92}`;
             
         }
 
