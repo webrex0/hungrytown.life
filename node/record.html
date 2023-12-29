@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #records-container {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #records-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .record-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .action-button {
+            display: block;
+            margin-top: 10px;
+            padding: 8px;
+            margin-right: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .refresh-button {
+            display: block;
+            margin-top: 10px;
+            padding: 8px;
+            margin-right: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="records-container">
+    <h2>Subscription Records</h2>
+    <ul id="records-list"></ul>
+    
+    <button class="refresh-button" onclick="refreshRecords()">Refresh Records</button>
+
+    <button class="action-button" onclick="clearRecords()">Clear Records</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        displayRecords();
+    });
+
+    function displayRecords() {
+        const storedRecords = localStorage.getItem('subscriptionRecords');
+        const recordsList = document.getElementById('records-list');
+
+        // Check if there are any records
+        if (storedRecords) {
+            // Parse the JSON string to get an array of records
+            const subscriptionRecords = JSON.parse(storedRecords);
+
+            // Iterate over the array and display records
+            subscriptionRecords.forEach(record => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('record-item');
+                listItem.textContent = `Node: ${record.node}, Email: ${record.email}`;
+                recordsList.appendChild(listItem);
+            });
+        } else {
+            const noRecordsItem = document.createElement('li');
+            noRecordsItem.textContent = 'No subscription records found.';
+            recordsList.appendChild(noRecordsItem);
+        }
+    }
+
+    function clearRecords() {
+        // Clear all records from localStorage
+        localStorage.removeItem('subscriptionRecords');
+
+        // Clear the displayed records on the page
+        const recordsList = document.getElementById('records-list');
+        recordsList.innerHTML = '<li>No subscription records found.</li>';
+    }
+
+    function refreshRecords() {
+        // Clear the displayed records on the page
+        const recordsList = document.getElementById('records-list');
+        recordsList.innerHTML = '';
+
+        // Display records by calling the displayRecords function
+        displayRecords();
+    }
+</script>
+
+</body>
+</html>

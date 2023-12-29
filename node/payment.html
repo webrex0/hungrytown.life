@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Image and Text</title>
+    <style>
+        body {
+            display: flex;
+            padding-top: 50px;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+            flex-direction: column; /* Align content vertically */
+        }
+
+        h1 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            align-items: left;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 400px; /* Adjust the max-width as needed */
+        }
+
+        .content-row {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            flex-direction: column;
+            text-align: center; /* Center text */
+        }
+
+        .address-row {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .content-row img {
+            margin: auto; /* Center image horizontally */
+        }
+    </style>
+</head>
+<body>
+    <h1>Transfer U 付U</h1>
+<div class="content-container">
+
+    <div id="address1" class="content-row">
+        <div>
+            <img src="https://via.placeholder.com/150" alt="Image 1">
+            <p>TDxkbfXrAFTFWeVmVDZ41vkYhupDP2yyBM</p>
+        </div>
+    </div>
+
+    <div id="address2" class="content-row">
+        <div>
+            <img src="https://via.placeholder.com/150" alt="Image 2">
+            <p>0x028e0598B383fB148f47978B4AdBb681E62e7254</p>
+        </div>
+    </div>
+
+    <!-- Repeat similar structure for other nodes -->
+
+</div>
+
+</body>
+</html>

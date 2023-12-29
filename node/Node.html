@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodes 节点</title>
+    <style>
+        body {
+            display: flex;
+            padding-top: 50px;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+            flex-direction: column; /* Align content vertically */
+        }
+
+        h1 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 400px; /* Adjust the max-width as needed */
+        }
+
+        .content-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add transition effect */
+        }
+
+        .content-row.active {
+            background-color: #505993;
+            color: white; /* Text color for better visibility */
+        }
+
+        .subscribe-form-row {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 50px;
+            background-color: aliceblue;
+        }
+        .subscribe-form-row form {
+            display: flex;
+            align-items: center; /* Align form elements horizontally */
+        }
+
+        .subscribe-form-row label {
+            margin-right: 10px;
+        }
+
+        .subscribe-form-row input {
+            margin-right: 10px;
+            flex: 1; /* Take up remaining space */
+        }
+
+        .subscribe-form-row button {
+            margin-left: auto; /* Float to the very right */
+        }
+    </style>
+</head>
+<body>
+    <h1>Nodes 节点</h1>
+<div class="content-container">
+
+    <div id="node1" class="content-row" onclick="toggleSubscribeForm('node1', this)">
+        <span>节点 1</span>
+        <span>5000U</span>
+        <button>认购</button>
+    </div>
+    <div id="subscribe-form-node1" class="subscribe-form-row">
+        <form onsubmit="submitForm(event, 'node1')">
+            <label for="email-node1">邮箱地址：</label>
+            <input type="email" id="email-node1" name="email-node1" required>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <div id="node2" class="content-row" onclick="toggleSubscribeForm('node2', this)">
+        <span>节点 2</span>
+        <span>5000U</span>
+        <button>认购</button>
+    </div>
+    <div id="subscribe-form-node2" class="subscribe-form-row">
+        <form onsubmit="submitForm(event, 'node2')">
+            <label for="email-node2">邮箱地址：</label>
+            <input type="email" id="email-node2" name="email-node2" required>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <div id="node3" class="content-row" onclick="toggleSubscribeForm('node3', this)">
+        <span>节点 3</span>
+        <span>5000U</span>
+        <button>认购</button>
+    </div>
+    <div id="subscribe-form-node3" class="subscribe-form-row">
+        <form onsubmit="submitForm(event, 'node3')">
+            <label for="email-node3">邮箱地址：</label>
+            <input type="email" id="email-node3" name="email-node3" required>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <div id="node4" class="content-row" onclick="toggleSubscribeForm('node4', this)">
+        <span>节点 4</span>
+        <span>5000U</span>
+        <button>认购</button>
+    </div>
+    <div id="subscribe-form-node4" class="subscribe-form-row">
+        <form onsubmit="submitForm(event, 'node4')">
+            <label for="email-node4">邮箱地址：</label>
+            <input type="email" id="email-node4" name="email-node4" required>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <!-- Repeat similar structure for other nodes -->
+
+</div>
+
+<script>
+    function toggleSubscribeForm(nodeId, element) {
+        // Hide all subscribe forms
+        document.querySelectorAll('.subscribe-form-row').forEach(form => form.style.display = 'none');
+
+        // Display the subscribe form for the clicked node
+        const subscribeForm = document.getElementById(`subscribe-form-${nodeId}`);
+        subscribeForm.style.display = 'block';
+
+        // Toggle the 'active' class on the clicked row
+        document.querySelectorAll('.content-row').forEach(row => row.classList.remove('active'));
+        element.classList.add('active');
+    }
+
+    function submitForm(event, nodeId) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Your existing logic for showing confirmation
+        const confirmation = confirm(`Do you want to subscribe to ${nodeId}?`);
+        
+        if (confirmation) {
+            // Save the selected node and email to localStorage
+            const selectedNode = nodeId;
+            const userEmail = document.getElementById(`email-${nodeId}`).value; // Assuming you have an email input for each node
+            const records = JSON.parse(localStorage.getItem('subscriptionRecords')) || [];
+            records.push({ node: selectedNode, email: userEmail });
+            localStorage.setItem('subscriptionRecords', JSON.stringify(records));
+
+            // Redirect to a new HTML page upon successful submission
+            window.location.href = 'payment.html'; // Change 'new_page.html' to the actual URL of your new page
+        }
+
+        // You can add additional logic here as needed
+    }
+</script>
+
+</body>
+</html>
