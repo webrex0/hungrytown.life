@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Numerology</title>
     <style>
         body {
@@ -141,6 +142,7 @@
 
         .login-container h1 {
             color: #333;
+            padding: 20px;
         }
 
         .login-form {
@@ -183,7 +185,7 @@
         cursor:pointer;
         color:#ffffff;
         font-size: 15px;
-        padding: 18px 6px;
+        padding: 18px 25px;
         }
         .myButton:hover {
         background-color:#394959;
@@ -403,87 +405,97 @@
         <tr>
             <th>Number Analysis</th>
             <th>Result</th>
+            <th >Link</th>
         </tr>
         <tr>
             <td style="text-align: left;">Main Character</td>
             <td id="lifetable">-</td>
+            <td id="link-containerlife" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain0box" style="color:purple; font-size: small;">-</td>
+            <td colspan="3" id="explain0box" style="color:purple; ">-</td>
         </tr>
     </table>
     <table class="table-chart2" id="resultTable">
         <tr>
-            <td style="color:green; text-align: left; font-size: small;">Positive</td>
-            <td id="explain1box" style="color:green; text-align: left; font-size: small;">-</td>
+            <td style="color:green; text-align: left;">Positive</td>
+            <td id="explain1box" style="color:green; text-align: left;">-</td>
         </tr>
         <tr>
-            <td style="color:red; text-align: left; font-size: small;">Negative</td>
-            <td id="explain2box" style="color:red; text-align: left; font-size: small;">-</td>
+            <td style="color:red; text-align: left;">Negative</td>
+            <td id="explain2box" style="color:red; text-align: left;">-</td>
         </tr>
         <tr>
-            <td style="color:blue; text-align: left; font-size: small;">Concern</td>
-            <td id="explain3box" style="color:blue; text-align: left; font-size: small;">-</td>
+            <td style="color:blue; text-align: left;">Concern</td>
+            <td id="explain3box" style="color:blue; text-align: left;">-</td>
         </tr>
     </table>
     <table class="table-chart" id="resultTable">
         <tr>
             <td style="text-align: left;">Subconscious Numbers</td>
             <td id="subtable">-</td>
+            <td id="link-container4" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain4box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain4box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
             <td style="text-align: left;">Inner Number</td>
             <td id="innertable">-</td>
+            <td id="link-container5" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain5box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain5box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
             <td style="text-align: left;">Circumcenter Number</td>
             <td id="circtable">-</td>
+            <td id="link-container6" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain6box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain6box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
             <td style="text-align: left;">3 Major Doctrines Annalysis</td>
             <td id="3majortable">-</td>
+            <td id="link-container7" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain7box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain7box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
     </table>
     <table class="table-chart" id="resultTable">
         <tr>
             <th >Number Analysis</th>
             <th >Result</th>
+            <th >Link</th>
         </tr>
         <tr>
-            <th colspan="2">Your Main Personal Group Number</th>
+            <th colspan="3">Your Main Personal Group Number</th>
         </tr>
         <tr>
             <td rowspan="2" style="text-align: left;">Your fundamental</td>
             <td id="IJMtable">-</td>
+            <td id="link-container81" >-</td>
             
         </tr>
         <tr>
             <td id="KLNtable">-</td>
+            <td id="link-container82" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain81box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain81box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain82box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain82box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
             <td style="text-align: left;">Your Concealing real feelings</td>
             <td id="MNOtable">-</td>
+            <td id="link-container83" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain83box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain83box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr style="border-bottom:1px solid black">
             <td colspan="100%"></td>
@@ -492,22 +504,25 @@
         <tr>
             <td rowspan="2" style="text-align: left;">Situation w Friends & Job</td>
             <td id="JMWtable">-</td>
+            <td id="link-container84" >-</td>
         </tr>
         <tr>
             <td id="IMXtable">-</td>
+            <td id="link-container85" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain84box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain84box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain85box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain85box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
             <td style="text-align: left;">Relationship w Friends & Job</td>
             <td id="XWStable">-</td>
+            <td id="link-container86" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain86box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain86box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr style="border-bottom:1px solid black">
             <td colspan="100%"></td>
@@ -515,23 +530,26 @@
         <tr>
             <td rowspan="2" style="text-align: left;">Situation w Children & Staff Team</td>
             <td id="NOQtable">-</td>
+            <td id="link-container87" >-</td>
             
         </tr>
         <tr>
             <td id="MOPtable">-</td>
+            <td id="link-container88" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain87box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain87box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain88box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain88box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
             <td style="text-align: left;">Relationship w Children & Staff Team</td>
             <td id="QPRtable">-</td>
+            <td id="link-container89" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain89box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain89box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr style="border-bottom:1px solid black">
             <td colspan="100%"></td>
@@ -539,26 +557,151 @@
         <tr>
             <td rowspan="2" style="text-align: left;">Situation w family & your Old days</td>
             <td id="KNVtable">-</td>
+            <td id="link-container90" >-</td>
         </tr>
         <tr>
             <td id="LNUtable">-</td>
+            <td id="link-container91" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain90box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain90box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain91box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain91box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
         <tr>
             <td style="text-align: left;">Relationship w family & Old days</td>
             <td id="VUTtable">-</td>
+            <td id="link-container92" >-</td>
         </tr>
         <tr>
-            <td colspan="2" id="explain92box" style="color:purple; text-align: left; font-size: small;">-</td>
+            <td colspan="3" id="explain92box" style="color:purple; text-align: left; font-size: small;">-</td>
         </tr>
     </table>
 </div>
     <script>
+        // Define predefined web URLs for each 81group
+        var webUrls = [
+            { number: '1-1-2', result: 'https://www.xiaohongshu.com/explore/6541d846000000001d0164e3' },
+
+            { number: '1-2-3', result: '#' },
+            { number: '2-1-3', result: '#' },
+
+            { number: '1-3-4', result: 'https://www.xiaohongshu.com/explore/6543303c000000001f004a2f' },
+            { number: '3-1-4', result: 'https://www.xiaohongshu.com/explore/6543303c000000001f004a2f' },
+
+            { number: '1-4-5', result: 'https://www.xiaohongshu.com/explore/6544b842000000001f03c980' },
+            { number: '4-1-5', result: 'https://www.xiaohongshu.com/explore/6544b842000000001f03c980' },
+
+            { number: '1-5-6', result: 'https://www.xiaohongshu.com/explore/6545c091000000001e02aff8' },
+            { number: '5-1-6', result: 'https://www.xiaohongshu.com/explore/6545c091000000001e02aff8' },
+
+            { number: '1-6-7', result: 'https://www.xiaohongshu.com/explore/6547003b000000001e020e3f' },
+            { number: '6-1-7', result: 'https://www.xiaohongshu.com/explore/6547003b000000001e020e3f' },
+
+            { number: '1-7-8', result: 'https://www.xiaohongshu.com/explore/65485ceb000000001f03bda6' },
+            { number: '7-1-8', result: 'https://www.xiaohongshu.com/explore/65485ceb000000001f03bda6' },
+
+            { number: '1-8-9', result: '#' },
+
+            { number: '8-1-9', result: '#' },
+            { number: '1-9-1', result: '#' },
+
+            { number: '9-1-1', result: '#' },
+            { number: '2-2-4', result: '#' },
+            { number: '2-3-5', result: '#' },
+
+            { number: '3-2-5', result: '#' },
+            { number: '2-4-6', result: '#' },
+
+            { number: '4-2-6', result: '#' },
+            { number: '2-5-7', result: '#' },
+
+            { number: '5-2-7', result: '#' },
+            { number: '2-6-8', result: '#' },
+            { number: '6-2-8', result: '#' },
+
+            { number: '2-7-9', result: 'https://www.xiaohongshu.com/explore/6534b550000000001e00fe14' },
+            { number: '7-2-9', result: 'https://www.xiaohongshu.com/explore/6534b550000000001e00fe14' },
+
+            { number: '2-8-1', result: '#' },
+            { number: '8-2-1', result: '#' },
+            { number: '2-9-2', result: '#' },
+
+            { number: '9-2-2', result: '#' },
+
+            { number: '3-3-6', result: '#' },
+            { number: '3-4-7', result: '#' },
+
+            { number: '4-3-7', result: '#' },
+            { number: '3-5-8', result: '#' },
+
+            { number: '5-3-8', result: '#' },
+            { number: '3-6-9', result: '#' },
+
+            { number: '6-3-9', result: '#' },
+            { number: '3-7-1', result: '#' },
+            { number: '7-3-1', result: '#' },
+
+            { number: '3-8-2', result: 'https://www.xiaohongshu.com/explore/654700b3000000001f03efa8' },
+            { number: '8-3-2', result: 'https://www.xiaohongshu.com/explore/654700b3000000001f03efa8' },
+
+            { number: '3-9-3', result: '#' },
+            { number: '9-3-3', result: '#' },
+
+            { number: '4-4-8', result: '#' },
+            { number: '4-5-9', result: '#' },
+            { number: '5-4-9', result: '#' },
+
+            { number: '4-6-1', result: '#' },
+            { number: '6-4-1', result: '#' },
+
+            { number: '4-7-2', result: '#' },
+            { number: '7-4-2', result: '#' },
+            { number: '4-8-3', result: '#' },
+
+            { number: '8-4-3', result: '#' },
+            { number: '4-9-4', result: '#' },
+
+            { number: '9-4-4', result: '#' },
+            { number: '5-5-1', result: '#' },
+            { number: '5-6-2', result: '#' },
+
+            { number: '6-5-2', result: '#' },
+            { number: '5-7-3', result: '#' },
+            { number: '7-5-3', result: '#' },
+            { number: '5-8-4', result: '#' },
+
+            { number: '8-5-4', result: '#' },
+            { number: '5-9-5', result: '#' },
+            { number: '9-5-5', result: '#' },
+
+            { number: '6-6-3', result: '#' },
+            { number: '6-7-4', result: '#' },
+            { number: '7-6-4', result: '#' },
+
+            { number: '6-8-5', result: '#' },
+            { number: '8-6-5', result: '#' },
+
+            { number: '6-9-6', result: '#' },
+            { number: '9-6-6', result: '#' },
+
+            { number: '7-7-5', result: '#' },
+            { number: '7-8-6', result: '#' },
+
+            { number: '8-7-6', result: '#' },
+            { number: '7-9-7', result: '#' },
+            { number: '9-7-7', result: '#' },
+
+            { number: '8-8-7', result: 'https://www.xiaohongshu.com/explore/653dde48000000001f03eb01' },
+
+            { number: '8-9-8', result: '#' },
+            { number: '9-8-8', result: '#' },
+
+            { number: '9-9-9', result: '#' },
+
+            
+        ];
         function calculateNumerology() {
             // Get the date of birth from the input field
             var dobInput = document.getElementById("dob");
@@ -838,10 +981,10 @@
                 { number: 1, result: "Egoistic, Arrogant" },
                 { number: 2, result: "Dependence, Indecision" },
                 { number: 3, result: "Capricious, Exaggerate" },
-                { number: 4, result: "Egoistic, Arrogant" },
-                { number: 5, result: "Gnosis, Dogma" },
+                { number: 4, result: "Intuition, Dogma" },
+                { number: 5, result: "Stubborn, Suspicious" },
                 { number: 6, result: "Picky, Wasteful" },
-                { number: 7, result: "Slow and Indifferent, laziness" },
+                { number: 7, result: "Slow and Indifferent, Laziness" },
                 { number: 8, result: "Preasure, Negative" },
                 { number: 9, result: "Greedy, Unprincipled" },
             ];
@@ -892,6 +1035,19 @@
                 { number: 7, result: "No data" },
                 { number: 8, result: "No data" },
                 { number: 9, result: "Visionary【The analysis of the outer core number being 9】Even if the dream seems unrealistic to others, they dare to pursue it. Generally, they construct grand ideals that aim to change the human way of life. Their visionary concepts easily attract a group of people to follow and strive with them. Instinctively, they know how to use employees and collaborate with teams to accomplish tasks. They are usually busy exploring new markets, willing to enter various social circles, and easily establishing good relationships. Therefore, they have a broader network of resources. They know how to enjoy life and can achieve a good balance between ideals and materialism, often living as winners. In terms of investments, they consider the overall cost and future development space. They may purchase remote factories and land beneficial for subsequent expansion and development. Often, these forward-looking investments have the opportunity for greater appreciation in the future and yield larger returns. In love, visionaries pursue both bread and love. They are busy realizing their dreams in their youth, having no time to experience the nuances of love, usually dealing with mundane aspects of life. It is only after retirement that they are more willing to enjoy life with their partners, possibly traveling the world together." },
+            ];
+
+            // Define predefined data and results for matching
+            var predefinedDataVid = [
+                { number: 1, result: "http://xhslink.com/wM9gfw" },
+                { number: 2, result: "http://xhslink.com/TIehfw" },
+                { number: 3, result: "http://xhslink.com/Jighfw" },
+                { number: 4, result: "http://xhslink.com/ZAhhfw" },
+                { number: 5, result: "https://www.xiaohongshu.com/explore/6535ea53000000001e02f365" },
+                { number: 6, result: "https://www.xiaohongshu.com/explore/6535e9e5000000001f00672d" },
+                { number: 7, result: "https://www.xiaohongshu.com/explore/653737ce000000001d01743c" },
+                { number: 8, result: "https://www.xiaohongshu.com/explore/65387b5a000000001e02d21e" },
+                { number: 9, result: "https://www.xiaohongshu.com/explore/6539e01e000000001e00c387" },
             ];
 
             // Check for a match in the predefined data
@@ -949,6 +1105,8 @@
                     break;
                 }
             }
+            
+            // Display the result in the explain box for each group
             document.getElementById("explain0box").innerText = `${matchedResult0}`;
             document.getElementById("explain1box").innerText = `${matchedResult1}`;
             document.getElementById("explain2box").innerText = `${matchedResult2}`;
@@ -973,9 +1131,330 @@
             document.getElementById("explain90box").innerText = `${matchedResult90}`;
             document.getElementById("explain91box").innerText = `${matchedResult91}`;
             document.getElementById("explain92box").innerText = `${matchedResult92}`;
+
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-containerlife");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (lifePathNumber === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container4");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (SubPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container5");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (InnerPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container6");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (CircPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+
+
+            // Display clickable links based on webUrls IJM
+            var linksElement = document.getElementById("link-container81");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (IJMcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container82");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (KLNcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container83");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (MNOcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container84");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (JMWcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container85");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (IMXcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container86");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (XWScombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container87");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (NOQcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container88");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (MOPcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container89");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (QPRcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container90");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (KNVcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container91");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (LNUcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container92");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (VUTcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-external-link");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
             
         }
-
+        
+        
         function calculateLifePathNumber(number) {
             // Reduce the number to a single digit by adding its digits
             while (number > 9) {
@@ -1011,7 +1490,7 @@
       var newLanguage = (currentLanguage === 'en') ? 'zh' : 'cn';
 
       // Redirect to the corresponding HTML page for the selected language
-      window.location.href = 'numeroCN.html';
+      window.location.href = 'numero-CN.html';
     }
 
     // Set the initial button text based on the current language
