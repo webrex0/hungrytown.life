@@ -17,7 +17,7 @@
     display: inline-block;
     margin-bottom: 32px;
     margin-top: 20px;
-    margin-left: 184px;
+    margin-left: 230px;
   }
 
   .switch>span {
@@ -304,22 +304,7 @@
         <span class="on">CN</span>
         <span class="off">EN</span>
     </div>
-    <div class="wrapper-login">
-    <div class="login-container">
-        <h1>Login</h1>
-        <form class="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br>
-
-            <button type="button" onclick="login()">Login</button>
-        </form>
-    </div>
-</div>
-
-    <div class="hidden-content">
 
     <h1>Numerology</h1>
     
@@ -1465,23 +1450,7 @@
         
        
     </script>
-</div>
 <script>
-    function login() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        var validUsername = "Admin0";
-        var validPassword = "88998899";
-
-        if (username === validUsername && password === validPassword) {
-            alert("Login successful!");
-            document.querySelector('.login-container').style.display = 'none'; // Hide the login container
-            document.querySelector('.hidden-content').style.display = 'block'; // Show the hidden content
-        } else {
-            alert("Login failed. Please check your username and password.");
-        }
-    }
     function toggleLanguage() {
       // Get the current language from the HTML lang attribute
       var currentLanguage = document.documentElement.lang;

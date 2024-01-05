@@ -17,7 +17,7 @@
     display: inline-block;
     margin-bottom: 32px;
     margin-top: 20px;
-    margin-left: 184px;
+    margin-left: 230px;
   }
 
   .switch>span {
@@ -298,28 +298,13 @@
     </style>
 </head>
 <body>
+    
     <div class="switch">
         <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox" onchange="toggleLanguage()">
         <label for="language-toggle"></label>
         <span class="on">CN</span>
         <span class="off">EN</span>
     </div>
-    <div class="wrapper-login">
-    <div class="login-container">
-        <h1>登录</h1>
-        <form class="login-form">
-            <label for="username">用户 ID:</label>
-            <input type="text" id="username" name="username" required><br>
-
-            <label for="password">密码:</label>
-            <input type="password" id="password" name="password" required><br>
-
-            <button type="button" onclick="login()">登录</button>
-        </form>
-    </div>
-</div>
-
-    <div class="hidden-content">
 
     <h1>生命数字</h1>
     
@@ -471,7 +456,7 @@
             <th>链接</th>
         </tr>
         <tr>
-            <th colspan="3">Your Main Personal Group Number 您的主要个人群组号码</th>
+            <th colspan="3">您的主要个人群组号码</th>
         </tr>
         <tr>
             <td rowspan="2" style="text-align: left;">你的基础</td>
@@ -1466,23 +1451,7 @@
         
        
     </script>
-</div>
 <script>
-    function login() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        var validUsername = "Admin0";
-        var validPassword = "88998899";
-
-        if (username === validUsername && password === validPassword) {
-            alert("Login successful!");
-            document.querySelector('.login-container').style.display = 'none'; // Hide the login container
-            document.querySelector('.hidden-content').style.display = 'block'; // Show the hidden content
-        } else {
-            alert("Login failed. Please check your username and password.");
-        }
-    }
     function toggleLanguage() {
       // Get the current language from the HTML lang attribute
       var currentLanguage = document.documentElement.lang;
