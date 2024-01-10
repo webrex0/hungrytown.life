@@ -526,6 +526,13 @@
     </table>
 </div>
     <script>
+         document.addEventListener("DOMContentLoaded", function () {
+        // Detect the user's language
+        var userLanguage = navigator.language || navigator.userLanguage;
+
+        // Set the language for the date input
+        document.getElementById("dob").lang = userLanguage;
+        });
         // Define predefined web URLs for each 81group
         var webUrls = [
             { number: '1-1-2', result: 'https://www.xiaohongshu.com/explore/6541d846000000001d0164e3' },
@@ -648,6 +655,7 @@
 
             
         ];
+        
         function calculateNumerology() {
             // Get the date of birth from the input field
             var dobInput = document.getElementById("dob");
