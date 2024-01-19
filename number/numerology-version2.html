@@ -218,29 +218,16 @@
     	margin: 0;
     	box-sizing: border-box;
 	}
-    input[type="date"]::before {
-	color: #fff;
-	content: attr(placeholder);
-    width: 25px;
-}
 	input[type="date"]{
     	background-color: #ac7ec8;
     	padding: 15px;
     	font-family: "Roboto Mono",monospace;
-    	color: transparent;
+    	color: #ffffff;
     	font-size: 18px;
     	border: none;
     	outline: none;
     	border-radius: 5px;
 	}
-input[type="date"]:focus,
-input[type="date"]:valid {
-	color: #fff;
-}
-input[type="date"]:focus::before,
-input[type="date"]:valid::before {
-	content: "" !important;
-}
 	::-webkit-calendar-picker-indicator{
     	background-color: #ffffff;
     	padding: 5px;
@@ -329,7 +316,7 @@ input[type="date"]:valid::before {
     
     <div class="datepicker">
     <label for="dob">输入你的出生日期:</label><br><br>
-    <input type="date" placeholder="01/01/1988" required>
+    <input type="date" id="dob">
     <button onclick="calculateNumerology()" class="myButton">计算</button></div>
 
     <div class="w-container">
