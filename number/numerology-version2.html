@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Include flag-icon-css library for flags -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+     <link rel="stylesheet" href="css/flag-icon.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css">
+
+     <title>Numerology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            
+        }
+        .title-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .title-main h1 {
+            border-bottom: solid 1px #ac7ec8;
+            padding: 20px;
+            width: 90%;
+            text-align: center;
+            color: #4a5e71;
+            
+        }
+        .wrapper-login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .login-container {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            
+        }
+
+        .login-container h1 {
+            color: #333;
+            padding: 20px;
+        }
+
+        .login-form {
+            text-align: left;
+        }
+
+        .login-form label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .login-form button {
+            background: #0074D9;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .hidden-content {
+            display: none;
+        }
+        .datepicker {
+	    margin-top: 30px;
+	    }   
+        .myButton {
+        background-color:#4a5e71;
+        border-radius:5px;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-size: 15px;
+        padding: 18px 25px;
+        }
+        .myButton:hover {
+        background-color:#394959;
+        }
+        .myButton:active {
+        position:relative;
+        top:1px;
+        }
+        .w-container{
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: auto;
+            flex-direction: column;
+        }
+        .pyramid-bg {
+            background-image: url(/img/numero-bg.svg);
+            background-repeat:no-repeat;
+            background-size:contain;
+            background-position:center;
+            margin-top: 20px;
+            height: 340px;
+        }
+        /* Pyramid Chart Styling */
+        .pyramid-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pyramid-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0px;
+        }
+	.pyramid-row2 {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 50px;
+        }
+	.pyramid-row3 {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 50px;
+        }
+
+
+        .pyramid-box {
+            padding: 1px;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .pyramid-box-left {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .pyramid-box-right {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .pyramid-box.top {
+            background-color: #ac7ec8;
+            color: #fff;
+            font-size: larger;
+        }
+
+        /* Table Chart Styling */
+        .table-chart {
+            width: 95%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        .table-chart th, .table-chart td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table-chart th {
+            background-color: #ac7ec8;
+            color: white;
+        }
+
+        .table-chart2 {
+            width: 95%;
+            margin-top: -10px;
+            margin-bottom: -10px;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+        .table-chart2 th, .table-chart2 td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+	/* Date Picker Styling */
+	*,
+	*:before,
+	*:after{
+    	padding: 0;
+    	margin: 0;
+    	box-sizing: border-box;
+	}
+    input[type="date"]::before {
+	color: #fff;
+	content: attr(placeholder);
+    width: 25px;
+}
+	input[type="date"]{
+    	background-color: #ac7ec8;
+    	padding: 15px;
+    	font-family: "Roboto Mono",monospace;
+    	color: transparent;
+    	font-size: 18px;
+    	border: none;
+    	outline: none;
+    	border-radius: 5px;
+	}
+input[type="date"]:focus,
+input[type="date"]:valid {
+	color: #fff;
+}
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+	content: "" !important;
+}
+	::-webkit-calendar-picker-indicator{
+    	background-color: #ffffff;
+    	padding: 5px;
+    	cursor: pointer;
+    	border-radius: 3px;
+	}
+    .language-dropdown-container {
+            display: inline-block;
+            position: relative;
+            text-align: left; /* Align the text to the left */
+            margin-left: 220px;
+        }
+
+        .language-dropdown-button {
+            font-size: 16px;
+            padding: 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .language-dropdown-list {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: none;
+            width: 150px;
+        }
+
+        .language-dropdown-list a {
+            display: block;
+            z-index: 2;
+            padding: 5px;
+            cursor: pointer;
+            text-decoration: none; 
+            color: #333;
+        }
+
+        .flag-icon {
+            margin-right: 5px;
+        }
+
+        /* Hover styles for better user experience */
+        .language-dropdown-button:hover,
+        .language-dropdown-list a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .language-dropdown-container:hover .language-dropdown-list {
+            display: block;
+        }
+        /* Override styles for screens with a minimum width of 769 pixels (PC view) */
+        @media only screen and (min-width: 769px) {
+            .language-dropdown-container {
+                margin-left: 350px; /* Adjusted margin for PC view */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector Dropdown -->
+<div class="language-dropdown-container">
+    <button class="language-dropdown-button">
+        <span class="flag-icon flag-icon-chn"></span> 中文
+    </button>
+    <div class="language-dropdown-list">
+        <a href="numerology-en.html" onclick="changeLanguage('en')"><span class="flag-icon flag-icon-us"></span> English</a>
+        <a href="numerology-zh.html" onclick="changeLanguage('zh')"><span class="flag-icon flag-icon-chn"></span> 中文</a>
+        <a href="numerology-ms.html" onclick="changeLanguage('ms')"><span class="flag-icon flag-icon-mys"></span> Melayu</a>
+        <a href="#" onclick="changeLanguage('id')"><span class="flag-icon flag-icon-idn"></span> Indonesia</a>
+        <a href="#" onclick="changeLanguage('vi')"><span class="flag-icon flag-icon-vnm"></span> Tiếng Việt</a>
+    </div>
+</div>
+    <div class="title-main">
+    <h1 style="padding-top: 20px;">生命数字</h1>
+    </div> 
+    
+    <div class="datepicker">
+    <label for="dob">输入你的出生日期:</label><br><br>
+    <input type="date" placeholder="01/01/1988" required>
+    <button onclick="calculateNumerology()" class="myButton">计算</button></div>
+
+    <div class="w-container">
+        <div class="pyramid-bg">
+            <!-- Pyramid Chart -->
+            <div class="pyramid-chart">
+                <div class="pyramid-row">
+                    <div class="pyramid-box" id="QPBox">
+                        <!-- Display life path -->
+                    </div>
+                </div>
+                <div class="pyramid-row">
+                    <div class="pyramid-box" id="NOBox">
+                        <!-- Display day + month path -->
+                    </div>
+                    <div class="pyramid-box" id="MOBox">
+                        <!-- Display year path -->
+                    </div>
+                </div>
+                <div class="pyramid-row">
+                    <div class="pyramid-row2">
+                        <div class="pyramid-box-left" id="XWBox">
+                            <!-- Display day path -->
+                        </div>
+                        <div class="pyramid-box-left" id="IMBox">
+                            <!-- Display month path -->
+                        </div>
+                        <div class="pyramid-box-left" id="JMBox">
+                            <!-- Display year1 path -->
+                        </div>
+                    </div>
+                    <div class="pyramid-row">
+                        <div class="pyramid-box top" id="lifePathBox">
+                            <!-- Display life path -->
+                        </div>
+                    </div>
+                    <div class="pyramid-row3">
+                        <div class="pyramid-box-right" id="KNBox">
+                            <!-- Display day path -->
+                        </div>
+                        <div class="pyramid-box-right" id="LNBox">
+                            <!-- Display month path -->
+                        </div>
+                        <div class="pyramid-box-right" id="VUBox">
+                            <!-- Display year1 path -->
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="pyramid-row">
+                    <div class="pyramid-box" id="dayMonthPathBox">
+                        <!-- Display day + month path -->
+                    </div>
+                    <div class="pyramid-box" id="yearPathBox">
+                        <!-- Display year path -->
+                    </div>
+                </div>
+                <div class="pyramid-row">
+                    <div class="pyramid-box" id="dayPathBox">
+                        <!-- Display day path -->
+                    </div>
+                    <div class="pyramid-box" id="monthPathBox">
+                        <!-- Display month path -->
+                    </div>
+                    <div class="pyramid-box" id="year1PathBox">
+                        <!-- Display year1 path -->
+                    </div>
+                    <div class="pyramid-box" id="year2PathBox">
+                        <!-- Display year2 path -->
+                    </div>
+                </div>
+        
+        
+            </div>
+        </div>
+    
+        <!-- Table Chart -->
+        <table class="table-chart" id="resultTable">
+            <tr>
+                <th>数字分析</th>
+                <th>结果</th>
+                <th>视频</th>
+            </tr>
+            <tr>
+                <td style="text-align: left;">主角</td>
+                <td id="lifetable">-</td>
+                <td id="link-containerlife" >-</td>
+            </tr>
+            <tr>
+                <td colspan="3" id="explain0box" style="color:purple;">-</td>
+            </tr>
+        </table>
+        <table class="table-chart2" id="resultTable">
+            <tr>
+                <td style="color:green; text-align: left;">正面</td>
+                <td id="explain1box" style="color:green; text-align: left;">-</td>
+            </tr>
+            <tr>
+                <td style="color:red; text-align: left; ">负面</td>
+                <td id="explain2box" style="color:red; text-align: left;">-</td>
+            </tr>
+            <tr>
+                <td style="color:blue; text-align: left;">忧虑</td>
+                <td id="explain3box" style="color:blue; text-align: left;">-</td>
+            </tr>
+        </table>
+        <table class="table-chart" id="resultTable">
+            <tr>
+                <td style="text-align: left;">潜意识数字</td>
+                <td id="subtable">-</td>
+                <td id="link-container4" >-</td>
+            </tr>
+            <tr>
+                <td colspan="3" id="explain4box" style="color:purple; text-align: left; font-size: small;">-</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">内数</td>
+                <td id="innertable">-</td>
+                <td id="link-container5" >-</td>
+            </tr>
+            <tr>
+                <td colspan="3" id="explain5box" style="color:purple; text-align: left; font-size: small;">-</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">圆心数</td>
+                <td id="circtable">-</td>
+                <td id="link-container6" >-</td>
+            </tr>
+            <tr>
+                <td colspan="3" id="explain6box" style="color:purple; text-align: left; font-size: small;">-</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">三大学说分析</td>
+                <td id="3majortable">-</td>
+                <td id="link-container7" >-</td>
+            </tr>
+            <tr>
+                <td colspan="3" id="explain7box" style="color:purple; text-align: left; font-size: small;">-</td>
+            </tr>
+        </table>
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <th colspan="2">12 组联动密码</th>
+            <th >视频</th>
+        </tr>
+        <tr>
+            <td colspan="2" id="IJMtable">-</td>
+            <td id="link-container81" >-</td>
+            
+        </tr>
+        <tr>
+            <td colspan="3" id="explain81box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="KLNtable">-</td>
+            <td id="link-container82" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain82box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="MNOtable">-</td>
+            <td id="link-container83" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain83box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+        <tr>
+            <td colspan="2" id="JMWtable">-</td>
+            <td id="link-container84" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain84box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="IMXtable">-</td>
+            <td id="link-container85" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain85box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2"id="XWStable">-</td>
+            <td id="link-container86" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain86box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+            <td colspan="2" id="NOQtable">-</td>
+            <td id="link-container87" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain87box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="MOPtable">-</td>
+            <td id="link-container88" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain88box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="QPRtable">-</td>
+            <td id="link-container89" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain89box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+            <td colspan="2" id="KNVtable">-</td>
+            <td id="link-container90" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain90box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2"id="LNUtable">-</td>
+            <td id="link-container91" >-</td>
+        </tr>
+        
+        <tr>
+            <td colspan="3" id="explain91box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="VUTtable">-</td>
+            <td id="link-container92" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain92box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+    </table>
+</div>
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+        // Detect the user's language
+        var userLanguage = navigator.language || navigator.userLanguage;
+
+        // Set the language for the date input
+        document.getElementById("dob").lang = userLanguage;
+        });
+        // Define predefined web URLs for each 81group
+        var webUrls = [
+            { number: '1-1-2', result: 'https://www.xiaohongshu.com/explore/6541d846000000001d0164e3' },
+
+            { number: '1-2-3', result: '#' },
+            { number: '2-1-3', result: '#' },
+
+            { number: '1-3-4', result: 'https://www.xiaohongshu.com/explore/6543303c000000001f004a2f' },
+            { number: '3-1-4', result: 'https://www.xiaohongshu.com/explore/6543303c000000001f004a2f' },
+
+            { number: '1-4-5', result: 'https://www.xiaohongshu.com/explore/6544b842000000001f03c980' },
+            { number: '4-1-5', result: 'https://www.xiaohongshu.com/explore/6544b842000000001f03c980' },
+
+            { number: '1-5-6', result: 'https://www.xiaohongshu.com/explore/6545c091000000001e02aff8' },
+            { number: '5-1-6', result: 'https://www.xiaohongshu.com/explore/6545c091000000001e02aff8' },
+
+            { number: '1-6-7', result: 'https://www.xiaohongshu.com/explore/6547003b000000001e020e3f' },
+            { number: '6-1-7', result: 'https://www.xiaohongshu.com/explore/6547003b000000001e020e3f' },
+
+            { number: '1-7-8', result: 'https://www.xiaohongshu.com/explore/65485ceb000000001f03bda6' },
+            { number: '7-1-8', result: 'https://www.xiaohongshu.com/explore/65485ceb000000001f03bda6' },
+
+            { number: '1-8-9', result: '#' },
+
+            { number: '8-1-9', result: '#' },
+            { number: '1-9-1', result: '#' },
+
+            { number: '9-1-1', result: '#' },
+            { number: '2-2-4', result: '#' },
+            { number: '2-3-5', result: '#' },
+
+            { number: '3-2-5', result: '#' },
+            { number: '2-4-6', result: '#' },
+
+            { number: '4-2-6', result: '#' },
+            { number: '2-5-7', result: '#' },
+
+            { number: '5-2-7', result: '#' },
+            { number: '2-6-8', result: '#' },
+            { number: '6-2-8', result: '#' },
+
+            { number: '2-7-9', result: 'https://www.xiaohongshu.com/explore/6534b550000000001e00fe14' },
+            { number: '7-2-9', result: 'https://www.xiaohongshu.com/explore/6534b550000000001e00fe14' },
+
+            { number: '2-8-1', result: '#' },
+            { number: '8-2-1', result: '#' },
+            { number: '2-9-2', result: '#' },
+
+            { number: '9-2-2', result: '#' },
+
+            { number: '3-3-6', result: '#' },
+            { number: '3-4-7', result: '#' },
+
+            { number: '4-3-7', result: '#' },
+            { number: '3-5-8', result: '#' },
+
+            { number: '5-3-8', result: '#' },
+            { number: '3-6-9', result: '#' },
+
+            { number: '6-3-9', result: '#' },
+            { number: '3-7-1', result: '#' },
+            { number: '7-3-1', result: '#' },
+
+            { number: '3-8-2', result: 'https://www.xiaohongshu.com/explore/654700b3000000001f03efa8' },
+            { number: '8-3-2', result: 'https://www.xiaohongshu.com/explore/654700b3000000001f03efa8' },
+
+            { number: '3-9-3', result: '#' },
+            { number: '9-3-3', result: '#' },
+
+            { number: '4-4-8', result: '#' },
+            { number: '4-5-9', result: '#' },
+            { number: '5-4-9', result: '#' },
+
+            { number: '4-6-1', result: '#' },
+            { number: '6-4-1', result: '#' },
+
+            { number: '4-7-2', result: '#' },
+            { number: '7-4-2', result: '#' },
+            { number: '4-8-3', result: '#' },
+
+            { number: '8-4-3', result: '#' },
+            { number: '4-9-4', result: '#' },
+
+            { number: '9-4-4', result: '#' },
+            { number: '5-5-1', result: '#' },
+            { number: '5-6-2', result: '#' },
+
+            { number: '6-5-2', result: '#' },
+            { number: '5-7-3', result: '#' },
+            { number: '7-5-3', result: '#' },
+            { number: '5-8-4', result: '#' },
+
+            { number: '8-5-4', result: '#' },
+            { number: '5-9-5', result: '#' },
+            { number: '9-5-5', result: '#' },
+
+            { number: '6-6-3', result: '#' },
+            { number: '6-7-4', result: '#' },
+            { number: '7-6-4', result: '#' },
+
+            { number: '6-8-5', result: '#' },
+            { number: '8-6-5', result: '#' },
+
+            { number: '6-9-6', result: '#' },
+            { number: '9-6-6', result: '#' },
+
+            { number: '7-7-5', result: '#' },
+            { number: '7-8-6', result: '#' },
+
+            { number: '8-7-6', result: '#' },
+            { number: '7-9-7', result: '#' },
+            { number: '9-7-7', result: '#' },
+
+            { number: '8-8-7', result: 'https://www.xiaohongshu.com/explore/653dde48000000001f03eb01' },
+
+            { number: '8-9-8', result: '#' },
+            { number: '9-8-8', result: '#' },
+
+            { number: '9-9-9', result: '#' },
+
+            
+        ];
+        function calculateNumerology() {
+            // Get the date of birth from the input field
+            var dobInput = document.getElementById("dob");
+            var dob = new Date(dobInput.value);
+
+            // Calculate numerology values
+            var day = dob.getDate();
+            var month = dob.getMonth() + 1; // Months are zero-based
+            var year = dob.getFullYear();
+
+            var dayPathNumber = calculateLifePathNumber(day);
+            var monthPathNumber = calculateLifePathNumber(month);
+            var year1PathNumber = calculateLifePathNumber(Math.floor(year / 100)); // First two digits
+            var year2PathNumber = calculateLifePathNumber(year % 100); // Last two digits
+            var year2PathNumber = (year % 100 === 0) ? 5 : calculateLifePathNumber(year % 100);
+
+            var dayMonthPath = calculateLifePathNumber(dayPathNumber + monthPathNumber);
+            var yearPath = calculateLifePathNumber(year1PathNumber + year2PathNumber);
+            var lifePathNumber = calculateLifePathNumber(dayPathNumber + monthPathNumber + year1PathNumber + year2PathNumber);
+	        var NOPath = calculateLifePathNumber(yearPath + lifePathNumber);
+  	        var MOPath = calculateLifePathNumber(dayMonthPath + lifePathNumber);
+	        var QPPath = calculateLifePathNumber(NOPath + MOPath);
+	        var IMPath = calculateLifePathNumber(dayPathNumber + dayMonthPath);
+            var JMPath = calculateLifePathNumber(monthPathNumber + dayMonthPath);
+	        var XWPath = calculateLifePathNumber(IMPath + JMPath);
+	        var KNPath = calculateLifePathNumber(year1PathNumber + yearPath);
+            var LNPath = calculateLifePathNumber(year2PathNumber + yearPath);
+            var VUPath = calculateLifePathNumber(KNPath + LNPath);
+
+	        var SubPath = calculateLifePathNumber(lifePathNumber + dayPathNumber + year2PathNumber);
+  	        var InnerPath = calculateLifePathNumber(lifePathNumber + dayMonthPath + yearPath);
+	        var CircPath = calculateLifePathNumber(XWPath + QPPath + VUPath);
+
+            // Combine the three path numbers into a single string for matching
+            var majorcombination = `${XWPath}-${QPPath}-${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedDataMajor = {
+                "3-6-3": "年轻时对他们来说是一种历练，或者因为家庭的环境比较享受生活，到中年的时候比较有机会往更高的地方去发展，但是由于年轻时比较辛苦，所以不舍得请员工，中年的发展期可能会因此受眼，大法获得理想的财富。然而，这样的人老年时比较享受生活。所以建议要多请员工，这样到晚年的时候才 不用像年轻时那么辛苦，才能更好的享文生活。",
+                "6-6-9": "他们无论在年轻时还是在中年时，都比较容易有收获，也能赚到钱。在他们生活的圈子里，处于比较中间的位置，是一种比上不足比下有余的状态，因此容易有攀比心。建议他们要小心理财，不然会过度开销，甚全有可能入不敷出。因为他们人生最佳的状态是在晚年，所以建议这样的人，年经的时候多积累一些资产，置办一些产业，比如房产、知识产权等，未来可以变现，为晚年积累一些财富。",
+                "9-6-6": "这类人年轻的时候就有达到辉煌的机会，他们很容易在年轻时就比同龄人取得更好的成就，并且他们一般这一辈子都不会差到哪里去。需要提醒的是，也正是肉为年轻时很容易赚到钱，到后面可能就不会太努力，但其实他们可以更好。因此建议他们不要太容易满足于现况，也不要活在情绪里，用过去的经验和心情去随意批评人家，因为后面可能会有更好、更大的机会和财富。",
+                "3-3-9": "这类人是典型的先苦后甜，但年轻时跟周围的人相比，总感觉他人创富比更轻松，总觉得自己需要更努力，所以要学会坚持，因为他们人生最好的阶段在晚年。所以年轻的时候，要多积累本事、多积累产业，到了晚年可以将这些变现。这类人到晚年，也可能因为孩子获得比较好的生活。",
+                "6-3-6": "这类人年轻时就比较容易赚到钱，到中年的时候比较有挑战，而这种挑战更多来自于自己的懈念，因为年轻时赚到钱，到申年就去享受了，没有太努力，却发现花钱的速度比生钱的速度快很多，到老年又会萌起再创业或投资的念头，这时候会发现咱就算有经验，咱的体力和恩维跟不上年轻人。所以建议这类人，在甲年的时候要换一个更厉害的圈子，学会借力。",
+                "9-3-3": "这类人年轻的时候比较容易赚到钱, 也辉煌过, 到中年的时候要换一种活法, 换一种赚钱的方式, 换一个更高层的圈子, 才能持续往上走, 因此, 在40岁以前, 他们要拼尽全力，这样到中年的时候，也不会差到哪里去。同时也要让自己增值，让自己多长点本事，因为请的员工都看不上，如果自己有本事，就能带着团队往前移动。给这类人的建议是，年轻时候要攒点钱，因为年轻时太辛苦了，到了老年就想好好享受生活了。",
+                "3-9-6": "这类人年轻的时候都比较需要历练，到中年会有很大的一个飞跃，会有很大的收获。他们最难熬的是在年轻的时候，但是一旦过了这不时期，他们就会一直和一个字很有缘，就是投资的“投”，他们一直到老都会在不断地做投资或者做事业。",
+                "6-9-3": "这类人年轻时会很不错，尤其是到了中年会更取得很好的成就，但由于往往太过于有远见，进行的投资可能无法在自己想要的时间内有回报，所以往往到了晚年身边的现金流没有那么充裕，因为钱都放在重资产上，或者掌握在儿孙那里。",
+                "9-9-9": "这类人一生机会很多，但也往往因为机会大对，不懂得珍惜。所以，这样的人是否能够有成就，取快于自己的态度。另外，他们对于名牌货会特别有感觉，所以建议他们要多去卖一些能保值、变现的产业，不然会拥有很多“惨”。"
+            };
+
+            // Check for a match in the predefined data
+            var matchedResult7 = predefinedDataMajor[majorcombination] || "No match found";
+
+            // Combine the three path numbers into a single string for matching 81group
+            var IJMcombination = `${dayPathNumber}-${monthPathNumber}-${dayMonthPath}`;
+            var KLNcombination = `${year1PathNumber}-${year2PathNumber}-${yearPath}`;
+            var MNOcombination = `${dayMonthPath}-${yearPath}-${lifePathNumber}`;
+
+            var JMWcombination = `${monthPathNumber}-${dayMonthPath}-${JMPath}`;
+            var IMXcombination = `${dayPathNumber}-${dayMonthPath}-${IMPath}`;
+            var XWScombination = `${IMPath}-${JMPath}-${XWPath}`;
+
+            var NOQcombination = `${yearPath}-${lifePathNumber}-${NOPath}`;
+            var MOPcombination = `${dayMonthPath}-${lifePathNumber}-${MOPath}`;
+            var QPRcombination = `${NOPath}-${MOPath}-${QPPath}`;
+
+            var KNVcombination = `${year1PathNumber}-${yearPath}-${KNPath}`;
+            var LNUcombination = `${year2PathNumber}-${yearPath}-${LNPath}`;
+            var VUTcombination = `${KNPath}-${LNPath}-${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedData81 = {
+                "1-1-2": "独立能力强，执行还是管理都是一把好手，不过自我矛盾。这组密码你要柔软一点，做太多吃力不讨好的事。帮别人自己吃亏！离婚密码。你多在乎别人的意见就可以破解离婚了。",
+                "1-2-3": "有主见和明确的目标。说话很扎心很直接不留情面，说话犀利。有明星的感觉，讲师,主持人的号码，对音乐有感觉在乎打扮，在乎形象在乎感觉。",
+
+                "2-1-3": "有明星的感觉，讲师,主持人的号码，对音乐有感觉在乎打扮，在乎形象在乎感觉。虽然有主见和明确的目标。但是说话比较委婉和嘴甜",
+                "1-3-4": "创新能力比较强很踏实很有创意很勤奋，但是爱哭。越骂越不干，这种人要鼓励。受不了委屈。这种号码得人嫁给谁你都有这种委屈，是你自己的问题。小时候你一有问题就哭所以小时候你的认可度很低。这号码的人只能在积极的环境工作。这号码的人只能在积极的环境工作。需要存在感，消极。需要正向的支持鼓励。干活踏实靠谱就是受不了委屈。喜欢在背后有人托举的感觉，需要安全感。缺乏安全感的人。",
+
+                "3-1-4": "很踏实很有创意很勤奋，但是爱哭。越骂越不干，这种人要鼓励。受不了委屈。这种号码得人嫁给谁你都有这种委屈，是你自己的问题。小时候你一有问题就哭所以小时候你的认可度很低。这号码的人只能在积极的环境工作。这号码的人只能在积极的环境工作。需要存在感，消极。需要正向的支持鼓励。干活踏实靠谱就是受不了委屈。喜欢在背后有人托举的感觉，需要安全感。缺乏安全感的人。模仿能力比较强",
+                "1-4-5": "有自信的问题，特别没自信，没自信的把事情从头做到尾。争抢的心不强，保守，缺乏勇气。不喜欢独处。越接近成功越容易放弃。做事情总会遇到障碍做不下去。需要有人在背后撑着",
+
+                "4-1-5": "越接近成功越容易放弃。做事情总会遇到障碍做不下去。需要有人在背后撑着 有时候爱自由但又怕失去安全感，越想亲密越怕失去自由。适合做政治人物或领导。",
+                "1-5-6": "如果这事情跟你无关，都不会太感兴趣。一个人走到五方大地才能赚钱！要多往外走！往外走你就能赚钱。不要呆在家里不要呆在办公室。会比较大女人，大男人主义。因为你觉得以你的经验或见识可以给到大家建议，一旦不采取你的建议，就会袖手旁观。",
+
+                "5-1-6": "会比较大女人，大男人主义。因为你觉得以你的经验或见识可以给到大家建议，一旦不采取你的建议，就会袖手旁观。感觉比较重要，找到了感觉就会不要命的把事情完成。",
+                "1-6-7": "热情好客,骨子还是很现实1个人赚钱好多人花, 很大方, 喜欢买单好面子。开光嘴的号码, 说啥准3啥。积口德, 要说好的，就会成真，说坏的也会成真！有通灵的敏感，他的感觉和直觉力很准。这号人可以靠直觉来做事。用灵感来做成事",
+
+                "6-1-7": "1个人赚钱好多人花, 很大方, 喜欢买单好面子。开光嘴的号码, 说啥准3啥。积口德, 要说好的，就会成真，说坏的也会成真！有通灵的敏感，他的感觉和直觉力很准。这号人可以靠直觉来做事。用灵感来做成事看得太远而跟现在做的东西不太符合实际。",
+                "1-7-8": "比较有自己的主见，肯不肯为梦想而卖命取决于他人给你的梦想值不值得。转运密码，朋友很多，很有魅力的领导。越接近成功，压力越大。如果你遇到不顺出去旅游回来就顺了。开发外地市场比较好。不能做担保人，是非的地方不能去！",
+
+                "7-1-8": "转运密码，朋友很多，很有魅力的领导。越接近成功，压力越大。如果你遇到不顺出去旅游回来就顺了。开发外地市场比较好。不能做担保人，是非的地方不能去！比较随和，比较享受。时间都耗在朋友的事情。",
+                "1-8-9": "一个人承担很多压力就会成功。反之逃避压力成就就会很小。先为难自己在为难他人最好员工密码，会承担很多压但最终会成功。是一个要求极高的人，一定要把事情做到完美。",
+
+                "8-1-9": "最好员工密码，会承担很多压但最终会成功。是一个要求极高的人，一定要把事情做到完美。只要给他压力他就出成绩。这种孩子逼他，他的成就越大",
+                "1-9-1": "执行展开可能性很多，如果没有成功就会浪费很多时间特别刚，要把自己的锋芒意见收起来。你就开始顺利了。否则你连成功都没有。这个号码的人适合单干。跟别人一起合作很难。给意见容易伤人不会说话。独立干事最好。",
+
+                "9-1-1": "特别刚，要把自己的锋芒意见收起来。你就开始顺利了。否则你连成功都没有。这个号码的人适合单干。跟别人一起合作很难。给意见容易伤人不会说话。独立干事最好。机会比较多，却过度自我，而导致后面不愉快。",
+                "2-2-4": "喜欢说话喜欢聊天，把秘密告诉他等于告诉全世界。话多了不小心说出去，适合做服务行业。做广告他是高手！",
+                "2-3-5": "外表柔和友善但是内心很自我。口才极佳，能把树上的鸟哄下来。有通心术的感觉，经常隐瞒自己内心的感受。不敞开内心感受。也是闹心密码很多情绪，当他发火的时候你离他远远的，要学会真实的表达自己，运用你的语言天赋去表达真实的自己。",
+
+                "3-2-5": "口才极佳，能把树上的鸟哄下来。有通心术的感觉，经常隐瞒自己内心的感受。不敞开内心感受。也是闹心密码很多情绪，当他发火的时候你离他远远的，要学会真实的表达自己，运用你的语言天赋去表达真实的自己。讲话太快，祸从口出",
+                "2-4-6": "先说了在做在想再赚钱426先策划再说再赚钱。销售密码, 销售能力极强，善于处理人际关系。财富都是善用口才得来的。人们很容易相信他。",
+
+                "4-2-6": "销售密码，销售能力极强，善于处理人际关系。财富都是善用口才得来的。人们很容易相信他。给老板找麻烦的人。卖的是性价比，别人都信任他。这种销售很实在，不会宰你很老实销售。",
+                "2-5-7": "感觉相对比较温和,拒绝你看不上的人。命好的密码,人见人爱1花见花开,服务VIP客户。有傲气,喜欢你才会和你说话，不喜欢你懒得理你。这组号码面子大，这组号码面子大，",
+
+                "5-2-7": "有傲气，喜欢你才会和你说话，不喜欢你懒得理你。这组号码面子大，这组号码面子大，会没有原则性的力挺你喜欢的人。伤害你不喜欢的人，会比较两极端。",
+                "2-6-8": "满足他人的需求，成交的过程耗时比较长。很喜欢提钱提金融的人销售密码，对钱特别敏感，特别会销售。擅长卖理念，保险健康产业，敏感细腻人缘好。适合做金融方面的事情。",
+
+                "6-2-8": "销售密码，对钱特别敏感，特别会销售。擅长卖理念，保险健康产业，敏感细腻人缘好。适合做金融方面的事情。财富善用口才得来的。卖投资理财机会。",
+                "2-7-9": "温柔亲切，感情丰富。所以活的很累。桃花密码，女人缘号码。学会做女人的生意一定赚大钱！人格魅力特别强。对老婆好，老婆就会旺你，会吸引年龄大的女性来帮你。适合做美业，抗衰，服装等女人生意。",
+
+                "7-2-9": "桃花密码，女人缘号码。学会做女人的生意一定赚大钱！人格魅力特别强。对老婆好，老婆就会旺你，会吸引年龄大的女性来帮你。适合做美业，抗衰，服装等女人生意。人缘旺盛，自己招架不住，让自己陷入情绪中特别是男女关系里。",
+                "2-8-1": "促成高手, 他一定要结果的。忙碌健谈的人, 有一点点压力, 今天做的事今天一定要做完。做不完他睡不着觉。有情绪在里面。要学会排解情绪。销售冠军密码1口才好销售能力强, 不跟你说钱，跟你说价值。",
+
+                "8-2-1": "销售冠军密码1口才好销售能力强, 不跟你说钱，跟你说价值。只能表扬不能批评。对不合心意的言语很固执，压力来自于他的家庭。",
+                "2-9-2": "过度敏感, 容易钻牛角尖。过度配合他人而忽略自己的工作。经纪人号码, 沟通能力强, 很强的说服力。很适合做经纪人。最好的中介密码, 大器晚成的人, 不自信看到很多的生意机会不敢投资。最好的B角色！最好的桥梁角色。需要多一点自信, 只要自信就早成功。",
+
+                "9-2-2": "经纪人号码, 沟通能力强, 很强的说服力。很适合做经纪人。最好的中介密码, 大器晚成的人, 不自信看到很多的生意机会不敢投资。最好的B角色！最好的桥梁角色。需要多一点自信, 只要自信就早成功。很多机会，需要沟通，参与的自信才能事半功倍。",
+                "3-3-6": "有强烈的精神追求，脾气急有赌性不要吸引赌博，投资不能投机！不一定赌钱但赌爽，喝酒跟别人杠上了他知道喝了这杯会醉他赌着会喝下去。我偏不信了很强！轻微激将法他就赌给你看。这组密码有钱啊。脾气性子上来钱和智慧就没了。脾气控制好会很有钱的。",
+
+                "3-4-7": "为了更快的完成任务，往往有指挥他人的感觉。让人感到不舒服。CEO 密码，有贵人是很好的号码。总能找到合适的人来帮他完成工作。 有行动有计划有贵人的好号码。这类CEO 有私人空间的， 因为他有很多贵人来帮他完成他的计划。",
+
+                "4-3-7": "CEO 密码，有贵人是很好的号码。总能找到合适的人来帮他完成工作。 有行动有计划有贵人的好号码。这类CEO 有私人空间的， 因为他有很多贵人来帮他完成他的计划。前期过度重规划，导致在会议中会令他人不舒服。执行中又有变动，让他人觉得前面挨骂白挨了。",
+                "3-5-8": "冲动，因仗义挺身而出，而给自己埋了个大雷。要三思而后行。公关号码，闹心密码。会有很多情绪，脾气爆躁。脾气来了的时候什么都不管了。处理大问题不纠结，处理小问题很纠结。当他们的时候离他远一点，怕他爆炸到你。有情绪不说忍着，一爆就一发不可收拾了。",
+
+                "5-3-8": "公关号码，闹心密码。会有很多情绪，脾气爆躁。脾气来了的时候什么都不管了。处理大问题不纠结，处理小问题很纠结。当他们的时候离他远一点，怕他爆炸到你。有情绪不说忍着，一爆就一发不可收拾了。你是否能被他激活，取决于你喜不喜欢他人。",
+                "3-6-9": "越努力越幸运的的你，学到了认知，累计了经验，得到了本事。急着花钱就能成功，不能花自己的钱，花别人的钱就能成功。学审美和理财，用钱买机会，用智慧买机会。很容易花钱大手大脚的没有节制。",
+
+                "6-3-9": "急着花钱就能成功，不能花自己的钱，花别人的钱就能成功。学审美和理财，用钱买机会，用智慧买机会。很容易花钱大手大脚的没有节制。你很聪明如果因为不够勤快，就会错过了成功的机会。",
+                "3-7-1": "急躁的性格会给自己带来是非之祸。才华横溢，行动力强，还有贵人做事认真。疑心重，交新朋友就忘了旧朋友。要学会维护自己的人脉。很多朋友但是朋友太流动了。",
+
+                "7-3-1": "才华横溢，行动力强，还有贵人做事认真。疑心重，交新朋友就忘了旧朋友。要学会维护自己的人脉。很多朋友但是朋友太流动了。好心协助他人协调关系，把自己陷入在一个两面不是人的境地。",
+                "3-8-2": "忙忙碌碌认为是为了他人，换来极大的情绪化和脾气。当你看清楚了，都是为了自己，事情就明朗了。闹心密码，很多情绪很多无名火。容易骂人，敏感有时候很迷茫，需要导师带领，做事快而且总会遇到障碍，把话说出来，不能把话藏心里因为这个号码的人纠结感很多。多去大自然的地方，特别喜欢小孩子。听音乐和听歌都可以帮助。",
+
+                "8-3-2": "闹心密码，很多情绪很多无名火。容易骂人，敏感有时候很迷茫，需要导师带领，做事快而且总会遇到障碍，把话说出来，不能把话藏心里因为这个号码的人纠结感很多。多去大自然的地方，特别喜欢小孩子。听音乐和听歌都可以帮助。你需要有伟大的梦想来支持你而发奋图强。",
+                "3-9-3": "感情用事，重感情，讲义气，脾气也相对不小。手艺人密码，手特别灵巧。有天赋与乐器，做饭，画画，运动也是修理高手。脾气急很聪明。耐心不足。特别急的一个人，心智很强，有才华但需要平台来放大。想法创意机会特别多，生意上做短期，做不了长期的投资，因为没有耐心",
+
+                "9-3-3": "手艺人密码，手特别灵巧。有天赋与乐器，做饭，画画，运动也是修理高手。脾气急很聪明。耐心不足。特别急的一个人，心智很强，有才华但需要平台来放大。想法创意机会特别多，生意上做短期，做不了长期的投资，因为没有耐心机会比较多，得靠后天的努力，会有更出彩的结果。",
+                "4-4-8": "房产密码，会策划大事情。不愿意干小事，买房一定能赚钱，房产运最好的一组。很容易策划到最后纸上谈兵没有行动。特别压力特别在乎利益在乎回报率。不值得的事从来不干。",
+                "4-5-9": "经历多次的尝试后才会找到方向和目标。所以前期换赛道不代表失败而是一个旅程。不达目的誓不罢休，有方向又有策划最终成功，要懂得德行的培养因为这组号码做坏事也能成功。能力强目标明确，计划严谨后成功。",
+
+                "5-4-9": "不达目的誓不罢休，有方向又有策划最终成功，要懂得德行的培养因为这组号码做坏事也能成功。能力强目标明确，计划严谨后成功。缺乏变通的能力，认准了一件事，想尽办法就是要得到。",
+                "4-6-1": "前期的你容易自卑，愿意花时间和精力学习，会越学越好。学霸的号码，做报表高手！把事情罗列成表格，会计算账很好！！抢着买单大方，为投资，为智慧为学习买单。习惯性想学很多东西。你有能力和技术但是缺乏力量。你需要的是力量能量，不是技能。",
+
+                "6-4-1": "学霸的号码，做报表高手！把事情罗列成表格，会计算账很好！！抢着买单大方，为投资，为智慧为学习买单。习惯性想学很多东西。你有能力和技术但是缺乏力量。你需要的是力量能量，不是技能。非常聪明，事情会比较多而需要时间来做总结。不能骄傲，还有很多值得学习的地方。",
+                "4-7-2": "比较喜欢给别人建议。贵人缘的密码，很容易得到高人的指点和提拔。很善于分析生意和解决问题。运气好贵人多。常常是别人的贵人，很容易把商机告诉你让你发财。",
+
+                "7-4-2": "贵人缘的密码，很容易得到高人的指点和提拔。很善于分析生意和解决问题。运气好贵人多。常常是别人的贵人，很容易把商机告诉你让你发财。容易遇见给你建议的朋友。",
+                "4-8-3": "忙而乱，对情感模糊。懂的东西很懂，不懂的东西啥都不懂。喜欢成熟的人。一流的副手，专业人才，专业技能很强。迷糊，丢三落四的。",
+
+                "8-4-3": "一流的副手，专业人才，专业技能很强。迷糊，丢三落四的。想法多而乱，执行力弱",
+                "4-9-4": "先做出结果再过程中不断总结，会有更好的方案和机会。。企业家密码，规划做大事不愿意做小事。大追求不断的开会就会成功。对他们来说安全感最重要。从来不打无准备的仗。在乎面子有时候因为面子不放下自己。",
+
+                "9-4-4": "企业家密码，规划做大事不愿意做小事。大追求不断的开会就会成功。对他们来说安全感最重要。从来不打无准备的仗。在乎面子有时候因为面子不放下自己。在巨人榜上规划更成功。",
+                "5-5-1": "一定能成功的号码，顶级人才的号码。有很多心结放不下。重复纠结一个场景。思想传统，需要有人带领。很容易迷茫方向太多，最关键最致命的是太执着。要懂得放下过去。放下是一种智慧，放下一种格局。原谅别人放过自己。",
+                "5-6-2": "买大件的东西不还价，但是一买小件的东西就还价。这世界上最尊重金钱的人。永远不乱花钱，他只花值得的钱，守财高手，使用金钱谨慎。适合做理财顾问和会计。",
+
+                "6-5-2": "这世界上最尊重金钱的人。永远不乱花钱，他只花值得的钱，守财高手，使用金钱谨慎。适合做理财顾问和会计。大钱不算算小钱",
+                "5-7-3": "高端贵人的密码。有钱人都喜欢这组号码的人，这组号码的人混进有钱人堆特别容易成功。大家都喜欢他和他成交。贵人缘特别好。",
+                "7-5-3": "能力超强得领导人，很容易被人利用。是猎头公司猎头的对象。",
+                "5-8-4": "执着于你的感觉开不开心。挑错高手的号码，非常有创意的人非常爱梦想。但是不太会落地。如果能落地他就是天才。没法活在当下，容易内耗和焦虑。恐惧未来没有发生的事情。纠结过去不开心的事情。学会正念活在当下，总是执着一个想法出不来。做团队顾问或技术检查总看到要改进的地方。如果用来挑别人的错人人都会离开你。他可以让身边的人变得更好。给你中肯的建议给你更完美。利事业不利感情。这组号码的人很忙很压力。",
+
+                "8-5-4": "挑错高手的号码，非常有创意的人非常爱梦想。但是不太会落地。如果能落地他就是天才。没法活在当下，容易内耗和焦虑。恐惧未来没有发生的事情。纠结过去不开心的事情。学会正念活在当下，总是执着一个想法出不来。做团队顾问或技术检查总看到要改进的地方。如果用来挑别人的错人人都会离开你。他可以让身边的人变得更好。给你中肯的建议给你更完美。利事业不利感情。这组号码的人很忙很压力。执着和纠结于以前的事情和情绪中。",
+                "5-9-5": "多出去走走，增加更多的见识。只有经历跟经验过，才找到更好的定位。大哥大，大姐大，不按常理出牌，我的规矩就是规矩。我说了算很有江湖义气。很会照顾自己人，有麻烦找他们，他们会帮你摆平。当你遇到没办法解决的一拍桌子就解决了。因为有一种不怒自威的威严。高层的专业人事或公司的高层。自己是自己的拌脚时，不要太执着一件事。要珍惜机会和完成达标的那一刻。因为他人要的不光是你的点子。",
+
+                "9-5-5": "大哥大，大姐大，不按常理出牌，我的规矩就是规矩。我说了算很有江湖义气。很会照顾自己人，有麻烦找他们，他们会帮你摆平。当你遇到没办法解决的一拍桌子就解决了。因为有一种不怒自威的威严。高层的专业人事或公司的高层。自己是自己的拌脚时，不要太执着一件事。要珍惜机会和完成达标的那一刻。因为他人要的不光是你的点子。要珍惜机会和完成达标的那一刻。因为他人要的不光是你的点子。",
+                "6-6-3": "人生有大起大落，钱来了又走了。投资不要都放在一个蓝里。最好投资在房产。",
+                "6-7-4": "花钱给贵人得到方案公关天才号码，送礼专员，很会公关。很会花钱在有钱人有权势的人身上。一般人送礼送不进去675的人就可以。善于用金钱用礼物买通资源。多请人吃饭他会转运。",
+
+                "7-6-4": "公关天才号码，送礼专员，很会公关。很会花钱在有钱人有权势的人身上。一般人送礼送不进去675的人就可以。善于用金钱用礼物买通资源。多请人吃饭他会转运。很有横财运，容易得到遗产，容易得到别人投资。",
+                "6-8-5": "喜欢研究喜欢修理，投资回报很难。做的事业不错的人品一定不错。慈善密码，只要做好事就转运。一定要行善积德。不能走偏门，不能做差边球的生意。你会亏得很惨，但是你做了一件好事立马就会有好运来。",
+
+                "8-6-5": "慈善密码，只要做好事就转运。一定要行善积德。不能走偏门，不能做差边球的生意。你会亏得很惨，但是你做了一件好事立马就会有好运来。聪明固执很牛气。事业压力大，有敬畏心就有边界感就能登上巅峰。",
+                "6-9-6": "点石成金的号码, 要嘛是钱要嘛是成功, 很有生意眼光, 很会发现生意, 并且分析生意, 而且直觉力第六感极强。他感觉这个事能行一定行, 对696的人来讲总结经验来讲很重要喜欢投资敢于冒险。很聪明，是用脑子办事的你，相对也会傲慢，虽然有才华，但不一定被重用。要学会尊重他人和谦虚。多赞美他人。",
+
+                "9-6-6": "喜欢投资敢于冒险。很聪明，是用脑子办事的你，相对也会傲慢，虽然有才华，但不一定被重用。要学会尊重他人和谦虚。多赞美他人。投资很容易赚钱, 只要抓住机会就赚很多钱。不会在同一个抗里面跌倒2次。能用以前的经验赚到更多的机会和钱。一个很能承担风险的生意人。966的人成功一次很重要。或者找到榜样很重要。",
+                "7-7-5": "人缘号码, 可以做私域粉丝, 不能利用人。利用人就身边出现小人。人脉给你机会也给你阻碍。互利就好1心态要正。上司会给你提拔, 做网红很好。身边有很多人脉。做直播的网红号码。",
+                "7-8-6": "贵人给你压力你就能赚钱。多骂成就高。男人缘号码，男贵人很多，会收到男贵人提拔。喜欢男人般干脆的感觉。",
+
+                "8-7-6": "男人缘号码，男贵人很多，会收到男贵人提拔。喜欢男人般干脆的感觉。把压力给贵人，贵人还好卖单而你又能赚到钱。",
+                "7-9-7": "有贵人但需要先付出才会有更多的可能性。人见人爱，的数字，人缘极佳。支持者都可以成为你的合作者。百万级网红的号码，人脉最好的一组！要做关于人脉的生意！魅力型的领导人才。",
+
+                "9-7-7": "人见人爱，的数字，人缘极佳。支持者都可以成为你的合作者。百万级网红的号码，人脉最好的一组！要做关于人脉的生意！魅力型的领导人才。容易获得别人的机会，但如果你不够勤奋，机会就会溜走。",
+                "8-8-7": "离婚密码，压力大会赶走贵人。有时候会发脾气忍不住骂人。情绪是这组密码的天敌。能带领一群人成功。容易上瘾，女孩很容易染上吸烟喝酒。容易虚荣心，脾气很大。自己找压力",
+                "8-9-8": "做了才能更确定你的方向，不做梦想都是空谈。企业家密码，巨大压力。想做大事大眼界大梦想，但是脾气大情绪化。特别在意别人对他的看法，太多情绪放不下。很容易在一个漩涡里出不来。容易大起大落。只要把情绪控制好就能有大成功。掌控不了情绪你成功都没有，只有自我伤害。这组密码没有压力也一辈子一事无成。",
+                
+                "9-8-8": "企业家密码，巨大压力。想做大事大眼界大梦想，但是脾气大情绪化。特别在意别人对他的看法，太多情绪放不下。很容易在一个漩涡里出不来。容易大起大落。只要把情绪控制好就能有大成功。掌控不了情绪你成功都没有，只有自我伤害。这组密码没有压力也一辈子一事无成。容易得到他人的认可，但是要有配合的团队，光靠自己的力量还是难成事。",
+                "9-9-9": "有生意头脑，有生意眼光，有谈资，给人一种什么都能聊的感觉，交际广，容易有很多圈子。每个本事会一点。机遇太多很容易换赛道。很容易什么都没有。要珍惜机会不能贪心，做事专一就可以有大成就。",
+
+
+            };
+
+            // Check for a match in the predefined data
+            var matchedResult81 = predefinedData81[IJMcombination] || "No match found";
+            var matchedResult82 = predefinedData81[KLNcombination] || "No match found";
+            var matchedResult83 = predefinedData81[MNOcombination] || "No match found";
+
+            var matchedResult84 = predefinedData81[JMWcombination] || "No match found";
+            var matchedResult85 = predefinedData81[IMXcombination] || "No match found";
+            var matchedResult86 = predefinedData81[XWScombination] || "No match found";
+
+            var matchedResult87 = predefinedData81[NOQcombination] || "No match found";
+            var matchedResult88 = predefinedData81[MOPcombination] || "No match found";
+            var matchedResult89 = predefinedData81[QPRcombination] || "No match found";
+
+            var matchedResult90 = predefinedData81[KNVcombination] || "No match found";
+            var matchedResult91 = predefinedData81[LNUcombination] || "No match found";
+            var matchedResult92 = predefinedData81[VUTcombination] || "No match found";
+
+            // Display the result in the pyramid chart
+            document.getElementById("lifePathBox").innerText = lifePathNumber;
+            document.getElementById("dayMonthPathBox").innerText = dayMonthPath;
+            document.getElementById("yearPathBox").innerText = yearPath;
+            document.getElementById("dayPathBox").innerText = dayPathNumber;
+            document.getElementById("monthPathBox").innerText = monthPathNumber;
+            document.getElementById("year1PathBox").innerText = year1PathNumber;
+            document.getElementById("year2PathBox").innerText = year2PathNumber;
+	        document.getElementById("NOBox").innerText = NOPath;
+	        document.getElementById("MOBox").innerText = MOPath;
+	        document.getElementById("QPBox").innerText = QPPath;
+	        document.getElementById("IMBox").innerText = IMPath;
+            document.getElementById("JMBox").innerText = JMPath;
+            document.getElementById("XWBox").innerText = XWPath;
+     	    document.getElementById("KNBox").innerText = KNPath;
+            document.getElementById("LNBox").innerText = LNPath;
+            document.getElementById("VUBox").innerText = VUPath;
+
+            // Display the result in the table chart
+            document.getElementById("lifetable").innerText = lifePathNumber;
+            document.getElementById("subtable").innerText = SubPath;
+            document.getElementById("innertable").innerText = InnerPath;
+            document.getElementById("circtable").innerText = CircPath;
+            document.getElementById("3majortable").innerText = `${XWPath} ${QPPath} ${VUPath}`;
+
+            document.getElementById("IJMtable").innerText = `${dayPathNumber} ${monthPathNumber} ${dayMonthPath}`;
+            document.getElementById("KLNtable").innerText = `${year1PathNumber} ${year2PathNumber} ${yearPath}`;
+            document.getElementById("MNOtable").innerText = `${dayMonthPath} ${yearPath} ${lifePathNumber}`;
+
+            document.getElementById("JMWtable").innerText = `${monthPathNumber} ${dayMonthPath} ${JMPath}`;
+            document.getElementById("IMXtable").innerText = `${dayPathNumber} ${dayMonthPath} ${IMPath}`;
+            document.getElementById("XWStable").innerText = `${IMPath} ${JMPath} ${XWPath}`;
+
+            document.getElementById("NOQtable").innerText = `${yearPath} ${lifePathNumber} ${NOPath}`;
+            document.getElementById("MOPtable").innerText = `${dayMonthPath} ${lifePathNumber} ${MOPath}`;
+            document.getElementById("QPRtable").innerText = `${NOPath} ${MOPath} ${QPPath}`;
+
+            document.getElementById("KNVtable").innerText = `${year1PathNumber} ${yearPath} ${KNPath}`;
+            document.getElementById("LNUtable").innerText = `${year2PathNumber} ${yearPath} ${LNPath}`;
+            document.getElementById("VUTtable").innerText = `${KNPath} ${LNPath} ${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedData0 = [
+                { number: 1, result: "1 - 独立，一个人" },
+                { number: 2, result: "2 - 表达，沟通"  },
+                { number: 3, result: "3 - 脾气，行动"  },
+                { number: 4, result: "4 - 规划，策划"  },
+                { number: 5, result: "5 - 方向，阻碍"  },
+                { number: 6, result: "6 - 钱，智慧" },
+                { number: 7, result: "7 - 朋友，人脉"  },
+                { number: 8, result: "8 - 责任，压力"  },
+                { number: 9, result: "9 - 成功，机会"  }
+            ];
+            // Define predefined data and results for matching
+            var predefinedData1 = [
+                { number: 1, result: "领导, 创造, 独立" },
+                { number: 2, result: "沟通, 温和, 耐心"  },
+                { number: 3, result: "行动, 威信, 表达"  },
+                { number: 4, result: "规划, 知识, 稳定"  },
+                { number: 5, result: "方向, 幽默, 冒险"  },
+                { number: 6, result: "财富, 忠诚, 远见" },
+                { number: 7, result: "人缘, 直觉"  },
+                { number: 8, result: "责任, 魅力, 面善"  },
+                { number: 9, result: "机会, 认同, 成功"  }
+            ];
+            // Define predefined data and results for matching
+            var predefinedData2 = [
+                { number: 1, result: "自我, 傲慢" },
+                { number: 2, result: "依赖, 犹豫不决" },
+                { number: 3, result: "任性, 夸张" },
+                { number: 4, result: "直觉, 教条" },
+                { number: 5, result: "固执, 猜疑" },
+                { number: 6, result: "挑剔, 浪费" },
+                { number: 7, result: "迟缓冷漠, 懒惰" },
+                { number: 8, result: "压力, 消极" },
+                { number: 9, result: "贪心, 无原则" },
+            ];
+            // Define predefined data and results for matching
+            var predefinedData3 = [
+                { number: 1, result: "不被重视, 做配角" },
+                { number: 2, result: "独处, 无依靠" },
+                { number: 3, result: "被限制，无聊" },
+                { number: 4, result: "变化, 不稳定" },
+                { number: 5, result: "承担责任" },
+                { number: 6, result: "承诺兑现" },
+                { number: 7, result: "被欺骗" },
+                { number: 8, result: "被怜悯，平庸" },
+                { number: 9, result: "希望落空" },
+            ];
+             // Define predefined data and results for matching Subconcious 
+             var predefinedData4 = [
+                { number: 1, result: "内在的创造力驱使他成为一个团体中的领袖人物，制造气氛，带动大家。" },
+                { number: 2, result: "有合作与反抗的矛盾性，使他们具有外刚内柔的特质。感性及愿意付出。" },
+                { number: 3, result: "情绪敏感，表达直接，率直，行事迅速，性情偏于急躁。缺乏耐心与恒心。" },
+                { number: 4, result: "聪明而且善于学习新的知识，但是他们往往不想让人知道他们在努力学习。" },
+                { number: 5, result: "有人生方向的5号,喜欢按照自己的原则来做事,往往给人感觉固执已见。" },
+                { number: 6, result: "富有创意，他们的头脑中总是有很多的计划和从根本上的解决问题的方案" },
+                { number: 7, result: "心智敏锐，信任开放，富有正义感的他们，会把朋友放在第一位。" },
+                { number: 8, result: "想法多，期望得到很多，有关财富，权利及尊重，也会去努力争取。" },
+                { number: 9, result: "有更高层次的直觉智慧，机遇，但往往会比较贪心，想要永无止境的往上爬。" },
+            ];
+             // Define predefined data and results for matching Inner Path
+             var predefinedData5 = [
+                { number: 1, result: "自信且有创造力，创造是他们的特质。他们会带领人，不愿意听从别人的意见和接受他人的方法，不喜欢死板，教条主义。" },
+                { number: 2, result: "合作与平衡, 性情温和并赋予合作精神1但如果不能掌控好尺度, 会走向反面而呈现退缩的状态, 这种矛盾会是使他们看起来外表刚强则内心软弱。" },
+                { number: 3, result: "积极表达与否取决于他们敏感的情绪，表面平和内心急躁，冷漠心情的背后，更多的是一颗热真枕并渴望帮助别人的心。" },
+                { number: 4, result: "需要建立稳定及安全感，精策划，有时会因为分析过度困惑而停下来。表面看乐观，其实内心比较容易低落或负面。" },
+                { number: 5, result: "他前期配合常被人误解以为他是好说话的人，但是一旦他觉得没有必要在配合的时候，就会转身离开，因为他的内心其实比较固执，有自己的个性。" },
+                { number: 6, result: "完美主义者，对人对己要求很高，不断自我改进，受理想主义牵引，对财富敏感，同时有很对创意。" },
+                { number: 7, result: "信任他人并愿意与人分享，充满野心与梦想，他们心地善良，乐于助人，但是比较情绪化。不愿意正面承认对钱的欲望，实际内心是渴望的。" },
+                { number: 8, result: "可以承担很多压力，也有能力追求他们向往的财富，常会在精神和物质。控制与服从。被动与野心之间的矛盾，挣扎，透过丰富的物质层面会驱使他们最终走向与完成自己的使命。" },
+                { number: 9, result: "具有正直的品德与超人的智慧，有很多新奇的想法并善于整合，他们是极富创意的天然领袖，他们极具魅力的天赋轻易感召与领导他人。" },
+            ];
+             // Define predefined data and results for matching circ
+             var predefinedData6 = [
+                { number: 1, result: "No data" },
+                { number: 2, result: "No data" },
+                { number: 3, result: "理想主义者 【外心数字为3的分析】这类型的人有许多稀奇古怪的主意。理想主义者讲感觉。只要感觉对了,什么都好谈,在爱情世界里理想主义者享受爱情，不在乎天长地久，只有曾经拥有。然而，他们缺乏实际行动及执行能力，他们偏向于沟通与构思、出主意，喜欢指派他人代为执行。过于愤世嫉俗的性格成为他们合理化的理由，导致他们停滞不前。理想主义者享受第一，喜欢品牌，容易给他人一种炫耀的感觉。通常理想主义者外表都给人感觉很富有，事实上可能没有你想象的那样富裕。作为金钱的投资，他们偏向营造门面，以获取现在的最大利益化，所以不着急在创业期间购置重资产，反而会做多项其他投资。在爱情世界里，他们渴望惊喜，追求浪漫，对如何过节相对讲究，你无法满足他的感觉，后面的日子你可想而知的闹腾。裸婚对他们来说是对爱情忠贞的表达方式之一。" },
+                { number: 4, result: "No data" },
+                { number: 5, result: "No data" },
+                { number: 6, result: "务实主义者【外心数字为6的分析】他们为人较脚踏实地, 不做无谓的空想。一旦构思妥当，他们会全力以赴，用心去实践。改善身边人的生活品质，是他们的内在驱动力。他们拥有很强的自信心及充满闯劲。非常专注于改进和提升自己的能力以达成梦想，所以他们对于学习工具型的知识比较感兴趣，这会缩短他们的创富旅程。在创富的路上，他们觉得好员工难寻，主要原因是他们过于操心，不敢大胆放手，尤其是对于成本与流程抓的过于严格，造成员工处处需要请示他们，导致延误进度，所以建议务实主义的老板要做财务预算和员工工作手册。在投资方面，他们都要求现成回馈在爱情世界里，他们需要面包多过爱情，相信爱情不能饮水饱，只要钱到位了，感情的事就没有多大的事了。" },
+                { number: 7, result: "No data" },
+                { number: 8, result: "No data" },
+                { number: 9, result: "远见主义者【外心数字为9的分析】即使该梦想在别人眼中是不切实际的, 他们仍然敢于追寻。一般他们会构造宏伟的理想，这些理想都是改变人类生活方式为前提的，超前的理念容易吸引一群人跟随他拼搏。懂得善用员工与团队协作完成工作与任务是他们的本能。他们一般忙于开拓新的市场，愿意走进各种社交圈子，易广结善缘。因此，他们拥有更广大的资源关系网。他们懂得享受生活，在理想与物质之间可以取得很好的平衡，他们往往生活的赢家。在投资方面，他们会全盘考虑成本与未来的发展空间，买一些偏远的厂房、土地，有利于后续的扩张发展，往往这些超前的投资都有机会获得更大升值空间，在未来有更大的回报。在爱情里远见者追求面包与爱情都要，他们属于是年轻的时候忙于实现自己的梦想，无暇体验爱情的点滴，一般都是琐碎的人生活事宜。退休后才更愿意享受与伴侣的人生活，可能带着她环游世界去。" },
+            ];
+
+            // Define predefined data and results for matching
+            var predefinedDataVid = [
+                { number: 1, result: "http://xhslink.com/wM9gfw" },
+                { number: 2, result: "http://xhslink.com/TIehfw" },
+                { number: 3, result: "http://xhslink.com/Jighfw" },
+                { number: 4, result: "http://xhslink.com/ZAhhfw" },
+                { number: 5, result: "https://www.xiaohongshu.com/explore/6535ea53000000001e02f365" },
+                { number: 6, result: "https://www.xiaohongshu.com/explore/6535e9e5000000001f00672d" },
+                { number: 7, result: "https://www.xiaohongshu.com/explore/653737ce000000001d01743c" },
+                { number: 8, result: "https://www.xiaohongshu.com/explore/65387b5a000000001e02d21e" },
+                { number: 9, result: "https://www.xiaohongshu.com/explore/6539e01e000000001e00c387" },
+            ];
+
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData0) {
+                if (data.number === lifePathNumber) {
+                    matchedResult0 = data.result;
+                    break;
+                }
+            }
+            var matchedResult = "No match found";
+            for (var data of predefinedData1) {
+                if (data.number === lifePathNumber) {
+                    matchedResult1 = data.result;
+                    break;
+                }
+            }
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData2) {
+                if (data.number === lifePathNumber) {
+                    matchedResult2 = data.result;
+                    break;
+                }
+            }
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData3) {
+                if (data.number === lifePathNumber) {
+                    matchedResult3 = data.result;
+                    break;
+                }
+            }
+             // Check for a match in the predefined data subconcious
+             var matchedResult = "No match found";
+            for (var data of predefinedData4) {
+                if (data.number === SubPath) {
+                    matchedResult4 = data.result;
+                    break;
+                }
+            }
+             // Check for a match in the predefined data innerpath
+             var matchedResult = "No match found";
+            for (var data of predefinedData5) {
+                if (data.number === InnerPath) {
+                    matchedResult5 = data.result;
+                    break;
+                }
+            }
+              // Check for a match in the predefined data circ
+              var matchedResult = "No match found";
+            for (var data of predefinedData6) {
+                if (data.number === CircPath) {
+                    matchedResult6 = data.result;
+                    break;
+                }
+            }
+            
+            // Display the result in the explain box for each group
+            document.getElementById("explain0box").innerText = `${matchedResult0}`;
+            document.getElementById("explain1box").innerText = `${matchedResult1}`;
+            document.getElementById("explain2box").innerText = `${matchedResult2}`;
+            document.getElementById("explain3box").innerText = `${matchedResult3}`;
+            document.getElementById("explain4box").innerText = `${matchedResult4}`;
+            document.getElementById("explain5box").innerText = `${matchedResult5}`;
+            document.getElementById("explain6box").innerText = `${matchedResult6}`;
+            document.getElementById("explain7box").innerText = `${matchedResult7}`;
+
+            document.getElementById("explain81box").innerText = `${matchedResult81}`;
+            document.getElementById("explain82box").innerText = `${matchedResult82}`;
+            document.getElementById("explain83box").innerText = `${matchedResult83}`;
+
+            document.getElementById("explain84box").innerText = `${matchedResult84}`;
+            document.getElementById("explain85box").innerText = `${matchedResult85}`;
+            document.getElementById("explain86box").innerText = `${matchedResult86}`;
+
+            document.getElementById("explain87box").innerText = `${matchedResult87}`;
+            document.getElementById("explain88box").innerText = `${matchedResult88}`;
+            document.getElementById("explain89box").innerText = `${matchedResult89}`;
+
+            document.getElementById("explain90box").innerText = `${matchedResult90}`;
+            document.getElementById("explain91box").innerText = `${matchedResult91}`;
+            document.getElementById("explain92box").innerText = `${matchedResult92}`;
+
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-containerlife");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (lifePathNumber === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container4");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (SubPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container5");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (InnerPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container6");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (CircPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+
+
+            // Display clickable links based on webUrls IJM
+            var linksElement = document.getElementById("link-container81");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (IJMcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container82");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (KLNcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container83");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (MNOcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container84");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (JMWcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container85");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (IMXcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container86");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (XWScombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container87");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (NOQcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container88");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (MOPcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container89");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (QPRcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container90");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (KNVcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container91");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (LNUcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container92");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (VUTcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            
+        }
+        
+        
+        function calculateLifePathNumber(number) {
+            // Reduce the number to a single digit by adding its digits
+            while (number > 9) {
+                number = number.toString().split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+            }
+            return number;
+        }
+        
+        function changeLanguage(language) {
+        // Implement your language change logic here
+        console.log('Language changed to ' + language);
+    }
+       
+    </script>
+</body>
+</html>
