@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <!-- Include flag-icon-css library for flags -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
@@ -10,258 +11,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css">
 
      <title>Numerology</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-            
-        }
-        .title-main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-        }
-        .title-main h1 {
-            background-color: whitesmoke;
-            border-radius: 5px;
-            padding: 20px;
-            width: 400px;
-            text-align: center;
-            
-        }
-        .wrapper-login {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-        }
-        .login-container {
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-            
-        }
-
-        .login-container h1 {
-            color: #333;
-            padding: 20px;
-        }
-
-        .login-form {
-            text-align: left;
-        }
-
-        .login-form label {
-            display: block;
-            margin: 10px 0;
-        }
-
-        .login-form input[type="text"],
-        .login-form input[type="password"] {
-            width: 90%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        .login-form button {
-            background: #0074D9;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 3px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .hidden-content {
-            display: none;
-        }
-        .datepicker {
-	    margin-top: 30px;
-	    }   
-        .myButton {
-        background-color:#4a5e71;
-        border-radius:5px;
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff;
-        font-size: 15px;
-        padding: 18px 25px;
-        }
-        .myButton:hover {
-        background-color:#394959;
-        }
-        .myButton:active {
-        position:relative;
-        top:1px;
-        }
-        .w-container{
-            display: flex;
-            justify-content: center;
-            max-width: 500px;
-            margin: auto;
-            flex-direction: column;
-        }
-        /* Pyramid Chart Styling */
-        .pyramid-chart {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .pyramid-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0px;
-        }
-	.pyramid-row2 {
-            display: flex;
-            justify-content: space-between;
-            margin-right: 50px;
-        }
-	.pyramid-row3 {
-            display: flex;
-            justify-content: space-between;
-            margin-left: auto;
-        }
-
-
-        .pyramid-box {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-            width: 50px;
-            background-color: #f0f0f0;
-        }
-
-        .pyramid-box.top {
-            background-color: #0080ff;
-            color: #fff;
-        }
-
-        /* Table Chart Styling */
-        .table-chart {
-            width: 95%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-
-        .table-chart th, .table-chart td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-
-        .table-chart th {
-            background-color: #0080ff;
-            color: white;
-        }
-
-        .table-chart2 {
-            width: 95%;
-            margin-top: -10px;
-            margin-bottom: -10px;
-            margin-left: auto;
-            margin-right: auto;
-            border-collapse: collapse;
-        }
-        .table-chart2 th, .table-chart2 td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-	/* Date Picker Styling */
-	*,
-	*:before,
-	*:after{
-    	padding: 0;
-    	margin: 0;
-    	box-sizing: border-box;
-	}
-	input[type="date"]{
-    	background-color: #0080ff;
-    	padding: 15px;
-    	font-family: "Roboto Mono",monospace;
-    	color: #ffffff;
-    	font-size: 18px;
-    	border: none;
-    	outline: none;
-    	border-radius: 5px;
-	}
-	::-webkit-calendar-picker-indicator{
-    	background-color: #ffffff;
-    	padding: 5px;
-    	cursor: pointer;
-    	border-radius: 3px;
-	}
-    .language-dropdown-container {
-            display: inline-block;
-            position: relative;
-            text-align: left; /* Align the text to the left */
-            margin-left: 220px;
-        }
-
-        .language-dropdown-button {
-            font-size: 16px;
-            padding: 12px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #ffffff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-        }
-
-        .language-dropdown-list {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            padding: 10px;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            display: none;
-            width: 150px;
-        }
-
-        .language-dropdown-list a {
-            display: block;
-            z-index: 2;
-            padding: 5px;
-            cursor: pointer;
-            text-decoration: none; 
-            color: #333;
-        }
-
-        .flag-icon {
-            margin-right: 5px;
-        }
-
-        /* Hover styles for better user experience */
-        .language-dropdown-button:hover,
-        .language-dropdown-list a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .language-dropdown-container:hover .language-dropdown-list {
-            display: block;
-        }
-        /* Override styles for screens with a minimum width of 769 pixels (PC view) */
-        @media only screen and (min-width: 769px) {
-            .language-dropdown-container {
-                margin-left: 350px; /* Adjusted margin for PC view */
-            }
-        }
-    </style>
+    
 </head>
 <body>
     <!-- Language Selector Dropdown -->
@@ -273,89 +23,94 @@
         <a href="numerology-en.html" onclick="changeLanguage('en')"><span class="flag-icon flag-icon-us"></span> English</a>
         <a href="numerology-zh.html" onclick="changeLanguage('zh')"><span class="flag-icon flag-icon-chn"></span> 中文</a>
         <a href="numerology-ms.html" onclick="changeLanguage('ms')"><span class="flag-icon flag-icon-mys"></span> Melayu</a>
-        <a href="#" onclick="changeLanguage('id')"><span class="flag-icon flag-icon-idn"></span> Indonesia</a>
-        <a href="#" onclick="changeLanguage('vi')"><span class="flag-icon flag-icon-vnm"></span> Tiếng Việt</a>
+        <a href="numerology-id.html" onclick="changeLanguage('id')"><span class="flag-icon flag-icon-idn"></span> Indonesia</a>
+        <a href="numerology-vi.html" onclick="changeLanguage('vi')"><span class="flag-icon flag-icon-vnm"></span> Tiếng Việt</a>
     </div>
 </div>
     <div class="title-main">
-    <h1 style="padding-top: 20px;">生命数字</h1>
-    </div> 
+        <h1 style="padding-top: 15px;">生命数字</h1>
+    </div>
     
-    <div class="datepicker">
-    <label for="dob">输入你的出生日期:</label><br><br>
-    <input type="date" id="dob">
-    <button onclick="calculateNumerology()" class="myButton">计算</button></div>
+        <div class="datepicker">
+            <label for="dob">输入你的出生日期:</label><br><br>
+            <div class="wrapper-dob">
+                <input type="date" id="dob">
+                <button onclick="calculateNumerology()" class="myButton">计算</button>
+            </div>
+        </div>
 
     <div class="w-container">
-        <!-- Pyramid Chart -->
-        <div class="pyramid-chart">
-            <div class="pyramid-row">
-                <div class="pyramid-box" id="QPBox">
-                    <!-- Display life path -->
-                </div>
-            </div>
-            <div class="pyramid-row">
-                <div class="pyramid-box" id="NOBox">
-                    <!-- Display day + month path -->
-                </div>
-                <div class="pyramid-box" id="MOBox">
-                    <!-- Display year path -->
-                </div>
-            </div>
-            <div class="pyramid-row">
-                <div class="pyramid-row2">
-                    <div class="pyramid-box" id="XWBox">
-                    <!-- Display day path -->
-                    </div>
-                    <div class="pyramid-box" id="IMBox">
-                    <!-- Display month path -->
-                    </div>
-                    <div class="pyramid-box" id="JMBox">
-                    <!-- Display year1 path -->
+        <div class="pyramid-bg">
+            <!-- Pyramid Chart -->
+            <div class="pyramid-chart">
+                <div class="pyramid-row">
+                    <div class="pyramid-box" id="QPBox">
+                        <!-- Display life path -->
                     </div>
                 </div>
-                <div class="pyramid-row3">
-                    <div class="pyramid-box" id="KNBox">
-                    <!-- Display day path -->
+                <div class="pyramid-row">
+                    <div class="pyramid-box" id="NOBox">
+                        <!-- Display day + month path -->
                     </div>
-                    <div class="pyramid-box" id="LNBox">
-                    <!-- Display month path -->
-                    </div>
-                    <div class="pyramid-box" id="VUBox">
-                    <!-- Display year1 path -->
+                    <div class="pyramid-box" id="MOBox">
+                        <!-- Display year path -->
                     </div>
                 </div>
-            </div>
-        <div class="pyramid-row">
-                <div class="pyramid-box top" id="lifePathBox">
-                    <!-- Display life path -->
+                <div class="pyramid-row">
+                    <div class="pyramid-row2">
+                        <div class="pyramid-box-left" id="XWBox">
+                            <!-- Display day path -->
+                        </div>
+                        <div class="pyramid-box-left" id="IMBox">
+                            <!-- Display month path -->
+                        </div>
+                        <div class="pyramid-box-left" id="JMBox">
+                            <!-- Display year1 path -->
+                        </div>
+                    </div>
+                    <div class="pyramid-row">
+                        <div class="pyramid-box top" id="lifePathBox">
+                            <!-- Display life path -->
+                        </div>
+                    </div>
+                    <div class="pyramid-row3">
+                        <div class="pyramid-box-right" id="KNBox">
+                            <!-- Display day path -->
+                        </div>
+                        <div class="pyramid-box-right" id="LNBox">
+                            <!-- Display month path -->
+                        </div>
+                        <div class="pyramid-box-right" id="VUBox">
+                            <!-- Display year1 path -->
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="pyramid-row">
-                <div class="pyramid-box" id="dayMonthPathBox">
-                    <!-- Display day + month path -->
-                </div>
-                <div class="pyramid-box" id="yearPathBox">
-                    <!-- Display year path -->
-                </div>
-            </div>
-            <div class="pyramid-row">
-                <div class="pyramid-box" id="dayPathBox">
-                    <!-- Display day path -->
-                </div>
-                <div class="pyramid-box" id="monthPathBox">
-                    <!-- Display month path -->
-                </div>
-                <div class="pyramid-box" id="year1PathBox">
-                    <!-- Display year1 path -->
-                </div>
-                <div class="pyramid-box" id="year2PathBox">
-                    <!-- Display year2 path -->
-                </div>
-            </div>
-            
         
+                <div class="pyramid-row">
+                    <div class="pyramid-box" id="dayMonthPathBox">
+                        <!-- Display day + month path -->
+                    </div>
+                    <div class="pyramid-box" id="yearPathBox">
+                        <!-- Display year path -->
+                    </div>
+                </div>
+                <div class="pyramid-row">
+                    <div class="pyramid-box" id="dayPathBox">
+                        <!-- Display day path -->
+                    </div>
+                    <div class="pyramid-box" id="monthPathBox">
+                        <!-- Display month path -->
+                    </div>
+                    <div class="pyramid-box" id="year1PathBox">
+                        <!-- Display year1 path -->
+                    </div>
+                    <div class="pyramid-box" id="year2PathBox">
+                        <!-- Display year2 path -->
+                    </div>
+                </div>
+        
+        
+            </div>
         </div>
     
         <!-- Table Chart -->
@@ -929,6 +684,7 @@
                 { number: 8, result: "责任, 魅力, 面善"  },
                 { number: 9, result: "机会, 认同, 成功"  }
             ];
+            
             // Define predefined data and results for matching
             var predefinedData2 = [
                 { number: 1, result: "自我, 傲慢" },
