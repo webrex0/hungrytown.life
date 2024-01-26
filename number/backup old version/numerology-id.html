@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Include flag-icon-css library for flags -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+     <link rel="stylesheet" href="css/flag-icon.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css">
+
+     <title>Numerologi</title>
+</head>
+<body>
+    <!-- Language Selector Dropdown -->
+<div class="language-dropdown-container">
+    <button class="language-dropdown-button">
+        <span class="flag-icon flag-icon-idn"></span> Indonesia
+    </button>
+    <div class="language-dropdown-list">
+        <a href="numerology-en.html" onclick="changeLanguage('en')"><span class="flag-icon flag-icon-us"></span> English</a>
+        <a href="numerology-zh.html" onclick="changeLanguage('zh')"><span class="flag-icon flag-icon-chn"></span> 中文</a>
+        <a href="numerology-ms.html" onclick="changeLanguage('ms')"><span class="flag-icon flag-icon-mys"></span> Melayu</a>
+        <a href="numerology-id.html" onclick="changeLanguage('id')"><span class="flag-icon flag-icon-idn"></span> Indonesia</a>
+        <a href="numerology-vi.html" onclick="changeLanguage('vi')"><span class="flag-icon flag-icon-vnm"></span> Tiếng Việt</a>
+        <a href="numerology-th.html" onclick="changeLanguage('th')"><span class="flag-icon flag-icon-tha"></span> ภาษาไทย</a>
+    </div>
+</div>
+<div class="title-main">
+    <h1 style="padding-top: 15px;">Numerologi</h1>
+</div>
+
+<div class="datepicker">
+    <label for="dob">Masukkan tanggal lahir Anda:</label><br><br>
+    <div class="wrapper-dob">
+        <input type="date" id="dob">
+        <button onclick="calculateNumerology()" class="myButton">Hitung</button>
+    </div>
+</div>
+
+<div class="w-container">
+    <div class="pyramid-bg">
+        <!-- Pyramid Chart -->
+        <div class="pyramid-chart">
+            <div class="pyramid-row">
+                <div class="pyramid-box" id="QPBox">
+                    <!-- Display life path -->
+                </div>
+            </div>
+            <div class="pyramid-row">
+                <div class="pyramid-box" id="NOBox">
+                    <!-- Display day + month path -->
+                </div>
+                <div class="pyramid-box" id="MOBox">
+                    <!-- Display year path -->
+                </div>
+            </div>
+            <div class="pyramid-row">
+                <div class="pyramid-row2">
+                    <div class="pyramid-box-left" id="XWBox">
+                        <!-- Display day path -->
+                    </div>
+                    <div class="pyramid-box-left" id="IMBox">
+                        <!-- Display month path -->
+                    </div>
+                    <div class="pyramid-box-left" id="JMBox">
+                        <!-- Display year1 path -->
+                    </div>
+                </div>
+                <div class="pyramid-row">
+                    <div class="pyramid-box top" id="lifePathBox">
+                        <!-- Display life path -->
+                    </div>
+                </div>
+                <div class="pyramid-row3">
+                    <div class="pyramid-box-right" id="KNBox">
+                        <!-- Display day path -->
+                    </div>
+                    <div class="pyramid-box-right" id="LNBox">
+                        <!-- Display month path -->
+                    </div>
+                    <div class="pyramid-box-right" id="VUBox">
+                        <!-- Display year1 path -->
+                    </div>
+                </div>
+            </div>
+    
+            <div class="pyramid-row">
+                <div class="pyramid-box" id="dayMonthPathBox">
+                    <!-- Display day + month path -->
+                </div>
+                <div class="pyramid-box" id="yearPathBox">
+                    <!-- Display year path -->
+                </div>
+            </div>
+            <div class="pyramid-row">
+                <div class="pyramid-box" id="dayPathBox">
+                    <!-- Display day path -->
+                </div>
+                <div class="pyramid-box" id="monthPathBox">
+                    <!-- Display month path -->
+                </div>
+                <div class="pyramid-box" id="year1PathBox">
+                    <!-- Display year1 path -->
+                </div>
+                <div class="pyramid-box" id="year2PathBox">
+                    <!-- Display year2 path -->
+                </div>
+            </div>
+    
+    
+        </div>
+    </div>
+
+    <!-- Table Chart -->
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <th>Analisis Numerik</th>
+            <th>Hasil</th>
+            <th >Video</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Protagonis</td>
+            <td id="lifetable">-</td>
+            <td id="link-containerlife" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain0box" style="color:purple; ">-</td>
+        </tr>
+    </table>
+    <table class="table-chart2" id="resultTable">
+        <tr>
+            <td style="color:green; text-align: left;">Sisi Positif</td>
+            <td id="explain1box" style="color:green; text-align: left;">-</td>
+        </tr>
+        <tr>
+            <td style="color:red; text-align: left;">Sisi Negatif</td>
+            <td id="explain2box" style="color:red; text-align: left;">-</td>
+        </tr>
+        <tr>
+            <td style="color:blue; text-align: left;">Kekhawatiran</td>
+            <td id="explain3box" style="color:blue; text-align: left;">-</td>
+        </tr>
+    </table>
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <td style="text-align: left;">Angka Subyektif</td>
+            <td id="subtable">-</td>
+            <td id="link-container4" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain4box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Angka Internal</td>
+            <td id="innertable">-</td>
+            <td id="link-container5" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain5box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Angka Pusat</td>
+            <td id="circtable">-</td>
+            <td id="link-container6" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain6box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Analisis Tiga Teori Utama</td>
+            <td id="3majortable">-</td>
+            <td id="link-container7" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain7box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+    </table>
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <th colspan="2">12 Kelompok Kata Sandi Terkait</th>
+            <th >Video</th>
+        </tr>
+        <tr>
+            <td colspan="2" id="IJMtable">-</td>
+            <td id="link-container81" >-</td>
+            
+        </tr>
+        <tr>
+            <td colspan="3" id="explain81box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="KLNtable">-</td>
+            <td id="link-container82" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain82box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="MNOtable">-</td>
+            <td id="link-container83" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain83box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+        <tr>
+            <td colspan="2" id="JMWtable">-</td>
+            <td id="link-container84" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain84box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="IMXtable">-</td>
+            <td id="link-container85" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain85box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2"id="XWStable">-</td>
+            <td id="link-container86" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain86box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+            <td colspan="2" id="NOQtable">-</td>
+            <td id="link-container87" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain87box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="MOPtable">-</td>
+            <td id="link-container88" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain88box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="QPRtable">-</td>
+            <td id="link-container89" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain89box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+            <td colspan="2" id="KNVtable">-</td>
+            <td id="link-container90" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain90box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2"id="LNUtable">-</td>
+            <td id="link-container91" >-</td>
+        </tr>
+        
+        <tr>
+            <td colspan="3" id="explain91box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="VUTtable">-</td>
+            <td id="link-container92" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain92box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+    </table>
+</div>
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+        // Detect the user's language
+        var userLanguage = navigator.language || navigator.userLanguage;
+
+        // Set the language for the date input
+        document.getElementById("dob").lang = userLanguage;
+        });
+        // Define predefined web URLs for each 81group
+        var webUrls = [
+            { number: '1-1-2', result: 'https://www.xiaohongshu.com/explore/6541d846000000001d0164e3' },
+
+            { number: '1-2-3', result: '#' },
+            { number: '2-1-3', result: '#' },
+
+            { number: '1-3-4', result: 'https://www.xiaohongshu.com/explore/6543303c000000001f004a2f' },
+            { number: '3-1-4', result: 'https://www.xiaohongshu.com/explore/6543303c000000001f004a2f' },
+
+            { number: '1-4-5', result: 'https://www.xiaohongshu.com/explore/6544b842000000001f03c980' },
+            { number: '4-1-5', result: 'https://www.xiaohongshu.com/explore/6544b842000000001f03c980' },
+
+            { number: '1-5-6', result: 'https://www.xiaohongshu.com/explore/6545c091000000001e02aff8' },
+            { number: '5-1-6', result: 'https://www.xiaohongshu.com/explore/6545c091000000001e02aff8' },
+
+            { number: '1-6-7', result: 'https://www.xiaohongshu.com/explore/6547003b000000001e020e3f' },
+            { number: '6-1-7', result: 'https://www.xiaohongshu.com/explore/6547003b000000001e020e3f' },
+
+            { number: '1-7-8', result: 'https://www.xiaohongshu.com/explore/65485ceb000000001f03bda6' },
+            { number: '7-1-8', result: 'https://www.xiaohongshu.com/explore/65485ceb000000001f03bda6' },
+
+            { number: '1-8-9', result: '#' },
+
+            { number: '8-1-9', result: '#' },
+            { number: '1-9-1', result: '#' },
+
+            { number: '9-1-1', result: '#' },
+            { number: '2-2-4', result: '#' },
+            { number: '2-3-5', result: '#' },
+
+            { number: '3-2-5', result: '#' },
+            { number: '2-4-6', result: '#' },
+
+            { number: '4-2-6', result: '#' },
+            { number: '2-5-7', result: '#' },
+
+            { number: '5-2-7', result: '#' },
+            { number: '2-6-8', result: '#' },
+            { number: '6-2-8', result: '#' },
+
+            { number: '2-7-9', result: 'https://www.xiaohongshu.com/explore/6534b550000000001e00fe14' },
+            { number: '7-2-9', result: 'https://www.xiaohongshu.com/explore/6534b550000000001e00fe14' },
+
+            { number: '2-8-1', result: '#' },
+            { number: '8-2-1', result: '#' },
+            { number: '2-9-2', result: '#' },
+
+            { number: '9-2-2', result: '#' },
+
+            { number: '3-3-6', result: '#' },
+            { number: '3-4-7', result: '#' },
+
+            { number: '4-3-7', result: '#' },
+            { number: '3-5-8', result: '#' },
+
+            { number: '5-3-8', result: '#' },
+            { number: '3-6-9', result: '#' },
+
+            { number: '6-3-9', result: '#' },
+            { number: '3-7-1', result: '#' },
+            { number: '7-3-1', result: '#' },
+
+            { number: '3-8-2', result: 'https://www.xiaohongshu.com/explore/654700b3000000001f03efa8' },
+            { number: '8-3-2', result: 'https://www.xiaohongshu.com/explore/654700b3000000001f03efa8' },
+
+            { number: '3-9-3', result: '#' },
+            { number: '9-3-3', result: '#' },
+
+            { number: '4-4-8', result: '#' },
+            { number: '4-5-9', result: '#' },
+            { number: '5-4-9', result: '#' },
+
+            { number: '4-6-1', result: '#' },
+            { number: '6-4-1', result: '#' },
+
+            { number: '4-7-2', result: '#' },
+            { number: '7-4-2', result: '#' },
+            { number: '4-8-3', result: '#' },
+
+            { number: '8-4-3', result: '#' },
+            { number: '4-9-4', result: '#' },
+
+            { number: '9-4-4', result: '#' },
+            { number: '5-5-1', result: '#' },
+            { number: '5-6-2', result: '#' },
+
+            { number: '6-5-2', result: '#' },
+            { number: '5-7-3', result: '#' },
+            { number: '7-5-3', result: '#' },
+            { number: '5-8-4', result: '#' },
+
+            { number: '8-5-4', result: '#' },
+            { number: '5-9-5', result: '#' },
+            { number: '9-5-5', result: '#' },
+
+            { number: '6-6-3', result: '#' },
+            { number: '6-7-4', result: '#' },
+            { number: '7-6-4', result: '#' },
+
+            { number: '6-8-5', result: '#' },
+            { number: '8-6-5', result: '#' },
+
+            { number: '6-9-6', result: '#' },
+            { number: '9-6-6', result: '#' },
+
+            { number: '7-7-5', result: '#' },
+            { number: '7-8-6', result: '#' },
+
+            { number: '8-7-6', result: '#' },
+            { number: '7-9-7', result: '#' },
+            { number: '9-7-7', result: '#' },
+
+            { number: '8-8-7', result: 'https://www.xiaohongshu.com/explore/653dde48000000001f03eb01' },
+
+            { number: '8-9-8', result: '#' },
+            { number: '9-8-8', result: '#' },
+
+            { number: '9-9-9', result: '#' },
+
+            
+        ];
+        
+        function calculateNumerology() {
+            // Get the date of birth from the input field
+            var dobInput = document.getElementById("dob");
+            var dob = new Date(dobInput.value);
+
+            // Calculate numerology values
+            var day = dob.getDate();
+            var month = dob.getMonth() + 1; // Months are zero-based
+            var year = dob.getFullYear();
+
+            var dayPathNumber = calculateLifePathNumber(day);
+            var monthPathNumber = calculateLifePathNumber(month);
+            var year1PathNumber = calculateLifePathNumber(Math.floor(year / 100)); // First two digits
+            var year2PathNumber = calculateLifePathNumber(year % 100); // Last two digits
+            var year2PathNumber = (year % 100 === 0) ? 5 : calculateLifePathNumber(year % 100);
+
+            var dayMonthPath = calculateLifePathNumber(dayPathNumber + monthPathNumber);
+            var yearPath = calculateLifePathNumber(year1PathNumber + year2PathNumber);
+            var lifePathNumber = calculateLifePathNumber(dayPathNumber + monthPathNumber + year1PathNumber + year2PathNumber);
+	        var NOPath = calculateLifePathNumber(yearPath + lifePathNumber);
+  	        var MOPath = calculateLifePathNumber(dayMonthPath + lifePathNumber);
+	        var QPPath = calculateLifePathNumber(NOPath + MOPath);
+	        var IMPath = calculateLifePathNumber(dayPathNumber + dayMonthPath);
+            var JMPath = calculateLifePathNumber(monthPathNumber + dayMonthPath);
+	        var XWPath = calculateLifePathNumber(IMPath + JMPath);
+	        var KNPath = calculateLifePathNumber(year1PathNumber + yearPath);
+            var LNPath = calculateLifePathNumber(year2PathNumber + yearPath);
+            var VUPath = calculateLifePathNumber(KNPath + LNPath);
+
+	        var SubPath = calculateLifePathNumber(lifePathNumber + dayPathNumber + year2PathNumber);
+  	        var InnerPath = calculateLifePathNumber(lifePathNumber + dayMonthPath + yearPath);
+	        var CircPath = calculateLifePathNumber(XWPath + QPPath + VUPath);
+
+            // Combine the three path numbers into a single string for matching
+            var majorcombination = `${XWPath}-${QPPath}-${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedDataMajor = {
+                "3-6-3": "Muda bagi mereka adalah suatu pengalaman, atau mungkin karena lingkungan keluarga yang memungkinkan mereka menikmati hidup. Ketika mencapai usia pertengahan, mereka memiliki peluang untuk berkembang ke tingkat yang lebih tinggi. Namun, karena masa muda mereka penuh dengan kesulitan, mereka enggan untuk mempekerjakan karyawan, dan kemungkinan pengembangan pada usia pertengahan dapat terhambat. Metode besar akan membawa mereka ke kekayaan yang diimpikan. Meskipun demikian, ketika mencapai usia tua, mereka menikmati hidup dengan lebih baik. Oleh karena itu, disarankan untuk mempekerjakan lebih banyak karyawan, sehingga pada usia tua nanti, mereka tidak perlu bekerja keras seperti saat muda, dan dapat menikmati kehidupan dengan lebih baik.",
+                "6-6-9": "Dalam hidup mereka, baik pada masa muda maupun di pertengahan usia, mereka cenderung meraih hasil dan menghasilkan uang dengan relatif mudah. Berada di posisi tengah dalam lingkungan mereka, ini adalah suatu keadaan di mana mereka tidak kurang baik dibandingkan orang lain, namun memiliki lebih dari yang cukup, sehingga mudah muncul perasaan ingin lebih baik dari orang lain. Disarankan agar mereka berhati-hati dalam hal keuangan, karena jika tidak, mereka bisa menghabiskan terlalu banyak dan bahkan berisiko tidak mencukupi. Karena keadaan terbaik dalam hidup mereka umumnya terjadi pada usia tua, maka disarankan bagi orang-orang seperti ini untuk mengumpulkan sejumlah aset selama usia muda, menginvestasikan dalam properti seperti rumah atau hak kekayaan intelektual, yang dapat diuangkan di masa depan, untuk mengumpulkan kekayaan pada masa tua.",
+                "9-6-6": "Orang-orang seperti ini memiliki peluang untuk meraih kejayaan sejak usia muda, mereka cenderung lebih mudah meraih prestasi yang lebih baik daripada teman sebaya mereka, dan biasanya, selama hidup mereka, mereka tidak akan mengalami penurunan prestasi yang signifikan. Perlu diingat, meskipun mereka bisa dengan mudah menghasilkan uang saat muda, di kemudian hari mereka mungkin tidak terlalu berusaha keras. Namun sebenarnya, mereka memiliki potensi untuk meraih lebih banyak lagi. Oleh karena itu, disarankan agar mereka tidak terlalu puas dengan situasi saat ini, dan tidak hidup dalam emosi. Gunakan pengalaman dan perasaan masa lalu untuk tidak sembarangan mengkritik orang lain, karena di masa depan mungkin akan ada peluang dan kekayaan yang lebih baik dan lebih besar.",
+                "3-3-9": "Orang-orang seperti ini adalah contoh klasik dari perjalanan pahit manis, namun saat muda dibandingkan dengan orang di sekitarnya, mereka selalu merasa bahwa orang lain lebih mudah menciptakan kekayaan, dan mereka merasa perlu bekerja lebih keras. Oleh karena itu, penting untuk belajar untuk gigih, karena fase terbaik dalam hidup mereka berada pada masa tua. Jadi, ketika masih muda, penting untuk mengumpulkan keterampilan dan membangun berbagai industri, sehingga dapat diuangkan ketika mencapai masa tua. Orang-orang seperti ini juga mungkin mendapatkan kehidupan yang lebih baik pada masa tua karena dukungan dari anak-anak mereka.",
+                "6-3-6": "Orang-orang seperti ini cenderung lebih mudah menghasilkan uang saat masih muda, namun di pertengahan usia, mereka menghadapi lebih banyak tantangan. Tantangan ini lebih banyak berasal dari rasa malas diri sendiri, karena setelah menghasilkan uang saat muda, saat mencapai pertengahan usia, mereka mungkin lebih memilih untuk menikmati hidup tanpa terlalu banyak usaha. Namun, mereka kemudian menyadari bahwa pengeluaran uang terjadi dengan lebih cepat daripada penghasilan, dan saat mencapai usia tua, mungkin muncul keinginan untuk memulai bisnis atau melakukan investasi lagi. Pada saat ini, mereka menyadari bahwa meskipun memiliki pengalaman, tetapi stamina dan energi mereka tidak sebanding dengan generasi muda. Oleh karena itu, disarankan bagi orang-orang seperti ini, pada pertengahan usia, untuk bergabung dengan lingkaran yang lebih berpengaruh dan belajar untuk memanfaatkan kekuatan orang lain.",
+                "9-3-3": "Orang-orang seperti ini pada masa muda cenderung lebih mudah menghasilkan uang dan telah meraih kejayaan. Namun, saat mencapai usia pertengahan, mereka perlu mengubah gaya hidup dan mencari cara baru untuk menghasilkan uang. Bergabung dengan lingkungan yang lebih tinggi tingkatnya juga diperlukan agar mereka dapat terus berkembang. Oleh karena itu, sebelum mencapai usia 40 tahun, mereka perlu berusaha keras agar tidak mengalami penurunan prestasi saat mencapai usia pertengahan. Sementara itu, mereka juga perlu meningkatkan nilai diri dan keterampilan, karena jika mereka memiliki kemampuan, mereka dapat memimpin tim mereka maju. Saran untuk orang-orang seperti ini adalah untuk mengumpulkan uang saat masih muda, karena masa muda seringkali sangat menuntut, dan ketika mencapai usia tua, mereka dapat menikmati hidup dengan lebih baik.",
+                "3-9-6": "Orang-orang seperti ini pada masa muda cenderung membutuhkan pengalaman dan akan mengalami lompatan yang signifikan saat mencapai usia pertengahan, dengan hasil yang besar. Masa muda adalah waktu yang paling sulit bagi mereka, tetapi begitu melewati periode ini, mereka akan terus terkait dengan satu kata, investasi. Mereka akan terus melakukan investasi atau terlibat dalam berbagai usaha sepanjang hidup mereka hingga tua.",
+                "6-9-3": "Orang-orang seperti ini akan memiliki masa muda yang baik, terutama saat mencapai usia pertengahan di mana mereka dapat meraih prestasi yang sangat baik. Namun, karena seringkali memiliki wawasan yang jauh ke depan, investasi yang mereka lakukan mungkin tidak memberikan pengembalian secepat yang mereka inginkan. Oleh karena itu, seringkali pada masa tua, aliran kas di sekitar mereka tidak begitu melimpah, karena uang mereka banyak diinvestasikan dalam aset berat atau dipegang oleh anak dan cucu.",
+                "9-9-9": "Orang-orang seperti ini sepanjang hidup memiliki banyak kesempatan, tetapi seringkali karena memiliki banyak peluang, mereka tidak tahu bagaimana menghargainya. Oleh karena itu, keberhasilan orang semacam ini tergantung pada sikap mereka terhadap kesempatan yang diberikan kepada mereka. Selain itu, mereka cenderung memiliki kecenderungan tertentu terhadap barang-barang bermerk, jadi disarankan agar mereka berinvestasi dalam industri yang dapat mempertahankan nilai dan dapat diuangkan. Jika tidak, mereka mungkin akan memiliki banyak kesulitan di masa depan."
+            };
+
+            // Check for a match in the predefined data
+            var matchedResult7 = predefinedDataMajor[majorcombination] || "No match found";
+
+            // Combine the three path numbers into a single string for matching 81group
+            var IJMcombination = `${dayPathNumber}-${monthPathNumber}-${dayMonthPath}`;
+            var KLNcombination = `${year1PathNumber}-${year2PathNumber}-${yearPath}`;
+            var MNOcombination = `${dayMonthPath}-${yearPath}-${lifePathNumber}`;
+
+            var JMWcombination = `${monthPathNumber}-${dayMonthPath}-${JMPath}`;
+            var IMXcombination = `${dayPathNumber}-${dayMonthPath}-${IMPath}`;
+            var XWScombination = `${IMPath}-${JMPath}-${XWPath}`;
+
+            var NOQcombination = `${yearPath}-${lifePathNumber}-${NOPath}`;
+            var MOPcombination = `${dayMonthPath}-${lifePathNumber}-${MOPath}`;
+            var QPRcombination = `${NOPath}-${MOPath}-${QPPath}`;
+
+            var KNVcombination = `${year1PathNumber}-${yearPath}-${KNPath}`;
+            var LNUcombination = `${year2PathNumber}-${yearPath}-${LNPath}`;
+            var VUTcombination = `${KNPath}-${LNPath}-${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedData81 = {
+                "1-1-2": "Kemampuan mandiri yang kuat, baik dalam pelaksanaan maupun manajemen, tetapi memiliki pertentangan internal. Untuk kata sandi ini, disarankan untuk menjadi lebih fleksibel dan hindari melakukan terlalu banyak hal yang tidak dihargai. Ingatlah untuk tidak mengorbankan diri demi orang lain! Kata sandi untuk mengatasi perpisahan adalah dengan memperhatikan pendapat orang lain.",
+
+                "1-2-3": "Memiliki pendapat yang tegas dan tujuan yang jelas. Berbicara dengan tajam dan langsung tanpa menahan perasaan, memberikan kesan yang tajam dalam percakapan. Menampilkan aura selebriti, memiliki nomor seperti seorang pengajar atau pembawa acara. Sensitif terhadap musik, memperhatikan penampilan dan citra pribadi dengan penuh perasaan. ",
+                "2-1-3": "Menampilkan aura selebriti, memiliki nomor seperti seorang pengajar atau pembawa acara. Sensitif terhadap musik, memperhatikan penampilan dan citra pribadi dengan penuh perasaan. Meskipun memiliki pendapat dan tujuan yang jelas, tetapi berbicara dengan gaya lebih lembut dan kata-kata manis. ",
+
+                "1-3-4": "Kemampuan inovasi yang cukup tinggi. Semakin banyak ditegur, semakin tidak bersemangat; orang seperti ini perlu dihargai. Sulit menerima ketidakadilan, dan jika menikah dengan orang seperti ini, Anda mungkin merasakan kekurangan ini sebagai masalah pribadi Anda. Saat kecil, dia sering menangis saat menghadapi masalah, sehingga tingkat penerimaan dirinya rendah. Orang dengan nomor seperti ini hanya dapat berkembang dalam lingkungan yang positif. Mereka butuh perhatian, dan kehadiran positif sangat diperlukan. Pekerja keras dan dapat diandalkan, tetapi sulit menanggung ketidakadilan. Dia menyukai perasaan didukung dan memerlukan rasa aman. Orang seperti ini sering merasa kekurangan rasa aman.", 
+                "3-1-4": "Semakin banyak ditegur, semakin tidak bersemangat; orang seperti ini perlu dihargai. Sulit menerima ketidakadilan, dan jika menikah dengan orang seperti ini, Anda mungkin merasakan kekurangan ini sebagai masalah pribadi Anda. Saat kecil, dia sering menangis saat menghadapi masalah, sehingga tingkat penerimaan dirinya rendah. Orang dengan nomor seperti ini hanya dapat berkembang dalam lingkungan yang positif. Mereka butuh perhatian, dan kehadiran positif sangat diperlukan. Pekerja keras dan dapat diandalkan, tetapi sulit menanggung ketidakadilan. Dia menyukai perasaan didukung dan memerlukan rasa aman. Orang seperti ini sering merasa kekurangan rasa aman. Kemampuan meniru yang cukup kuat.",
+                
+                "1-4-5": "Mengalami masalah kepercayaan diri, terutama kurang keyakinan. Orang yang kurang percaya diri cenderung mengerjakan sesuatu dari awal hingga akhir. Tidak agresif dalam persaingan, cenderung konservatif, dan kurang memiliki keberanian. Tidak suka berada sendirian. Cenderung menyerah ketika mendekati kesuksesan. Kesulitan dalam menyelesaikan tugas saat menghadapi hambatan. Membutuhkan dukungan dari seseorang di belakangnya untuk tetap semangat.",
+                "4-1-5": "Cenderung menyerah ketika mendekati kesuksesan. Kesulitan dalam menyelesaikan tugas saat menghadapi hambatan. Membutuhkan dukungan dari seseorang di belakangnya untuk tetap semangat.Mungkin kadang-kadang ingin kebebasan, tetapi juga takut kehilangan rasa aman. Semakin mendambakan kedekatan, semakin khawatir kehilangan kebebasan. Cocok untuk menjadi figur politik atau pemimpin.",
+                
+                "1-5-6": "Jika hal itu tidak berhubungan denganmu, mungkin tidak akan terlalu menarik. Untuk menghasilkan uang, seseorang perlu menjelajah ke berbagai tempat! Cobalah untuk menjelajah lebih banyak! Dengan berkelana, kamu dapat menghasilkan uang. Jangan hanya tinggal di rumah atau kantor. Mungkin memiliki sikap yang lebih dominan, cenderung ke arah maskulinitas. Merasa pengalaman atau pengetahuanmu memungkinkanmu memberikan saran kepada orang lain,dan jika saranmu tidak diambil, mungkin akan bersikap pasif. ",
+                "5-1-6": "Mungkin memiliki sikap yang lebih dominan, cenderung ke arah maskulinitas. Merasa pengalaman atau pengetahuanmu memungkinkanmu memberikan saran kepada orang lain,dan jika saranmu tidak diambil, mungkin akan bersikap pasif. Menempatkan perasaan sebagai sesuatu yang penting, jika menemukan perasaan yang tepat, bersedia menyelesaikan tugas dengan tekad yang kuat.",
+                
+                "1-6-7": "Sangat ramah dan suka menampung, tapi pada dasarnya masih sangat realistis. Seorang individu menghasilkan banyak uang, namun menghabiskannya untuk banyak orang, sangat dermawan, senang membayar tagihan untuk menjaga citra diri. Memiliki kata-kata yang membawa energi positif, apa yang dikatakan bisa menjadi kenyataan. Memiliki moral yang baik, perkataan positif akan menjadi kenyataan, begitu pula dengan perkataan negatif. Memiliki sensitivitas spiritual, dengan intuisi dan perasaan yang sangat akurat. Orang seperti ini dapat mengandalkan intuisi untuk menyelesaikan tugas dan mencapai prestasi melalui inspirasi.",
+                "6-1-7": "Seorang individu menghasilkan banyak uang, namun menghabiskannya untuk banyak orang, sangat dermawan, senang membayar tagihan untuk menjaga citra diri. Memiliki kata-kata yang membawa energi positif, apa yang dikatakan bisa menjadi kenyataan. Memiliki moral yang baik, perkataan positif akan menjadi kenyataan, begitu pula dengan perkataan negatif. Memiliki sensitivitas spiritual, dengan intuisi dan perasaan yang sangat akurat. Orang seperti ini dapat mengandalkan intuisi untuk menyelesaikan tugas dan mencapai prestasi melalui inspirasi. Memandang ke masa depan tanpa terlalu sesuai dengan tindakan saat ini, mungkin kurang praktis dalam hal penerapan langsung pada situasi saat ini. ",
+                
+                "1-7-8": "Cenderung memiliki pendapat sendiri, keputusan untuk berjuang demi impian tergantung pada sejauh mana nilai impian itu dianggap berharga oleh orang lain. Password untuk membawa keberuntungan: Punya banyak teman, memimpin dengan daya tarik yang kuat. Semakin mendekati kesuksesan, tekanan semakin besar. Jika menghadapi kesulitan, pergi berlibur dan setelah kembali, keberuntungan akan datang. Mengembangkan pasar di luar kota bisa menjadi pilihan yang baik. Hindari menjadi penjamin dan hindari tempat yang penuh kontroversi!",
+                "7-1-8": "Password untuk membawa keberuntungan: Punya banyak teman, memimpin dengan daya tarik yang kuat. Semakin mendekati kesuksesan, tekanan semakin besar. Jika menghadapi kesulitan, pergi berlibur dan setelah kembali, keberuntungan akan datang. Mengembangkan pasar di luar kota bisa menjadi pilihan yang baik. Hindari menjadi penjamin dan hindari tempat yang penuh kontroversi! Santai dan menikmati kehidupan. Waktu lebih banyak dihabiskan untuk urusan teman. ",
+                
+                "1-8-9": "Seseorang yang dapat menanggung banyak tekanan cenderung sukses. Sebaliknya, menghindari tekanan dapat menghasilkan pencapaian yang lebih kecil. Lebih memilih untuk menantang diri sendiri daripada menghadirkan kesulitan bagi orang lain. Password untuk menjadi karyawan terbaik: Bersedia menanggung banyak tekanan, tetapi pada akhirnya akan sukses. Seorang individu yang memiliki standar yang sangat tinggi, selalu mengejar kesempurnaan dalam melakukan tugas.",
+                "8-1-9": "Password untuk menjadi karyawan terbaik: Bersedia menanggung banyak tekanan, tetapi pada akhirnya akan sukses. Seorang individu yang memiliki standar yang sangat tinggi, selalu mengejar kesempurnaan dalam melakukan tugas. Password untuk menjadi karyawan terbaik: Bersedia menanggung banyak tekanan, tetapi pada akhirnya akan sukses. Seorang individu yang memiliki standar yang sangat tinggi, selalu mengejar kesempurnaan dalam melakukan tugas.",
+                
+                "1-9-1": "Mengeksekusi membuka banyak kemungkinan, jika tidak berhasil, dapat menyebabkan pemborosan waktu yang signifikan. Dia sangat tegas, perlu menahan ketajamannya. Jika Anda melakukannya, keberlanjutan akan lebih mulus; jika tidak, bahkan kesuksesan sulit dicapai. Orang dengan nomor ini cocok untuk bekerja sendiri, karena berkolaborasi dengan orang lain dapat menjadi sulit. Memberikan pendapat dapat menyakiti perasaan orang dan mungkin kesulitan berkomunikasi. Menjadi mandiri adalah pilihan terbaik.",
+                "9-1-1": "Dia sangat tegas, perlu menahan ketajamannya. Jika Anda melakukannya, keberlanjutan akan lebih mulus; jika tidak, bahkan kesuksesan sulit dicapai. Orang dengan nomor ini cocok untuk bekerja sendiri, karena berkolaborasi dengan orang lain dapat menjadi sulit. Memberikan pendapat dapat menyakiti perasaan orang dan mungkin kesulitan berkomunikasi. Menjadi mandiri adalah pilihan terbaik.Banyak kesempatan, namun kecenderungan berlebihan pada diri sendiri dapat menyebabkan ketidaknyamanan di masa depan.",
+                
+                "2-2-4": "Senang berbicara dan suka berbincang, memberikan rahasia padanya sama dengan memberitahukan ke seluruh dunia. Lebih cocok untuk bekerja di industri pelayanan. Dia mahir dalam melakukan iklan!",
+                
+                "2-3-5": "Terlihat lembut dan ramah tetapi pada dasarnya egois di dalam hati. Memiliki kemampuan berbicara yang sangat baik, bisa membuat burung di atas pohon turun. Menunjukkan kemampuan intuitif, sering menyembunyikan perasaannya sendiri. Tidak selalu terbuka tentang perasaannya. Juga merupakan kombinasi antara keterampilan bicara yang luar biasa dan berbagai emosi yang kompleks. Ketika marah, disarankan untuk menjauh, dan penting untuk belajar menyatakan diri dengan jujur, menggunakan bakat berbahasa untuk mengungkapkan diri yang sebenarnya.",
+                "3-2-5": "Memiliki kemampuan berbicara yang sangat baik, bisa membuat burung di atas pohon turun. Menunjukkan kemampuan intuitif, sering menyembunyikan perasaannya sendiri. Tidak selalu terbuka tentang perasaannya. Juga merupakan kombinasi antara keterampilan bicara yang luar biasa dan berbagai emosi yang kompleks. Ketika marah, disarankan untuk menjauh, dan penting untuk belajar menyatakan diri dengan jujur, menggunakan bakat berbahasa untuk mengungkapkan diri yang sebenarnya. Berbicara terlalu cepat, bisa membawa masalah karena perkataan.",
+                
+                "2-4-6": "Berbicara terlebih dahulu, kemudian melakukan, merenungkan, dan akhirnya menghasilkan uang. Password untuk penjualan: Kemampuan penjualan yang sangat kuat, mampu menangani hubungan interpersonal dengan baik. Kekayaan diperoleh dengan memanfaatkan keterampilan berbicara dengan baik. Orang cenderung percaya padanya dengan mudah.",
+                "4-2-6": "Password untuk penjualan: Kemampuan penjualan yang sangat kuat, mampu menangani hubungan interpersonal dengan baik. Kekayaan diperoleh dengan memanfaatkan keterampilan berbicara dengan baik. Orang cenderung percaya padanya dengan mudah. Orang yang cenderung membuat masalah untuk atasan. Menjual berdasarkan nilai uang, dipercayai oleh banyak orang. Seorang penjual yang sangat jujur, tidak akan mengeksploitasi Anda, dan berfokus pada penjualan yang jujur.",
+                
+                "2-5-7": "Tampaknya cukup lembut, menolak orang yang tidak disukainya. Password untuk keberuntungan, disukai oleh banyak orang dengan daya tarik yang melimpah, melayani pelanggan VIP. Memiliki sikap angkuh, hanya suka berbicara dengan orang yang disukainya, malas untuk peduli dengan orang yang tidak disukainya. Kode ini sangat memperhatikan citra.",
+                "5-2-7": "Memiliki sikap angkuh, hanya suka berbicara dengan orang yang disukainya, malas untuk peduli dengan orang yang tidak disukainya. Kode ini sangat memperhatikan citra. Akan mendukung orang yang Anda sukai tanpa prinsip, dan cenderung lebih keras terhadap orang yang tidak Anda sukai, menunjukkan sikap yang ekstrem.",
+                
+                "2-6-8": "Mencukupi kebutuhan orang lain, proses penjualan membutuhkan waktu yang cukup lama. Sangat tertarik pada topik uang dan keuangan. Password untuk penjualan: Sangat peka terhadap uang, memiliki keterampilan penjualan yang luar biasa. Mahir dalam menjual ide, terutama dalam industri asuransi kesehatan. Sensitif, halus, dan memiliki hubungan baik dengan orang lain. Cocok untuk terlibat dalam bidang keuangan.",
+                "6-2-8": " Password untuk penjualan: Sangat peka terhadap uang, memiliki keterampilan penjualan yang luar biasa. Mahir dalam menjual ide, terutama dalam industri asuransi kesehatan. Sensitif, halus, dan memiliki hubungan baik dengan orang lain. Cocok untuk terlibat dalam bidang keuangan. ",
+                
+                "2-7-9": "Lembut dan ramah, memiliki kehidupan emosional yang kaya. Oleh karena itu, hidup terasa sangat melelahkan. Password untuk daya tarik wanita: memiliki daya tarik yang kuat terhadap wanita. Belajar melakukan bisnis yang berkaitan dengan perempuan pasti akan menghasilkan keuntungan besar! Daya tarik kepribadian sangat kuat. Jika Anda memperlakukan istri dengan baik, keberuntungan akan datang kepada Anda, dan Anda akan menarik perempuan yang lebih tua untuk membantu Anda. Cocok untuk bisnis kecantikan, anti-penuaan, pakaian, dan bisnis yang berkaitan dengan perempuan.",
+                "7-2-9": "Password untuk daya tarik wanita: memiliki daya tarik yang kuat terhadap wanita. Belajar melakukan bisnis yang berkaitan dengan perempuan pasti akan menghasilkan keuntungan besar! Daya tarik kepribadian sangat kuat. Jika Anda memperlakukan istri dengan baik, keberuntungan akan datang kepada Anda, dan Anda akan menarik perempuan yang lebih tua untuk membantu Anda. Cocok untuk bisnis kecantikan, anti-penuaan, pakaian, dan bisnis yang berkaitan dengan perempuan. Banyak teman, sulit untuk menahan diri, cenderung terjebak dalam emosi terutama dalam hubungan pria dan wanita.",
+                
+                "2-8-1": "Seorang fasilitator ulung, sangat menekankan pada hasil. Orang yang sibuk dan suka berbicara, merasakan sedikit tekanan, dan tugas yang dimulai hari ini harus selesai hari ini. Jika tidak selesai, sulit tidur. Ada gejolak emosional di dalamnya, perlu belajar untuk meredakan emosi. Password untuk menjadi juara penjualan: memiliki keterampilan berbicara yang baik dan kemampuan penjualan yang kuat. Lebih fokus pada nilai daripada hanya bicara tentang uang.",
+                "8-2-1": "Password untuk menjadi juara penjualan: memiliki keterampilan berbicara yang baik dan kemampuan penjualan yang kuat. Lebih fokus pada nilai daripada hanya bicara tentang uang. Hanya bisa memberikan pujian, sulit dikritik. Sangat teguh terhadap kata-kata yang tidak sesuai keinginannya, tekanan berasal dari kehidupan keluarganya.",
+                
+                "2-9-2": "Terlalu sensitif, cenderung terperangkap dalam detail kecil. Terlalu berkooperasi dengan orang lain, terkadang mengabaikan pekerjaannya sendiri. Nombor agen: Kemampuan komunikasi yang kuat, memiliki daya persuasi yang tinggi. Sangat cocok untuk menjadi agen. Password terbaik sebagai perantara, seseorang yang berkembang besar di usia tua, namun mungkin kurang percaya diri dalam menghadapi peluang bisnis. Peran B yang sangat baik! Sebagai perantara terbaik. Memerlukan sedikit lebih banyak kepercayaan diri, karena dengan kepercayaan diri, kesuksesan akan datang lebih awal.",
+                "9-2-2": "Nombor agen: Kemampuan komunikasi yang kuat, memiliki daya persuasi yang tinggi. Sangat cocok untuk menjadi agen. Password terbaik sebagai perantara, seseorang yang berkembang besar di usia tua, namun mungkin kurang percaya diri dalam menghadapi peluang bisnis. Peran B yang sangat baik! Sebagai perantara terbaik. Memerlukan sedikit lebih banyak kepercayaan diri, karena dengan kepercayaan diri, kesuksesan akan datang lebih awal. Banyak peluang yang memerlukan komunikasi, kepercayaan diri dalam partisipasi dapat menghasilkan hasil yang luar biasa.",
+                
+                "3-3-6": "Memiliki keinginan spiritual yang kuat, tetapi memiliki sifat yang cepat marah dan sifat yang suka berjudi. Hindari godaan perjudian dan jangan terlibat dalam investasi spekulatif! Meskipun mungkin tidak berjudi uang, tetapi terkadang bersedia mengambil risiko, contohnya dalam minuman. Orang ini memiliki keyakinan yang kuat dan suka mengambil risiko. Meskipun memiliki uang, jika temperamennya muncul, kekayaan dan kebijaksanaan bisa hilang. Namun, jika dapat mengendalikan temperamen dengan baik, bisa menjadi sangat kaya.",
+
+                "3-4-7": "Untuk menyelesaikan tugas dengan lebih cepat, sering kali terkesan memberi perintah kepada orang lain, yang dapat membuat orang merasa tidak nyaman. Password untuk CEO: Memiliki figur berpengaruh adalah hal yang baik. Selalu mampu menemukan orang yang tepat untuk membantu menyelesaikan pekerjaan. Merupakan password yang baik dengan tindakan, perencanaan, dan memiliki banyak figur berpengaruh. CEO seperti ini memiliki ruang pribadi karena banyak figur berpengaruh yang membantunya melaksanakan rencananya.",
+                "4-3-7": "Password untuk CEO: Memiliki figur berpengaruh adalah hal yang baik. Selalu mampu menemukan orang yang tepat untuk membantu menyelesaikan pekerjaan. Merupakan password yang baik dengan tindakan, perencanaan, dan memiliki banyak figur berpengaruh. CEO seperti ini memiliki ruang pribadi karena banyak figur berpengaruh yang membantunya melaksanakan rencananya. Terlalu banyak perencanaan awal dapat membuat orang merasa tidak nyaman dalam pertemuan, sementara perubahan dalam pelaksanaan dapat membuat orang merasa frustrasi karena perubahan tersebut mungkin terasa seperti kritikan terhadap perencanaan sebelumnya. ",
+                
+                "3-5-8": "Bersifat impulsif, sering berdiri tegak karena prinsip keadilan, tetapi tindakan ini bisa menimbulkan masalah besar bagi dirinya sendiri. Disarankan untuk berpikir dua kali sebelum bertindak. Sebagai ahli hubungan masyarakat, merupakan password yang cukup menantang. Mungkin memiliki banyak emosi dan cenderung meledak-ledak. Saat marah, bisa menjadi tidak terkendali. Menangani masalah besar dengan mudah, tetapi sangat memusingkan untuk menangani masalah kecil. Disarankan untuk menjaga jarak ketika sedang emosional, karena bisa menjadi meledak-ledak dan sulit dikendalikan. Saat merasa emosional, lebih baik menahan diri daripada meledak-ledak nanti.",
+                "5-3-8": " Sebagai ahli hubungan masyarakat, merupakan password yang cukup menantang. Mungkin memiliki banyak emosi dan cenderung meledak-ledak. Saat marah, bisa menjadi tidak terkendali. Menangani masalah besar dengan mudah, tetapi sangat memusingkan untuk menangani masalah kecil. Disarankan untuk menjaga jarak ketika sedang emosional, karena bisa menjadi meledak-ledak dan sulit dikendalikan. Saat merasa emosional, lebih baik menahan diri daripada meledak-ledak nanti. Apakah Anda bisa diaktifkan olehnya tergantung pada sejauh mana Anda menyukai orang lain.",
+                
+                "3-6-9": "Anda yang semakin berusaha, semakin beruntung, telah memperoleh pemahaman, mengumpulkan pengalaman, dan mendapatkan keahlian. Ingin segera berhasil dengan mengeluarkan uang, lebih suka menggunakan uang orang lain daripada uang sendiri. Belajar mengenai estetika dan keuangan, menggunakan uang untuk membeli peluang, dan kebijaksanaan untuk membeli peluang. Cenderung menghabiskan uang dengan besar tanpa kendali.",
+                "6-3-9": "Ingin segera berhasil dengan mengeluarkan uang, lebih suka menggunakan uang orang lain daripada uang sendiri. Belajar mengenai estetika dan keuangan, menggunakan uang untuk membeli peluang, dan kebijaksanaan untuk membeli peluang. Cenderung menghabiskan uang dengan besar tanpa kendali. Anda sangat cerdas, tetapi jika kurang rajin, Anda mungkin melewatkan peluang keberhasilan.",
+                
+                "3-7-1": "Sifat yang tergesa-gesa dapat membawa masalah pada diri sendiri. Bakat luar biasa, memiliki inisiatif tinggi, juga memiliki figur berpengaruh yang membantu, namun curiga terhadap orang lain dan bisa melupakan teman lama saat bertemu dengan teman baru. Perlu belajar untuk memelihara jaringan hubungan sosial. Meskipun memiliki banyak teman, hubungan bersifat dinamis dan sering berubah.",
+                "7-3-1": " Bakat luar biasa, memiliki inisiatif tinggi, juga memiliki figur berpengaruh yang membantu, namun curiga terhadap orang lain dan bisa melupakan teman lama saat bertemu dengan teman baru. Perlu belajar untuk memelihara jaringan hubungan sosial. Meskipun memiliki banyak teman, hubungan bersifat dinamis dan sering berubah. Suka membantu orang dan memediasi hubungan, tetapi terkadang dapat membuat diri sendiri terjebak dalam situasi yang sulit dan tidak adil. ",
+                
+                "3-8-2": "Kegiatan yang sibuk dianggap sebagai pengorbanan untuk orang lain, tetapi seringkali menghasilkan emosi yang intens dan temperamen yang buruk. Ketika Anda menyadari bahwa itu sebenarnya dilakukan untuk diri sendiri, semuanya menjadi lebih jelas. Sebuah kombinasi yang membingungkan, dengan banyak emosi dan kemarahan yang tidak jelas. Mudah marah, sensitif, terkadang merasa bingung, membutuhkan bimbingan mentor, dan cenderung menghadapi hambatan dalam tindakan. Penting untuk berbicara tentang perasaan daripada menyimpannya karena orang dengan nomor ini cenderung merasa bingung dan terikat emosi. Disarankan untuk sering mengunjungi alam, sangat menyukai anak-anak, dan mendengarkan musik atau lagu dapat membantu mengatasi situasi tersebut.",
+                "8-3-2": "Sebuah kombinasi yang membingungkan, dengan banyak emosi dan kemarahan yang tidak jelas. Mudah marah, sensitif, terkadang merasa bingung, membutuhkan bimbingan mentor, dan cenderung menghadapi hambatan dalam tindakan. Penting untuk berbicara tentang perasaan daripada menyimpannya karena orang dengan nomor ini cenderung merasa bingung dan terikat emosi. Disarankan untuk sering mengunjungi alam, sangat menyukai anak-anak, dan mendengarkan musik atau lagu dapat membantu mengatasi situasi tersebut. Anda perlu memiliki impian besar untuk memberikan dukungan dan semangat dalam usaha Anda.",
+                
+                "3-9-3": "Emosional, sangat memperhatikan perasaan, loyal, namun juga memiliki temperamen yang cukup kuat. Password untuk ahli kerajinan: Sangat terampil dan mahir dalam berbagai keahlian seperti bermain alat musik, memasak, melukis, dan olahraga, juga memiliki kemampuan perbaikan yang baik. Meskipun cerdas, sering kali kurang sabar. Seseorang yang sangat cepat dan memiliki kecerdasan tinggi, memiliki bakat dan kreativitas yang banyak, tetapi perlu platform untuk mengembangkannya. Memiliki banyak ide dan peluang kreatif, namun cenderung fokus pada bisnis jangka pendek karena kurangnya kesabaran untuk investasi jangka panjang.",
+                "9-3-3": "Password untuk ahli kerajinan: Sangat terampil dan mahir dalam berbagai keahlian seperti bermain alat musik, memasak, melukis, dan olahraga, juga memiliki kemampuan perbaikan yang baik. Meskipun cerdas, sering kali kurang sabar. Seseorang yang sangat cepat dan memiliki kecerdasan tinggi, memiliki bakat dan kreativitas yang banyak, tetapi perlu platform untuk mengembangkannya. Memiliki banyak ide dan peluang kreatif, namun cenderung fokus pada bisnis jangka pendek karena kurangnya kesabaran untuk investasi jangka panjang. Meskipun ada banyak peluang, keberhasilan masih memerlukan usaha dan kerja keras untuk mencapai hasil yang gemilang.",
+                
+                "4-4-8": "Sebagai password untuk properti, memiliki kemampuan merencanakan proyek besar. Tidak suka mengerjakan hal-hal kecil, dan yakin bahwa investasi di properti akan menghasilkan keuntungan, membuatnya menjadi salah satu yang terbaik dalam urusan properti. Meskipun cenderung merencanakan hal-hal besar, tetapi terkadang kesulitan untuk mengimplementasikannya. Sangat peka terhadap tekanan, sangat peduli pada keuntungan dan tingkat pengembalian investasi. Tidak akan melibatkan diri dalam hal-hal yang dianggap tidak bernilai.",
+                
+                "4-5-9": "Setelah melewati berbagai percobaan, Anda akan menemukan arah dan tujuan. Oleh karena itu, perubahan jalur di awal bukan berarti kegagalan, melainkan bagian dari perjalanan. Tidak akan berhenti sampai mencapai tujuan, dengan arah yang jelas dan perencanaan yang baik, akhirnya akan berhasil. Penting untuk memahami pentingnya membentuk karakter, karena meskipun menggunakan pendekatan yang tidak baik,  masih bisa mencapai kesuksesan. Dengan kemampuan yang kuat, tujuan yang jelas, dan perencanaan yang teliti, kesuksesan dapat dicapai.",
+                "5-4-9": "Tidak akan berhenti sampai mencapai tujuan, dengan arah yang jelas dan perencanaan yang baik, akhirnya akan berhasil. Penting untuk memahami pentingnya membentuk karakter, karena meskipun menggunakan pendekatan yang tidak baik,  masih bisa mencapai kesuksesan. Dengan kemampuan yang kuat, tujuan yang jelas, dan perencanaan yang teliti, kesuksesan dapat dicapai. Kurangnya kemampuan fleksibilitas, ketika telah memutuskan sesuatu, berusaha dengan segala cara untuk mencapainya.",
+                
+                "4-6-1": "Anda pada awalnya mungkin cenderung merasa rendah diri, tetapi bersedia menghabiskan waktu dan energi untuk belajar, dan Anda akan semakin mahir dengan waktu. Nomor untuk seseorang yang sangat mahir dalam membuat laporan! Mampu merinci segala sesuatu dalam bentuk tabel, dan sangat ahli dalam perhitungan keuangan. Selalu suka membayar tagihan dan berinvestasi dalam kebijaksanaan, pembelajaran, dan pengetahuan. Cenderung ingin terus belajar banyak hal. Anda memiliki kemampuan dan keterampilan tetapi mungkin kurang daya. Yang Anda butuhkan bukan hanya keterampilan, tetapi juga kekuatan dan energi.",
+                "6-4-1": "Nomor untuk seseorang yang sangat mahir dalam membuat laporan! Mampu merinci segala sesuatu dalam bentuk tabel, dan sangat ahli dalam perhitungan keuangan. Selalu suka membayar tagihan dan berinvestasi dalam kebijaksanaan, pembelajaran, dan pengetahuan. Cenderung ingin terus belajar banyak hal. Anda memiliki kemampuan dan keterampilan tetapi mungkin kurang daya. Yang Anda butuhkan bukan hanya keterampilan, tetapi juga kekuatan dan energi. Anda sangat cerdas, tetapi memiliki banyak tanggung jawab yang memerlukan waktu untuk disusun. Penting untuk tidak menjadi sombong dan selalu terbuka untuk terus belajar, karena selalu ada banyak hal yang bisa dipelajari.",
+                
+                "4-7-2": "Anda cenderung suka memberikan saran kepada orang lain. Sebagai password yang mendatangkan keberuntungan, Anda cenderung mendapatkan bimbingan dan promosi dari orang-orang berpengaruh. Ahli dalam menganalisis bisnis dan menyelesaikan masalah, Anda sering memiliki banyak orang berpengaruh dalam hidup Anda. Sering kali menjadi sumber inspirasi bagi orang lain dan mudah mendapatkan peluang bisnis yang dapat membuat Anda sukses.",
+                "7-4-2": "Sebagai password yang mendatangkan keberuntungan, Anda cenderung mendapatkan bimbingan dan promosi dari orang-orang berpengaruh. Ahli dalam menganalisis bisnis dan menyelesaikan masalah, Anda sering memiliki banyak orang berpengaruh dalam hidup Anda. Sering kali menjadi sumber inspirasi bagi orang lain dan mudah mendapatkan peluang bisnis yang dapat membuat Anda sukses. Anda cenderung mudah bertemu teman yang memberikan saran kepada Anda.",
+                
+                "4-8-3": "Terlalu sibuk dan kacau, terkadang memiliki kebingungan emosional. Anda sangat mengerti dalam hal-hal yang Anda ketahui, namun tidak memiliki pemahaman tentang hal-hal yang tidak Anda ketahui. Anda cenderung menyukai orang yang dewasa dan matang. Seorang wakil yang luar biasa, ahli dalam bidangnya dengan keterampilan profesional yang kuat. Meskipun sangat ahli, namun kadang-kadang bisa sedikit ceroboh dan sering melupakan atau kehilangan beberapa hal.",
+                "8-4-3": "Seorang wakil yang luar biasa, ahli dalam bidangnya dengan keterampilan profesional yang kuat. Meskipun sangat ahli, namun kadang-kadang bisa sedikit ceroboh dan sering melupakan atau kehilangan beberapa hal. Memiliki banyak ide namun kurang dalam hal eksekusi atau pelaksanaan.",
+                
+                "4-9-4": "Menghasilkan hasil terlebih dahulu dan terus menerus merinci dalam proses akan membawa peluang dan rencana yang lebih baik. Sebagai password untuk seorang pengusaha, mereka cenderung merencanakan proyek besar dan enggan melakukan hal-hal kecil. Mereka mencapai kesuksesan melalui perjuangan besar dan pertemuan yang konsisten. Untuk mereka, rasa aman sangat penting. Mereka tidak pernah mengambil risiko tanpa persiapan yang matang dan seringkali peduli dengan citra mereka, kadang-kadang sulit untuk melepaskan ego mereka.",
+                "9-4-4": "Sebagai password untuk seorang pengusaha, mereka cenderung merencanakan proyek besar dan enggan melakukan hal-hal kecil. Mereka mencapai kesuksesan melalui perjuangan besar dan pertemuan yang konsisten. Untuk mereka, rasa aman sangat penting. Mereka tidak pernah mengambil risiko tanpa persiapan yang matang dan seringkali peduli dengan citra mereka, kadang-kadang sulit untuk melepaskan ego mereka. Merencanakan untuk mencapai kesuksesan yang lebih besar pada daftar pemenang. ",
+                
+                "5-5-1": "Ini adalah nomor yang pasti sukses, ditujukan untuk individu berbakat tingkat tinggi. Sering kali mempertahankan emosi dan sulit melepaskan diri dari masalah tertentu. Berulang kali terjebak dalam satu skenario dan cenderung memiliki pemikiran yang tradisional, memerlukan seseorang untuk memimpin mereka. Mudah bingung karena terlalu banyak arah yang mungkin diambil, dan yang paling penting dan berbahaya adalah sikap yang terlalu keras kepala. Penting untuk belajar melepaskan masa lalu. Melepaskan adalah bentuk kebijaksanaan, melepaskan adalah bentuk ketinggian pikiran. Memberi maaf kepada orang lain dan memberi diri sendiri pengampunan adalah kunci.",
+                
+                "5-6-2": "Memiliki kebiasaan tidak menawar saat membeli barang besar, tetapi akan melakukan negosiasi saat membeli barang kecil. Orang yang paling menghormati uang di dunia ini. Selalu bijaksana dalam pengeluaran, hanya menghabiskan uang untuk hal-hal yang berharga, mahir dalam mengelola keuangan, dan menggunakan uang dengan hati-hati. Cocok untuk menjadi konsultan keuangan dan akuntan.",
+                "6-5-2": "Orang yang paling menghormati uang di dunia ini. Selalu bijaksana dalam pengeluaran, hanya menghabiskan uang untuk hal-hal yang berharga, mahir dalam mengelola keuangan, dan menggunakan uang dengan hati-hati. Cocok untuk menjadi konsultan keuangan dan akuntan. Memperhitungkan uang besar tanpa memperhatikan uang kecil.",
+                
+                "5-7-3": "Ini adalah password untuk orang yang memiliki hubungan dengan kalangan atas. Orang kaya cenderung menyukai orang dengan nomor ini, dan orang dengan nomor ini cenderung lebih mudah sukses di antara orang-orang kaya. Orang-orang suka berurusan dan melakukan transaksi dengan mereka. Hubungan baik dengan orang berpengaruh.",
+                
+                "7-5-3": "Seorang pemimpin dengan kemampuan luar biasa, namun sering mudah dimanfaatkan oleh orang lain. Sering menjadi target oleh perusahaan pencari bakat (headhunter).",
+                
+                "5-8-4": "Tetaplah pada perasaanmu, apakah itu membahagiakan atau tidak. Nomor ahli dalam menemukan kesalahan, individu yang sangat kreatif dan mencintai impian. Namun, cenderung kesulitan untuk mengimplementasikan ide. Jika dapat merealisasikannya, dia bisa dianggap sebagai seorang jenius. Kesulitan hidup dalam momen sekarang, rentan terhadap konflik internal dan kegelisahan. Takut terhadap hal-hal yang belum terjadi di masa depan. Terperangkap dalam kenangan buruk masa lalu. Belajar untuk memiliki kesadaran diri dan hidup pada saat ini, seringkali terikat pada satu pemikiran yang sulit dilepaskan. Sebagai konsultan tim atau pemeriksa teknis, selalu melihat area yang perlu diperbaiki. Jika selalu mencari kesalahan orang lain, orang akan meninggalkan Anda. Dia mampu membuat orang di sekitarnya menjadi lebih baik, memberikan saran yang jujur dan membantu Anda menjadi lebih baik. Sukses dalam karier, namun mungkin menghadapi kesulitan dalam hubungan pribadi. Orang dengan kombinasi nomor ini mungkin mengalami jadwal yang padat dan tekanan yang tinggi.",
+                "8-5-4": "Nomor ahli dalam menemukan kesalahan, individu yang sangat kreatif dan mencintai impian. Namun, cenderung kesulitan untuk mengimplementasikan ide. Jika dapat merealisasikannya, dia bisa dianggap sebagai seorang jenius. Kesulitan hidup dalam momen sekarang, rentan terhadap konflik internal dan kegelisahan. Takut terhadap hal-hal yang belum terjadi di masa depan. Terperangkap dalam kenangan buruk masa lalu. Belajar untuk memiliki kesadaran diri dan hidup pada saat ini, seringkali terikat pada satu pemikiran yang sulit dilepaskan. Sebagai konsultan tim atau pemeriksa teknis, selalu melihat area yang perlu diperbaiki. Jika selalu mencari kesalahan orang lain, orang akan meninggalkan Anda. Dia mampu membuat orang di sekitarnya menjadi lebih baik, memberikan saran yang jujur dan membantu Anda menjadi lebih baik. Sukses dalam karier, namun mungkin menghadapi kesulitan dalam hubungan pribadi. Orang dengan kombinasi nomor ini mungkin mengalami jadwal yang padat dan tekanan yang tinggi. Terkikis dan terjebak dalam hal-hal dan emosi masa lalu.",
+                
+                "5-9-5": "Keluarlah dan jelajahi lebih banyak, tambahkan pengetahuan. Hanya melalui pengalaman dan pengalaman, kita dapat menemukan posisi yang lebih baik. Abang besar, kakak besar, mereka tidak mengikuti aturan biasa; prinsip saya adalah prinsip saya. Saya memiliki otoritas dan semangat persaudaraan. Sangat pandai menjaga orang-orang terdekat, jika ada masalah, carilah mereka, mereka akan membantu menyelesaikannya. Ketika Anda menghadapi masalah yang sulit dipecahkan, satu tepukan di atas meja sudah bisa menyelesaikannya. Karena ada keangkuhan yang tenang namun mengesankan. Dia berada di tingkat manajemen tinggi, entah itu dalam bidang keahlian sumber daya manusia atau di tingkat eksekutif perusahaan. Saat menghadapi hambatan atau kesalahan pribadi, disarankan untuk tidak terlalu terpaku pada satu hal.",
+                "9-5-5": " Abang besar, kakak besar, mereka tidak mengikuti aturan biasa; prinsip saya adalah prinsip saya. Saya memiliki otoritas dan semangat persaudaraan. Sangat pandai menjaga orang-orang terdekat, jika ada masalah, carilah mereka, mereka akan membantu menyelesaikannya. Ketika Anda menghadapi masalah yang sulit dipecahkan, satu tepukan di atas meja sudah bisa menyelesaikannya. Karena ada keangkuhan yang tenang namun mengesankan. Dia berada di tingkat manajemen tinggi, entah itu dalam bidang keahlian sumber daya manusia atau di tingkat eksekutif perusahaan. Saat menghadapi hambatan atau kesalahan pribadi, disarankan untuk tidak terlalu terpaku pada satu hal. Penting untuk menghargai peluang dan menikmati momen pencapaian standar. Karena orang lain menginginkan lebih dari sekadar ide Anda.",
+                
+                "6-6-3": "Hidup memiliki pasang surut besar, uang datang dan pergi. Jangan semua investasi ditempatkan dalam satu keranjang. Lebih baik berinvestasi di properti. Pahami kehidupan dengan jelas. Saat sukses, tetaplah rendah hati; ketika menghadapi kesulitan, tetaplah rendah hati.",
+                
+                "6-7-4": "Mengeluarkan uang untuk mendapatkan solusi dari orang yang berpengaruh. Nomor yang jenius dalam hubungan masyarakat, seorang spesialis hadiah, sangat mahir dalam urusan public relations. Pandai menghabiskan uang pada orang-orang kaya dan berkuasa. Jika seseorang tidak bisa memberi hadiah kepada kebanyakan orang, pada orang dengan nomor 675 bisa melakukannya. Terampil menggunakan uang dan hadiah untuk mengamankan sumber daya. Meminta orang makan bersama akan membawa keberuntungan.",
+                "7-6-4": "Nomor yang jenius dalam hubungan masyarakat, seorang spesialis hadiah, sangat mahir dalam urusan public relations. Pandai menghabiskan uang pada orang-orang kaya dan berkuasa. Jika seseorang tidak bisa memberi hadiah kepada kebanyakan orang, pada orang dengan nomor 675 bisa melakukannya. Terampil menggunakan uang dan hadiah untuk mengamankan sumber daya. Meminta orang makan bersama akan membawa keberuntungan. Memiliki keberuntungan dalam mendapatkan rezeki tak terduga, mudah menerima warisan, dan cenderung mendapatkan investasi dari orang lain.",
+                
+                "6-8-5": "Senang mempelajari dan memperbaiki, hasil investasi sulit dicapai. Orang yang sukses dalam pekerjaan pasti memiliki karakter yang baik. Ini adalah sandi amal, yang berarti jika Anda melakukan kebaikan, keberuntungan akan menghampiri. Penting untuk berbuat baik dan mengumpulkan amal. Hindari jalur yang tidak benar dan bisnis yang tidak jujur; meskipun Anda mungkin mengalami kerugian, kebaikan yang dilakukan akan segera mendatangkan keberuntungan.",
+                "8-6-5": "Ini adalah sandi amal, yang berarti jika Anda melakukan kebaikan, keberuntungan akan menghampiri. Penting untuk berbuat baik dan mengumpulkan amal. Hindari jalur yang tidak benar dan bisnis yang tidak jujur; meskipun Anda mungkin mengalami kerugian, kebaikan yang dilakukan akan segera mendatangkan keberuntungan. Kecerdasan dan keteguhan yang kuat sangat mengesankan. Meskipun karier memberikan tekanan besar, jika dilandasi oleh rasa takut akan konsekuensi dan batasan, Anda dapat mencapai puncak keberhasilan.",
+                
+                "6-9-6": "Nomor yang bisa mengubah sesuatu menjadi emas, bisa berupa keberhasilan finansial atau prestasi. Memiliki intuisi bisnis yang tajam, mampu menemukan dan menganalisis peluang bisnis. Keberanian dan intuisi yang kuat membuatnya yakin bahwa suatu usaha akan berhasil. Bagi orang dengan nomor 696, merangkum pengalaman sangat penting. Senang berinvestasi dan berani mengambil risiko. Sangat cerdas dan berpikir rasional, namun mungkin terlihat sombong. Meskipun berbakat, tidak selalu diakui sepenuhnya. Penting untuk belajar menghormati dan bersikap rendah hati. Memberikan pujian kepada orang lain juga bisa membantu.",
+                "9-6-6": "Senang berinvestasi dan berani mengambil risiko. Sangat cerdas dan berpikir rasional, namun mungkin terlihat sombong. Meskipun berbakat, tidak selalu diakui sepenuhnya. Penting untuk belajar menghormati dan bersikap rendah hati. Memberikan pujian kepada orang lain juga bisa membantu. Berinvestasi sangat mudah menghasilkan uang, selama Anda dapat menangkap peluang, keuntungan akan datang. Tidak akan terjatuh dua kali dalam lubang yang sama. Kemampuan menggunakan pengalaman sebelumnya untuk mendapatkan lebih banyak peluang dan keuntungan. Seorang pengusaha yang berani mengambil risiko. Keberhasilan satu kali sangat penting bagi orang dengan nomor 966, atau menemukan teladan juga sangat penting.",
+                
+                "7-7-5": "Nombor yang berkaitan dengan hubungan sosial, cocok untuk menjadi pengikut setia dalam komunitas tertentu, namun tidak boleh memanfaatkan orang. Memanfaatkan orang dapat menarik orang-orang yang tidak baik di sekitar Anda. Jaringan hubungan sosial memberi Anda peluang tetapi juga hambatan. Hubungan yang saling menguntungkan adalah kunci, dan sikap yang positif sangat penting. Bos mungkin akan mempromosikan Anda, menjadi seorang internet sensation (netizen) adalah pilihan yang baik. Anda memiliki banyak jaringan sosial di sekitar Anda. Cocok sebagai nomor untuk menjadi seorang internet sensation yang melakukan siaran langsung.",
+                
+                "7-8-6": "Dengan dukungan orang berpengaruh, Anda dapat mengatasi tekanan dan meraih keuntungan finansial. Pujian yang tulus dapat meningkatkan prestasi Anda. Nombor yang berkaitan dengan daya tarik terhadap pria, memiliki banyak pria yang mendukung dan mungkin mempromosikan Anda. Anda cenderung menikmati perasaan kejelasan dan ketegasan yang umumnya dimiliki oleh pria.",
+                "8-7-6": "Nombor yang berkaitan dengan daya tarik terhadap pria, memiliki banyak pria yang mendukung dan mungkin mempromosikan Anda. Anda cenderung menikmati perasaan kejelasan dan ketegasan yang umumnya dimiliki oleh pria. Dengan menyalurkan tekanan kepada orang berpengaruh, mereka mungkin membantu Anda menyelesaikannya dan Anda bisa mendapatkan keuntungan dari situ.",
+                
+                "7-9-7": "Memiliki orang berpengaruh adalah baik, tetapi perlu memberikan kontribusi terlebih dahulu untuk membuka lebih banyak peluang. Ini adalah nombor yang membuat orang menyukai Anda, memiliki daya tarik sosial yang luar biasa. Para pendukung dapat menjadi mitra kerja Anda. Nombor yang cocok untuk menjadi selebriti internet dengan jutaan pengikut, dengan jaringan sosial terbaik. Cocok untuk bisnis yang melibatkan koneksi manusia. Anda memiliki bakat kepemimpinan yang menarik.",
+                "9-7-7": "Ini adalah nombor yang membuat orang menyukai Anda, memiliki daya tarik sosial yang luar biasa. Para pendukung dapat menjadi mitra kerja Anda. Nombor yang cocok untuk menjadi selebriti internet dengan jutaan pengikut, dengan jaringan sosial terbaik. Cocok untuk bisnis yang melibatkan koneksi manusia. Anda memiliki bakat kepemimpinan yang menarik. Mudah mendapatkan kesempatan dari orang lain, tetapi jika Anda tidak cukup rajin, kesempatan itu dapat terlepas.",
+               
+                "8-8-7": "Kode ini berkaitan dengan situasi setelah perceraian. Tekanan yang besar dapat mengusir orang berpengaruh. Terkadang, Anda mungkin merasa kesal dan tidak dapat menahan diri untuk mengeluarkan kata-kata kasar. Emosi menjadi musuh utama dalam kode ini. Meskipun demikian, Anda memiliki kemampuan untuk memimpin kelompok menuju kesuksesan. Harap berhati-hati terhadap kecenderungan mudah kecanduan. Wanita mungkin lebih rentan terhadap kebiasaan merokok dan minum. Cenderung memiliki dorongan untuk pamer dan memiliki temperamen yang kuat. Jangan ragu untuk mencari bantuan jika tekanan terasa terlalu berat.",
+                
+                "8-9-8": "Melakukan tindakan adalah kunci untuk memastikan arah Anda, karena tanpa bertindak, mimpi hanya akan menjadi omong kosong. Seorang wirausahawan dengan tekanan besar. Memiliki keinginan untuk mencapai sesuatu yang besar, memiliki visi yang luas dan impian besar, tetapi memiliki sifat mudah marah dan emosional. Sangat peduli dengan pandangan orang lain terhadapnya, sulit untuk melepaskan terlalu banyak emosi. Cenderung terjebak dalam siklus sulit untuk keluar dan dapat mengalami naik turun yang signifikan. Kunci kesuksesan terletak pada kemampuan untuk mengendalikan emosi. Jika emosi tidak terkendali, keberhasilan sulit dicapai dan hanya akan merugikan diri sendiri. Tanpa tekanan, kelompok ini mungkin tidak akan mencapai banyak dalam hidup.",
+                "9-8-8": "Seorang wirausahawan dengan tekanan besar. Memiliki keinginan untuk mencapai sesuatu yang besar, memiliki visi yang luas dan impian besar, tetapi memiliki sifat mudah marah dan emosional. Sangat peduli dengan pandangan orang lain terhadapnya, sulit untuk melepaskan terlalu banyak emosi. Cenderung terjebak dalam siklus sulit untuk keluar dan dapat mengalami naik turun yang signifikan. Kunci kesuksesan terletak pada kemampuan untuk mengendalikan emosi. Jika emosi tidak terkendali, keberhasilan sulit dicapai dan hanya akan merugikan diri sendiri. Tanpa tekanan, kelompok ini mungkin tidak akan mencapai banyak dalam hidup. Mudah dikenali oleh orang lain, namun penting untuk memiliki tim yang bekerja sama. Hanya dengan kekuatan sendiri, mungkin sulit untuk mencapai banyak hal.",
+                
+                "9-9-9": "Anda memiliki naluri bisnis, wawasan bisnis yang baik, dan memiliki banyak topik pembicaraan. Memberikan kesan bisa berbicara tentang apapun, bersosialisasi dengan banyak orang, dan mudah membentuk lingkaran sosial yang luas. Memiliki keterampilan di berbagai bidang. Namun, dengan terlalu banyak peluang, ada risiko beralih dari satu hal ke hal lain tanpa mencapai banyak. Penting untuk tidak terlalu serakah, menghargai setiap kesempatan, dan fokus pada satu hal untuk mencapai kesuksesan besar.",
+
+
+            };
+
+            // Check for a match in the predefined data
+            var matchedResult81 = predefinedData81[IJMcombination] || "No match found";
+            var matchedResult82 = predefinedData81[KLNcombination] || "No match found";
+            var matchedResult83 = predefinedData81[MNOcombination] || "No match found";
+
+            var matchedResult84 = predefinedData81[JMWcombination] || "No match found";
+            var matchedResult85 = predefinedData81[IMXcombination] || "No match found";
+            var matchedResult86 = predefinedData81[XWScombination] || "No match found";
+
+            var matchedResult87 = predefinedData81[NOQcombination] || "No match found";
+            var matchedResult88 = predefinedData81[MOPcombination] || "No match found";
+            var matchedResult89 = predefinedData81[QPRcombination] || "No match found";
+
+            var matchedResult90 = predefinedData81[KNVcombination] || "No match found";
+            var matchedResult91 = predefinedData81[LNUcombination] || "No match found";
+            var matchedResult92 = predefinedData81[VUTcombination] || "No match found";
+
+            // Display the result in the pyramid chart
+            document.getElementById("lifePathBox").innerText = lifePathNumber;
+            document.getElementById("dayMonthPathBox").innerText = dayMonthPath;
+            document.getElementById("yearPathBox").innerText = yearPath;
+            document.getElementById("dayPathBox").innerText = dayPathNumber;
+            document.getElementById("monthPathBox").innerText = monthPathNumber;
+            document.getElementById("year1PathBox").innerText = year1PathNumber;
+            document.getElementById("year2PathBox").innerText = year2PathNumber;
+	        document.getElementById("NOBox").innerText = NOPath;
+	        document.getElementById("MOBox").innerText = MOPath;
+	        document.getElementById("QPBox").innerText = QPPath;
+	        document.getElementById("IMBox").innerText = IMPath;
+            document.getElementById("JMBox").innerText = JMPath;
+            document.getElementById("XWBox").innerText = XWPath;
+     	    document.getElementById("KNBox").innerText = KNPath;
+            document.getElementById("LNBox").innerText = LNPath;
+            document.getElementById("VUBox").innerText = VUPath;
+
+            // Display the result in the table chart
+            document.getElementById("lifetable").innerText = lifePathNumber;
+            document.getElementById("subtable").innerText = SubPath;
+            document.getElementById("innertable").innerText = InnerPath;
+            document.getElementById("circtable").innerText = CircPath;
+            document.getElementById("3majortable").innerText = `${XWPath} ${QPPath} ${VUPath}`;
+
+            document.getElementById("IJMtable").innerText = `${dayPathNumber} ${monthPathNumber} ${dayMonthPath}`;
+            document.getElementById("KLNtable").innerText = `${year1PathNumber} ${year2PathNumber} ${yearPath}`;
+            document.getElementById("MNOtable").innerText = `${dayMonthPath} ${yearPath} ${lifePathNumber}`;
+
+            document.getElementById("JMWtable").innerText = `${monthPathNumber} ${dayMonthPath} ${JMPath}`;
+            document.getElementById("IMXtable").innerText = `${dayPathNumber} ${dayMonthPath} ${IMPath}`;
+            document.getElementById("XWStable").innerText = `${IMPath} ${JMPath} ${XWPath}`;
+
+            document.getElementById("NOQtable").innerText = `${yearPath} ${lifePathNumber} ${NOPath}`;
+            document.getElementById("MOPtable").innerText = `${dayMonthPath} ${lifePathNumber} ${MOPath}`;
+            document.getElementById("QPRtable").innerText = `${NOPath} ${MOPath} ${QPPath}`;
+
+            document.getElementById("KNVtable").innerText = `${year1PathNumber} ${yearPath} ${KNPath}`;
+            document.getElementById("LNUtable").innerText = `${year2PathNumber} ${yearPath} ${LNPath}`;
+            document.getElementById("VUTtable").innerText = `${KNPath} ${LNPath} ${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedData0 = [
+                { number: 1, result: "1 - Independen, Sendiri." },
+                { number: 2, result: "2 - Ekspresi, Komunikasi."  },
+                { number: 3, result: "3 - Emosi, Tindakan"  },
+                { number: 4, result: "4 - Pencadang, Perencanaan"  },
+                { number: 5, result: "5 - Arah, Halangan"  },
+                { number: 6, result: "6 - Uang, Kebijaksanaan" },
+                { number: 7, result: "7 - Teman, Koneksi"  },
+                { number: 8, result: "8 - Tanggung jawab, Tekanan"  },
+                { number: 9, result: "9 - Kesuksesan, Peluang"  }
+            ];
+            // Define predefined data and results for matching
+            var predefinedData1 = [
+                { number: 1, result: "Kreatif, Percaya diri, Pemimpin, Mandiri, Berorientasi pada tujuan" },
+                { number: 2, result: "Komunikatif, Sabar, Kooperatif, Pandai membaca pikiran, Penganut perdamaian"  },
+                { number: 3, result: "Aktif, Pandai berbicara, Mahir menjual, Bersemangat dan bersikap adil"  },
+                { number: 4, result: "Logis, Bersemangat belajar, Ahli analisis data, Pandai merencanakan, Komitmen"  },
+                { number: 5, result: "Bebas, Menghargai hubungan, Humor dingin, Peka terhadap tren, Suka yang baru"  },
+                { number: 6, result: "Bijak, Setia, Peduli pada keluarga, Memiliki tanggung jawab sosial, Mahir menyelesaikan masalah" },
+                { number: 7, result: "Bersahabat, Beruntung, Berpengetahuan, Mahir menganalisis, Logis"  },
+                { number: 8, result: "Bertanggung jawab, Suka kekuasaan, Beremosi, Pandai menjual, Tahan tekanan"  },
+                { number: 9, result: "Banyak peluang, Berwawasan, Punya banyak topik pembicaraan, Lincah, Mudah diterima"  }
+            ];
+            // Define predefined data and results for matching
+            var predefinedData2 = [
+                { number: 1, result: "Suka dikritik, Tegas, Egosentris, Ingin mengendalikan, Bertindak lebih dulu baru memberi tahu" },
+                { number: 2, result: "Sensitif, Berpikiran kacau, Kekerasan dingin, Bimbang, Bergantung pada orang lain" },
+                { number: 3, result: "Sifat keras kepala, Ingin diakui, Suka bersikap semena-mena, Impulsif, Mendambakan perhatian" },
+                { number: 4, result: "Terus terang, Kurang rasa aman, Membatasi diri, Kaku, Enggan berubah" },
+                { number: 5, result: "Keras kepala, Suka menunda, Peduli pada citra, Sulit diatur, Menghindar" },
+                { number: 6, result: "Pemilih, Perfeksionis, Penakut, Tertutup, Mudah meremehkan orang lain." },
+                { number: 7, result: "Was-was, Suka kesenangan, Suka meragukan, Lambat, Mudah mempermasalahkan" },
+                { number: 8, result: "Suka memperhatikan citra, Memendam dendam, Mudah bingung, Terjebak dalam masalah, Memiliki dorongan kontrol" },
+                { number: 9, result: "Konsentrasi rendah, Rakus, Kekurangan ketahanan, Sulit diarahkan, Prinsip kurang kuat" },
+            ];
+            // Define predefined data and results for matching
+            var predefinedData3 = [
+                { number: 1, result: "Tidak dihargai, Menjadi pendukung" },
+                { number: 2, result: "Menyendiri, Tanpa dukungan" },
+                { number: 3, result: "Dibatasi, Membosankan"  },
+                { number: 4, result: "Perubahan, Tidak stabil" },
+                { number: 5, result: "Mengemban tanggung jawab" },
+                { number: 6, result: "Janji ditepati" },
+                { number: 7, result: "Ditipu" },
+                { number: 8, result: "Dikasihani, Medioker" },
+                { number: 9, result: "Harapan hancur" },
+            ];
+
+             // Define predefined data and results for matching Subconcious 
+             var predefinedData4 = [
+                { number: 1, result: "Kreativitas internal mendorongnya menjadi pemimpin dalam kelompok, menciptakan suasana, dan memotivasi semua orang." },
+                { number: 2, result: "Menghadapi kontradiksi kerjasama dan perlawanan, mereka memiliki sifat luar yang tangguh dan dalam yang lembut. Sensitif dan bersedia berkorban." },
+                { number: 3, result: "Sensitif emosional, ekspresif, tindakan cepat, cenderung mudah terpancing emosi. Kurang sabar dan tekad." },
+                { number: 4, result: "Cerdas dan pandai belajar hal baru, namun seringkali enggan membiarkan orang tahu bahwa mereka sedang berusaha belajar." },
+                { number: 5, result: "Dengan arah hidup nomor 5, mereka suka melakukan sesuatu sesuai prinsip mereka, sering dianggap keras kepala dan sulit diubah pikirannya." },
+                { number: 6, result: "Kreatif, pikiran mereka selalu dipenuhi dengan banyak rencana dan solusi mendasar untuk menyelesaikan masalah." },
+                { number: 7, result: "Peka mental, percaya pada keterbukaan, adil, dan mereka akan meletakkan persahabatan di tempat pertama." },
+                { number: 8, result: "Berpikiran banyak, berharap mendapatkan banyak hal, terkait dengan kekayaan, kekuasaan, dan penghargaan, mereka akan berusaha keras untuk meraihnya." },
+                { number: 9, result: "Memiliki kebijaksanaan intuisi yang lebih tinggi, kesempatan, tetapi seringkali cenderung tamak, ingin terus maju tanpa batas." },
+            ];
+
+             // Define predefined data and results for matching Inner Path
+             var predefinedData5 = [
+                { number: 1, result: "Penuh keyakinan dan kreativitas, sifat kreatif adalah ciri khas mereka. Mereka akan memimpin orang, tidak ingin mendengarkan pendapat orang lain atau menerima metode orang lain, tidak menyukai kaku dan dogmatisme."},
+                { number: 2, result: "Kerjasama dan keseimbangan, kepribadian lembut dan penuh semangat untuk bekerja sama, tetapi jika tidak dapat mengendalikan dengan baik, mereka dapat mengalami kecenderungan untuk mundur, menciptakan kontradiksi yang membuat mereka terlihat kuat di luar tetapi lemah di dalam." },
+                { number: 3, result: "Ekspresi positif atau negatif bergantung pada emosi yang sensitif, tampak tenang tetapi gelisah di dalam, di balik sikap dinginnya, sebenarnya memiliki hati yang penuh kasih dan berkeinginan membantu orang lain." },
+                { number: 4, result: "Perlu membangun rasa stabil dan aman, pandai merencanakan, terkadang bisa terhenti karena kebingungan akibat analisis berlebihan. Terlihat optimis, tetapi sebenarnya batinnya cenderung melankolis atau negatif." },
+                { number: 5, result: "Kerjasama awalnya mungkin membuat orang mengira bahwa dia adalah orang yang mudah diajak bicara, tetapi begitu dia merasa tidak perlu bekerja sama, dia akan berpaling, karena sebenarnya hatinya cukup keras kepala dan memiliki kepribadian sendiri." },
+                { number: 6, result: "Pencari kesempurnaan, memiliki standar tinggi untuk diri sendiri dan orang lain, terus-menerus melakukan perbaikan diri, terdorong oleh idealisme, sensitif terhadap kekayaan, dan pada saat yang sama memiliki banyak kreativitas." },
+                { number: 7, result: "Mempercayai orang lain dan bersedia berbagi, penuh ambisi dan impian, mereka memiliki hati yang baik, senang membantu orang lain, tetapi cenderung emosional. Tidak suka mengakui keinginan uang secara terbuka, tetapi sebenarnya memiliki keinginan yang kuat di dalamnya." },
+                { number: 8, result: "Dapat menanggung banyak tekanan, memiliki kemampuan untuk mengejar kekayaan yang mereka impikan, seringkali berada di antara kontradiksi kendali dan ketaatan, pasif dan ambisi, perjuangan, melalui lapisan material yang kaya akan mendorong mereka untuk akhirnya mencapai dan menyelesaikan misi mereka sendiri." },
+                { number: 9, result: "Bermoral tinggi dan memiliki kebijaksanaan yang luar biasa, memiliki banyak ide kreatif dan baik dalam integrasi, mereka adalah pemimpin alami yang sangat menarik dan mampu menggerakkan dan memimpin orang lain dengan daya tarik mereka yang besar." },
+            ];
+             // Define predefined data and results for matching circ
+             var predefinedData6 = [
+                { number: 1, result: "No data" },
+                { number: 2, result: "No data" },
+                { number: 3, result: "Idealis 【Analisis dengan angka luaran 3】 Jenis orang ini memiliki banyak ide aneh. Mereka adalah idealis yang mendengarkan perasaan. Selama perasaan mereka benar, semuanya bisa dipertimbangkan. Dalam dunia cinta, idealis menikmati cinta tanpa peduli tentang keabadian, hanya pernah dimiliki. Namun, mereka kekurangan tindakan dan kemampuan eksekusi yang praktis. Mereka cenderung berkomunikasi, merencanakan, memberikan ide, dan suka menugaskan orang lain untuk melaksanakannya. Karakter yang terlalu sinis menjadi alasan rasionalisasi bagi mereka, menyebabkan mereka stagnan. Idealis menikmati yang pertama, suka merek-merek, dan mudah memberikan kesan pamer. Biasanya, penampilan idealis memberi kesan sangat kaya, padahal mungkin tidak seberlimpah yang Anda bayangkan. Sebagai investasi uang, mereka cenderung membangun citra untuk mendapatkan keuntungan maksimal saat ini. Oleh karena itu, mereka tidak terburu-buru untuk membeli aset berat selama masa berbisnis, malah melakukan berbagai investasi lain. Dalam dunia cinta, mereka menginginkan kejutan, mengejar romantisme, dan sangat memperhatikan bagaimana merayakan momen khusus, sulit untuk memuaskan perasaan mereka, dan kehidupan berikutnya bisa sangat bergejolak. Pernikahan sederhana dianggap sebagai salah satu cara untuk mengekspresikan kesetiaan dalam cinta bagi mereka." },
+                { number: 4, result: "No data" },
+                { number: 5, result: "No data" },
+                { number: 6, result: "Pragmatis 【Analisis dengan angka luaran 6】 Mereka bersikap realistis, tidak menghabiskan waktu dengan khayalan yang tidak bermakna. Begitu suatu konsep terbentuk dengan baik, mereka akan berusaha sekuat tenaga dan menerapkannya dengan sungguh-sungguh. Meningkatkan kualitas hidup orang di sekitarnya adalah dorongan internal bagi mereka. Mereka memiliki rasa percaya diri yang kuat dan semangat petualangan. Sangat fokus pada peningkatan dan pengembangan kemampuan mereka sendiri untuk mencapai impian, sehingga mereka lebih tertarik pada pengetahuan yang bersifat praktis, yang dapat memperpendek perjalanan menuju keberhasilan finansial. Dalam perjalanan mencapai kekayaan, mereka merasa sulit menemukan karyawan yang baik, utamanya karena mereka terlalu khawatir dan tidak berani melepaskan kendali, terutama dalam hal biaya dan proses yang mereka pegang dengan ketat, menyebabkan setiap langkah karyawan harus mendapat persetujuan mereka, mengakibatkan keterlambatan dalam progres. Oleh karena itu, disarankan bagi pemilik yang pragmatis untuk membuat anggaran keuangan dan buku panduan kerja untuk karyawan. Dalam hal investasi, mereka mengharapkan pengembalian yang cepat. Dalam dunia cinta, mereka lebih membutuhkan keamanan finansial daripada cinta, percaya bahwa cinta tidak bisa menggantikan kebutuhan mendasar, asalkan uang mencukupi, masalah emosional cenderung tidak begitu penting baginya." },
+                { number: 7, result: "No data" },
+                { number: 8, result: "No data" },
+                { number: 9, result: "Visonary 【Analisis dengan angka luaran 9】 Bahkan jika impian tersebut dianggap tidak realistis oleh orang lain, mereka tetap berani mengejar. Umumnya, mereka akan menciptakan ide-ide besar, ide-ide ini didasarkan pada perubahan gaya hidup manusia, konsep yang maju dengan mudah menarik kelompok orang untuk mengikuti dan berjuang bersama mereka. Mereka memiliki naluri untuk menggunakan karyawan dan bekerja sama dengan tim untuk menyelesaikan pekerjaan dan tugas. Umumnya, mereka sibuk membuka pasar baru, bersedia masuk ke berbagai lingkungan sosial, dan mudah membangun hubungan yang baik. Oleh karena itu, mereka memiliki jaringan sumber daya yang lebih luas. Mereka tahu cara menikmati hidup, dapat mencapai keseimbangan yang baik antara impian dan materi, dan seringkali menjadi pemenang dalam kehidupan. Dalam hal investasi, mereka akan mempertimbangkan secara menyeluruh biaya dan ruang pengembangan di masa depan, membeli beberapa pabrik atau lahan yang terpencil yang menguntungkan untuk ekspansi lebih lanjut, seringkali investasi maju ini memiliki peluang untuk mendapatkan potensi peningkatan nilai yang lebih besar dan mendapatkan imbal hasil yang lebih besar di masa depan. Dalam percintaan, orang berjiwa besar ini mengharapkan keseimbangan antara cinta dan keuangan. Mereka cenderung sibuk mewujudkan impian mereka pada masa muda dan tidak memiliki waktu untuk menikmati momen romantis. Biasanya, baru setelah pensiun mereka lebih suka menikmati hidup bersama pasangan mereka, mungkin mengelilingi dunia bersama mereka." },
+            ];
+
+             // Define predefined data and results for matching
+             var predefinedDataVid = [
+                { number: 1, result: "http://xhslink.com/1VG9Xz" },
+                { number: 2, result: "http://xhslink.com/kRqaYz" },
+                { number: 3, result: "http://xhslink.com/SQKaYz" },
+                { number: 4, result: "http://xhslink.com/A7SaYz" },
+                { number: 5, result: "http://xhslink.com/mM4aYz" },
+                { number: 6, result: "http://xhslink.com/ay5dYz" },
+                { number: 7, result: "http://xhslink.com/YqqbYz" },
+                { number: 8, result: "http://xhslink.com/xXybYz" },
+                { number: 9, result: "http://xhslink.com/fyIbYz" },
+            ];
+
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData0) {
+                if (data.number === lifePathNumber) {
+                    matchedResult0 = data.result;
+                    break;
+                }
+            }
+            var matchedResult = "No match found";
+            for (var data of predefinedData1) {
+                if (data.number === lifePathNumber) {
+                    matchedResult1 = data.result;
+                    break;
+                }
+            }
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData2) {
+                if (data.number === lifePathNumber) {
+                    matchedResult2 = data.result;
+                    break;
+                }
+            }
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData3) {
+                if (data.number === lifePathNumber) {
+                    matchedResult3 = data.result;
+                    break;
+                }
+            }
+             // Check for a match in the predefined data subconcious
+             var matchedResult = "No match found";
+            for (var data of predefinedData4) {
+                if (data.number === SubPath) {
+                    matchedResult4 = data.result;
+                    break;
+                }
+            }
+             // Check for a match in the predefined data innerpath
+             var matchedResult = "No match found";
+            for (var data of predefinedData5) {
+                if (data.number === InnerPath) {
+                    matchedResult5 = data.result;
+                    break;
+                }
+            }
+              // Check for a match in the predefined data circ
+              var matchedResult = "No match found";
+            for (var data of predefinedData6) {
+                if (data.number === CircPath) {
+                    matchedResult6 = data.result;
+                    break;
+                }
+            }
+            
+            // Display the result in the explain box for each group
+            document.getElementById("explain0box").innerText = `${matchedResult0}`;
+            document.getElementById("explain1box").innerText = `${matchedResult1}`;
+            document.getElementById("explain2box").innerText = `${matchedResult2}`;
+            document.getElementById("explain3box").innerText = `${matchedResult3}`;
+            document.getElementById("explain4box").innerText = `${matchedResult4}`;
+            document.getElementById("explain5box").innerText = `${matchedResult5}`;
+            document.getElementById("explain6box").innerText = `${matchedResult6}`;
+            document.getElementById("explain7box").innerText = `${matchedResult7}`;
+
+            document.getElementById("explain81box").innerText = `${matchedResult81}`;
+            document.getElementById("explain82box").innerText = `${matchedResult82}`;
+            document.getElementById("explain83box").innerText = `${matchedResult83}`;
+
+            document.getElementById("explain84box").innerText = `${matchedResult84}`;
+            document.getElementById("explain85box").innerText = `${matchedResult85}`;
+            document.getElementById("explain86box").innerText = `${matchedResult86}`;
+
+            document.getElementById("explain87box").innerText = `${matchedResult87}`;
+            document.getElementById("explain88box").innerText = `${matchedResult88}`;
+            document.getElementById("explain89box").innerText = `${matchedResult89}`;
+
+            document.getElementById("explain90box").innerText = `${matchedResult90}`;
+            document.getElementById("explain91box").innerText = `${matchedResult91}`;
+            document.getElementById("explain92box").innerText = `${matchedResult92}`;
+
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-containerlife");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (lifePathNumber === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container4");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (SubPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container5");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (InnerPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container6");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (CircPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+
+
+            // Display clickable links based on webUrls IJM
+            var linksElement = document.getElementById("link-container81");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (IJMcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container82");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (KLNcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container83");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (MNOcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container84");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (JMWcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container85");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (IMXcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container86");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (XWScombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container87");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (NOQcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container88");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (MOPcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container89");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (QPRcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container90");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (KNVcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container91");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (LNUcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container92");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (VUTcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            
+        }
+        
+        
+        function calculateLifePathNumber(number) {
+            // Reduce the number to a single digit by adding its digits
+            while (number > 9) {
+                number = number.toString().split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+            }
+            return number;
+        }
+        
+        function changeLanguage(language) {
+        // Implement your language change logic here
+        console.log('Language changed to ' + language);
+    }
+       
+    </script>
+</body>
+</html>

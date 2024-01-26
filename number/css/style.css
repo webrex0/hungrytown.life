@@ -67,7 +67,7 @@ body {
   display: none;
 }
 .datepicker {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .myButton {
   background-color: #4a5e71;
@@ -76,7 +76,8 @@ body {
   cursor: pointer;
   color: #ffffff;
   font-size: 15px;
-  padding: 18px 25px;
+  padding: 15px 15px;
+  width: 70%;
 }
 .myButton:hover {
   background-color: #394959;
@@ -199,33 +200,53 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 85px;
 }
 /* Date Picker Styling */
-*,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-input[type="date"] {
-  background-color: #ac7ec8;
-  padding: 15px;
-  font-family: "Roboto Mono", monospace;
-  color: #ffffff;
-  font-size: 18px;
-  border: none;
-  outline: none;
+/* Dropdown styling */
+.has-label.dropdown select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  height: 3em;
+  background-color: #f7f7f7;
+  color: #333;
+  font-size: 16px;
+  outline: none;
 }
-::-webkit-calendar-picker-indicator {
-  background-color: #ffffff;
-  padding: 5px;
-  cursor: pointer;
-  border-radius: 3px;
+
+/* Styling the dropdown arrow */
+.has-label.dropdown select::-ms-expand {
+  display: none;
 }
+
+.has-label.dropdown select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+  padding-right: 30px;
+}
+
+/* Hover effect */
+.has-label.dropdown select:hover {
+  background-color: #eaeaea;
+}
+
+/* Focus effect */
+.has-label.dropdown select:focus {
+  border-color: #6a0dad;
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+
+/* Selected option */
+.has-label.dropdown select option:checked {
+  background-color: #6a0dad;
+  color: #fff;
+}
+
 .language-dropdown-container {
   display: inline-block;
   position: relative;

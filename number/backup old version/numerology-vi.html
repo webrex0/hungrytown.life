@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Include flag-icon-css library for flags -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+     <link rel="stylesheet" href="css/flag-icon.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css">
+
+     <title>Numerology</title>
+</head>
+<body>
+    <!-- Language Selector Dropdown -->
+<div class="language-dropdown-container">
+    <button class="language-dropdown-button">
+        <span class="flag-icon flag-icon-vnm"></span> Tiếng Việt
+    </button>
+    <div class="language-dropdown-list">
+        <a href="numerology-en.html" onclick="changeLanguage('en')"><span class="flag-icon flag-icon-us"></span> English</a>
+        <a href="numerology-zh.html" onclick="changeLanguage('zh')"><span class="flag-icon flag-icon-chn"></span> 中文</a>
+        <a href="numerology-ms.html" onclick="changeLanguage('ms')"><span class="flag-icon flag-icon-mys"></span> Melayu</a>
+        <a href="numerology-id.html" onclick="changeLanguage('id')"><span class="flag-icon flag-icon-idn"></span> Indonesia</a>
+        <a href="numerology-vi.html" onclick="changeLanguage('vi')"><span class="flag-icon flag-icon-vnm"></span> Tiếng Việt</a>
+        <a href="numerology-th.html" onclick="changeLanguage('th')"><span class="flag-icon flag-icon-tha"></span> ภาษาไทย</a>
+    </div>
+</div>
+<div class="title-main">
+    <h1 style="padding-top: 15px;">Số học</h1>
+</div>
+    <div class="datepicker">
+            <label for="dob">Nhập ngày sinh của bạn:</label><br><br>
+            <div class="wrapper-dob">
+                <input type="date" id="dob">
+                <button onclick="calculateNumerology()" class="myButton">Tính toán</button>
+            </div>
+        </div>    
+
+<div class="w-container">
+    <div class="pyramid-bg">
+        <!-- Pyramid Chart -->
+        <div class="pyramid-chart">
+            <div class="pyramid-row">
+                <div class="pyramid-box" id="QPBox">
+                    <!-- Display life path -->
+                </div>
+            </div>
+            <div class="pyramid-row">
+                <div class="pyramid-box" id="NOBox">
+                    <!-- Display day + month path -->
+                </div>
+                <div class="pyramid-box" id="MOBox">
+                    <!-- Display year path -->
+                </div>
+            </div>
+            <div class="pyramid-row">
+                <div class="pyramid-row2">
+                    <div class="pyramid-box-left" id="XWBox">
+                        <!-- Display day path -->
+                    </div>
+                    <div class="pyramid-box-left" id="IMBox">
+                        <!-- Display month path -->
+                    </div>
+                    <div class="pyramid-box-left" id="JMBox">
+                        <!-- Display year1 path -->
+                    </div>
+                </div>
+                <div class="pyramid-row">
+                    <div class="pyramid-box top" id="lifePathBox">
+                        <!-- Display life path -->
+                    </div>
+                </div>
+                <div class="pyramid-row3">
+                    <div class="pyramid-box-right" id="KNBox">
+                        <!-- Display day path -->
+                    </div>
+                    <div class="pyramid-box-right" id="LNBox">
+                        <!-- Display month path -->
+                    </div>
+                    <div class="pyramid-box-right" id="VUBox">
+                        <!-- Display year1 path -->
+                    </div>
+                </div>
+            </div>
+    
+            <div class="pyramid-row">
+                <div class="pyramid-box" id="dayMonthPathBox">
+                    <!-- Display day + month path -->
+                </div>
+                <div class="pyramid-box" id="yearPathBox">
+                    <!-- Display year path -->
+                </div>
+            </div>
+            <div class="pyramid-row">
+                <div class="pyramid-box" id="dayPathBox">
+                    <!-- Display day path -->
+                </div>
+                <div class="pyramid-box" id="monthPathBox">
+                    <!-- Display month path -->
+                </div>
+                <div class="pyramid-box" id="year1PathBox">
+                    <!-- Display year1 path -->
+                </div>
+                <div class="pyramid-box" id="year2PathBox">
+                    <!-- Display year2 path -->
+                </div>
+            </div>
+    
+    
+        </div>
+    </div>
+
+    <!-- Table Chart -->
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <th>Phân tích kỹ thuật số</th>
+            <th>Kết quả</th>
+            <th>Băng hình</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Nhân vật chính</td>
+            <td id="lifetable">-</td>
+            <td id="link-containerlife" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain0box" style="color:purple; ">-</td>
+        </tr>
+    </table>
+    <table class="table-chart2" id="resultTable">
+        <tr>
+            <td style="color:green; text-align: left;">Mặt tích cực</td>
+            <td id="explain1box" style="color:green; text-align: left;">-</td>
+        </tr>
+        <tr>
+            <td style="color:red; text-align: left;">Mặt tiêu cực</td>
+            <td id="explain2box" style="color:red; text-align: left;">-</td>
+        </tr>
+        <tr>
+            <td style="color:blue; text-align: left;">Lo lắng</td>
+            <td id="explain3box" style="color:blue; text-align: left;">-</td>
+        </tr>
+    </table>
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <td style="text-align: left;">Số tiềm thức</td>
+            <td id="subtable">-</td>
+            <td id="link-container4" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain4box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Số nội tâm</td>
+            <td id="innertable">-</td>
+            <td id="link-container5" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain5box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Số trung tâm</td>
+            <td id="circtable">-</td>
+            <td id="link-container6" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain6box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Phân tích Ba Học Thuyết</td>
+            <td id="3majortable">-</td>
+            <td id="link-container7" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain7box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+    </table>
+    <table class="table-chart" id="resultTable">
+        <tr>
+            <th colspan="2">12 bộ mật khẩu liên kết</th>
+            <th >Băng hình</th>
+        </tr>
+        <tr>
+            <td colspan="2" id="IJMtable">-</td>
+            <td id="link-container81" >-</td>
+            
+        </tr>
+        <tr>
+            <td colspan="3" id="explain81box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="KLNtable">-</td>
+            <td id="link-container82" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain82box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="MNOtable">-</td>
+            <td id="link-container83" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain83box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+        <tr>
+            <td colspan="2" id="JMWtable">-</td>
+            <td id="link-container84" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain84box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="IMXtable">-</td>
+            <td id="link-container85" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain85box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2"id="XWStable">-</td>
+            <td id="link-container86" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain86box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+            <td colspan="2" id="NOQtable">-</td>
+            <td id="link-container87" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain87box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="MOPtable">-</td>
+            <td id="link-container88" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain88box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="QPRtable">-</td>
+            <td id="link-container89" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain89box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr style="border-bottom:1px solid black">
+            <td colspan="100%"></td>
+          </tr>
+        <tr>
+            <td colspan="2" id="KNVtable">-</td>
+            <td id="link-container90" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain90box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2"id="LNUtable">-</td>
+            <td id="link-container91" >-</td>
+        </tr>
+        
+        <tr>
+            <td colspan="3" id="explain91box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="VUTtable">-</td>
+            <td id="link-container92" >-</td>
+        </tr>
+        <tr>
+            <td colspan="3" id="explain92box" style="color:purple; text-align: left; font-size: small;">-</td>
+        </tr>
+    </table>
+</div>
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+        // Detect the user's language
+        var userLanguage = navigator.language || navigator.userLanguage;
+
+        // Set the language for the date input
+        document.getElementById("dob").lang = userLanguage;
+        });
+        // Define predefined web URLs for each 81group
+        var webUrls = [
+            { number: '1-1-2', result: 'https://www.xiaohongshu.com/explore/6541d846000000001d0164e3' },
+
+            { number: '1-2-3', result: '#' },
+            { number: '2-1-3', result: '#' },
+
+            { number: '1-3-4', result: 'https://www.xiaohongshu.com/explore/6543303c000000001f004a2f' },
+            { number: '3-1-4', result: 'https://www.xiaohongshu.com/explore/6543303c000000001f004a2f' },
+
+            { number: '1-4-5', result: 'https://www.xiaohongshu.com/explore/6544b842000000001f03c980' },
+            { number: '4-1-5', result: 'https://www.xiaohongshu.com/explore/6544b842000000001f03c980' },
+
+            { number: '1-5-6', result: 'https://www.xiaohongshu.com/explore/6545c091000000001e02aff8' },
+            { number: '5-1-6', result: 'https://www.xiaohongshu.com/explore/6545c091000000001e02aff8' },
+
+            { number: '1-6-7', result: 'https://www.xiaohongshu.com/explore/6547003b000000001e020e3f' },
+            { number: '6-1-7', result: 'https://www.xiaohongshu.com/explore/6547003b000000001e020e3f' },
+
+            { number: '1-7-8', result: 'https://www.xiaohongshu.com/explore/65485ceb000000001f03bda6' },
+            { number: '7-1-8', result: 'https://www.xiaohongshu.com/explore/65485ceb000000001f03bda6' },
+
+            { number: '1-8-9', result: '#' },
+
+            { number: '8-1-9', result: '#' },
+            { number: '1-9-1', result: '#' },
+
+            { number: '9-1-1', result: '#' },
+            { number: '2-2-4', result: '#' },
+            { number: '2-3-5', result: '#' },
+
+            { number: '3-2-5', result: '#' },
+            { number: '2-4-6', result: '#' },
+
+            { number: '4-2-6', result: '#' },
+            { number: '2-5-7', result: '#' },
+
+            { number: '5-2-7', result: '#' },
+            { number: '2-6-8', result: '#' },
+            { number: '6-2-8', result: '#' },
+
+            { number: '2-7-9', result: 'https://www.xiaohongshu.com/explore/6534b550000000001e00fe14' },
+            { number: '7-2-9', result: 'https://www.xiaohongshu.com/explore/6534b550000000001e00fe14' },
+
+            { number: '2-8-1', result: '#' },
+            { number: '8-2-1', result: '#' },
+            { number: '2-9-2', result: '#' },
+
+            { number: '9-2-2', result: '#' },
+
+            { number: '3-3-6', result: '#' },
+            { number: '3-4-7', result: '#' },
+
+            { number: '4-3-7', result: '#' },
+            { number: '3-5-8', result: '#' },
+
+            { number: '5-3-8', result: '#' },
+            { number: '3-6-9', result: '#' },
+
+            { number: '6-3-9', result: '#' },
+            { number: '3-7-1', result: '#' },
+            { number: '7-3-1', result: '#' },
+
+            { number: '3-8-2', result: 'https://www.xiaohongshu.com/explore/654700b3000000001f03efa8' },
+            { number: '8-3-2', result: 'https://www.xiaohongshu.com/explore/654700b3000000001f03efa8' },
+
+            { number: '3-9-3', result: '#' },
+            { number: '9-3-3', result: '#' },
+
+            { number: '4-4-8', result: '#' },
+            { number: '4-5-9', result: '#' },
+            { number: '5-4-9', result: '#' },
+
+            { number: '4-6-1', result: '#' },
+            { number: '6-4-1', result: '#' },
+
+            { number: '4-7-2', result: '#' },
+            { number: '7-4-2', result: '#' },
+            { number: '4-8-3', result: '#' },
+
+            { number: '8-4-3', result: '#' },
+            { number: '4-9-4', result: '#' },
+
+            { number: '9-4-4', result: '#' },
+            { number: '5-5-1', result: '#' },
+            { number: '5-6-2', result: '#' },
+
+            { number: '6-5-2', result: '#' },
+            { number: '5-7-3', result: '#' },
+            { number: '7-5-3', result: '#' },
+            { number: '5-8-4', result: '#' },
+
+            { number: '8-5-4', result: '#' },
+            { number: '5-9-5', result: '#' },
+            { number: '9-5-5', result: '#' },
+
+            { number: '6-6-3', result: '#' },
+            { number: '6-7-4', result: '#' },
+            { number: '7-6-4', result: '#' },
+
+            { number: '6-8-5', result: '#' },
+            { number: '8-6-5', result: '#' },
+
+            { number: '6-9-6', result: '#' },
+            { number: '9-6-6', result: '#' },
+
+            { number: '7-7-5', result: '#' },
+            { number: '7-8-6', result: '#' },
+
+            { number: '8-7-6', result: '#' },
+            { number: '7-9-7', result: '#' },
+            { number: '9-7-7', result: '#' },
+
+            { number: '8-8-7', result: 'https://www.xiaohongshu.com/explore/653dde48000000001f03eb01' },
+
+            { number: '8-9-8', result: '#' },
+            { number: '9-8-8', result: '#' },
+
+            { number: '9-9-9', result: '#' },
+
+            
+        ];
+        
+        function calculateNumerology() {
+            // Get the date of birth from the input field
+            var dobInput = document.getElementById("dob");
+            var dob = new Date(dobInput.value);
+
+            // Calculate numerology values
+            var day = dob.getDate();
+            var month = dob.getMonth() + 1; // Months are zero-based
+            var year = dob.getFullYear();
+
+            var dayPathNumber = calculateLifePathNumber(day);
+            var monthPathNumber = calculateLifePathNumber(month);
+            var year1PathNumber = calculateLifePathNumber(Math.floor(year / 100)); // First two digits
+            var year2PathNumber = calculateLifePathNumber(year % 100); // Last two digits
+            var year2PathNumber = (year % 100 === 0) ? 5 : calculateLifePathNumber(year % 100);
+
+            var dayMonthPath = calculateLifePathNumber(dayPathNumber + monthPathNumber);
+            var yearPath = calculateLifePathNumber(year1PathNumber + year2PathNumber);
+            var lifePathNumber = calculateLifePathNumber(dayPathNumber + monthPathNumber + year1PathNumber + year2PathNumber);
+	        var NOPath = calculateLifePathNumber(yearPath + lifePathNumber);
+  	        var MOPath = calculateLifePathNumber(dayMonthPath + lifePathNumber);
+	        var QPPath = calculateLifePathNumber(NOPath + MOPath);
+	        var IMPath = calculateLifePathNumber(dayPathNumber + dayMonthPath);
+            var JMPath = calculateLifePathNumber(monthPathNumber + dayMonthPath);
+	        var XWPath = calculateLifePathNumber(IMPath + JMPath);
+	        var KNPath = calculateLifePathNumber(year1PathNumber + yearPath);
+            var LNPath = calculateLifePathNumber(year2PathNumber + yearPath);
+            var VUPath = calculateLifePathNumber(KNPath + LNPath);
+
+	        var SubPath = calculateLifePathNumber(lifePathNumber + dayPathNumber + year2PathNumber);
+  	        var InnerPath = calculateLifePathNumber(lifePathNumber + dayMonthPath + yearPath);
+	        var CircPath = calculateLifePathNumber(XWPath + QPPath + VUPath);
+
+            // Combine the three path numbers into a single string for matching
+            var majorcombination = `${XWPath}-${QPPath}-${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedDataMajor = {
+                "3-6-3": "Tuổi trẻ đối với họ là một loại trải nghiệm, hoặc có thể do họ thường thích thúc đẩy cuộc sống gia đình, khi đến trung niên có cơ hội phát triển cao hơn. Tuy nhiên, vì đã trải qua những ngày thanh niên khá khó khăn, họ thường không muốn thuê nhân viên và phát triển ở giai đoạn trung niên có thể bị hạn chế vì điều này, điều này có thể khiến họ không đạt được tài chính lý tưởng. Tuy nhiên, những người như vậy thường thưởng thức cuộc sống hơn khi già. Do đó, đề xuất nên thuê nhiều nhân viên hơn, để họ có thể thưởng thức cuộc sống vào những năm cuối cùng mà không cần phải làm việc chăm chỉ như khi còn trẻ.",
+                "6-6-9": "Cả khi ở tuổi trẻ hay ở trung niên, họ thường dễ có thành công và kiếm được tiền. Trong nhóm bạn bè và môi trường sống của họ, họ thường đứng ở vị trí trung bình, là một trạng thái so với những người trên và dư thừa so với những người dưới, vì vậy dễ có tâm lý so sánh. Đề xuất họ cần phải cẩn thận với tài chính của mình, nếu không họ có thể tiêu quá mức và có thể gặp khó khăn tài chính. Bởi vì trạng thái tốt nhất của cuộc sống của họ là ở giai đoạn cuối cùng, nên đề xuất những người như vậy ở độ tuổi trung niên họ nên tích luỹ tài sản, sở hữu một số tài sản như bất động sản, quyền sở hữu trí tuệ, v.v., có thể chuyển đổi thành tiền mặt ở tương lai, để tích lũy tài chính cho những năm già sau này.",
+                "9-6-6": "Những người thuộc loại này có cơ hội phát đạt cao khi còn trẻ, dễ dàng đạt được thành công hơn so với những người cùng lứa tuổi và thường xuyên không trải qua những thời kỳ khó khăn trong đời họ. Cần lưu ý rằng, chính việc đạt được thành công khi còn trẻ có thể khiến họ không muốn làm việc chăm chỉ khi họ lớn lên, nhưng thực sự họ có thể làm tốt hơn. Vì vậy, đề xuất họ không nên hài lòng với tình hình hiện tại, và không nên sống trong cảm xúc, sử dụng trải nghiệm và tâm trạng của mình để phê phán người khác một cách thoải mái, vì có thể có cơ hội và tài chính lớn hơn sau này.",
+                "3-3-9": "Những người thuộc loại này thường trải qua giai đoạn trước khó khăn và sau đó mới đạt được thành công, nhưng so với những người xung quanh khi còn trẻ, họ thường cảm thấy rằng người khác dễ dàng hơn trong việc tạo ra tài chính. Họ thường cảm thấy mình cần phải nỗ lực hơn, nên họ cần học cách kiên trì, vì giai đoạn tốt nhất của cuộc sống của họ là khi già. Do đó, khi còn trẻ, họ nên tích luỹ kỹ năng và tài sản, để có thể chuyển đổi chúng thành tiền mặt khi già. Những người này ở độ tuổi già cũng có thể có cuộc sống tốt hơn nhờ vào thành công của con cái.",
+                "6-3-6": "Những người thuộc loại này thường dễ kiếm tiền khi còn trẻ, nhưng khi đến giữa đời, họ có thể gặp khó khăn. Thách thức này thường đến từ sự lạc quan quá mức của chính họ, khi họ kiếm được nhiều tiền khi còn trẻ và sau đó điều này đủ để họ thưởng thức cuộc sống, không cần phải cố gắng quá mức. Tuy nhiên, khi họ già, họ có thể nảy sinh ý định tái khởi động kinh doanh hoặc đầu tư, khiến họ nhận ra rằng họ đã có kinh nghiệm, nhưng sức mạnh và sự nhạy bén của họ không thể sánh kịp với giới trẻ. Vì vậy, đề xuất cho những người này là ở giai đoạn giữa cuộc đời, họ nên thay đổi sang một môi trường mạnh mẽ hơn và học cách tận dụng nguồn lực xung quanh.",
+                "9-3-3": "Những người thuộc loại này khi còn trẻ thường dễ kiếm được tiền, cũng như thành công, nhưng khi đến giữa đời, họ cần thay đổi cách sống và cách kiếm tiền. Họ cần chuyển sang một cách tiếp cận mới hơn và tham gia vào một cộng đồng cao cấp hơn để duy trì sự tiến bộ của mình. Do đó, trước 40 tuổi, họ cần phải cố gắng hết mình, vì vậy khi đến giữa đời, họ sẽ không kém cạnh. Đồng thời, họ cũng cần làm cho bản thân mình giá trị hóa hơn, để có thể dẫn dắt đội ngũ của mình. Đối với những người như vậy, đề xuất rằng họ nên tích luỹ một số tiền khi còn trẻ, vì thường thời kỳ thanh niên khá vất vả, đến khi già họ sẽ muốn thưởng thức cuộc sống hơn.",
+                "3-9-6": "Những người thuộc loại này khi còn trẻ thường cần phải trải qua nhiều thử thách, đến khi vào trung niên, họ sẽ có một bước nhảy lớn, mang lại nhiều thành công. Kỳ thử thách khi trẻ thường là thời kỳ khó khăn nhất đối với họ, nhưng một khi vượt qua được giai đoạn này, họ sẽ liên tục kết nối với một từ quen thuộc, đó là đầu tư. Họ sẽ tiếp tục đầu tư hoặc kinh doanh suốt đến khi già.",
+                "6-9-3": "Những người thuộc loại này sẽ có những thành tựu tốt khi còn trẻ, đặc biệt là khi vào trung niên, nhưng do thường quá trực giác, các đầu tư của họ có thể không có lợi nhuận trong khoảng thời gian mong muốn, do đó thường khi họ già, dòng tiền xung quanh họ không còn nhiều như vì tiền đã được đầu tư vào tài sản lớn hoặc giữa tay con cháu.",
+                "9-9-9": "Những người thuộc loại này có nhiều cơ hội trong cuộc sống, nhưng thường do cơ hội lớn mà họ không biết trân trọng. Vì vậy, sự thành công của họ phụ thuộc nhiều vào thái độ của chính họ hơn là cơ hội. Ngoài ra, họ thường có cảm giác đặc biệt với hàng hiệu, vì vậy đề xuất rằng họ nên chú ý đến việc bán một số tài sản có thể giữ giá và chuyển đổi được, tránh tình trạng đau đớn có thể xảy ra nếu họ không làm điều này."
+            };
+
+            // Check for a match in the predefined data
+            var matchedResult7 = predefinedDataMajor[majorcombination] || "No match found";
+
+            // Combine the three path numbers into a single string for matching 81group
+            var IJMcombination = `${dayPathNumber}-${monthPathNumber}-${dayMonthPath}`;
+            var KLNcombination = `${year1PathNumber}-${year2PathNumber}-${yearPath}`;
+            var MNOcombination = `${dayMonthPath}-${yearPath}-${lifePathNumber}`;
+
+            var JMWcombination = `${monthPathNumber}-${dayMonthPath}-${JMPath}`;
+            var IMXcombination = `${dayPathNumber}-${dayMonthPath}-${IMPath}`;
+            var XWScombination = `${IMPath}-${JMPath}-${XWPath}`;
+
+            var NOQcombination = `${yearPath}-${lifePathNumber}-${NOPath}`;
+            var MOPcombination = `${dayMonthPath}-${lifePathNumber}-${MOPath}`;
+            var QPRcombination = `${NOPath}-${MOPath}-${QPPath}`;
+
+            var KNVcombination = `${year1PathNumber}-${yearPath}-${KNPath}`;
+            var LNUcombination = `${year2PathNumber}-${yearPath}-${LNPath}`;
+            var VUTcombination = `${KNPath}-${LNPath}-${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedData81 = {
+                "1-1-2": "Khả năng tự lập mạnh mẽ, có tay nghề tốt cả trong thực hiện và quản lý, tuy nhiên có xu hướng tự phản đối. Đối với nhóm này, bạn cần linh hoạt hơn một chút, không nên làm quá nhiều công việc mà không đạt được sự hài lòng. Giúp đỡ người khác có thể làm tổn thương bản thân! Mật mã ly hôn. Nếu bạn quan tâm quá nhiều đến ý kiến của người khác, bạn có thể giải mã vấn đề ly hôn. ",
+
+                "1-2-3": "Có quan điểm và mục tiêu rõ ràng. Nói chuyện rất chắc chắn và trực tiếp, không giữ lại bất kỳ lời nào, lời nói sắc bén. Có cảm giác như một ngôi sao, số phận giảng viên hoặc người dẫn chương trình. Nhạy cảm với âm nhạc, quan trọng về trang phục, hình ảnh và cảm nhận cá nhân.",
+                "2-1-3": "Có cảm giác như một ngôi sao, số phận giảng viên hoặc người dẫn chương trình. Nhạy cảm với âm nhạc, quan trọng về trang phục, hình ảnh và cảm nhận cá nhân. Mặc dù có quan điểm và mục tiêu rõ ràng, nhưng nói chuyện khá tế nhị và lời nói ngọng ngành.",
+
+                "1-3-4": "Có khả năng sáng tạo mạnh mẽ. Không chịu được bất công, người này cần được động viên. Người nào có số này, nếu kết hôn với ai cũng sẽ cảm thấy bất công, điều này là vấn đề của chính mình. Khi còn nhỏ, nếu bạn gặp vấn đề bạn sẽ khóc, nên sự chấp nhận của bạn khi còn nhỏ rất thấp. Người có số này chỉ có thể làm việc trong môi trường tích cực. Cần phải có ý thức tồn tại, tích cực. Làm việc chăm chỉ và đáng tin cậy nhưng không chịu được sự bất công. Thích cảm giác có người đứng sau hỗ trợ, Cần sự hỗ trợ và động viên tích cực.cần cảm giác an toàn. Thiếu cảm giác an toàn. ", 
+                "3-1-4": "Không chịu được bất công, người này cần được động viên. Người nào có số này, nếu kết hôn với ai cũng sẽ cảm thấy bất công, điều này là vấn đề của chính mình. Khi còn nhỏ, nếu bạn gặp vấn đề bạn sẽ khóc, nên sự chấp nhận của bạn khi còn nhỏ rất thấp. Người có số này chỉ có thể làm việc trong môi trường tích cực. Cần phải có ý thức tồn tại, tích cực. Làm việc chăm chỉ và đáng tin cậy nhưng không chịu được sự bất công. Thích cảm giác có người đứng sau hỗ trợ, Cần sự hỗ trợ và động viên tích cực.cần cảm giác an toàn. Thiếu cảm giác an toàn. Có khả năng mô phỏng mạnh mẽ.",
+                
+                "1-4-5": "Có vấn đề với tự tin, đặc biệt là thiếu tự tin, khiến bạn phải làm từ đầu đến cuối. Thiếu lòng tự thách thức, thích giữ vững, thiếu lòng dũng cảm. Không thích ở một mình. Gần thành công, càng dễ bỏ cuộc. Luôn gặp khó khăn khi làm việc và không thể tiếp tục. Cần có người đứng sau hỗ trợ.",
+                "4-1-5": "Gần thành công, càng dễ bỏ cuộc. Luôn gặp khó khăn khi làm việc và không thể tiếp tục. Cần có người đứng sau hỗ trợ. Đôi khi bạn yêu tự do nhưng lại sợ mất cảm giác an toàn, càng muốn gần gũi càng sợ mất tự do. Thích hợp để trở thành người chính trị hoặc lãnh đạo.",
+                
+                "1-5-6": "Nếu việc đó không liên quan đến bạn, bạn sẽ không quá quan tâm. Chỉ khi bạn đi khắp nơi, bạn mới có thể kiếm được tiền! Hãy khám phá nhiều hơn! Bạn sẽ kiếm được tiền khi bạn thám hiểm. Đừng ở nhà và đừng ở văn phòng. Bạn có thể trở nên rất mạnh mẽ, chủ nghĩa nam nữ đầy đủ. Bởi vì bạn cảm thấy với kinh nghiệm và hiểu biết của mình, bạn có thể đưa ra lời khuyên cho mọi người. Nhưng nếu không chấp nhận lời khuyên của bạn, bạn có thể giữ quan điểm và quan sát từ xa.",
+                "5-1-6": "Bạn có thể trở nên rất mạnh mẽ, chủ nghĩa nam nữ đầy đủ. Bởi vì bạn cảm thấy với kinh nghiệm và hiểu biết của mình, bạn có thể đưa ra lời khuyên cho mọi người. Nhưng nếu không chấp nhận lời khuyên của bạn, bạn có thể giữ quan điểm và quan sát từ xa. Cảm giác đó là quan trọng, một khi đã tìm thấy, bạn có thể làm mọi cách để hoàn thành nhiệm vụ.",
+                
+                "1-6-7": "Nhiệt huyết và thân thiện, nhưng tâm hồn vẫn rất thực tế. Một người kiếm tiền, nhiều người chi tiêu, rất hào phóng, thích trả tiền và quan trọng về vẻ ngoại giao. Số có tính chất mở lời, nói gì chắc chắn làm được. Nắm vững nghệ thuật tích lũy từ lời nói, nếu nói điều tốt, nó sẽ thành hiện thực, nói điều xấu cũng sẽ thành hiện thực! Có sự nhạy cảm và linh cảm tâm linh, cảm giác và trực giác của họ rất chính xác. Loại người này có thể dựa vào trực giác để làm việc và sử dụng cảm hứng để đạt được thành công.",
+                "6-1-7": "Một người kiếm tiền, nhiều người chi tiêu, rất hào phóng, thích trả tiền và quan trọng về vẻ ngoại giao. Số có tính chất mở lời, nói gì chắc chắn làm được. Nắm vững nghệ thuật tích lũy từ lời nói, nếu nói điều tốt, nó sẽ thành hiện thực, nói điều xấu cũng sẽ thành hiện thực! Có sự nhạy cảm và linh cảm tâm linh, cảm giác và trực giác của họ rất chính xác. Loại người này có thể dựa vào trực giác để làm việc và sử dụng cảm hứng để đạt được thành công. Nhìn xa quá mức và những gì đang làm hiện tại không phản ánh thực tế.",
+                
+                "1-7-8": "Có quan điểm riêng, quyết định sẵn sàng làm việc chăm chỉ cho ước mơ hay không phụ thuộc vào giá trị của ước mơ đó mà người khác đặt ra cho bạn. Mã số mang lại may mắn, có nhiều bạn bè, là một người lãnh đạo rất quyến rũ. Gần đến thành công, áp lực càng lớn. Nếu bạn gặp khó khăn, đi du lịch và trở về sẽ tốt hơn. Phát triển thị trường ngoại tỉnh khá thuận lợi. Không nên làm người bảo lãnh, không nên đến những nơi có rủi ro!",
+                "7-1-8": "Mã số mang lại may mắn, có nhiều bạn bè, là một người lãnh đạo rất quyến rũ. Gần đến thành công, áp lực càng lớn. Nếu bạn gặp khó khăn, đi du lịch và trở về sẽ tốt hơn. Phát triển thị trường ngoại tỉnh khá thuận lợi. Không nên làm người bảo lãnh, không nên đến những nơi có rủi ro! Khá dễ chịu và thích trải nghiệm. Thời gian thường dành cho công việc của bạn bè.",
+                
+                "1-8-9": "Nếu một người chịu đựng nhiều áp lực, họ có thể đạt được thành công. Ngược lại, nếu tránh áp lực, thành công có thể rất nhỏ. Hãy đặt ra những thách thức cho bản thân trước, sau đó mới làm khó khăn cho người khác. Mật mã là nhân viên xuất sắc nhất, sẽ chịu đựng nhiều áp lực nhưng cuối cùng sẽ đạt được thành công. Đây là người có yêu cầu rất cao, luôn đặt mục tiêu làm mọi việc đến hoàn hảo.",
+                "8-1-9": "Mật mã là nhân viên xuất sắc nhất, sẽ chịu đựng nhiều áp lực nhưng cuối cùng sẽ đạt được thành công. Đây là người có yêu cầu rất cao, luôn đặt mục tiêu làm mọi việc đến hoàn hảo. Chỉ cần đặt áp lực lên anh ấy, anh ấy sẽ đạt được kết quả. Đứa trẻ này càng bị áp đặt, thành tựu của nó càng lớn.",
+                
+                "1-9-1": "Khả năng thực hiện mang lại nhiều cơ hội, nhưng nếu không thành công có thể dẫn đến việc lãng phí rất nhiều thời gian. Rất quyết đoán, nhưng cần học cách giữ ý kiến của mình. Khi bạn làm được điều này, mọi thứ sẽ trở nên thuận lợi hơn. Nếu không, bạn thậm chí còn không đạt được thành công. Người có số này thích hợp với việc làm độc lập, hợp tác với người khác khó khăn. Việc đưa ra ý kiến có thể làm tổn thương người khác và họ không giỏi trong giao tiếp. Làm việc độc lập là tốt nhất.",
+                "9-1-1": "Rất quyết đoán, nhưng cần học cách giữ ý kiến của mình. Khi bạn làm được điều này, mọi thứ sẽ trở nên thuận lợi hơn. Nếu không, bạn thậm chí còn không đạt được thành công. Người có số này thích hợp với việc làm độc lập, hợp tác với người khác khó khăn. Việc đưa ra ý kiến có thể làm tổn thương người khác và họ không giỏi trong giao tiếp. Làm việc độc lập là tốt nhất. Cơ hội nhiều, nhưng quá mức tự đặt ra cho bản thân có thể dẫn đến những hậu quả không dễ chịu sau đó.",
+                
+                "2-2-4": "Thích nói chuyện và thích trò chuyện, nếu nói bí mật với anh ấy tương đương với việc nói với cả thế giới. Dễ lỡ miệng khi nói quá nhiều, phù hợp với ngành dịch vụ. Anh ấy là một chuyên gia quảng cáo!",
+                
+                "2-3-5": "Bề ngoài nhẹ nhàng và thân thiện, nhưng bên trong có tính tự lập mạnh mẽ. Kỹ năng ăn nói xuất sắc, có thể làm cho chim trên cây xuống. Có cảm giác thông linh, thường che giấu cảm xúc bên trong mình. Không mở lời về những cảm xúc bên trong. Đây cũng là một mật mã đầy cảm xúc, khi anh ấy tức giận, hãy giữ khoảng cách và học cách diễn đạt bản thân một cách chân thực, sử dụng tài năng ngôn ngữ của bạn để thể hiện chính mình một cách trung thực.",
+                "3-2-5": "Kỹ năng ăn nói xuất sắc, có thể làm cho chim trên cây xuống. Có cảm giác thông linh, thường che giấu cảm xúc bên trong mình. Không mở lời về những cảm xúc bên trong. Đây cũng là một mật mã đầy cảm xúc, khi anh ấy tức giận, hãy giữ khoảng cách và học cách diễn đạt bản thân một cách chân thực, sử dụng tài năng ngôn ngữ của bạn để thể hiện chính mình một cách trung thực. Nói chuyện quá nhanh, nguy cơ từ miệng mở ra.",
+                
+                "2-4-6": "Nói trước rồi mới thực hiện, suy nghĩ và kiếm tiền sau. Đây là mật mã về bán hàng, có khả năng bán hàng cực kỳ mạnh mẽ, giỏi trong việc xử lý quan hệ giữa con người. Các thành công về tài chính đến từ việc sử dụng kỹ năng ăn nói của anh ấy. Người khác dễ tin tưởng anh ấy.",
+                "4-2-6": "Đây là mật mã về bán hàng, có khả năng bán hàng cực kỳ mạnh mẽ, giỏi trong việc xử lý quan hệ giữa con người. Các thành công về tài chính đến từ việc sử dụng kỹ năng ăn nói của anh ấy. Người khác dễ tin tưởng anh ấy. Là người gây khó khăn cho sếp. Bán sản phẩm dựa trên giá trị hợp lý, mọi người đều tin tưởng anh ấy. Nhà bán hàng kiểu này rất chân thành, không sẽ lừa dối bạn, là người bán hàng trung thực.",
+                
+                "2-5-7": "Cảm giác khá dễ chịu, từ chối những người bạn không thích. Mật mã có vận may tốt, được mọi người yêu mến, như hoa nở khi gặp, phục vụ khách hàng VIP. Có tính tự hào, chỉ thích nói chuyện với những người anh ấy thích, nếu không thích bạn, anh ấy sẽ lười nói chuyện với bạn. Mã số này quan trọng về danh tiếng.",
+                "5-2-7": "Có tính tự hào, chỉ thích nói chuyện với những người anh ấy thích, nếu không thích bạn, anh ấy sẽ lười nói chuyện với bạn. Mã số này quan trọng về danh tiếng. Sẽ ủng hộ mạnh mẽ những người bạn thích mà không có nguyên tắc, và sẽ có thái độ cực đoan hơn đối với những người bạn không ưa.",
+                
+                "2-6-8": "Hài lòng nhu cầu của người khác, quá trình giao dịch mất nhiều thời gian. Rất thích thú với việc thảo luận về tiền bạc và tài chính. Mật mã về bán hàng, rất nhạy bén với tiền bạc và xuất sắc trong bán hàng. Giỏi bán các ý tưởng, đặc biệt là trong ngành bảo hiểm và y tế. Nhạy bén, tinh tế và có mối quan hệ tốt. Thích hợp cho công việc trong lĩnh vực tài chính.",
+                "6-2-8": "Mật mã về bán hàng, rất nhạy bén với tiền bạc và xuất sắc trong bán hàng. Giỏi bán các ý tưởng, đặc biệt là trong ngành bảo hiểm và y tế. Nhạy bén, tinh tế và có mối quan hệ tốt. Thích hợp cho công việc trong lĩnh vực tài chính. Công việc tài chính của anh ấy là sử dụng khéo léo khả năng ăn nói để đạt được sự thành công. Anh ấy bán cơ hội đầu tư và quản lý tài chính.",
+                
+                "2-7-9": "Dịu dàng và tận tâm, tâm trạng phong phú. Do đó, cuộc sống của anh ấy có thể rất mệt mỏi. Đây là mật mã về duyên nữ, thu hút phụ nữ. Nếu biết kinh doanh phù hợp với phụ nữ, chắc chắn sẽ kiếm được nhiều tiền! Sức hấp dẫn cá nhân đặc biệt mạnh mẽ.  Nếu bạn đối xử tốt với vợ, vợ sẽ mang lại may mắn cho bạn và thu hút phụ nữ lớn tuổi đến hỗ trợ bạn. Phù hợp cho các ngành kinh doanh dành cho phụ nữ như làm đẹp, chống lão hóa, thời trang, v.v.",
+                "7-2-9": "Đây là mật mã về duyên nữ, thu hút phụ nữ. Nếu biết kinh doanh phù hợp với phụ nữ, chắc chắn sẽ kiếm được nhiều tiền! Sức hấp dẫn cá nhân đặc biệt mạnh mẽ.  Nếu bạn đối xử tốt với vợ, vợ sẽ mang lại may mắn cho bạn và thu hút phụ nữ lớn tuổi đến hỗ trợ bạn. Phù hợp cho các ngành kinh doanh dành cho phụ nữ như làm đẹp, chống lão hóa, thời trang, v.v. Mối quan hệ với người khác rất tốt, nhưng có thể dễ mất kiểm soát và rơi vào tình trạng cảm xúc đặc biệt là trong mối quan hệ nam nữ.",
+                
+                "2-8-1": "Là người kích thích sự thành công, anh ấy nhất định muốn kết quả. Người bận rộn và thích trò chuyện, có một chút áp lực, công việc làm hôm nay phải hoàn thành hôm nay. Nếu không hoàn thành, anh ấy sẽ không thể ngủ được và có thể có một số cảm xúc tích tụ. Anh ấy cần học cách giải quyết cảm xúc.Mật mã về Nhà vô địch bán hàng: Anh ấy có lái lịch tốt và khả năng bán hàng mạnh mẽ. Anh ấy không nói về tiền mà nói về giá trị khiến cho quảng cáo của anh ấy trở nên mạnh mẽ.",
+                "8-2-1": "Mật mã về Nhà vô địch bán hàng: Anh ấy có lái lịch tốt và khả năng bán hàng mạnh mẽ. Anh ấy không nói về tiền mà nói về giá trị khiến cho quảng cáo của anh ấy trở nên mạnh mẽ. Chỉ biết khen ngợi, không thích hợp với phê phán. Rất kiên quyết đối với các từ ngữ không hài lòng, áp lực đến từ gia đình của anh ấy.",
+                
+                "2-9-2": "Quá nhạy cảm, dễ bị quan tâm đến những chi tiết nhỏ. Quá hợp tác với người khác và đôi khi quên đi công việc của chính mình. Mật mã của một nhà môi giới: Kỹ năng giao tiếp mạnh mẽ, sức thuyết phục đáng kể. Rất phù hợp để làm môi giới. Là mật mã của người trung gian tốt nhất, người trưởng thành muộn, nhưng thiếu tự tin khi thấy nhiều cơ hội kinh doanh mà không dám đầu tư. Là vai trò phụ tốt nhất! Làm vai trò cây cầu tốt nhất. Cần thêm một chút tự tin, chỉ cần tự tin sớm thì sẽ thành công sớm.",
+                "9-2-2": "Mật mã của một nhà môi giới: Kỹ năng giao tiếp mạnh mẽ, sức thuyết phục đáng kể. Rất phù hợp để làm môi giới. Là mật mã của người trung gian tốt nhất, người trưởng thành muộn, nhưng thiếu tự tin khi thấy nhiều cơ hội kinh doanh mà không dám đầu tư. Là vai trò phụ tốt nhất! Làm vai trò cây cầu tốt nhất. Cần thêm một chút tự tin, chỉ cần tự tin sớm thì sẽ thành công sớm. Nhiều cơ hội đang chờ đợi, sự tự tin trong việc giao tiếp và tham gia sẽ giúp bạn đạt được nhiều thành công hơn.",
+                
+                "3-3-6": "Có sự theo đuổi mạnh mẽ về tinh thần, tính khí nóng nảy, có xu hướng mạo hiểm, nhưng tránh mức độ cá cược, đặc biệt là đánh bạc. Đầu tư không nên là sự mạo hiểm! Không nhất thiết là đánh bạc, nhưng thích thách thức. Nếu có một cơ hội để thách thức, anh ấy sẽ thể hiện ý kiến mạnh mẽ. Nhóm mật mã này giàu có, nhưng khi tính khí lên, tiền bạc và sự thông thái sẽ mất đi. Nếu kiểm soát tốt tính khí, họ sẽ trở nên rất giàu có.",
+
+                "3-4-7": "Để hoàn thành nhiệm vụ nhanh chóng, thường có cảm giác muốn chỉ huy người khác, tạo ra cảm giác không thoải mái cho người khác. Mật mã dành cho CEO, có người quý trọng là một mã số tốt. Luôn có khả năng tìm ra người phù hợp để giúp anh ấy hoàn thành công việc. Là một mã số CEO có hành động, có kế hoạch và có người quý trọng là mã số tốt. Loại CEO này có không gian riêng tư vì anh ấy có nhiều người quý trọng giúp anh ấy thực hiện kế hoạch.",
+                "4-3-7": "Mật mã dành cho CEO, có người quý trọng là một mã số tốt. Luôn có khả năng tìm ra người phù hợp để giúp anh ấy hoàn thành công việc. Là một mã số CEO có hành động, có kế hoạch và có người quý trọng là mã số tốt. Loại CEO này có không gian riêng tư vì anh ấy có nhiều người quý trọng giúp anh ấy thực hiện kế hoạch. Trong giai đoạn đầu, việc quá mức quy hoạch có thể khiến người khác cảm thấy không thoải mái trong cuộc họp. Khi thực hiện, có sự biến động có thể làm người khác cảm thấy như đã bị trách mắng vô ích từ trước.",
+                
+                "3-5-8": "Hành động mạnh mẽ vì lý tưởng có thể tạo ra hậu quả lớn cho bản thân. Cần cân nhắc kỹ lưỡng trước khi hành động. Số điện thoại quan hệ công chúng này có thể gặp nhiều biến động tâm lý và có thể nổi giận nhanh chóng. Trong khi xử lý vấn đề lớn không quá lo lắng, nhưng lại rất quan tâm đến những vấn đề nhỏ. Khi họ tức giận, tốt nhất nên tránh xa để tránh sự nổ tung không kiểm soát.",
+                "5-3-8": "Số điện thoại quan hệ công chúng này có thể gặp nhiều biến động tâm lý và có thể nổi giận nhanh chóng. Trong khi xử lý vấn đề lớn không quá lo lắng, nhưng lại rất quan tâm đến những vấn đề nhỏ. Khi họ tức giận, tốt nhất nên tránh xa để tránh sự nổ tung không kiểm soát.Bạn có thể được kích thích bởi anh ấy hay không phụ thuộc vào việc bạn có thích người khác không.",
+                
+                "3-6-9": "Bạn càng cố gắng, bạn càng may mắn. Bạn học được nhận thức, tích luỹ kinh nghiệm và đạt được kỹ năng. Đang nhanh chóng chi tiêu tiền không nhất thiết dẫn đến thành công. Không sử dụng tiền của bản thân mà sử dụng tiền của người khác mới đưa đến thành công. Học cách đánh giá vẻ đẹp và quản lý tài chính, sử dụng tiền để mua cơ hội, và sử dụng trí tuệ để mua cơ hội. Dễ dàng chi tiêu tiền một cách hào phóng mà không kiểm soát được. ",
+                "6-3-9": "Đang nhanh chóng chi tiêu tiền không nhất thiết dẫn đến thành công. Không sử dụng tiền của bản thân mà sử dụng tiền của người khác mới đưa đến thành công. Học cách đánh giá vẻ đẹp và quản lý tài chính, sử dụng tiền để mua cơ hội, và sử dụng trí tuệ để mua cơ hội. Dễ dàng chi tiêu tiền một cách hào phóng mà không kiểm soát được. úng, bạn rất thông minh. Nếu không đủ chăm chỉ, có thể bỏ lỡ cơ hội thành công.",
+                
+                "3-7-1": "Chất tính nóng nảy có thể mang lại rắc rối và trở ngại cho bản thân. Có tài năng xuất chúng, có sức mạnh hành động, và có người hỗ trợ. Tuy nhiên, cẩn trọng với lòng nghi ngờ, đôi khi quên đi bạn bè cũ khi gặp bạn mới. Hãy học cách duy trì mạng lưới quan hệ của bạn.",
+                "7-3-1": "Có tài năng xuất chúng, có sức mạnh hành động, và có người hỗ trợ. Tuy nhiên, cẩn trọng với lòng nghi ngờ, đôi khi quên đi bạn bè cũ khi gặp bạn mới. Hãy học cách duy trì mạng lưới quan hệ của bạn. Lòng tốt giúp đỡ người khác làm hòa mối quan hệ, nhưng có thể khiến bản thân rơi vào tình cảnh đối mặt với mọi người và không đứng vững.",
+                
+                "3-8-2": "Bận rộn và căng thẳng vì nghĩ rằng mình làm việc vì người khác, nhưng lại gặp phải tình trạng căng thẳng và tức giận lớn. Khi bạn nhìn rõ hơn, bạn sẽ nhận ra rằng tất cả chỉ là vì lợi ích cá nhân, từ đó mọi việc trở nên rõ ràng hơn. Đây là một mã số đầy cảm xúc, đầy nhiệt huyết. Dễ cáu kỉnh, nhạy cảm và đôi khi cảm thấy bối rối. Cần sự hướng dẫn từ người hướng dẫn, thích làm mọi thứ nhanh chóng và thường xuyên gặp phải những thách thức. Quan trọng là nói ra những điều bạn nghĩ, không giữ những điều trong lòng vì những người có mã số này thường bị quấy rối bởi nhiều cảm xúc. Dành thời gian ở nơi thiên nhiên lớn, đặc biệt thích giao tiếp với trẻ nhỏ. Nghe nhạc có thể giúp giải toả căng thẳng và làm dịu bớt tâm trạng.",
+                "8-3-2": "Đây là một mã số đầy cảm xúc, đầy nhiệt huyết. Dễ cáu kỉnh, nhạy cảm và đôi khi cảm thấy bối rối. Cần sự hướng dẫn từ người hướng dẫn, thích làm mọi thứ nhanh chóng và thường xuyên gặp phải những thách thức. Quan trọng là nói ra những điều bạn nghĩ, không giữ những điều trong lòng vì những người có mã số này thường bị quấy rối bởi nhiều cảm xúc. Dành thời gian ở nơi thiên nhiên lớn, đặc biệt thích giao tiếp với trẻ nhỏ. Nghe nhạc có thể giúp giải toả căng thẳng và làm dịu bớt tâm trạng. Bạn cần có một ước mơ lớn để hỗ trợ và tạo động lực cho bản thân.",
+                
+                "3-9-3": "Cảm xúc thường xuyên chi phối, đặt trọng tình cảm, nói là làm, tính cách cũng tương đối nóng nảy. Nghệ nhân tài năng, tay nghề rất khéo léo. Có tài năng trong âm nhạc, nấu ăn, vẽ tranh, thể thao cũng là chuyên gia sửa chữa. Tính cách nhanh nhẹn, rất thông minh. Nhưng lại thiếu kiên nhẫn. Người này có đầu óc mạnh mẽ, tài năng đa dạng nhưng cần một nền tảng để phát triển. Ý tưởng và cơ hội nảy nổ, nhưng trong kinh doanh, họ thích làm ngắn hạn và không thích đầu tư dài hạn vì thiếu kiên nhẫn.",
+                "9-3-3": "Nghệ nhân tài năng, tay nghề rất khéo léo. Có tài năng trong âm nhạc, nấu ăn, vẽ tranh, thể thao cũng là chuyên gia sửa chữa. Tính cách nhanh nhẹn, rất thông minh. Nhưng lại thiếu kiên nhẫn. Người này có đầu óc mạnh mẽ, tài năng đa dạng nhưng cần một nền tảng để phát triển. Ý tưởng và cơ hội nảy nổ, nhưng trong kinh doanh, họ thích làm ngắn hạn và không thích đầu tư dài hạn vì thiếu kiên nhẫn. Có khá nhiều cơ hội, nhưng thành công phụ thuộc vào nỗ lực sau này, sẽ đạt được kết quả xuất sắc hơn.",
+                
+                "4-4-8": "Đây là số mật khẩu về bất động sản, người này giỏi kế hoạch hóa các dự án lớn. Họ không muốn làm những công việc nhỏ, và việc mua nhà nhất định sẽ mang lại lợi nhuận, đây là nhóm số tốt nhất cho đầu tư bất động sản. Tuy nhiên, họ có thể gặp khó khăn khi triển khai kế hoạch cuối cùng, thường chỉ ở mức lý thuyết không có hành động. Họ áp đặt áp lực lớn và quan trọng, quan tâm đến lợi ích và tỷ suất sinh lời. Họ không làm những việc không đáng làm, luôn đặt mức độ giá trị lên hàng đầu. ",
+                
+                "4-5-9": "Chỉ qua nhiều lần thử nghiệm, bạn mới có thể tìm ra hướng và mục tiêu của mình. Do đó, việc chuyển đổi lĩnh vực không có nghĩa là thất bại, mà là một hành trình trải nghiệm. Đặt mục tiêu và quyết tâm đến cùng, có hướng dẫn và kế hoạch cuối cùng dẫn đến thành công. Hãy hiểu rằng việc phát triển đạo đức là quan trọng, vì với bộ số này, thậm chí là việc làm xấu cũng có thể đạt được thành công. Sự năng động và mục tiêu rõ ràng, kết hợp với kế hoạch chặt chẽ, sẽ đưa đến thành công.",
+                "5-4-9": "Đặt mục tiêu và quyết tâm đến cùng, có hướng dẫn và kế hoạch cuối cùng dẫn đến thành công. Hãy hiểu rằng việc phát triển đạo đức là quan trọng, vì với bộ số này, thậm chí là việc làm xấu cũng có thể đạt được thành công. Sự năng động và mục tiêu rõ ràng, kết hợp với kế hoạch chặt chẽ, sẽ đưa đến thành công. Thiếu khả năng linh hoạt, khi đã quyết định một điều gì, bạn sẽ cố gắng mọi cách để đạt được nó.",
+                
+                "4-6-1": "Ở giai đoạn đầu, bạn có thể có xu hướng tự ti, nhưng bạn sẽ sẵn lòng dành thời gian và nỗ lực để học hỏi, và bạn sẽ ngày càng tiến bộ hơn. Bạn có mã số như người học giỏi, là chuyên gia làm bảng báo cáo! Sắp xếp công việc thành bảng, giỏi tính toán tài khoản! Rất hào phóng khi đến lượt trả tiền, đầu tư cho sự thông minh và học hỏi. Thói quen muốn học nhiều điều. Bạn có khả năng và kỹ thuật, nhưng thiếu đi sức mạnh. Điều bạn cần là sức mạnh và năng lượng, chứ không phải là kỹ năng.",
+                "6-4-1": "Bạn có mã số như người học giỏi, là chuyên gia làm bảng báo cáo! Sắp xếp công việc thành bảng, giỏi tính toán tài khoản! Rất hào phóng khi đến lượt trả tiền, đầu tư cho sự thông minh và học hỏi. Thói quen muốn học nhiều điều. Bạn có khả năng và kỹ thuật, nhưng thiếu đi sức mạnh. Điều bạn cần là sức mạnh và năng lượng, chứ không phải là kỹ năng. Rất thông minh, có nhiều công việc và cần thời gian để tổng kết.Không nên kiêu ngạo, vẫn còn rất nhiều điều cần học hỏi. ",
+                
+                "4-7-2": "Thích đưa ra lời khuyên cho người khác. Người có mối quan hệ với quý nhân, dễ dàng nhận được sự hướng dẫn và thăng tiến từ những người giỏi. Tốt trong việc phân tích kinh doanh và giải quyết vấn đề. May mắn và nhiều quý nhân. Thường là người giúp đỡ người khác và dễ dàng chia sẻ cơ hội kinh doanh để giúp bạn thành công. ",
+                "7-4-2": "SNgười có mối quan hệ với quý nhân, dễ dàng nhận được sự hướng dẫn và thăng tiến từ những người giỏi. Tốt trong việc phân tích kinh doanh và giải quyết vấn đề. May mắn và nhiều quý nhân. Thường là người giúp đỡ người khác và dễ dàng chia sẻ cơ hội kinh doanh để giúp bạn thành công. Dễ dàng gặp phải những người bạn có thể tư vấn cho bạn.",
+                
+                "4-8-3": "Mang nhiều việc và lộn xộn, mơ hồ về cảm xúc. Hiểu rõ về những điều mình biết, nhưng về những điều không biết thì không biết gì hết. Thích những người chín chắn. Có khả năng làm việc chuyên nghiệp với kỹ năng chuyên môn mạnh mẽ. Tuy nhiên, có vẻ hơi mơ hồ và hay quên mất một số điều.",
+                "8-4-3": "Có khả năng làm việc chuyên nghiệp với kỹ năng chuyên môn mạnh mẽ. Tuy nhiên, có vẻ hơi mơ hồ và hay quên mất một số điều. Có nhiều ý tưởng nhưng thường thiếu khả năng thực hiện.",
+                
+                "4-9-4": "Hãy tạo ra kết quả trước, sau đó liên tục tổng kết để có cơ hội và lời giải tốt hơn. Mật khẩu của nhà doanh nghiệp, kế hoạch làm những việc lớn và không muốn làm những việc nhỏ. Đuổi đuổi những mục tiêu lớn sẽ dẫn đến thành công. Đối với họ, sự an toàn là quan trọng nhất. Họ không bao giờ chiến đấu mà không chuẩn bị. Đôi khi họ quan trọng vì tự họ không thể bỏ qua.",
+                "9-4-4": "Mật khẩu của nhà doanh nghiệp, kế hoạch làm những việc lớn và không muốn làm những việc nhỏ. Đuổi đuổi những mục tiêu lớn sẽ dẫn đến thành công. Đối với họ, sự an toàn là quan trọng nhất. Họ không bao giờ chiến đấu mà không chuẩn bị. Đôi khi họ quan trọng vì tự họ không thể bỏ qua. Trên bảng của những người xuất sắc, kế hoạch sẽ thành công hơn.",
+                
+                "5-5-1": "Đây là một số vô cùng tài năng và chắc chắn sẽ thành công. Tuy nhiên, họ mang theo nhiều gánh nặng tâm lý không thể vượt qua. Họ thường lặp đi lặp lại một tình huống, tâm trạng truyền thống và cần có người dẫn dắt. Dễ bị lạc lõng vì có quá nhiều hướng, và vấn đề chính là sự kiên trì quá mức. Việc quan trọng là họ cần học cách buông bỏ quá khứ. Việc buông bỏ không chỉ là sự khôn ngoan mà còn là một loại tầm nhìn. Hãy tha thứ cho người khác và cho bản thân.",
+                
+                "5-6-2": "Mua đồ lớn không thương lượng giá, nhưng mua đồ nhỏ thì thường lươn giá. Người tôn trọng tiền bạc nhất trên thế giới. Luôn giữ gìn và không hoang phí tiền, chỉ chi tiêu vào những điều đáng giá, là chuyên gia quản lý tài chính thông minh. Thích hợp làm tư vấn tài chính và kế toán.",
+                "6-5-2": "Người tôn trọng tiền bạc nhất trên thế giới. Luôn giữ gìn và không hoang phí tiền, chỉ chi tiêu vào những điều đáng giá, là chuyên gia quản lý tài chính thông minh. Thích hợp làm tư vấn tài chính và kế toán. Tiền lớn không tính toán, chỉ tính toán tiền nhỏ.",
+                
+                "5-7-3": "Mật khẩu dành cho người quý tộc và giàu có. Những người giàu thường thích những người có số này, và người có số này thường dễ thành công khi làm việc với những người giàu có. Mọi người đều thích anh ấy và thương lượng với anh ấy. Mối quan hệ với những người quý tộc đặc biệt tốt.",
+                
+                "7-5-3": "Người lãnh đạo với khả năng xuất sắc, nhưng dễ dàng bị người khác lợi dụng. Là đối tượng mà các công ty tuyển dụng đều muốn săn đuổi.",
+                
+                "5-8-4": "Tập trung vào cảm xúc của bạn, liệu có hạnh phúc hay không. Người giỏi phân biệt số, người sáng tạo và mộng mơ. Tuy nhiên, họ khó chuyển ý tưởng thành hành động. Nếu có thể thực hiện ý tưởng, họ sẽ là thiên tài. Họ khó sống hiện tại, dễ bị nội hóa và căng thẳng. Sợ hãi về những điều chưa xảy ra trong tương lai, và mắc kẹt trong những chuyện buồn từ quá khứ. Họ cần học cách sống hiện tại bằng tâm niệm, thường bám chặt vào một ý tưởng không rời. Làm tư vấn nhóm hoặc kiểm tra kỹ thuật, họ luôn nhận ra những điểm cần cải thiện. Nếu chỉ biết chỉ trích người khác, mọi người sẽ rời xa họ. Họ có thể giúp người xung quanh trở nên tốt hơn, mang lại lời khuyên chính xác và tạo ra sự hoàn hảo. Thành công nghề nghiệp nhưng không thuận lợi trong mối quan hệ. Những người có số này thường xuyên bận rộn và chịu áp lực lớn.",
+                "8-5-4": "Người giỏi phân biệt số, người sáng tạo và mộng mơ. Tuy nhiên, họ khó chuyển ý tưởng thành hành động. Nếu có thể thực hiện ý tưởng, họ sẽ là thiên tài. Họ khó sống hiện tại, dễ bị nội hóa và căng thẳng. Sợ hãi về những điều chưa xảy ra trong tương lai, và mắc kẹt trong những chuyện buồn từ quá khứ. Họ cần học cách sống hiện tại bằng tâm niệm, thường bám chặt vào một ý tưởng không rời. Làm tư vấn nhóm hoặc kiểm tra kỹ thuật, họ luôn nhận ra những điểm cần cải thiện. Nếu chỉ biết chỉ trích người khác, mọi người sẽ rời xa họ. Họ có thể giúp người xung quanh trở nên tốt hơn, mang lại lời khuyên chính xác và tạo ra sự hoàn hảo. Thành công nghề nghiệp nhưng không thuận lợi trong mối quan hệ. Những người có số này thường xuyên bận rộn và chịu áp lực lớn. Kiên trì và rối bời trong những chuyện và cảm xúc quá khứ.",
+                
+                "5-9-5": "Thường xuyên ra ngoại ô, mở rộng kiến thức và trải nghiệm. Chỉ khi trải qua và tích lũy kinh nghiệm, bạn mới có thể tìm ra vị trí tốt hơn. Người lớn, người lớn tuổi, không theo quy luật thông thường, tôi tuân theo quy tắc của mình. Tôi quyết định, rất trung thành với bạn bè. Biết cách chăm sóc đồng đội, gặp vấn đề hãy tìm họ, họ sẽ giúp bạn giải quyết. Khi bạn đối mặt với vấn đề khó khăn, chỉ cần đập bàn là giải quyết xong, vì có một sự uy quyền không cần tỏ ra tức giận. Thường là những người chủ chốt trong ngành nghề hoặc tầng lớp cao cấp của công ty. Khi tự mình là nguy cơ cho bản thân, đừng quá kiên trì với một vấn đề.",
+                "9-5-5": "Người lớn, người lớn tuổi, không theo quy luật thông thường, tôi tuân theo quy tắc của mình. Tôi quyết định, rất trung thành với bạn bè. Biết cách chăm sóc đồng đội, gặp vấn đề hãy tìm họ, họ sẽ giúp bạn giải quyết. Khi bạn đối mặt với vấn đề khó khăn, chỉ cần đập bàn là giải quyết xong, vì có một sự uy quyền không cần tỏ ra tức giận. Thường là những người chủ chốt trong ngành nghề hoặc tầng lớp cao cấp của công ty. Khi tự mình là nguy cơ cho bản thân, đừng quá kiên trì với một vấn đề. Hãy trân trọng cơ hội và những khoảnh khắc đạt được tiêu chuẩn. Bởi vì người khác muốn không chỉ là ý tưởng của bạn.",
+                
+                "6-6-3": "Cuộc sống có thăng trầm lớn, tiền đến rồi lại đi. Không nên đầu tư hết vào một cửa. Đầu tư vào bất động sản là tốt nhất. Hãy nhìn rõ cuộc sống. Khi thành công, hãy khiêm tốn; khi thất bại, hãy tỉnh táo.",
+                
+                "6-7-4": "Chi trả tiền để có được giải pháp cho người quý tộc. Chuyên gia quan hệ công chúng, chuyên viên tặng quà, rất giỏi trong việc quan hệ công chúng. Biết cách chi tiêu tiền vào những người giàu có và có quyền lực. Đối với người bình thường, việc tặng quà có thể không thành công, nhưng với người có số 675, anh ta có thể làm được. Thạo việc sử dụng tiền và quà tặng để mua thông tin và nguồn lực.  Nếu thường xuyên mời người khác đi ăn, anh ta sẽ tạo điều kiện cho sự thịnh vượng.",
+                "7-6-4": "Chuyên gia quan hệ công chúng, chuyên viên tặng quà, rất giỏi trong việc quan hệ công chúng. Biết cách chi tiêu tiền vào những người giàu có và có quyền lực. Đối với người bình thường, việc tặng quà có thể không thành công, nhưng với người có số 675, anh ta có thể làm được. Thạo việc sử dụng tiền và quà tặng để mua thông tin và nguồn lực.  Nếu thường xuyên mời người khác đi ăn, anh ta sẽ tạo điều kiện cho sự thịnh vượng. Có vận may về tài chính lớn, dễ nhận được di sản và dễ thu hút đầu tư từ người khác.",
+                
+                "6-8-5": "Nếu bạn thích nghiên cứu và sửa chữa, điều này là tích cực. Tuy nhiên, đầu tư có thể khá khó khăn về lợi nhuận. Nhưng nếu bạn làm công việc tốt, điều này chắc chắn sẽ phản ánh vào phẩm chất của bạn. Mật khẩu từ thiện, chỉ cần làm điều tốt là bạn sẽ thay đổi vận may. Hãy chắc chắn thực hiện việc lành và tích đức. Không nên đi vào con đường sai lạc, không nên làm kinh doanh không minh bạch. Bạn có thể gặp rủi ro lớn, nhưng ngay khi bạn thực hiện một việc tốt, vận may tốt sẽ đến ngay.",
+                "8-6-5": "Mật khẩu từ thiện, chỉ cần làm điều tốt là bạn sẽ thay đổi vận may. Hãy chắc chắn thực hiện việc lành và tích đức. Không nên đi vào con đường sai lạc, không nên làm kinh doanh không minh bạch. Bạn có thể gặp rủi ro lớn, nhưng ngay khi bạn thực hiện một việc tốt, vận may tốt sẽ đến ngay. Thông minh, kiên cường và rất mạnh mẽ. Áp lực nghề nghiệp lớn, nếu có lòng kính sợ và giữ giới hạn, bạn có thể đạt đến đỉnh cao.",
+                
+                "6-9-6": "Số liệu biến đổi thành vàng, đó là tiền hoặc thành công. Có tầm nhìn kinh doanh tốt, giỏi nhận biết và phân tích cơ hội kinh doanh,  cũng như có trực giác và sức mạnh thứ sáu mạnh mẽ. Họ cảm thấy công việc này có thể thành công,đối với những người mang số 696, việc rút kinh nghiệm là quan trọng. Thích đầu tư và dám mạo hiểm. Rất thông minh, bạn là người làm việc theo trí óc, tuy nhiên, có thể hơi kiêu ngạo và mặc dù có tài năng, nhưng không chắc chắn sẽ được đánh giá cao. Hãy học cách tôn trọng người khác và khiêm tốn. Hãy khen ngợi người khác nhiều hơn.",
+                "9-6-6": "Thích đầu tư và dám mạo hiểm. Rất thông minh, bạn là người làm việc theo trí óc, tuy nhiên, có thể hơi kiêu ngạo và mặc dù có tài năng, nhưng không chắc chắn sẽ được đánh giá cao. Hãy học cách tôn trọng người khác và khiêm tốn. Hãy khen ngợi người khác nhiều hơn. Đầu tư dễ kiếm tiền, chỉ cần nắm bắt cơ hội là có thể kiếm được nhiều tiền. Không bao giờ ngã hai lần trong cùng một khe cắm. Có thể sử dụng kinh nghiệm trước đó để kiếm được nhiều cơ hội và tiền bạc hơn. Một doanh nhân có thể đảm nhận rủi ro cao. Đối với người có mã số 966, thành công một lần rất quan trọng. Hoặc tìm thấy một người mẫu là rất quan trọng.",
+                
+                "7-7-5": "Số mạng lực, có thể trở thành người hâm mộ trong cộng đồng, nhưng không được lợi dụng người khác. Nếu lợi dụng người khác, xung quanh sẽ xuất hiện người gian ác. Mạng lưới quan hệ mang lại cơ hội cũng như thách thức. Hãy duy trì mối quan hệ cùng lợi, và tâm lý tích cực. Sẽ có cơ hội thăng tiến từ cấp trên, làm người nổi tiếng trực tuyến là lựa chọn tốt. Xung quanh bạn sẽ có nhiều mối quan hệ, là số phận của những người nổi tiếng trực tuyến.",
+                
+                "7-8-6": "Nhân vật quý giúp tăng áp lực, bạn sẽ có thể kiếm được tiền. Áp lực lớn giúp bạn đạt được nhiều thành công. Số hiệu hấp dẫn đàn ông, nhiều người quý trọng, sẽ nhận được sự thăng tiến từ phía họ. Thích cảm giác rõ ràng như đàn ông.",
+                "8-7-6": "Số hiệu hấp dẫn đàn ông, nhiều người quý trọng, sẽ nhận được sự thăng tiến từ phía họ. Thích cảm giác rõ ràng như đàn ông. Đặt áp lực lên người quý trọng, họ có thể giúp bạn giải quyết và bạn lại có thể kiếm được tiền.",
+                
+                "7-9-7": "Có người hỗ trợ, nhưng cần phải đầu tư trước mới có nhiều cơ hội hơn.Dù bạn nơi nào, mọi người đều yêu thích bạn. Số này mang lại mối quan hệ tốt đẹp. Người ủng hộ có thể trở thành đối tác của bạn. Đây là số có thể trở thành ngôi sao mạng lưới với hàng triệu người theo dõi, là nhóm có mối quan hệ tốt nhất! Nên tập trung vào kinh doanh liên quan đến mối quan hệ. Bạn có tài lãnh đạo quyến rũ.",
+                "9-7-7": "Dù bạn nơi nào, mọi người đều yêu thích bạn. Số này mang lại mối quan hệ tốt đẹp. Người ủng hộ có thể trở thành đối tác của bạn. Đây là số có thể trở thành ngôi sao mạng lưới với hàng triệu người theo dõi, là nhóm có mối quan hệ tốt nhất! Nên tập trung vào kinh doanh liên quan đến mối quan hệ. Bạn có tài lãnh đạo quyến rũ. Dễ dàng có được cơ hội từ người khác, nhưng nếu bạn không đủ chăm chỉ, cơ hội sẽ trôi qua.",
+               
+                "8-8-7": "Ly hôn là mật khẩu, áp lực lớn sẽ đuổi đi người quý giá. Đôi khi sẽ nổi giận và không kiểm soát được lời nói. Tâm trạng là kẻ thù của bộ mật khẩu này. Có khả năng dẫn dắt một nhóm người đến thành công. Dễ nghiện, dễ khiến phụ nữ bắt đầu hút thuốc và uống rượu. Tính tự cao, tâm trạng hay nổi cơn giận. Tự tìm kiếm áp lực.",
+                
+                "8-9-8": "Chỉ khi hành động, bạn mới có thể chắc chắn hơn về hướng đi của mình; nếu không, mơ ước chỉ là lời nói hỏi hưu. Mật khẩu của doanh nhân, đối mặt với áp lực khổng lồ. Muốn làm những điều lớn lao, mơ ước to lớn, nhưng lại có tâm trạng và tính khí lớn. Đặc biệt quan tâm đến ý kiến của người khác, khó lòng buông bỏ quá nhiều cảm xúc. Dễ dàng mắc kẹt trong một vòng xoáy không thể thoát ra. Thường xuyên trải qua những thăng trầm lớn. Chỉ cần kiểm soát tốt tâm trạng, bạn có thể đạt được thành công lớn. Nếu không kiểm soát được tâm trạng, sẽ chỉ gây tổn thương cho bản thân. Trong nhóm mật khẩu này, không có áp lực đồng nghĩa với một đời không có thành tựu.",
+                "9-8-8": "Mật khẩu của doanh nhân, đối mặt với áp lực khổng lồ. Muốn làm những điều lớn lao, mơ ước to lớn, nhưng lại có tâm trạng và tính khí lớn. Đặc biệt quan tâm đến ý kiến của người khác, khó lòng buông bỏ quá nhiều cảm xúc. Dễ dàng mắc kẹt trong một vòng xoáy không thể thoát ra. Thường xuyên trải qua những thăng trầm lớn. Chỉ cần kiểm soát tốt tâm trạng, bạn có thể đạt được thành công lớn. Nếu không kiểm soát được tâm trạng, sẽ chỉ gây tổn thương cho bản thân. Trong nhóm mật khẩu này, không có áp lực đồng nghĩa với một đời không có thành tựu. Dễ dàng được người khác công nhận, nhưng để thành công cần có một đội ngũ hợp tác. Chỉ dựa vào sức mạnh cá nhân sẽ khó mà đạt được mục tiêu.",
+                
+                "9-9-9": "Có tư duy kinh doanh, có tầm nhìn kinh doanh, có nhiều chủ đề để nói, tạo ấn tượng có thể thảo luận mọi thứ, giao tiếp rộng, dễ dàng kết nối với nhiều mạng lưới. Mỗi kỹ năng đều biết một chút. Với quá nhiều cơ hội, dễ dàng chuyển đổi lộ trình. Có thể mất đi mọi thứ nếu không cẩn thận.Phải trân trọng cơ hội, không nên tham lam, và bằng sự tập trung, bạn có thể đạt được thành công lớn. ",
+
+
+            };
+
+            // Check for a match in the predefined data
+            var matchedResult81 = predefinedData81[IJMcombination] || "No match found";
+            var matchedResult82 = predefinedData81[KLNcombination] || "No match found";
+            var matchedResult83 = predefinedData81[MNOcombination] || "No match found";
+
+            var matchedResult84 = predefinedData81[JMWcombination] || "No match found";
+            var matchedResult85 = predefinedData81[IMXcombination] || "No match found";
+            var matchedResult86 = predefinedData81[XWScombination] || "No match found";
+
+            var matchedResult87 = predefinedData81[NOQcombination] || "No match found";
+            var matchedResult88 = predefinedData81[MOPcombination] || "No match found";
+            var matchedResult89 = predefinedData81[QPRcombination] || "No match found";
+
+            var matchedResult90 = predefinedData81[KNVcombination] || "No match found";
+            var matchedResult91 = predefinedData81[LNUcombination] || "No match found";
+            var matchedResult92 = predefinedData81[VUTcombination] || "No match found";
+
+            // Display the result in the pyramid chart
+            document.getElementById("lifePathBox").innerText = lifePathNumber;
+            document.getElementById("dayMonthPathBox").innerText = dayMonthPath;
+            document.getElementById("yearPathBox").innerText = yearPath;
+            document.getElementById("dayPathBox").innerText = dayPathNumber;
+            document.getElementById("monthPathBox").innerText = monthPathNumber;
+            document.getElementById("year1PathBox").innerText = year1PathNumber;
+            document.getElementById("year2PathBox").innerText = year2PathNumber;
+	        document.getElementById("NOBox").innerText = NOPath;
+	        document.getElementById("MOBox").innerText = MOPath;
+	        document.getElementById("QPBox").innerText = QPPath;
+	        document.getElementById("IMBox").innerText = IMPath;
+            document.getElementById("JMBox").innerText = JMPath;
+            document.getElementById("XWBox").innerText = XWPath;
+     	    document.getElementById("KNBox").innerText = KNPath;
+            document.getElementById("LNBox").innerText = LNPath;
+            document.getElementById("VUBox").innerText = VUPath;
+
+            // Display the result in the table chart
+            document.getElementById("lifetable").innerText = lifePathNumber;
+            document.getElementById("subtable").innerText = SubPath;
+            document.getElementById("innertable").innerText = InnerPath;
+            document.getElementById("circtable").innerText = CircPath;
+            document.getElementById("3majortable").innerText = `${XWPath} ${QPPath} ${VUPath}`;
+
+            document.getElementById("IJMtable").innerText = `${dayPathNumber} ${monthPathNumber} ${dayMonthPath}`;
+            document.getElementById("KLNtable").innerText = `${year1PathNumber} ${year2PathNumber} ${yearPath}`;
+            document.getElementById("MNOtable").innerText = `${dayMonthPath} ${yearPath} ${lifePathNumber}`;
+
+            document.getElementById("JMWtable").innerText = `${monthPathNumber} ${dayMonthPath} ${JMPath}`;
+            document.getElementById("IMXtable").innerText = `${dayPathNumber} ${dayMonthPath} ${IMPath}`;
+            document.getElementById("XWStable").innerText = `${IMPath} ${JMPath} ${XWPath}`;
+
+            document.getElementById("NOQtable").innerText = `${yearPath} ${lifePathNumber} ${NOPath}`;
+            document.getElementById("MOPtable").innerText = `${dayMonthPath} ${lifePathNumber} ${MOPath}`;
+            document.getElementById("QPRtable").innerText = `${NOPath} ${MOPath} ${QPPath}`;
+
+            document.getElementById("KNVtable").innerText = `${year1PathNumber} ${yearPath} ${KNPath}`;
+            document.getElementById("LNUtable").innerText = `${year2PathNumber} ${yearPath} ${LNPath}`;
+            document.getElementById("VUTtable").innerText = `${KNPath} ${LNPath} ${VUPath}`;
+
+            // Define predefined data and results for matching
+            var predefinedData0 = [
+            { number: 1, result: "1 - Độc lập, Một mình" },
+            { number: 2, result: "2 - Biểu đạt, Giao tiếp" },
+            { number: 3, result: "3 - Tính cách, Hành động" },
+            { number: 4, result: "4 - Kế hoạch, Sáng tạo" },
+            { number: 5, result: "5 - Hướng dẫn, Gặp trở ngại" },
+            { number: 6, result: "6 - Tiền bạc, Trí tuệ" },
+            { number: 7, result: "7 - Bạn bè, Mối quan hệ" },
+            { number: 8, result: "8 - Trách nhiệm, Áp lực" },
+            { number: 9, result: "9 - Thành công, Cơ hội" }
+
+            ];
+            // Define predefined data and results for matching
+            var predefinedData1 = [
+                { number: 1, result: "Lãnh đạo, Sáng tạo, Độc lập" },
+                { number: 2, result: "Giao tiếp, Ôn hòa, Kiên nhẫn"  },
+                { number: 3, result: "Hành động, Uy tín, Biểu đạt"  },
+                { number: 4, result: "Kế hoạch, Kiến thức, Ổn định"  },
+                { number: 5, result: "Hướng dẫn, Hài hước, Phiêu lưu"  },
+                { number: 6, result: "Của cải, Trung thành, Viễn cảnh" },
+            {    number: 7, result: "Quan hệ, Trực giác"  },
+                { number: 8, result: "Trách nhiệm, Quyến rũ, Khuôn mặt tốt"  },
+                { number: 9, result: "Cơ hội, Đồng thuận, Thành công"  }
+
+            ];
+            // Define predefined data and results for matching
+            var predefinedData2 = [
+                { number: 1, result: "Sáng tạo, tự tin, lãnh đạo, độc lập, mục tiêu rõ ràng" },
+                { number: 2, result: "Giao tiếp tốt, kiên nhẫn, hợp tác, đọc tâm lý, hòa bình" },
+                { number: 3, result: "Năng lực hành động, giỏi diễn đạt, giỏi bán hàng, nhiệt huyết và chân thành" },
+                { number: 4, result: "Tư duy logic cao, ham học hỏi, chú trọng vào phân tích dữ liệu, giỏi tổ chức kế hoạch, trung thành" },
+                { number: 5, result: "Tự do, trọng quan hệ, hài hước lạnh lùng, cảm nhận mạnh mẽ về xu hướng, thích sự mới mẻ" },
+                { number: 6, result: "Trí tuệ, trung thành, quan tâm gia đình, có trách nhiệm xã hội, giỏi giải quyết vấn đề" },
+                { number: 7, result: "Quan hệ tốt, may mắn, học giỏi, giỏi phân tích, có logic" },
+                { number: 8, result: "Trách nhiệm cao, thích quyền lực, đa cảm, giỏi bán hàng, chống áp lực tốt" },
+                { number: 9, result: "Nhiều cơ hội, tầm nhìn xa, nhiều chủ đề trò chuyện, nhanh nhẹn, dễ được chấp nhận" },
+
+            ];
+            // Define predefined data and results for matching
+            var predefinedData3 = [
+                { number: 1, result: "Thích đánh giá, quyết đoán, tự trọng, kiểm soát, hành động trước, thông báo sau" },
+                { number: 2, result: "Nhạy cảm, suy nghĩ nhiều, bạo lực lạnh lùng, phân vân, phụ thuộc mạnh mẽ" },
+                { number: 3, result: "Tính nóng nảy, thích mặt, bướng bỉnh, hấp tấp, mong muốn được chú ý" },
+                { number: 4, result: "Trực tính, thiếu cảm giác an toàn, tự đặt giới hạn, cứng nhắc, không muốn thay đổi" },
+                { number: 5, result: "Bảo thủ, trì hoãn, quan tâm đến vẻ ngoại giao, không chịu ràng buộc, tránh né" },
+                { number: 6, result: "Kén chọn, chủ nghĩa hoàn hảo, nhát gan, kín đáo, dễ coi thường người khác" },
+                { number: 7, result: "Nghi ngờ, thích niềm vui, thích nghi với sự nghi ngờ, chậm rãi, dễ so sánh" },
+                { number: 8, result: "Thích mặt, nhớ thù, dễ mắc mưu trí, rối bời, ham muốn kiểm soát" },
+                { number: 9, result: "Độ tập trung thấp, tham lam, kiên nhẫn yếu, khó triển khai, nguyên tắc không mạnh mẽ" },
+
+
+            ];
+             // Define predefined data and results for matching Subconcious 
+             var predefinedData4 = [
+                { number: 1, result: "Sự sáng tạo nội tại thúc đẩy họ trở thành nhà lãnh đạo trong một nhóm, tạo ra bầu không khí tích cực và động viên mọi người." },
+                { number: 2, result: "Có tính chất đối đầu và hợp tác, khiến cho họ có tính cách mạnh mẽ bên ngoài nhưng mềm mại bên trong. Nhạy cảm và sẵn lòng đóng góp." },
+                { number: 3, result: "Nhạy cảm với cảm xúc, diễn đạt trực tiếp, thẳng thắn, hành động nhanh chóng, tính cách thiên về sự nóng nảy. Thiếu kiên nhẫn và kiên trì." },
+                { number: 4, result: "Thông minh và giỏi học hỏi kiến thức mới, nhưng thường không muốn người khác biết họ đang nỗ lực học hỏi." },
+                { number: 5, result: "Số 5 có hướng sống riêng biệt, thích làm theo nguyên tắc của mình, thường khiến người khác cảm thấy họng bế." },
+                { number: 6, result: "Sáng tạo, đầu óc của họ luôn chứa đựng nhiều kế hoạch và giải pháp cơ bản cho việc giải quyết vấn đề." },
+                { number: 7, result: "Trí óc nhạy bén, tin tưởng và mở lòng, họ mang đến sự công bằng và đặt bạn bè lên ưu tiên hàng đầu." },
+                { number: 8, result: "Ý tưởng nhiều, kỳ vọng nhiều, liên quan đến sự giàu có, quyền lực và tôn trọng, họ cũng sẽ nỗ lực để đạt được những điều này." },
+                { number: 9, result: "Có trực giác và trí tuệ ở tầm cao, nắm bắt cơ hội, nhưng thường có tham vọng lớn, muốn không ngừng leo lên phía trên." },
+
+            ];
+             // Define predefined data and results for matching Inner Path
+             var predefinedData5 = [
+                { number: 1, result: "Tự tin và sáng tạo, sự sáng tạo là đặc điểm của họ. Họ sẽ dẫn dắt người khác, không muốn nghe ý kiến của người khác và chấp nhận phương pháp của người khác, không thích sự cứng nhắc và định kiến." },
+                { number: 2, result: "Hợp tác và cân bằng, tâm hồn nhẹ nhàng và trang bị tinh thần hợp tác. Nhưng nếu họ không kiểm soát được kích thước, họ sẽ điều hướng sang mặt tiêu cực và biểu hiện trạng thái rút lui, sự đan xen này sẽ khiến họ trông vững mạnh bề ngoài nhưng mềm yếu bên trong." },
+                { number: 3, result: "Việc thể hiện tích cực phụ thuộc vào tâm trạng nhạy cảm của họ, bề ngoài là nhẹ nhàng nhưng bên trong lại nóng bỏng và khao khát giúp đỡ người khác. Họ thường xuyên bộc lộ tâm trạng lạnh lùng, nhưng nói chung đằng sau đó là trái tim nồng nhiệt và mong muốn giúp đỡ người khác." },
+                { number: 4, result: "Cần xây dựng cảm giác ổn định và an toàn, lên kế hoạch chi tiết, đôi khi có thể mắc vào tình trạng hoang mang do phân tích quá mức. Mặt ngoài có vẻ lạc quan, nhưng thực tế bên trong có thể dễ chao đảo hoặc tiêu cực." },
+                { number: 5, result: "Ở giai đoạn đầu, sự hợp tác của họ thường bị hiểu lầm là họ là người dễ chịu, nhưng ngay khi họ cảm thấy không cần thiết phải hợp tác nữa, họ sẽ quay lưng đi, bởi vì bên trong họ thực sự khá cứng đầu và có tính cách riêng biệt." },
+                { number: 6, result: "Người theo chủ nghĩa hoàn hảo, yêu cầu cao đối với bản thân và người khác, không ngừng cải tiến bản thân, bị thu hút bởi chủ nghĩa lý tưởng, nhạy bén với tài chính, đồng thời sáng tạo nhiều." },
+                { number: 7, result: "Tin tưởng người khác và sẵn lòng chia sẻ, đầy tham vọng và ước mơ, họ có tâm hồn tốt bụng, sẵn lòng giúp đỡ, nhưng có phần biến động cảm xúc. Họ không muốn công khai thú nhận mong muốn về tiền bạc, nhưng thực tế bên trong là khao khát." },
+                { number: 8, result: "Có thể chịu đựng nhiều áp lực, cũng có khả năng theo đuổi tài sản mà họ ao ước, thường xuyên đối mặt với sự đan xen giữa tâm trạng và vật chất. Mâu thuẫn giữa sự lạc quan và lòng tham, cuộc tranh đấu, thông qua lớp vật chất phong phú, sẽ đẩy họ tiến gần hơn đến việc hoàn thành sứ mệnh của mình." },
+                { number: 9, result: "Có phẩm chất trung thực và trí tuệ siêu phàm, nhiều ý tưởng mới và giỏi kết hợp, họ là lãnh đạo tự nhiên với sự sáng tạo mạnh mẽ, tài năng quyến rũ dễ dàng thuyết phục và lãnh đạo người khác." },
+            ];
+             // Define predefined data and results for matching circ
+             var predefinedData6 = [
+                { number: 1, result: "No data" },
+                { number: 2, result: "No data" },
+                { number: 3, result: "Người Lý Tưởng 【Phân tích với số 3 ở ngoại vi】 Loại người này có nhiều ý tưởng kỳ quái. Người lý tưởng nói về cảm giác. Chỉ cần cảm giác đúng, mọi thứ đều tốt, trong thế giới tình yêu, người lý tưởng thưởng thức tình yêu, không quan trọng về vĩnh cửu, chỉ có quá khứ từng sở hữu. Tuy nhiên, họ thiếu hành động và khả năng thực hiện thực tế, họ chủ yếu hướng tới giao tiếp và xây dựng ý tưởng, đưa ra ý kiến, thích giao việc cho người khác thực hiện. Tính cách quá mức giận dữ và ghen tị trở thành lý do hợp lý để họ bị đứng lại. Người lý tưởng thưởng thức thứ nhất, thích thương hiệu, dễ tạo ấn tượng cho người khác về sự phô trương. Thông thường, bề ngoài của người lý tưởng tạo cảm giác họ giàu có, trong thực tế có thể không giàu có như bạn tưởng. Làm đầu tư về tiền bạc, họ ưa chuộng xây dựng hình ảnh để đạt được lợi nhuận lớn nhất ngay bây giờ, vì vậy họ không vội vã mua tài sản lớn trong giai đoạn khởi nghiệp, thay vào đó, họ có thể thực hiện nhiều đầu tư khác. Trong thế giới tình yêu, họ khao khát những điều bất ngờ, theo đuổi lãng mạn, chú trọng đến cách tổ chức các sự kiện, bạn không thể làm hài lòng cảm giác của họ, bạn có thể hình dung những ngày sau sẽ như thế nào. Hôn nhân trần trụi đối với họ là một trong những cách thể hiện lòng trung thành trong tình yêu." },
+                { number: 4, result: "No data" },
+                { number: 5, result: "No data" },
+                { number: 6, result: "Người Thực Tế 【Phân tích với số 6 ở ngoại vi】 Họ là những người có đôi chân chạm đất, không thích làm những ảo tưởng vô nghĩa. Một khi kế hoạch đã được xây dựng cẩn thận, họ sẽ nỗ lực hết mình, tận tâm để thực hiện. Cải thiện chất lượng cuộc sống của những người xung quanh là động lực bên trong của họ. Họ sở hữu lòng tự tin mạnh mẽ và nhiệt huyết. Họ tập trung mạnh mẽ vào việc cải thiện và nâng cao khả năng của bản thân để đạt được ước mơ, vì vậy họ quan tâm đặc biệt đến việc học kiến thức công cụ, điều này giúp họ rút ngắn hành trình làm giàu của mình. Trên con đường làm giàu, họ cảm thấy khó khăn khi tìm kiếm nhân viên xuất sắc, chủ yếu do họ quá lo lắng, không dám mạnh mẽ, đặc biệt là đối với việc kiểm soát chi phí và quy trình quá chặt chẽ, làm cho nhân viên phải liên tục hỏi ý kiến họ, dẫn đến trì hoãn tiến độ, vì vậy, đề xuất các chủ doanh nghiệp thực tế nên thực hiện dự toán tài chính và sổ tay công việc cho nhân viên. Về mặt đầu tư, họ đều đòi hỏi lợi tức ngay tại chỗ trong thế giới tình yêu, họ cần bánh mì hơn là tình yêu, tin rằng tình yêu không thể nuôi nấng được bằng nước. Chỉ cần có đủ tiền, mọi vấn đề về cảm xúc đều trở nên không quan trọng." },
+                { number: 7, result: "No data" },
+                { number: 8, result: "No data" },
+                { number: 9, result: "Nhìn Xa 【Phân tích với số 9 ở ngoại vi】 Ngay cả khi giấc mơ đó trong mắt người khác là không thực tế, họ vẫn dám theo đuổi. Thông thường, họ sẽ xây dựng những ý tưởng lớn, những ý tưởng này làm tiền đề để thay đổi lối sống của con người, ý tưởng tiên tiến dễ dàng thu hút một nhóm người theo họ. Việc sử dụng khéo léo nhân viên và làm việc nhóm để hoàn thành công việc và nhiệm vụ là bản năng của họ. Thông thường, họ bận rộn với việc mở rộng thị trường mới, sẵn lòng tham gia vào nhiều môi trường xã hội khác nhau, dễ dàng xây dựng mối quan hệ tốt. Do đó, họ sở hữu một mạng lưới quan hệ tài nguyên rộng lớn hơn. Họ biết cách thưởng thức cuộc sống, có thể đạt được sự cân bằng tốt giữa ý tưởng và vật chất, thường xuyên là những người chiến thắng trong cuộc sống. Về mặt đầu tư, họ sẽ xem xét toàn bộ chi phí và không gian phát triển trong tương lai, mua một số nhà máy hoặc đất ở xa, có lợi cho việc mở rộng phát triển sau này. Thường xuyên những đầu tư tiên tiến này có cơ hội để đạt được không gian tăng giá lớn hơn và thu được lợi nhuận lớn hơn trong tương lai. Trong tình yêu, những người có tầm nhìn xa theo đuổi cả bánh và tình yêu, họ thường bận rộn thực hiện giấc mơ của mình khi còn trẻ, không có thời gian để trải nghiệm những điều tinh tế của tình yêu. Thường là sau khi nghỉ hưu họ mới sẵn lòng thưởng thức cuộc sống với đối tác, có thể đi khắp thế giới cùng họ." },
+            ];
+
+             // Define predefined data and results for matching
+             var predefinedDataVid = [
+                { number: 1, result: "http://xhslink.com/1VG9Xz" },
+                { number: 2, result: "http://xhslink.com/kRqaYz" },
+                { number: 3, result: "http://xhslink.com/SQKaYz" },
+                { number: 4, result: "http://xhslink.com/A7SaYz" },
+                { number: 5, result: "http://xhslink.com/mM4aYz" },
+                { number: 6, result: "http://xhslink.com/ay5dYz" },
+                { number: 7, result: "http://xhslink.com/YqqbYz" },
+                { number: 8, result: "http://xhslink.com/xXybYz" },
+                { number: 9, result: "http://xhslink.com/fyIbYz" },
+            ];
+
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData0) {
+                if (data.number === lifePathNumber) {
+                    matchedResult0 = data.result;
+                    break;
+                }
+            }
+            var matchedResult = "No match found";
+            for (var data of predefinedData1) {
+                if (data.number === lifePathNumber) {
+                    matchedResult1 = data.result;
+                    break;
+                }
+            }
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData2) {
+                if (data.number === lifePathNumber) {
+                    matchedResult2 = data.result;
+                    break;
+                }
+            }
+            // Check for a match in the predefined data
+            var matchedResult = "No match found";
+            for (var data of predefinedData3) {
+                if (data.number === lifePathNumber) {
+                    matchedResult3 = data.result;
+                    break;
+                }
+            }
+             // Check for a match in the predefined data subconcious
+             var matchedResult = "No match found";
+            for (var data of predefinedData4) {
+                if (data.number === SubPath) {
+                    matchedResult4 = data.result;
+                    break;
+                }
+            }
+             // Check for a match in the predefined data innerpath
+             var matchedResult = "No match found";
+            for (var data of predefinedData5) {
+                if (data.number === InnerPath) {
+                    matchedResult5 = data.result;
+                    break;
+                }
+            }
+              // Check for a match in the predefined data circ
+              var matchedResult = "No match found";
+            for (var data of predefinedData6) {
+                if (data.number === CircPath) {
+                    matchedResult6 = data.result;
+                    break;
+                }
+            }
+            
+            // Display the result in the explain box for each group
+            document.getElementById("explain0box").innerText = `${matchedResult0}`;
+            document.getElementById("explain1box").innerText = `${matchedResult1}`;
+            document.getElementById("explain2box").innerText = `${matchedResult2}`;
+            document.getElementById("explain3box").innerText = `${matchedResult3}`;
+            document.getElementById("explain4box").innerText = `${matchedResult4}`;
+            document.getElementById("explain5box").innerText = `${matchedResult5}`;
+            document.getElementById("explain6box").innerText = `${matchedResult6}`;
+            document.getElementById("explain7box").innerText = `${matchedResult7}`;
+
+            document.getElementById("explain81box").innerText = `${matchedResult81}`;
+            document.getElementById("explain82box").innerText = `${matchedResult82}`;
+            document.getElementById("explain83box").innerText = `${matchedResult83}`;
+
+            document.getElementById("explain84box").innerText = `${matchedResult84}`;
+            document.getElementById("explain85box").innerText = `${matchedResult85}`;
+            document.getElementById("explain86box").innerText = `${matchedResult86}`;
+
+            document.getElementById("explain87box").innerText = `${matchedResult87}`;
+            document.getElementById("explain88box").innerText = `${matchedResult88}`;
+            document.getElementById("explain89box").innerText = `${matchedResult89}`;
+
+            document.getElementById("explain90box").innerText = `${matchedResult90}`;
+            document.getElementById("explain91box").innerText = `${matchedResult91}`;
+            document.getElementById("explain92box").innerText = `${matchedResult92}`;
+
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-containerlife");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (lifePathNumber === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container4");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (SubPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container5");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (InnerPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            // Display clickable links based on webUrls lifepath
+            var linksElement = document.getElementById("link-container6");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            predefinedDataVid.forEach(function(item) {
+                if (CircPath === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+
+
+            // Display clickable links based on webUrls IJM
+            var linksElement = document.getElementById("link-container81");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (IJMcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container82");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (KLNcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container83");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (MNOcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container84");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (JMWcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container85");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (IMXcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container86");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (XWScombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container87");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (NOQcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container88");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (MOPcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container89");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (QPRcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container90");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (KNVcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container91");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (LNUcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+
+            // Display clickable links based on webUrls KLN
+            var linksElement = document.getElementById("link-container92");
+            linksElement.innerHTML = ""; // Clear previous links
+
+            webUrls.forEach(function(item) {
+                if (VUTcombination === item.number) {
+                    var link = document.createElement("a");
+                    link.href = item.result;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    // Add Font Awesome external link icon
+                    var icon = document.createElement("i");
+                    icon.classList.add("fa", "fa-play-circle");
+                    link.appendChild(icon);
+
+                    link.classList.add("external-link"); // Apply a class for styling
+                    linksElement.appendChild(link);
+                }
+            });
+            
+        }
+        
+        
+        function calculateLifePathNumber(number) {
+            // Reduce the number to a single digit by adding its digits
+            while (number > 9) {
+                number = number.toString().split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+            }
+            return number;
+        }
+        
+        function changeLanguage(language) {
+        // Implement your language change logic here
+        console.log('Language changed to ' + language);
+    }
+       
+    </script>
+</body>
+</html>
