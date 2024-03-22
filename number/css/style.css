@@ -127,12 +127,24 @@ body {
 .pyramid-box {
   padding: 1px;
   text-align: center;
-  width: 20px;
+  width: 0px;
+  height: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 8px;
+  margin-right: 20px;
+  color: #fff;
+}
+.pyramid-box-mid {
+  padding: 1px;
+  text-align: center;
+  width: 52px;
   height: 20px;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
+  color: #fff;
 }
 .pyramid-box-left {
   border: 1px solid #ddd;
@@ -158,7 +170,6 @@ body {
 }
 
 .pyramid-box.top {
-  background-color: #ac7ec8;
   color: #fff;
   font-size: larger;
 }
