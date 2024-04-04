@@ -415,6 +415,8 @@ h6 {
   background: url("../img/main-bg.jpg");
   position: relative;
   padding: 120px 0 0 0;
+  background-position: center center;
+  background-size: cover;
 }
 
 #hero:before {
@@ -762,7 +764,7 @@ section {
   display: block;
   position: absolute;
   left: calc(50% - 47px);
-  top: calc(60% - 47px);
+  top: calc(40% - 47px);
   overflow: hidden;
 }
 
@@ -830,6 +832,12 @@ section {
   100% {
     transform: scale(1, 1);
     opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+  .about .play-btn {
+    left: calc(50% - 47px);
+    top: calc(40% - 47px);
   }
 }
 
