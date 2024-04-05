@@ -462,7 +462,8 @@ h6 {
 }
 
 #hero .btn-get-started:hover {
-  background: #17b57d;
+  background: #8520e6;
+  color: white;
 }
 
 #hero .animated {
@@ -837,7 +838,7 @@ section {
 @media (max-width: 768px) {
   .about .play-btn {
     left: calc(50% - 47px);
-    top: calc(40% - 47px);
+    top: calc(35% - 47px);
   }
 }
 
