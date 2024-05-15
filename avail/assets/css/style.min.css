@@ -1823,7 +1823,7 @@ background-color: #1daa81;
 .hero-two-slide-item {
   align-items: center;
   background-size: cover;
-  background-image: url("/assets/images/slider/slider1-bg.png");
+  background-image: url("../images/slider/slider1-bg.png");
   border-radius: 30px;
   height: 700px !important;
   display: flex;
