@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Checkout - Avail Beauty</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="Brancy - Cosmetic & Beauty Salon Website Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="bootstrap, ecommerce, ecommerce html, beauty, cosmetic shop, beauty products, cosmetic, beauty shop, cosmetic store, shop, beauty store, spa, cosmetic, cosmetics, beauty salon" />
+    <meta name="author" content="codecarnival" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.ico">
+
+    <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
+
+    <!-- Font CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./assets/css/style.min.css">
+
+</head>
+
+<body>
+
+    <!--== Wrapper Start ==-->
+    <div class="wrapper">
+
+        <!--== Start Header Wrapper ==-->
+        <special-header></special-header>
+        <!--== End Header Wrapper ==-->
+
+        <main class="main-content" style="background-color: #fafafa;">
+            <!--== Start Page Header Area Wrapper ==-->
+            <section class="page-header-area" data-bg-color="#b6c4b6">
+                <div class="container">
+                    <div class="row align-items-center position-relative justify-content-between">
+                        <div class="col-md-5">
+                            <div class="page-header-st3-content text-center text-md-start">
+                                <ol class="breadcrumb justify-content-center justify-content-md-start">
+                                    <li class="breadcrumb-item"><a class="text-dark" href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active text-dark" aria-current="page">Checkout</li>
+                                </ol>
+                                <h2 class="page-header-title">Checkout</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-5 shop-top-img">
+                            <img src="assets/images/brand-logo/shop-img.png" width="690" height="170" alt="Image">
+                            </div>
+                    </div>
+                    
+                </div>
+            </section>
+            <!--== End Page Header Area Wrapper ==-->
+
+           <!--== Start Shopping Checkout Area Wrapper ==-->
+           <section class="shopping-checkout-wrap section-space">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!--== Start Billing Accordion ==-->
+                        <div class="card checkout-billing-details-wrap">
+                            <div class="m-8">
+                            <h2 class="title">Billing details</h2>
+                            <div class="billing-form-wrap">
+                                <form action="#" method="post">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="f_name">First name <abbr class="required" title="required">*</abbr></label>
+                                                <input id="f_name" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="l_name">Last name <abbr class="required" title="required">*</abbr></label>
+                                                <input id="l_name" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="com_name">Company name (optional)</label>
+                                                <input id="com_name" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-4">
+                                            <div class="form-group">
+                                                <label for="country">Country <abbr class="required" title="required">*</abbr></label>
+                                                <select id="country" class="form-control wide">
+                                                    <option>Malaysia</option>
+                                                                <option>Singapore</option>
+                                                                <option>China</option>
+                                                                <option>Indonesia</option>
+                                                                <option>Thailand</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="street-address">Street address <abbr class="required" title="required">*</abbr></label>
+                                                <input id="street-address" type="text" class="form-control" placeholder="House number and street name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="street-address2" class="visually-hidden">Street address 2 <abbr class="required" title="required">*</abbr></label>
+                                                <input id="street-address2" type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="town">Town / City <abbr class="required" title="required">*</abbr></label>
+                                                <input id="town" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-4">
+                                            <div class="form-group">
+                                                <label for="district">District <abbr class="required" title="required">*</abbr></label>
+                                                <select id="district" class="form-control wide">
+                                                    <option>Malaysia</option>
+                                                                <option>Singapore</option>
+                                                                <option>China</option>
+                                                                <option>Indonesia</option>
+                                                                <option>Thailand</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="pz-code">Postcode / ZIP (optional)</label>
+                                                <input id="pz-code" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="phone">Phone (optional)</label>
+                                                <input id="phone" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="email">Email address <abbr class="required" title="required">*</abbr></label>
+                                                <input id="email" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div id="CheckoutBillingAccordion2" class="col-md-12">
+                                            <div class="checkout-box" data-bs-toggle="collapse" data-bs-target="#CheckoutTwo" aria-expanded="false" role="toolbar">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input visually-hidden" id="ship-to-different-address">
+                                                    <label class="custom-control-label" for="ship-to-different-address">Ship to a different address?</label>
+                                                </div>
+                                            </div>
+                                            <div id="CheckoutTwo" class="collapse" data-bs-parent="#CheckoutBillingAccordion2">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="f_name2">First name <abbr class="required" title="required">*</abbr></label>
+                                                            <input id="f_name2" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="l_name2">Last name <abbr class="required" title="required">*</abbr></label>
+                                                            <input id="l_name2" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="com_name2">Company name (optional)</label>
+                                                            <input id="com_name2" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mb-4">
+                                                        <div class="form-group">
+                                                            <label for="country2">Country <abbr class="required" title="required">*</abbr></label>
+                                                            <select id="country2" class="form-control wide">
+                                                                <option>Malaysia</option>
+                                                                <option>Singapore</option>
+                                                                <option>China</option>
+                                                                <option>Indonesia</option>
+                                                                <option>Thailand</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="street-address2-3">Street address <abbr class="required" title="required">*</abbr></label>
+                                                            <input id="street-address2-3" type="text" class="form-control" placeholder="House number and street name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="street-address2-2" class="visually-hidden">Street address 2 <abbr class="required" title="required">*</abbr></label>
+                                                            <input id="street-address2-2" type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="town3">Town / City <abbr class="required" title="required">*</abbr></label>
+                                                            <input id="town3" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mb-4">
+                                                        <div class="form-group">
+                                                            <label for="district2">District <abbr class="required" title="required">*</abbr></label>
+                                                            <select id="district2" class="form-control wide">
+                                                                <option>Malaysia</option>
+                                                                <option>Singapore</option>
+                                                                <option>China</option>
+                                                                <option>Indonesia</option>
+                                                                <option>Thailand</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="pz-code2">Postcode / ZIP (optional)</label>
+                                                            <input id="pz-code2" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-0">
+                                                <label for="order-notes">Order notes (optional)</label>
+                                                <textarea id="order-notes" class="form-control" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                        <!--== End Billing Accordion ==-->
+                    </div>
+                    <div class="col-lg-6">
+                        <!--== Start Order Details Accordion ==-->
+                        <div class="checkout-order-details-wrap">
+                            <div class="order-details-table-wrap table-responsive">
+                                <h2 class="title mb-25">Your order</h2>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-total">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-body">
+                                        <tr class="cart-item">
+                                            <td class="product-name">Satin gown <span class="product-quantity">× 1</span></td>
+                                            <td class="product-total">MYR 69.99</td>
+                                        </tr>
+                                        <tr class="cart-item">
+                                            <td class="product-name">Printed cotton t-shirt <span class="product-quantity">× 1</span></td>
+                                            <td class="product-total">MYR 20.00</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot class="table-foot">
+                                        <tr class="cart-subtotal">
+                                            <th>Subtotal</th>
+                                            <td>MYR 89.99</td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>Shipping</th>
+                                            <td>Flat rate: MYR 2.00</td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th>Total </th>
+                                            <td>MYR 91.99</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="shop-payment-method">
+                                    <div id="PaymentMethodAccordion">
+                                        <div class="card">
+                                            <div class="card-header" id="check_payments">
+                                                <h5 class="title" data-bs-toggle="collapse" data-bs-target="#itemOne" aria-controls="itemOne" aria-expanded="true">Direct bank transfer</h5>
+                                            </div>
+                                            <div id="itemOne" class="collapse show" aria-labelledby="check_payments" data-bs-parent="#PaymentMethodAccordion">
+                                                <div class="card-body">
+                                                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="check_payments2">
+                                                <h5 class="title" data-bs-toggle="collapse" data-bs-target="#itemTwo" aria-controls="itemTwo" aria-expanded="false">Check payments</h5>
+                                            </div>
+                                            <div id="itemTwo" class="collapse" aria-labelledby="check_payments2" data-bs-parent="#PaymentMethodAccordion">
+                                                <div class="card-body">
+                                                    <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="check_payments3">
+                                                <h5 class="title" data-bs-toggle="collapse" data-bs-target="#itemThree" aria-controls="itemTwo" aria-expanded="false">Cash on delivery</h5>
+                                            </div>
+                                            <div id="itemThree" class="collapse" aria-labelledby="check_payments3" data-bs-parent="#PaymentMethodAccordion">
+                                                <div class="card-body">
+                                                    <p>Pay with cash upon delivery.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="check_payments4">
+                                                <h5 class="title" data-bs-toggle="collapse" data-bs-target="#itemFour" aria-controls="itemTwo" aria-expanded="false">PayPal Express Checkout</h5>
+                                            </div>
+                                            <div id="itemFour" class="collapse" aria-labelledby="check_payments4" data-bs-parent="#PaymentMethodAccordion">
+                                                <div class="card-body">
+                                                    <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="p-text">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#/">privacy policy.</a></p>
+                                    <div class="agree-policy">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="privacy" class="custom-control-input visually-hidden">
+                                            <label for="privacy" class="custom-control-label">I have read and agree to the website terms and conditions <span class="required">*</span></label>
+                                        </div>
+                                    </div>
+                                    <a href="account.html" class="btn-place-order">Place order</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--== End Order Details Accordion ==-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--== End Shopping Checkout Area Wrapper ==-->
+
+        </main>
+
+        <!--== Start Footer Area Wrapper ==-->
+        <special-footer></special-footer>
+        <!--== End Footer Area Wrapper ==-->
+
+        <!--== Scroll Top Button ==-->
+        <div id="scroll-to-top" class="scroll-to-top"><span class="fa fa-angle-up"></span></div>
+
+        <!--== Start Product Quick Wishlist Modal ==-->
+        <aside class="product-action-modal modal fade" id="action-WishlistModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="product-action-view-content">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <div class="modal-action-messages">
+                                <i class="fa fa-check-square-o"></i> Added to wishlist successfully!
+                            </div>
+                            <div class="modal-action-product">
+                                <div class="thumb">
+                                    <img src="assets/images/shop/product3.png" alt="Organic Food Juice" width="466" height="320">
+                                </div>
+                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--== End Product Quick Wishlist Modal ==-->
+
+        <!--== Start Product Quick Add Cart Modal ==-->
+        <aside class="product-action-modal modal fade" id="action-CartAddModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="product-action-view-content">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <div class="modal-action-messages">
+                                <i class="fa fa-check-square-o"></i> Added to cart successfully!
+                            </div>
+                            <div class="modal-action-product">
+                                <div class="thumb">
+                                    <img src="assets/images/shop/product3.png" alt="Organic Food Juice" width="466" height="320">
+                                </div>
+                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--== End Product Quick Add Cart Modal ==-->
+
+        <!--== Start Aside Search Form ==-->
+        <aside class="aside-search-box-wrapper offcanvas offcanvas-top" tabindex="-1" id="AsideOffcanvasSearch" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+                <h5 class="d-none" id="offcanvasTopLabel">Aside Search</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container pt--0 pb--0">
+                    <div class="search-box-form-wrap">
+                        <div class="search-note">
+                            <p>Start typing and press Enter to search</p>
+                        </div>
+                        <form action="#" method="post">
+                            <div class="aside-search-form position-relative">
+                                <label for="SearchInput" class="visually-hidden">Search</label>
+                                <input id="SearchInput" type="search" class="form-control" placeholder="Search entire store…">
+                                <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--== End Aside Search Form ==-->
+
+        <!--== Start Aside Cart ==-->
+        <aside class="aside-cart-wrapper offcanvas offcanvas-end" tabindex="-1" id="AsideOffcanvasCart" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h1 class="d-none" id="offcanvasRightLabel">Shopping Cart</h1>
+                <button class="btn-aside-cart-close" data-bs-dismiss="offcanvas" aria-label="Close">Shopping Cart <i class="fa fa-chevron-right"></i></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="aside-cart-product-list">
+                    <li class="aside-product-list-item">
+                        <a href="#/" class="remove">×</a>
+                        <a href="product-details.html">
+                            <img src="assets/images/shop/product3.png" width="68" height="84" alt="Image">
+                            <span class="product-title">AVAIL FC BIO SANITARY COMBINATION - 9 PACKS</span>
+                        </a>
+                        <span class="product-price">1 × MYR 69.99</span>
+                    </li>
+                    <li class="aside-product-list-item">
+                        <a href="#/" class="remove">×</a>
+                        <a href="product-details.html">
+                            <img src="assets/images/shop/product1.png" width="68" height="84" alt="Image">
+                            <span class="product-title">BUAH TANGAN - FAMILY SET (7 ACC + 7 ATT + 1 APT + RAYA SLEEVE)</span>
+                        </a>
+                        <span class="product-price">1 × MYR 20.00</span>
+                    </li>
+                </ul>
+                <p class="cart-total"><span>Subtotal:</span><span class="amount">MYR 89.99</span></p>
+                <a class="btn-total" href="product-cart.html">View cart</a>
+                <a class="btn-total" href="product-checkout.html">Checkout</a>
+            </div>
+        </aside>
+        <!--== End Aside Cart ==-->
+
+        <!--== Start Message Quick View Modal ==-->
+        <aside class="product-cart-view-modal modal fade" id="action-QuickViewModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="product-quick-view-content">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                <span class="fa fa-close"></span>
+                            </button>
+                            <div class="container">
+                                <div class="row clearfix">
+                                    <div class="col-md-12 col-lg-12 col-xl-12">
+                                        <ul class="mail_list list-group list-unstyled">
+                                            <li class="list-group-item">
+                                                <div class="media">
+                                                    <div class="pull-left">                                
+                                                        <div class="controls">
+                                                            <a href="javascript:void(0);" class="favourite text-muted hidden-sm-down" data-toggle="active"><i class="zmdi zmdi-star-outline"></i></a>
+                                                        </div>
+                                                        <div class="thumb hidden-sm-down m-r-20"> <img src="assets/images/xs/avatar1.jpg" class="rounded-circle" alt=""> </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="media-heading">
+                                                            <a href="products.html" class="m-r-10" style="font-weight: 700;">Special Offer!</a>
+                                                        </div>
+                                                        <p class="msg" style="line-height: 18px;">Buy 1 get one FREE with every purchase of 9 Packs product. </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item unread">
+                                                <div class="media">
+                                                    <div class="pull-left">
+                                                        <div class="controls">
+                                                            <a href="javascript:void(0);" class="favourite col-amber hidden-sm-down" data-toggle="active"><i class="zmdi zmdi-star"></i></a>
+                                                        </div>
+                                                        <div class="thumb hidden-sm-down m-r-20"> <img src="assets/images/xs/avatar2.jpg" class="rounded-circle" alt=""> </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="media-heading">
+                                                            <a href="live.html" class="m-r-10" style="font-weight: 700;">Catch us on our upcoming live event!</a>
+                                                        </div>
+                                                        <p class="msg" style="line-height: 18px;">We will be live on 2:00PM today! Catch us for big sales.</p>                                
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="media">
+                                                    <div class="pull-left">
+                                                        <div class="controls">
+                                                            <a href="javascript:void(0);" class="favourite text-muted hidden-sm-down" data-toggle="active"><i class="zmdi zmdi-star-outline"></i></a>
+                                                        </div>
+                                                        <div class="thumb hidden-sm-down m-r-20"> <img src="assets/images/xs/avatar3.jpg" class="rounded-circle" alt=""> </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="media-heading">
+                                                            <a href="login.html" class="m-r-10" style="font-weight: 700;">Membership Offer!</a>
+                                                        </div>
+                                                        <p class="msg" style="line-height: 18px;">Join us as member and get more discount!</p>                                
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item unread">
+                                                <div class="media">
+                                                    <div class="pull-left">
+                                                        <div class="controls">
+                                                            <a href="javascript:void(0);" class="favourite text-muted hidden-sm-down" data-toggle="active"><i class="zmdi zmdi-star-outline"></i></a>
+                                                        </div>
+                                                        <div class="thumb hidden-sm-down m-r-20"> <img src="assets/images/xs/avatar4.jpg" class="rounded-circle" alt=""> </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="media-heading">
+                                                            <a href="products.html" class="m-r-10" style="font-weight: 700;">New product released!</a>
+                                                        </div>
+                                                        <p class="msg" style="line-height: 18px;">Check out our new lipstick series. </p>                                
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="media">
+                                                    <div class="pull-left">
+                                                        <div class="controls">
+                                                            <a href="javascript:void(0);" class="favourite text-muted hidden-sm-down" data-toggle="active"><i class="zmdi zmdi-star-outline"></i></a>
+                                                        </div>
+                                                        <div class="thumb hidden-sm-down m-r-20"> <img src="assets/images/xs/avatar5.jpg" class="rounded-circle" alt=""> </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="media-heading">
+                                                            <a href="contact.html" class="m-r-10" style="font-weight: 700;">Our Careline is on!</a>
+                                                        </div>
+                                                        <p class="msg" style="line-height: 18px;">If you have any inquiries,click title to talk to our customer service.</p>                                
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--== End Message Quick View Modal ==-->
+
+        <!--== Start Aside Menu ==-->
+        <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h1 class="d-none" id="offcanvasExampleLabel">Aside Menu</h1>
+                <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i class="fa fa-chevron-left"></i></button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="offcanvasNav" class="offcanvas-menu-nav">
+                    <ul>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.html">home</a></li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Products</a>
+                            <ul>
+                                <li><a href="products.html">All</a></li>
+                                <li><a href="products.html" class="offcanvas-nav-item">Promo</a></li>
+                                <li><a href="products.html" class="offcanvas-nav-item">Beauty Care</a></li>
+                                <li><a href="products.html" class="offcanvas-nav-item">Personal Care</a></li>
+                                <li><a href="products.html" class="offcanvas-nav-item">Supplement</a></li>
+                                <li><a href="products.html" class="offcanvas-nav-item">Beverage</a></li>
+                                <li><a href="products.html" class="offcanvas-nav-item">Household Care</a></li>
+                                <li><a href="products.html" class="offcanvas-nav-item">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Member</a>
+                            <ul>
+                                <li><a href="#" class="offcanvas-nav-item">My Account</a>
+                                    <ul>
+                                        <li><a href="login.html">Statement</a></li>
+                                        <li><a href="login.html">Level</a></li>
+                                        <li><a href="login.html">Team</a></li>
+                                        <li><a href="login.html">Others</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="offcanvas-nav-item">Frequently Questions</a>
+                                    <ul>
+                                        <li><a href="products.html">Membership</a></li>
+                                        <li><a href="products.html">Shipping</a></li>
+                                        <li><a href="faq.html">Policy</a></l>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <!--== End Aside Menu ==-->
+        
+        <!-- app nav -->
+        <special-appnav></special-appnav>
+        <!-- /app nav -->
+
+    </div>
+    <!--== Wrapper End ==-->
+
+    <!-- JS Vendor, Plugins & Activation Script Files -->
+
+    <!-- Vendors JS -->
+    <script src="./assets/js/vendor/modernizr-3.11.7.min.js"></script>
+    <script src="./assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="./assets/js/plugins/fancybox.min.js"></script>
+    <!-- HeaderFooterManager JS-->
+    <script src="./assets/js/headerFooterManager.js"></script>
+
+    <!-- Custom Main JS -->
+    <script src="./assets/js/main.js"></script>
+
+</body>
+
+</html>
