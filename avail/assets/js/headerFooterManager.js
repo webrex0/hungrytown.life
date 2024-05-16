@@ -20,24 +20,49 @@ class SpecialHeader extends HTMLElement {
                     <div class="col-lg-6 d-none d-lg-block">
                         <div class="header-navigation">
                             <ul class="main-nav justify-content-center">
-                                <li class="has-submenu"><a href="index.html">HOME</a>
-                                </li>
-                                <li class="has-submenu position-static"><a href="products.html">PRODUCTS</a>
-                                    <ul class="submenu-nav-mega">
-                                        <li><a href="#/" class="mega-title">All Products</a>
-                                            <ul>
-                                                <li><a href="producst.html">Beauty Care</a></li>
-                                                <li><a href="products.html">Personal Care</a></li>
-                                                <li><a href="products.html">Supplement</a></li>
-                                                <li><a href="products.html">Beverage</a></li>
-                                                <li><a href="products.html">Household Care</a></li>
+                                <li class="has-submenu"><a href="index.html">HOME</a></li>
+                                <li class="has-submenu"><a href="products.html">PRODUCTS</a>
+                                    <ul class="submenu-nav">
+                                        <li class="has-submenu active"><a href="#/">Beauty Care</a>
+                                            <ul class="submenu-nav">
+                                                <li><a href="#">Bio FC Sanitary</a></li>
+                                                <li><a href="#">SC Pantyliner</a></li>
+                                                <li><a href="#">Lipstick</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#/" class="mega-title">Sort By</a>
-                                            <ul>
-                                                <li><a href="products.html">New Product</a></li>
-                                                <li><a href="products.html">Promo</a></li>
-                                                <li><a href="products.html">Best Selling</a></li>
+                                        <li class="has-submenu"><a href="#/">Personal Care</a>
+                                            <ul class="submenu-nav">
+                                                <li><a href="#">Body Wash</a></li>
+                                                <li><a href="#">Body Lotion</a></li>
+                                                <li><a href="#">Deodorant</a></li>
+                                                <li><a href="#">Hair Shampoo</a></li>
+                                                <li><a href="#">Hair Conditioner</a></li>
+                                                <li><a href="#">Toothgel</a></li>
+                                                <li><a href="#">Facial Cleanser</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-submenu"><a href="#/">Supplement</a>
+                                            <ul class="submenu-nav">
+                                                <li><a href="#">I-Food</a></li>
+                                                <li><a href="#">Pro-Polis</a></li>
+                                                <li><a href="#">E-Chlorophyll</a></li>
+                                                <li><a href="#">Green Fit</a></li>
+                                                <li><a href="#">I-Kids</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-submenu"><a href="#/">Beverage</a>
+                                            <ul class="submenu-nav">
+                                                <li><a href="#">Teh Tarik</a></li>
+                                                <li><a href="#">Chocolate</a></li>
+                                                <li><a href="#">Peach Tea</a></li>
+                                                <li><a href="#">Tongkat Ali Cappuccino</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-submenu"><a href="#/">Household Care</a>
+                                            <ul class="submenu-nav">
+                                                <li><a href="#">Dish Wash</a></li>
+                                                <li><a href="#">Cleaner</a></li>
+                                                <li><a href="#">Laundry</a></li>
                                             </ul>
                                         </li>
                                     </ul>

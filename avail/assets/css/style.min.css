@@ -174,7 +174,7 @@ hr {
   }
 }
 .header-area .container {
-  max-width: 1733px;
+  max-width: 1480px;
 }
 .header-transparent {
   background-color: transparent;
@@ -263,7 +263,7 @@ hr {
 }
 .main-nav .has-submenu:hover .submenu-nav,
 .main-nav .has-submenu:hover .submenu-nav-mega {
-  margin-top: 0;
+  margin-top: -10px;
   opacity: 1;
   visibility: visible;
   pointer-events: visible;
@@ -322,7 +322,7 @@ hr {
 .main-nav .has-submenu .submenu-nav-mega > li a:hover,
 .main-nav .has-submenu .submenu-nav > li a:hover {
   color: #1daa81;
-  background-color: rgba(173, 181, 189, 0.15);
+  background-color:#e4e4e4;
 }
 .main-nav .has-submenu .submenu-nav-mega .has-submenu,
 .main-nav .has-submenu .submenu-nav .has-submenu {
@@ -384,7 +384,7 @@ hr {
 .main-nav .has-submenu .submenu-nav-mega .has-submenu:hover a,
 .main-nav .has-submenu .submenu-nav .has-submenu .submenu-nav a:hover,
 .main-nav .has-submenu .submenu-nav .has-submenu:hover a {
-  color: #1daa81;
+  color: #1f493d  ;
 }
 .main-nav .has-submenu .submenu-nav-mega .has-submenu:hover .submenu-nav,
 .main-nav .has-submenu .submenu-nav .has-submenu:hover .submenu-nav {
@@ -403,7 +403,7 @@ hr {
   .submenu-nav
   a:hover,
 .main-nav .has-submenu .submenu-nav .has-submenu:hover .submenu-nav a:hover {
-  color: #1daa81;
+  color: #1f493d;
 }
 .main-nav .has-submenu .submenu-nav-mega {
   display: flex;
