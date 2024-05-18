@@ -173,9 +173,6 @@ hr {
     padding: 19px 0 18px;
   }
 }
-.header-area .container {
-  max-width: 1200px;
-}
 .header-transparent {
   background-color: transparent;
   position: absolute;
@@ -1782,7 +1779,7 @@ background-color: #1daa81;
   opacity: 1;
 }
 .hero-two-slider-area {
-  max-width: 1733px;
+  max-width: 1700px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -1825,7 +1822,7 @@ background-color: #1daa81;
   background-size: cover;
   background-image: url("../images/slider/slider1-bg.png");
   border-radius: 30px;
-  height: 700px !important;
+  height: 500px !important;
   display: flex;
   position: relative;
   z-index: 1;
@@ -1967,6 +1964,7 @@ background-color: #1daa81;
   position: relative;
   padding-top: 44px;
   z-index: 1;
+  padding-left: 40px;
 }
 @media only screen and (max-width: 767px) {
   .hero-two-slide-content {
@@ -1975,14 +1973,14 @@ background-color: #1daa81;
 }
 @media only screen and (max-width: 479px) {
   .hero-two-slide-content {
-    padding-top: 38px;
+    padding-top: 28px;
     text-align: center;
+    padding-left: 0px !important;
   }
 }
 .hero-two-slide-content .hero-two-slide-text-img {
   position: absolute;
-  top: -105px;
-  left: 2px;
+  top: -80px;
   z-index: -1;
   pointer-events: none;
 }
