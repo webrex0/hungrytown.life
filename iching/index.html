@@ -2,125 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Include the lunar-javascript library from the CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js" integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Malaysian Identity Number Numberlogy 马来西亚身份证易经数</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.2">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background-color: #f0f0f0;
+        }
+        .container {
+            padding: 20px;
         }
         table {
             border-collapse: collapse;
             margin-top: 20px;
+            width: 100%;
         }
         th, td {
             border: 1px solid #ccc;
             padding: 8px;
             text-align: center;
         }
-        .hidden {
-            display: none;
-        }
         .separator {
             border-right: 2px solid black;
         }
     </style>
+    <title>Malaysian Identity Number Numberlogy 马来西亚身份证易经数</title>
 </head>
 <body>
-    <div>
-        <h1>Malaysian Identity Number Numberlogy 马来西亚身份证易经数</h1>
+    <div class="container">
+        <h2 class="text-center">Malaysian Identity Number Numberlogy 马来西亚身份证易经数</h2>
         <form id="icForm">
-            <label for="icNumber">Enter Malaysian Identity Number (YYMMDD-RR-NNNN):</label><br>
-            <input type="text" id="icNumber" name="icNumber" pattern="\d{6}-\d{2}-\d{4}" required>
-            <button type="submit">Format</button>
+            <div class="form-group">
+                <label for="icNumber">Enter Malaysian Identity Number (YYMMDD-RR-NNNN):</label>
+                <input type="text" id="icNumber" name="icNumber" class="form-control" pattern="\d{6}-\d{2}-\d{4}" required>
+            </div>
+            <button type="submit" class="btn btn-primary ">Format</button>
         </form>
-        <table id="formattedTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>Y1</th>
-                    <th class="separator">Y2</th>
-                    <th>M1</th>
-                    <th class="separator">M2</th>
-                    <th>D1</th>
-                    <th class="separator">D2</th>
-                    <th>R1</th>
-                    <th class="separator">R2</th>
-                    <th>N1</th>
-                    <th class="separator">N2</th>
-                    <th>N3</th>
-                    <th>N4</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="formattedRow">
-                    <!-- Data will be inserted here -->
-                </tr>
-            </tbody>
-        </table>
-        <table id="ageTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>Current Year今年</th>
-                    <th>Year of Birth生日</th>
-                    <th>Age年龄</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="ageRow">
-                    <!-- Age data will be inserted here -->
-                </tr>
-            </tbody>
-        </table>
-        <table id="categoryTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody id="categoryRows">
-                <!-- Category values will be inserted here -->
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table id="formattedTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>Y</th>
+                        <th class="separator">Y</th>
+                        <th>M</th>
+                        <th class="separator">M</th>
+                        <th>D</th>
+                        <th class="separator">D</th>
+                        <th>R</th>
+                        <th class="separator">R</th>
+                        <th>N</th>
+                        <th class="separator">N</th>
+                        <th>N</th>
+                        <th>N</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="formattedRow">
+                        <!-- Data will be inserted here -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table id="ageTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>Current Year今年</th>
+                        <th>Year of Birth生日</th>
+                        <th>Age年龄</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="ageRow">
+                        <!-- Age data will be inserted here -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table id="categoryTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="categoryRows">
+                    <!-- Category values will be inserted here -->
+                </tbody>
+            </table>
+        </div>
         <hr>
-        <h2>Age Range Analysis 年龄范围分析</h2>
-        <table id="newCategoryTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody id="newCategoryRows">
-                <!-- New category values will be inserted here -->
-            </tbody>
-        </table>
-
-        <hr> <!-- Horizontal line -->
-
+        <h2 class="text-center">Age Range Analysis 年龄范围分析</h2>
+        <div class="table-responsive">
+            <table id="newCategoryTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="newCategoryRows">
+                    <!-- New category values will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+        <hr>
         <!-- Lunar Converter -->
-        <h2>Lunar Analysis 农历分析</h2>
-        <table id="lunarConverterTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>Minus负 11</th>
-                    <th>Birth Date 生日</th>
-                    <th>Chinese Lunar Date 农历</th>
-                </tr>
-            </thead>
-            <tbody id="lunarConverterRows">
-                <!-- Lunar conversion results will be inserted here -->
-            </tbody>
-        </table>
+        <h2 class="text-center">Lunar Analysis 农历分析</h2>
+        <div class="table-responsive pb-5">
+            <table id="lunarConverterTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>Minus负 11</th>
+                        <th>Chinese Lunar Date 农历</th>
+                    </tr>
+                </thead>
+                <tbody id="lunarConverterRows">
+                    <!-- Lunar conversion results will be inserted here -->
+                </tbody>
+            </table>
+        </div>
     </div>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js" integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.getElementById('icForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -211,7 +216,6 @@
             lunarConverterRows.innerHTML = `
                 <tr>
                     <td>${elevenString}</td>
-                    <td>${gregorianString}</td>
                     <td>${lunarString}</td>
                 </tr>
             `;
@@ -221,3 +225,4 @@
     </script>
 </body>
 </html>
+
