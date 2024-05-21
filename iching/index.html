@@ -33,8 +33,8 @@
         <h2 class="text-center">Malaysian Identity Number Numberlogy 马来西亚身份证易经数</h2>
         <form id="icForm">
             <div class="form-group">
-                <label for="icNumber">Enter Malaysian Identity Number (YYMMDD-RR-NNNN):</label>
-                <input type="text" id="icNumber" name="icNumber" class="form-control" pattern="\d{6}-\d{2}-\d{4}" required>
+                <label for="icNumber">Enter Malaysian Identity Number (840216045227):</label>
+                <input type="text" id="icNumber" name="icNumber" class="form-control" pattern="\d{12}" required>
             </div>
             <button type="submit" class="btn btn-primary ">Format</button>
         </form>
@@ -128,100 +128,103 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js" integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.getElementById('icForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const icNumber = document.getElementById('icNumber').value;
-            const [datePart, rrPart, nnPart] = icNumber.split('-');
-            const yearPart = datePart.slice(0, 2);
-            const currentYear = new Date().getFullYear();
-            const birthYearPrefix = currentYear - parseInt(yearPart) < 100 ? "20" : "19";
-            const birthYear = parseInt(birthYearPrefix + yearPart);
-            const age = currentYear - birthYear;
-            
-            const formattedData = {
-                Y1: datePart.charAt(0),
-                Y2: datePart.charAt(1),
-                M1: datePart.charAt(2),
-                M2: datePart.charAt(3),
-                D1: datePart.charAt(4),
-                D2: datePart.charAt(5),
-                R1: rrPart.charAt(0),
-                R2: rrPart.charAt(1),
-                N1: nnPart.charAt(0),
-                N2: nnPart.charAt(1),
-                N3: nnPart.charAt(2),
-                N4: nnPart.charAt(3)
-            };
-            
-            const formattedRow = document.getElementById('formattedRow');
-            formattedRow.innerHTML = Object.entries(formattedData).map(([key, value], index) => {
-                const separatorClass = ['Y2', 'M2', 'D2', 'R2', 'N2'].includes(key) ? 'class="separator"' : '';
-                return `<td ${separatorClass}>${value}</td>`;
-            }).join('');
-            
-            const ageRow = document.getElementById('ageRow');
-            ageRow.innerHTML = `
-                <td>${currentYear}</td>
-                <td>${birthYear}</td>
-                <td>${age}</td>
-            `;
-            
-            document.getElementById('formattedTable').classList.remove('hidden');
-            document.getElementById('ageTable').classList.remove('hidden');
-            
-            // Calculate and display values for age categories
-            const categoryRows = document.getElementById('categoryRows');
-            categoryRows.innerHTML = ''; // Clear previous entries
-            
-            if (age >= 13 && age <= 23) {
-                categoryRows.innerHTML += `<tr><td>Age 13-23</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
-            }
-            if (age >= 24 && age <= 33) {
-                categoryRows.innerHTML += `<tr><td>Age 24-33</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
-            }
-            if (age >= 34 && age <= 43) {
-                categoryRows.innerHTML += `<tr><td>Age 34-43</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
-            }
-            if (age >= 44 && age <= 53) {
-                categoryRows.innerHTML += `<tr><td>Age 44-53</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
-            }
-            if (age >= 54 && age <= 63) {
-                categoryRows.innerHTML += `<tr><td>Age 54-63</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
-            }
-            
-            document.getElementById('categoryTable').classList.remove('hidden');
-            
-            // Display category values in the new section
-            const newCategoryRows = document.getElementById('newCategoryRows');
-            newCategoryRows.innerHTML = ''; // Clear previous entries
-            
-            newCategoryRows.innerHTML += `<tr><td>Age 13-23</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 24-33</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 34-43</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 44-53</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 54-63</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
-            
-            document.getElementById('newCategoryTable').classList.remove('hidden');
-            
-            // Perform Lunar conversion
-            const lunarConverterRows = document.getElementById('lunarConverterRows');
-            const month = parseInt(`${formattedData.M1}${formattedData.M2}`, 10);
-            const day = parseInt(`${formattedData.D1}${formattedData.D2}`, 10);
-            const gregorianDate = new Date(birthYear, month - 1, day); // Month is 0-based index
-            const lunarDate = Lunar.fromDate(gregorianDate);
-            const gregorianString = gregorianDate.toDateString();
-            const lunarString = `${lunarDate.getMonth()} month, ${lunarDate.getDay()} day`;
-            const elevenString = (birthYear - 11).toString().slice(-2);
+    event.preventDefault();
+    
+    const icNumber = document.getElementById('icNumber').value;
+    const datePart = icNumber.slice(0, 6);
+    const rrPart = icNumber.slice(6, 8);
+    const nnPart = icNumber.slice(8, 12);
+    const yearPart = datePart.slice(0, 2);
+    const currentYear = new Date().getFullYear();
+    const birthYearPrefix = currentYear - parseInt(yearPart) < 100 ? "20" : "19";
+    const birthYear = parseInt(birthYearPrefix + yearPart);
+    const age = currentYear - birthYear;
+    
+    const formattedData = {
+        Y1: datePart.charAt(0),
+        Y2: datePart.charAt(1),
+        M1: datePart.charAt(2),
+        M2: datePart.charAt(3),
+        D1: datePart.charAt(4),
+        D2: datePart.charAt(5),
+        R1: rrPart.charAt(0),
+        R2: rrPart.charAt(1),
+        N1: nnPart.charAt(0),
+        N2: nnPart.charAt(1),
+        N3: nnPart.charAt(2),
+        N4: nnPart.charAt(3)
+    };
+    
+    const formattedRow = document.getElementById('formattedRow');
+    formattedRow.innerHTML = Object.entries(formattedData).map(([key, value], index) => {
+        const separatorClass = ['Y2', 'M2', 'D2', 'R2', 'N2'].includes(key) ? 'class="separator"' : '';
+        return `<td ${separatorClass}>${value}</td>`;
+    }).join('');
+    
+    const ageRow = document.getElementById('ageRow');
+    ageRow.innerHTML = `
+        <td>${currentYear}</td>
+        <td>${birthYear}</td>
+        <td>${age}</td>
+    `;
+    
+    document.getElementById('formattedTable').classList.remove('hidden');
+    document.getElementById('ageTable').classList.remove('hidden');
+    
+    // Calculate and display values for age categories
+    const categoryRows = document.getElementById('categoryRows');
+    categoryRows.innerHTML = ''; // Clear previous entries
+    
+    if (age >= 13 && age <= 23) {
+        categoryRows.innerHTML += `<tr><td>Age 13-23</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
+    }
+    if (age >= 24 && age <= 33) {
+        categoryRows.innerHTML += `<tr><td>Age 24-33</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
+    }
+    if (age >= 34 && age <= 43) {
+        categoryRows.innerHTML += `<tr><td>Age 34-43</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
+    }
+    if (age >= 44 && age <= 53) {
+        categoryRows.innerHTML += `<tr><td>Age 44-53</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+    }
+    if (age >= 54 && age <= 63) {
+        categoryRows.innerHTML += `<tr><td>Age 54-63</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+    }
+    
+    document.getElementById('categoryTable').classList.remove('hidden');
+    
+    // Display category values in the new section
+    const newCategoryRows = document.getElementById('newCategoryRows');
+    newCategoryRows.innerHTML = ''; // Clear previous entries
+    
+    newCategoryRows.innerHTML += `<tr><td>Age 13-23</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 24-33</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 34-43</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 44-53</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 54-63</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+    
+    document.getElementById('newCategoryTable').classList.remove('hidden');
+    
+    // Perform Lunar conversion
+    const lunarConverterRows = document.getElementById('lunarConverterRows');
+    const month = parseInt(`${formattedData.M1}${formattedData.M2}`, 10);
+    const day = parseInt(`${formattedData.D1}${formattedData.D2}`, 10);
+    const gregorianDate = new Date(birthYear, month - 1, day); // Month is 0-based index
+    const lunarDate = Lunar.fromDate(gregorianDate);
+    const gregorianString = gregorianDate.toDateString();
+    const lunarString = `${lunarDate.getMonth()} month, ${lunarDate.getDay()} day`;
+    const elevenString = (birthYear - 11).toString().slice(-2);
 
-            lunarConverterRows.innerHTML = `
-                <tr>
-                    <td>${elevenString}</td>
-                    <td>${lunarString}</td>
-                </tr>
-            `;
+    lunarConverterRows.innerHTML = `
+        <tr>
+            <td>${elevenString}</td>
+            <td>${lunarString}</td>
+        </tr>
+    `;
 
-            document.getElementById('lunarConverterTable').classList.remove('hidden');
-        });
+    document.getElementById('lunarConverterTable').classList.remove('hidden');
+});
+
     </script>
 </body>
 </html>
