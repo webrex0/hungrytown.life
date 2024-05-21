@@ -191,19 +191,19 @@
     categoryRows.innerHTML = ''; // Clear previous entries
     
     if (age >= 13 && age <= 22) {
-        categoryRows.innerHTML += `<tr><td>Age 13-23</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
     }
     if (age >= 23 && age <= 32) {
-        categoryRows.innerHTML += `<tr><td>Age 24-33</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
     }
     if (age >= 33 && age <= 42) {
-        categoryRows.innerHTML += `<tr><td>Age 34-43</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
     }
     if (age >= 43 && age <= 52) {
-        categoryRows.innerHTML += `<tr><td>Age 44-53</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
     }
     if (age >= 53 && age <= 62) {
-        categoryRows.innerHTML += `<tr><td>Age 54-63</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
     }
     
     document.getElementById('categoryTable').classList.remove('hidden');
