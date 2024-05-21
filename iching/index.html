@@ -135,11 +135,26 @@
     const rrPart = icNumber.slice(6, 8);
     const nnPart = icNumber.slice(8, 12);
     const yearPart = datePart.slice(0, 2);
+    const monthPart = datePart.slice(2, 4);
+    const dayPart = datePart.slice(4, 6);
     const currentYear = new Date().getFullYear();
-    const birthYearPrefix = currentYear - parseInt(yearPart) < 100 ? "20" : "19";
-    const birthYear = parseInt(birthYearPrefix + yearPart);
+    let birthYear = parseInt(yearPart);
+
+    // Adjust year to 4 digits
+    if (birthYear <= parseInt(currentYear.toString().slice(-2))) {
+        birthYear += 2000;
+    } else {
+        birthYear += 1900;
+    }
+
+    // Check if the year is within the valid range
+    if (birthYear < 1950 || birthYear > 2024) {
+        alert("Year of birth must be between 1950 and 2024.");
+        return;
+    }
+
     const age = currentYear - birthYear;
-    
+
     const formattedData = {
         Y1: datePart.charAt(0),
         Y2: datePart.charAt(1),
@@ -156,7 +171,7 @@
     };
     
     const formattedRow = document.getElementById('formattedRow');
-    formattedRow.innerHTML = Object.entries(formattedData).map(([key, value], index) => {
+    formattedRow.innerHTML = Object.entries(formattedData).map(([key, value]) => {
         const separatorClass = ['Y2', 'M2', 'D2', 'R2', 'N2'].includes(key) ? 'class="separator"' : '';
         return `<td ${separatorClass}>${value}</td>`;
     }).join('');
@@ -207,8 +222,8 @@
     
     // Perform Lunar conversion
     const lunarConverterRows = document.getElementById('lunarConverterRows');
-    const month = parseInt(`${formattedData.M1}${formattedData.M2}`, 10);
-    const day = parseInt(`${formattedData.D1}${formattedData.D2}`, 10);
+    const month = parseInt(monthPart, 10);
+    const day = parseInt(dayPart, 10);
     const gregorianDate = new Date(birthYear, month - 1, day); // Month is 0-based index
     const lunarDate = Lunar.fromDate(gregorianDate);
     const gregorianString = gregorianDate.toDateString();
@@ -224,6 +239,7 @@
 
     document.getElementById('lunarConverterTable').classList.remove('hidden');
 });
+
 
     </script>
 </body>
