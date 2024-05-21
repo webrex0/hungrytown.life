@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         body {
@@ -33,7 +33,7 @@
         <h2 class="text-center">Malaysian Identity Number Numberlogy 马来西亚身份证易经数</h2>
         <form id="icForm">
             <div class="form-group">
-                <label for="icNumber">Enter Malaysian Identity Number (840216045227):</label>
+                <label for="icNumber">Enter Malaysian Identity Number (880213045257):</label>
                 <input type="text" id="icNumber" name="icNumber" class="form-control" pattern="\d{12}" required>
             </div>
             <button type="submit" class="btn btn-primary ">Format</button>
@@ -205,6 +205,9 @@
     if (age >= 53 && age <= 62) {
         categoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
     }
+    if (age >= 63 && age <= 72) {
+        categoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
+    }
     
     document.getElementById('categoryTable').classList.remove('hidden');
     
@@ -217,6 +220,7 @@
     newCategoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
     newCategoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
     newCategoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
     
     document.getElementById('newCategoryTable').classList.remove('hidden');
     
