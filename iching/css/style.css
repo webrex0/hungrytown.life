@@ -1,0 +1,322 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+}
+.title-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.title-main h1 {
+  border-bottom: solid 1px #ac7ec8;
+  padding: 20px;
+  width: 90%;
+  text-align: center;
+  color: #4a5e71;
+}
+.wrapper-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.login-container {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.login-container h1 {
+  color: #333;
+  padding: 20px;
+}
+
+.login-form {
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  margin: 10px 0;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.login-form button {
+  background: #0074d9;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.hidden-content {
+  display: none;
+}
+.datepicker {
+  margin-top: 10px;
+}
+.myButton {
+  background-color: #4a5e71;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 15px 15px;
+  width: 315px;
+}
+.myButton:hover {
+  background-color: #394959;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+.w-container {
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+  margin: auto;
+  flex-direction: column;
+}
+.pyramid-bg {
+  background-image: url(https://webrex0.github.io/number/img/p-bg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-top: 20px;
+  height: 350px;
+}
+/* Pyramid Chart Styling */
+.pyramid-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pyramid-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+.pyramid-row2 {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+}
+.pyramid-row3 {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+
+.pyramid-box {
+  padding: 1px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.pyramid-box-mid {
+  padding: 1px;
+  text-align: center;
+  width: 52px;
+  height: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #fff;
+}
+.pyramid-box-left {
+  border: 1px solid #ddd;
+  padding: 1px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 0px;
+}
+.pyramid-box-right {
+  border: 1px solid #ddd;
+  padding: 1px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 0px;
+}
+
+.pyramid-box.top {
+  color: #fff;
+  font-size: larger;
+}
+
+/* Table Chart Styling */
+.table-chart {
+  width: 95%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.table-chart th,
+.table-chart td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table-chart th {
+  background-color: #ac7ec8;
+  color: white;
+}
+
+.table-chart2 {
+  width: 95%;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+.table-chart2 th,
+.table-chart2 td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+.wrapper-dob {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85px;
+}
+/* Date Picker Styling */
+.date-dropdown {
+  width: 105px;
+}
+/* Dropdown styling */
+.has-label.dropdown select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #333;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Styling the dropdown arrow */
+.has-label.dropdown select::-ms-expand {
+  display: none;
+}
+
+.has-label.dropdown select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+  padding-right: 30px;
+}
+
+/* Hover effect */
+.has-label.dropdown select:hover {
+  background-color: #eaeaea;
+}
+
+/* Focus effect */
+.has-label.dropdown select:focus {
+  border-color: #6a0dad;
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+
+/* Selected option */
+.has-label.dropdown select option:checked {
+  background-color: #6a0dad;
+  color: #fff;
+}
+
+.language-dropdown-container {
+  display: inline-block;
+  position: relative;
+  text-align: left; /* Align the text to the left */
+  margin-left: 220px;
+}
+
+.language-dropdown-button {
+  font-size: 16px;
+  padding: 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.language-dropdown-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  width: 150px;
+}
+
+.language-dropdown-list a {
+  display: block;
+  z-index: 2;
+  padding: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+}
+
+.flag-icon {
+  margin-right: 5px;
+}
+
+/* Hover styles for better user experience */
+.language-dropdown-button:hover,
+.language-dropdown-list a:hover {
+  background-color: #f1f1f1;
+}
+
+.language-dropdown-container:hover .language-dropdown-list {
+  display: block;
+}
+/* Override styles for screens with a minimum width of 769 pixels (PC view) */
+@media only screen and (min-width: 769px) {
+  .language-dropdown-container {
+    margin-left: 350px; /* Adjusted margin for PC view */
+  }
+}
