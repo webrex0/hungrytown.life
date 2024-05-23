@@ -80,6 +80,21 @@
                 </tbody>
             </table>
         </div>
+        <!-- New table for special 3 consecutive numbers -->
+        <div class="table-responsive">
+            <table id="consecutiveNumberTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>Numbers</th>
+                        <th>Analysis</th>
+                    </tr>
+                </thead>
+                <tbody id="consecutiveNumberRows">
+                    <!-- Consecutive number results will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+        <hr>
         <div class="table-responsive">
             <table id="ageTable" class="table hidden">
                 <thead>
@@ -258,6 +273,51 @@
 
             specialNumberRow.innerHTML = `<td>${filteredSpecialNumbers.join(', ')}</td>`;
             document.getElementById('specialNumberTable').classList.remove('hidden');
+
+            // Check for predefined 3 consecutive numbers
+            const predefinedTurnBadNumbers = ['1479', '2836', '3924', '6742','4163','9381','8297','7618'];
+            const predefinedDivorceNumbers = ['1983', '7892', '3461','2647','9174','8716','4329','6238'];
+            const predefinedFivefortuneNumbers = ['1872', '7913', '3627', '2431','8194','9786','6349','4268'];
+            const predefinedBirthNumbers = ['1491', '2862', '3943','4134','6726','7687','8278','9319'];
+
+            const predefinedBigFortuneNumbers = ['131', '272', '494', '686'];
+            const predefinedCancerNumbers = ['812', '218', '697', '769'];
+            const predefinedEntrepreneurNumbers = ['372', '486', '694'];
+            
+
+            const consecutiveNumberRows = document.getElementById('consecutiveNumberRows');
+            consecutiveNumberRows.innerHTML = ''; // Clear previous entries
+
+            for (let i = 0; i <= filteredSpecialNumbers.length - 3; i++) {
+                const threeConsecutive = filteredSpecialNumbers.slice(i, i + 3).join('');
+                if (predefinedBigFortuneNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Big Fortune 大财数字</td></tr>`;
+                }
+                if (predefinedCancerNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Cancer Numbers 癌症数字</td></tr>`;
+                }
+                if (predefinedEntrepreneurNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Entrepreneur Numbers 创业者</td></tr>`;
+                }
+            }
+
+            for (let i = 0; i <= filteredSpecialNumbers.length - 4; i++) {
+                const threeConsecutive = filteredSpecialNumbers.slice(i, i + 4).join('');
+                if (predefinedTurnBadNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Relationship Become Worst 感情变鬼数字</td></tr>`;
+                }
+                if (predefinedDivorceNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Divorce Numbers 离婚数字</td></tr>`;
+                }
+                if (predefinedFivefortuneNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>5 Ghost Bring Fortune 五鬼运财</td></tr>`;
+                }
+                if (predefinedBirthNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Birth Law&Order 生天延数字</td></tr>`;
+                }
+            }
+
+            document.getElementById('consecutiveNumberTable').classList.remove('hidden');
 
             // Perform Lunar conversion
             const lunarConverterRows = document.getElementById('lunarConverterRows');
