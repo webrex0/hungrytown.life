@@ -29,7 +29,7 @@
             display: none;
         }
         .table tr td {
-            font-size:13px;
+            font-size: 13px;
         }
     </style>
     <title>Malaysian Identity Number Numerology 马来西亚身份证易经数</title>
@@ -44,6 +44,8 @@
             </div>
             <button type="submit" class="btn btn-primary">Format</button>
         </form>
+
+        <!-- Formatted IC Table -->
         <div class="table-responsive">
             <table id="formattedIC" class="table hidden">
                 <thead>
@@ -69,6 +71,8 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Special Number Table -->
         <div class="table-responsive">
             <table id="specialNumberTable" class="table hidden">
                 <thead>
@@ -83,7 +87,8 @@
                 </tbody>
             </table>
         </div>
-        <!-- New table for special 3 consecutive numbers -->
+
+        <!-- Consecutive Number Table -->
         <div class="table-responsive">
             <table id="consecutiveNumberTable" class="table hidden">
                 <thead>
@@ -97,14 +102,15 @@
                 </tbody>
             </table>
         </div>
-        <hr>
+
+        <!-- Age Table -->
         <div class="table-responsive">
             <table id="ageTable" class="table hidden">
                 <thead>
                     <tr>
-                        <th>Current Year今年</th>
-                        <th>Year of Birth生日</th>
-                        <th>Age年龄</th>
+                        <th>Current Year 今年</th>
+                        <th>Year of Birth 生日</th>
+                        <th>Age 年龄</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -114,6 +120,8 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Category Table -->
         <div class="table-responsive">
             <table id="categoryTable" class="table hidden">
                 <thead>
@@ -126,8 +134,35 @@
                     <!-- Category values will be inserted here -->
                 </tbody>
             </table>
+            <table id="matchedResultsTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody id="matchedResultsRows">
+                    <!-- Matched results will be inserted here -->
+                </tbody>
+            </table>
         </div>
-        <hr>
+
+        <!-- Age Analysis Words Table -->
+        <div class="table-responsive">
+            <table id="ageAnalysisWordsTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>Age Analysis Words</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody id="ageAnalysisWordsRows">
+                    <!-- Matched results will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- New Category Table -->
         <h2 class="text-center">Age Range Analysis 年龄范围分析</h2>
         <div class="table-responsive">
             <table id="newCategoryTable" class="table hidden">
@@ -142,14 +177,16 @@
                 </tbody>
             </table>
         </div>
-        <hr>
+
+        
+
         <!-- Lunar Converter -->
         <h2 class="text-center">Lunar Analysis 农历分析</h2>
         <div class="table-responsive pb-5">
             <table id="lunarConverterTable" class="table hidden">
                 <thead>
                     <tr>
-                        <th>Minus负 11</th>
+                        <th>Minus 负 11</th>
                         <th>Chinese Lunar Date 农历</th>
                     </tr>
                 </thead>
@@ -161,234 +198,247 @@
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js" integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/iching.js"></script>
     <script>
-        document.getElementById('icForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-    
-            const icNumber = document.getElementById('icNumber').value;
-            const datePart = icNumber.slice(0, 6);
-            const rrPart = icNumber.slice(6, 8);
-            const nnPart = icNumber.slice(8, 12);
-            const yearPart = datePart.slice(0, 2);
-            const monthPart = datePart.slice(2, 4);
-            const dayPart = datePart.slice(4, 6);
-            const currentYear = new Date().getFullYear();
-            let birthYear = parseInt(yearPart);
+    document.getElementById('icForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-            // Adjust year to 4 digits
-            if (birthYear <= parseInt(currentYear.toString().slice(-2))) {
-                birthYear += 2000;
-            } else {
-                birthYear += 1900;
+        const icNumber = document.getElementById('icNumber').value;
+        const datePart = icNumber.slice(0, 6);
+        const rrPart = icNumber.slice(6, 8);
+        const nnPart = icNumber.slice(8, 12);
+        const yearPart = datePart.slice(0, 2);
+        const monthPart = datePart.slice(2, 4);
+        const dayPart = datePart.slice(4, 6);
+        const currentYear = new Date().getFullYear();
+        let birthYear = parseInt(yearPart);
+
+        // Adjust year to 4 digits
+        if (birthYear <= parseInt(currentYear.toString().slice(-2))) {
+            birthYear += 2000;
+        } else {
+            birthYear += 1900;
+        }
+
+        // Check if the year is within the valid range
+        if (birthYear < 1950 || birthYear > 2024) {
+            alert("Year of birth must be between 1950 and 2024.");
+            return;
+        }
+
+        const age = currentYear - birthYear;
+
+        const formattedData = {
+            Y1: datePart.charAt(0),
+            Y2: datePart.charAt(1),
+            M1: datePart.charAt(2),
+            M2: datePart.charAt(3),
+            D1: datePart.charAt(4),
+            D2: datePart.charAt(5),
+            R1: rrPart.charAt(0),
+            R2: rrPart.charAt(1),
+            N1: nnPart.charAt(0),
+            N2: nnPart.charAt(1),
+            N3: nnPart.charAt(2),
+            N4: nnPart.charAt(3)
+        };
+
+        const formattedRow = document.getElementById('formattedRow');
+        formattedRow.innerHTML = Object.entries(formattedData).map(([key, value]) => {
+            const separatorClass = ['Y2', 'M2', 'D2', 'R2', 'N2'].includes(key) ? 'class="separator"' : '';
+            return `<td ${separatorClass}>${value}</td>`;
+        }).join('');
+
+        const ageRow = document.getElementById('ageRow');
+        ageRow.innerHTML = `
+            <td>${currentYear}</td>
+            <td>${birthYear}</td>
+            <td>${age}</td>
+        `;
+        
+        document.getElementById('formattedIC').classList.remove('hidden');
+        document.getElementById('ageTable').classList.remove('hidden');
+
+        // Calculate and display values for age categories
+        const categoryRows = document.getElementById('categoryRows');
+        categoryRows.innerHTML = ''; // Clear previous entries
+
+        if (age >= 13 && age <= 22) {
+            categoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
+        }
+        if (age >= 23 && age <= 32) {
+            categoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
+        }
+        if (age >= 33 && age <= 42) {
+            categoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
+        }
+        if (age >= 43 && age <= 52) {
+            categoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+        }
+        if (age >= 53 && age <= 62) {
+            categoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+        }
+        if (age >= 63 && age <= 72) {
+            categoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
+        }
+
+        document.getElementById('categoryTable').classList.remove('hidden');
+
+        // Display category values in the new section
+        const newCategoryRows = document.getElementById('newCategoryRows');
+        newCategoryRows.innerHTML = ''; // Clear previous entries
+
+        newCategoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
+        newCategoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
+        newCategoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
+        newCategoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+        newCategoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+        newCategoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
+
+        document.getElementById('newCategoryTable').classList.remove('hidden');
+
+        // Call the lookup function after category values are displayed
+        lookupConsecutiveNumbers();
+    });
+
+    // Function to lookup consecutive numbers and display matched results
+    // Define a function to retrieve the explanation based on the matched numbers
+function getExplanation(matchedNumber) {
+    const explanations = {
+        '14': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
+        '41': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
+        '67': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
+        '76': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
+        '39': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
+        '93': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
+        '28': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
+        '82': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
+        '13': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
+        '31': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
+        '68': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
+        '86': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
+        '49': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
+        '94': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
+        '27': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
+        '72': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
+        '19': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
+        '91': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
+        '78': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
+        '87': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
+        '34': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
+        '43': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
+        '26': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
+        '62': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
+        '17': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
+        '71': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
+        '89': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
+        '98': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
+        '46': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
+        '64': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
+        '23': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
+        '32': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
+        '16': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
+        '61': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
+        '47': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
+        '74': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
+        '38': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
+        '83': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
+        '29': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
+        '92': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
+        '18': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
+        '81': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
+        '79': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
+        '97': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
+        '36': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
+        '63': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
+        '24': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
+        '42': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
+        '12': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
+        '21': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
+        '69': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
+        '96': '绝命 - 大胆，大企业家，易冲动, 讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
+        '48': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
+        '84': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
+        '37': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
+        '73': '绝命 - 大胆，大企业家，易冲动, 讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
+    };
+
+    return explanations[matchedNumber] || 'No explanation found';
+}
+
+// Update the function to display matched results with explanations
+function lookupConsecutiveNumbers() {
+    const categoryValues = document.querySelectorAll('#categoryRows td:nth-child(2)');
+    let matchedResults = [];
+
+    categoryValues.forEach((value, index, array) => {
+        const valueText = value.textContent.trim().replace(/,/g, ''); // Remove commas
+        const numbers = valueText.split('').map(Number); // Convert string to array of numbers
+
+        // Filter out zero, 5, and double numbers
+        const filteredNumbers = numbers.filter((num, i) => {
+            if (
+                num === 0 ||
+                num === 5 ||
+                num === numbers[i + 1] ||
+                num === numbers[i - 1] ||
+                num === numbers[i + 2] ||
+                num === numbers[i - 2]
+            ) {
+                // If the number is part of a double number, only remove one instance
+                if (num === numbers[i + 1] || num === numbers[i - 1]) {
+                    return i > 0 ? numbers[i - 1] !== num : true;
+                }
+                return false;
             }
+            return true;
+        });
 
-            // Check if the year is within the valid range
-            if (birthYear < 1950 || birthYear > 2024) {
-                alert("Year of birth must be between 1950 and 2024.");
-                return;
+        // Determine number of consecutive numbers found
+        const consecutiveCount = filteredNumbers.length;
+
+        if (consecutiveCount >= 2) {
+            // Create all possible pairs of consecutive numbers
+            for (let i = 0; i < filteredNumbers.length - 1; i++) {
+                const pair = filteredNumbers.slice(i, i + 2);
+                const pairString = pair.join('');
+                const explanation = getExplanation(pairString);
+                matchedResults.push({
+                    numbers: pairString,
+                    explanation: explanation
+                });
             }
-
-            const age = currentYear - birthYear;
-
-            const formattedData = {
-                Y1: datePart.charAt(0),
-                Y2: datePart.charAt(1),
-                M1: datePart.charAt(2),
-                M2: datePart.charAt(3),
-                D1: datePart.charAt(4),
-                D2: datePart.charAt(5),
-                R1: rrPart.charAt(0),
-                R2: rrPart.charAt(1),
-                N1: nnPart.charAt(0),
-                N2: nnPart.charAt(1),
-                N3: nnPart.charAt(2),
-                N4: nnPart.charAt(3)
-            };
-
-            const formattedRow = document.getElementById('formattedRow');
-            formattedRow.innerHTML = Object.entries(formattedData).map(([key, value]) => {
-                const separatorClass = ['Y2', 'M2', 'D2', 'R2', 'N2'].includes(key) ? 'class="separator"' : '';
-                return `<td ${separatorClass}>${value}</td>`;
-            }).join('');
-
-            const ageRow = document.getElementById('ageRow');
-            ageRow.innerHTML = `
-                <td>${currentYear}</td>
-                <td>${birthYear}</td>
-                <td>${age}</td>
-            `;
-            
-            document.getElementById('formattedIC').classList.remove('hidden');
-            document.getElementById('ageTable').classList.remove('hidden');
-
-            // Calculate and display values for age categories
-            const categoryRows = document.getElementById('categoryRows');
-            categoryRows.innerHTML = ''; // Clear previous entries
-
-            if (age >= 13 && age <= 22) {
-                categoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
-            }
-            if (age >= 23 && age <= 32) {
-                categoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
-            }
-            if (age >= 33 && age <= 42) {
-                categoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
-            }
-            if (age >= 43 && age <= 52) {
-                categoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
-            }
-            if (age >= 53 && age <= 62) {
-                categoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
-            }
-            if (age >= 63 && age <= 72) {
-                categoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
-            }
-
-            document.getElementById('categoryTable').classList.remove('hidden');
-
-            // Display category values in the new section
-            const newCategoryRows = document.getElementById('newCategoryRows');
-            newCategoryRows.innerHTML = ''; // Clear previous entries
-
-            newCategoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
-            newCategoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
-
-            document.getElementById('newCategoryTable').classList.remove('hidden');
-
-            // Filter and display special numbers
-            const specialNumberRow = document.getElementById('specialNumberRow');
-            specialNumberRow.innerHTML = ''; // Clear previous entries
-            const allNumbers = Object.values(formattedData);
-            const specialNumbers = allNumbers.filter((value, index) => {
-                if (value === '0' || value === '5') return false;
-                if (index > 0 && allNumbers[index - 1] === value) return false;
-                return true;
+        } else if (consecutiveCount === 1) {
+            // Push the single number to matchedResults
+            matchedResults.push({
+                numbers: filteredNumbers[0].toString(),
+                explanation: '1 number ERROR'
             });
+        }
+    });
 
-            // Apply new logic to keep only one instance of each consecutive number
-            const filteredSpecialNumbers = specialNumbers.filter((value, index, array) => {
-                return index === 0 || value !== array[index - 1];
-            });
+    // Display matched results for 2-number and 1-number matchups only
+    const matchedResultsTable = document.getElementById('matchedResultsTable');
+    const matchedResultsRows = document.getElementById('matchedResultsRows');
+    matchedResultsRows.innerHTML = ''; // Clear previous entries
 
-            specialNumberRow.innerHTML = `<td>${filteredSpecialNumbers.join(', ')}</td>`;
-            document.getElementById('specialNumberTable').classList.remove('hidden');
-
-            // Check for predefined 3 consecutive numbers
-            const predefinedTurnBadNumbers = ['1479', '2836', '3924', '6742','4163','9381','8297','7618'];
-            const predefinedDivorceNumbers = ['1983', '7892', '3461','2647','9174','8716','4329','6238'];
-            const predefinedFivefortuneNumbers = ['1872', '7913', '3627', '2431','8194','9786','6349','4268'];
-            const predefinedBirthNumbers = ['1491', '2862', '3943','4134','6726','7687','8278','9319'];
-            const predefinedMarriageProb4Numbers = ['3001','1003','6008','8006','1313'];
-            const predefinedMarriageProb3Numbers = ['103', '301'];
-            const predefinedEmoNumbers = ['1803', '9704', '8106','6308','3803','4704','1601'];
-            const predefinedBigFortuneNumbers = ['131', '272', '494', '686'];
-            const predefinedVolatileNumbers = ['918', '819','879', '978', '342', '243','197', '791', '781', '187','436', '634','624', '426'];
-            const predefinedBigProfitNumbers = ['134', '319','687', '862', '491', '943','278', '726'];
-            const predefinedSocialNumbers = ['468', '986', '327'];
-            const predefinedProNumbers = ['194', '627','268'];
-            const predefinedLeaderNumbers = ['149', '931','286'];
-
-            const predefinedCreativeNumbers = ['427', '368', '794'];
-            const predefinedServiceNumbers = ['472', '927', '168'];
-
-            const predefinedEntrepreneurNumbers = ['372', '486', '694'];
-            const predefinedCancerNumbers = ['812', '218', '697', '769'];
-            const predefinedSickNumbers = ['611', '116', '166'];
-            
-            
-
-            const consecutiveNumberRows = document.getElementById('consecutiveNumberRows');
-            consecutiveNumberRows.innerHTML = ''; // Clear previous entries
-
-            for (let i = 0; i <= filteredSpecialNumbers.length - 3; i++) {
-                const threeConsecutive = filteredSpecialNumbers.slice(i, i + 3).join('');
-                if (predefinedMarriageProb3Numbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Marriage Problem Numbers 婚姻问题数字</td></tr>`;
-                }
-                if (predefinedVolatileNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Volatile Numbers 变动性大的数字</td></tr>`;
-                }
-                if (predefinedBigProfitNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Big Profit Numbers 赚大钱数字</td></tr>`;
-                }
-                if (predefinedSocialNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Social As Business 口为业的数字</td></tr>`;
-                }
-                if (predefinedProNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Professional Numbers 变动性大的数字/td></tr>`;
-                }
-                if (predefinedLeaderNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Leadership Numbers 赚大钱数字</td></tr>`;
-                }
-                if (predefinedBigFortuneNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Big Fortune 大财数字</td></tr>`;
-                }
-                if (predefinedCreativeNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Creativity Numbers 创意行业</td></tr>`;
-                }
-                if (predefinedServiceNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Services Numbers 服行务业</td></tr>`;
-                }
-                if (predefinedEntrepreneurNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Entrepreneur Numbers 创业者</td></tr>`;
-                }
-                if (predefinedCancerNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Cancer Numbers 癌症数字</td></tr>`;
-                }
-                if (predefinedSickNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Gastroenterology, gynecological Sickness Numbers 肠胃病，妇科病</td></tr>`;
-                }
-                
-                
-            }
-
-            for (let i = 0; i <= filteredSpecialNumbers.length - 4; i++) {
-                const threeConsecutive = filteredSpecialNumbers.slice(i, i + 4).join('');
-                if (predefinedTurnBadNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Relationship Become Worst 感情变鬼数字</td></tr>`;
-                }
-                if (predefinedDivorceNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Divorce Numbers 离婚数字</td></tr>`;
-                }
-                if (predefinedFivefortuneNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>5 Ghost Bring Fortune 五鬼运财</td></tr>`;
-                }
-                if (predefinedBirthNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Birth Law&Order 生天延数字</td></tr>`;
-                }
-                if (predefinedMarriageProb4Numbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Marriage Problem Numbers 婚姻问题数字</td></tr>`;
-                }
-                if (predefinedEmoNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Emotionally Depressed Numbers 情绪压抑的数字</td></tr>`;
-                }
-            }
-
-            document.getElementById('consecutiveNumberTable').classList.remove('hidden');
-
-            // Perform Lunar conversion
-            const lunarConverterRows = document.getElementById('lunarConverterRows');
-            const month = parseInt(monthPart, 10);
-            const day = parseInt(dayPart, 10);
-            const gregorianDate = new Date(birthYear, month - 1, day); // Month is 0-based index
-            const lunarDate = Lunar.fromDate(gregorianDate);
-            const gregorianString = gregorianDate.toDateString();
-            const lunarString = `${lunarDate.getMonth()} month, ${lunarDate.getDay()} day`;
-            const elevenString = (birthYear - 11).toString().slice(-2);
-
-            lunarConverterRows.innerHTML = `
+    matchedResults.forEach(result => {
+        // Only display 2-number and 1-number matchups
+        if (result.numbers.length <= 2) {
+            matchedResultsRows.innerHTML += `
                 <tr>
-                    <td>${elevenString}</td>
-                    <td>${lunarString}</td>
+                    <td>${result.numbers}</td>
+                    <td>${result.explanation}</td>
                 </tr>
             `;
+        }
+    });
 
-            document.getElementById('lunarConverterTable').classList.remove('hidden');
-        });
-    </script>
+    matchedResultsTable.classList.remove('hidden');
+}
+
+
+</script>
+    
 </body>
 </html>
