@@ -28,6 +28,9 @@
         .hidden {
             display: none;
         }
+        .table tr td {
+            font-size:13px;
+        }
     </style>
     <title>Malaysian Identity Number Numerology 马来西亚身份证易经数</title>
 </head>
@@ -288,8 +291,14 @@
             const predefinedSocialNumbers = ['468', '986', '327'];
             const predefinedProNumbers = ['194', '627','268'];
             const predefinedLeaderNumbers = ['149', '931','286'];
-            const predefinedCancerNumbers = ['812', '218', '697', '769'];
+
+            const predefinedCreativeNumbers = ['427', '368', '794'];
+            const predefinedServiceNumbers = ['472', '927', '168'];
+
             const predefinedEntrepreneurNumbers = ['372', '486', '694'];
+            const predefinedCancerNumbers = ['812', '218', '697', '769'];
+            const predefinedSickNumbers = ['611', '116', '166'];
+            
             
 
             const consecutiveNumberRows = document.getElementById('consecutiveNumberRows');
@@ -318,12 +327,23 @@
                 if (predefinedBigFortuneNumbers.includes(threeConsecutive)) {
                     consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Big Fortune 大财数字</td></tr>`;
                 }
-                if (predefinedCancerNumbers.includes(threeConsecutive)) {
-                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Cancer Numbers 癌症数字</td></tr>`;
+                if (predefinedCreativeNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Creativity Numbers 创意行业</td></tr>`;
+                }
+                if (predefinedServiceNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Services Numbers 服行务业</td></tr>`;
                 }
                 if (predefinedEntrepreneurNumbers.includes(threeConsecutive)) {
                     consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Entrepreneur Numbers 创业者</td></tr>`;
                 }
+                if (predefinedCancerNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Cancer Numbers 癌症数字</td></tr>`;
+                }
+                if (predefinedSickNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Gastroenterology, gynecological Sickness Numbers 肠胃病，妇科病</td></tr>`;
+                }
+                
+                
             }
 
             for (let i = 0; i <= filteredSpecialNumbers.length - 4; i++) {
