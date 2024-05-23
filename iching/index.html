@@ -279,7 +279,8 @@
             const predefinedDivorceNumbers = ['1983', '7892', '3461','2647','9174','8716','4329','6238'];
             const predefinedFivefortuneNumbers = ['1872', '7913', '3627', '2431','8194','9786','6349','4268'];
             const predefinedBirthNumbers = ['1491', '2862', '3943','4134','6726','7687','8278','9319'];
-            const predefinedMarriageProbNumbers = ['103', '301','3001','1003','6008','8006','1313'];
+            const predefinedMarriageProb4Numbers = ['3001','1003','6008','8006','1313'];
+            const predefinedMarriageProb3Numbers = ['103', '301'];
             const predefinedEmoNumbers = ['1803', '9704', '8106','6308','3803','4704','1601'];
             const predefinedBigFortuneNumbers = ['131', '272', '494', '686'];
             const predefinedVolatileNumbers = ['918', '819','879', '978', '342', '243','197', '791', '781', '187','436', '634','624', '426'];
@@ -296,6 +297,24 @@
 
             for (let i = 0; i <= filteredSpecialNumbers.length - 3; i++) {
                 const threeConsecutive = filteredSpecialNumbers.slice(i, i + 3).join('');
+                if (predefinedMarriageProb3Numbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Marriage Problem Numbers 婚姻问题数字</td></tr>`;
+                }
+                if (predefinedVolatileNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Volatile Numbers 变动性大的数字</td></tr>`;
+                }
+                if (predefinedBigProfitNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Big Profit Numbers 赚大钱数字</td></tr>`;
+                }
+                if (predefinedSocialNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Social As Business 口为业的数字</td></tr>`;
+                }
+                if (predefinedProNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Professional Numbers 变动性大的数字/td></tr>`;
+                }
+                if (predefinedLeaderNumbers.includes(threeConsecutive)) {
+                    consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Leadership Numbers 赚大钱数字</td></tr>`;
+                }
                 if (predefinedBigFortuneNumbers.includes(threeConsecutive)) {
                     consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Big Fortune 大财数字</td></tr>`;
                 }
@@ -321,7 +340,7 @@
                 if (predefinedBirthNumbers.includes(threeConsecutive)) {
                     consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Birth Law&Order 生天延数字</td></tr>`;
                 }
-                if (predefinedMarriageProbNumbers.includes(threeConsecutive)) {
+                if (predefinedMarriageProb4Numbers.includes(threeConsecutive)) {
                     consecutiveNumberRows.innerHTML += `<tr><td>${threeConsecutive}</td><td>Marriage Problem Numbers 婚姻问题数字</td></tr>`;
                 }
                 if (predefinedEmoNumbers.includes(threeConsecutive)) {
