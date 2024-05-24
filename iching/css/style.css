@@ -5,6 +5,7 @@ body {
 
 .container {
     padding: 20px;
+    max-width: 600px;
 }
 
 table {
@@ -34,4 +35,10 @@ td {
 }
 .find-button {
     float: right;
+    margin-right: 5px;
+}
+.btn-click {
+    color: white;
+    background-color: #364958;
+    font-size: 15px;
 }
