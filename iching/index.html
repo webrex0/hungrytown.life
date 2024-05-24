@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,31 +10,39 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
+
         .container {
             padding: 20px;
         }
+
         table {
             border-collapse: collapse;
             margin-top: 20px;
             width: 100%;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ccc;
             padding: 8px;
             text-align: center;
         }
+
         .separator {
             border-right: 2px solid black;
         }
+
         .hidden {
             display: none;
         }
+
         .table tr td {
             font-size: 13px;
         }
     </style>
     <title>Malaysian Identity Number Numerology 马来西亚身份证易经数</title>
 </head>
+
 <body>
     <div class="container">
         <h2 class="text-center">Malaysian Identity Number Numerology 马来西亚身份证易经数</h2>
@@ -94,7 +103,7 @@
                 <thead>
                     <tr>
                         <th>Numbers</th>
-                        <th>Analysis</th>
+                        <th>Alphabert</th>
                     </tr>
                 </thead>
                 <tbody id="consecutiveNumberRows">
@@ -138,307 +147,551 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Explanation</th>
+                        <th>Explain Analysis</th>
                     </tr>
                 </thead>
                 <tbody id="matchedResultsRows">
-                    <!-- Matched results will be inserted here -->
+                    <!-- Matched results will be inserted
                 </tbody>
             </table>
         </div>
 
         <!-- Age Analysis Words Table -->
-        <div class="table-responsive">
-            <table id="ageAnalysisWordsTable" class="table hidden">
-                <thead>
-                    <tr>
-                        <th>Age Analysis Words</th>
-                        <th>Explanation</th>
-                    </tr>
-                </thead>
-                <tbody id="ageAnalysisWordsRows">
-                    <!-- Matched results will be inserted here -->
-                </tbody>
-            </table>
+                    <div class="table-responsive">
+                        <table id="ageAnalysisWordsTable" class="table hidden">
+                            <thead>
+                                <tr>
+                                    <th>Age Analysis Words</th>
+                                    <th>Explanation</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ageAnalysisWordsRows">
+                                <!-- Matched results will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- New Category Table -->
+                    <h2 class="text-center">Age Range Analysis 年龄范围分析</h2>
+                    <div class="table-responsive">
+                        <table id="newCategoryTable" class="table hidden">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="newCategoryRows">
+                                <!-- New category values will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Lunar Converter -->
+                    <h2 class="text-center">Lunar Analysis 农历分析</h2>
+                    <div class="table-responsive pb-5">
+                        <table id="lunarConverterTable" class="table hidden">
+                            <thead>
+                                <tr>
+                                    <th>Minus 负 11</th>
+                                    <th>Chinese Lunar Date 农历</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lunarConverterRows">
+                                <!-- Lunar conversion results will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
         </div>
 
-        <!-- New Category Table -->
-        <h2 class="text-center">Age Range Analysis 年龄范围分析</h2>
-        <div class="table-responsive">
-            <table id="newCategoryTable" class="table hidden">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="newCategoryRows">
-                    <!-- New category values will be inserted here -->
-                </tbody>
-            </table>
-        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js"
+            integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="./js/iching.js"></script>
+        <script>
+            document.getElementById('icForm').addEventListener('submit', function (event) {
+                event.preventDefault();
 
-        
+                const icNumber = document.getElementById('icNumber').value;
+                const datePart = icNumber.slice(0, 6);
+                const rrPart = icNumber.slice(6, 8);
+                const nnPart = icNumber.slice(8, 12);
+                const yearPart = datePart.slice(0, 2);
+                const monthPart = datePart.slice(2, 4);
+                const dayPart = datePart.slice(4, 6);
+                const currentYear = new Date().getFullYear();
+                let birthYear = parseInt(yearPart);
 
-        <!-- Lunar Converter -->
-        <h2 class="text-center">Lunar Analysis 农历分析</h2>
-        <div class="table-responsive pb-5">
-            <table id="lunarConverterTable" class="table hidden">
-                <thead>
-                    <tr>
-                        <th>Minus 负 11</th>
-                        <th>Chinese Lunar Date 农历</th>
-                    </tr>
-                </thead>
-                <tbody id="lunarConverterRows">
-                    <!-- Lunar conversion results will be inserted here -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js" integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./js/iching.js"></script>
-    <script>
-    document.getElementById('icForm').addEventListener('submit', function(event) {
-        event.preventDefault();
+                // Adjust year to 4 digits
+                if (birthYear <= parseInt(currentYear.toString().slice(-2))) {
+                    birthYear += 2000;
+                } else {
+                    birthYear += 1900;
+                }
 
-        const icNumber = document.getElementById('icNumber').value;
-        const datePart = icNumber.slice(0, 6);
-        const rrPart = icNumber.slice(6, 8);
-        const nnPart = icNumber.slice(8, 12);
-        const yearPart = datePart.slice(0, 2);
-        const monthPart = datePart.slice(2, 4);
-        const dayPart = datePart.slice(4, 6);
-        const currentYear = new Date().getFullYear();
-        let birthYear = parseInt(yearPart);
+                // Check if the year is within the valid range
+                if (birthYear < 1950 || birthYear > 2024) {
+                    alert("Year of birth must be between 1950 and 2024.");
+                    return;
+                }
 
-        // Adjust year to 4 digits
-        if (birthYear <= parseInt(currentYear.toString().slice(-2))) {
-            birthYear += 2000;
-        } else {
-            birthYear += 1900;
-        }
+                const age = currentYear - birthYear;
 
-        // Check if the year is within the valid range
-        if (birthYear < 1950 || birthYear > 2024) {
-            alert("Year of birth must be between 1950 and 2024.");
-            return;
-        }
+                const formattedData = {
+                    Y1: datePart.charAt(0),
+                    Y2: datePart.charAt(1),
+                    M1: datePart.charAt(2),
+                    M2: datePart.charAt(3),
+                    D1: datePart.charAt(4),
+                    D2: datePart.charAt(5),
+                    R1: rrPart.charAt(0),
+                    R2: rrPart.charAt(1),
+                    N1: nnPart.charAt(0),
+                    N2: nnPart.charAt(1),
+                    N3: nnPart.charAt(2),
+                    N4: nnPart.charAt(3)
+                };
 
-        const age = currentYear - birthYear;
+                const formattedRow = document.getElementById('formattedRow');
+                formattedRow.innerHTML = Object.entries(formattedData).map(([key, value]) => {
+                    const separatorClass = ['Y2', 'M2', 'D2', 'R2', 'N2'].includes(key) ? 'class="separator"' : '';
+                    return `<td ${separatorClass}>${value}</td>`;
+                }).join('');
 
-        const formattedData = {
-            Y1: datePart.charAt(0),
-            Y2: datePart.charAt(1),
-            M1: datePart.charAt(2),
-            M2: datePart.charAt(3),
-            D1: datePart.charAt(4),
-            D2: datePart.charAt(5),
-            R1: rrPart.charAt(0),
-            R2: rrPart.charAt(1),
-            N1: nnPart.charAt(0),
-            N2: nnPart.charAt(1),
-            N3: nnPart.charAt(2),
-            N4: nnPart.charAt(3)
-        };
-
-        const formattedRow = document.getElementById('formattedRow');
-        formattedRow.innerHTML = Object.entries(formattedData).map(([key, value]) => {
-            const separatorClass = ['Y2', 'M2', 'D2', 'R2', 'N2'].includes(key) ? 'class="separator"' : '';
-            return `<td ${separatorClass}>${value}</td>`;
-        }).join('');
-
-        const ageRow = document.getElementById('ageRow');
-        ageRow.innerHTML = `
+                const ageRow = document.getElementById('ageRow');
+                ageRow.innerHTML = `
             <td>${currentYear}</td>
             <td>${birthYear}</td>
             <td>${age}</td>
         `;
-        
-        document.getElementById('formattedIC').classList.remove('hidden');
-        document.getElementById('ageTable').classList.remove('hidden');
 
-        // Calculate and display values for age categories
-        const categoryRows = document.getElementById('categoryRows');
-        categoryRows.innerHTML = ''; // Clear previous entries
+                document.getElementById('formattedIC').classList.remove('hidden');
+                document.getElementById('ageTable').classList.remove('hidden');
 
-        if (age >= 13 && age <= 22) {
-            categoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
-        }
-        if (age >= 23 && age <= 32) {
-            categoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
-        }
-        if (age >= 33 && age <= 42) {
-            categoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
-        }
-        if (age >= 43 && age <= 52) {
-            categoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
-        }
-        if (age >= 53 && age <= 62) {
-            categoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
-        }
-        if (age >= 63 && age <= 72) {
-            categoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
-        }
+                // Calculate and display values for age categories
+                const categoryRows = document.getElementById('categoryRows');
+                categoryRows.innerHTML = ''; // Clear previous entries
 
-        document.getElementById('categoryTable').classList.remove('hidden');
-
-        // Display category values in the new section
-        const newCategoryRows = document.getElementById('newCategoryRows');
-        newCategoryRows.innerHTML = ''; // Clear previous entries
-
-        newCategoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
-        newCategoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
-        newCategoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
-        newCategoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
-        newCategoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
-        newCategoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
-
-        document.getElementById('newCategoryTable').classList.remove('hidden');
-
-        // Call the lookup function after category values are displayed
-        lookupConsecutiveNumbers();
-    });
-
-    // Function to lookup consecutive numbers and display matched results
-    // Define a function to retrieve the explanation based on the matched numbers
-function getExplanation(matchedNumber) {
-    const explanations = {
-        '14': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
-        '41': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
-        '67': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
-        '76': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
-        '39': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
-        '93': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
-        '28': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
-        '82': '生气 - 生气勃勃，起死回生，有贵人，开荒牛，有磁场，EQ高，弹性大',
-        '13': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
-        '31': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
-        '68': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
-        '86': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
-        '49': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
-        '94': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
-        '27': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
-        '72': '天医 - 天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘',
-        '19': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
-        '91': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
-        '78': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
-        '87': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
-        '34': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
-        '43': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
-        '26': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
-        '62': '延年 - 将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力,跟随着，忍耐，保守，等待，卧虎藏龙',
-        '17': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
-        '71': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
-        '89': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
-        '98': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
-        '46': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
-        '64': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
-        '23': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
-        '32': '祸害 - 能言善道，脾气不好，健康问题，口才好，开口来财，EQ低，销售冠军。负面情绪，说话直，脾气急，抱怨，吵架离婚，爱面子，钱财留不住',
-        '16': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
-        '61': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
-        '47': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
-        '74': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
-        '38': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
-        '83': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
-        '29': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
-        '92': '六煞 - 公共关系很好，气氛带动者，公共焦点人物，长辈缘，婚姻不顺，桃花多，异性纠葛多，爱美，适合闪亮的东西，守不住财，心思敏感，郁郁症，矛盾',
-        '18': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
-        '81': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
-        '79': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
-        '97': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
-        '36': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
-        '63': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
-        '24': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
-        '42': '五鬼 - 善变，创意鬼才，解决问题，极端，多灾难，偏门运，暗财，快钱，造成分离，三角恋，血光之灾，演员特质，容易负载，突发疾病，离婚',
-        '12': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
-        '21': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
-        '69': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
-        '96': '绝命 - 大胆，大企业家，易冲动, 讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
-        '48': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
-        '84': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
-        '37': '绝命 - 大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
-        '73': '绝命 - 大胆，大企业家，易冲动, 讲义气，大哥大个性，不容易相信人，策划者，起伏大，贫富两级化，军事，小意外，官非，波折，易离婚（女）',
-    };
-
-    return explanations[matchedNumber] || 'No explanation found';
-}
-
-// Update the function to display matched results with explanations
-function lookupConsecutiveNumbers() {
-    const categoryValues = document.querySelectorAll('#categoryRows td:nth-child(2)');
-    let matchedResults = [];
-
-    categoryValues.forEach((value, index, array) => {
-        const valueText = value.textContent.trim().replace(/,/g, ''); // Remove commas
-        const numbers = valueText.split('').map(Number); // Convert string to array of numbers
-
-        // Filter out zero, 5, and double numbers
-        const filteredNumbers = numbers.filter((num, i) => {
-            if (
-                num === 0 ||
-                num === 5 ||
-                num === numbers[i + 1] ||
-                num === numbers[i - 1] ||
-                num === numbers[i + 2] ||
-                num === numbers[i - 2]
-            ) {
-                // If the number is part of a double number, only remove one instance
-                if (num === numbers[i + 1] || num === numbers[i - 1]) {
-                    return i > 0 ? numbers[i - 1] !== num : true;
+                if (age >= 13 && age <= 22) {
+                    categoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
                 }
-                return false;
-            }
-            return true;
-        });
+                if (age >= 23 && age <= 32) {
+                    categoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
+                }
+                if (age >= 33 && age <= 42) {
+                    categoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
+                }
+                if (age >= 43 && age <= 52) {
+                    categoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+                }
+                if (age >= 53 && age <= 62) {
+                    categoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+                }
+                if (age >= 63 && age <= 72) {
+                    categoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
+                }
 
-        // Determine number of consecutive numbers found
-        const consecutiveCount = filteredNumbers.length;
+                document.getElementById('categoryTable').classList.remove('hidden');
 
-        if (consecutiveCount >= 2) {
-            // Create all possible pairs of consecutive numbers
-            for (let i = 0; i < filteredNumbers.length - 1; i++) {
-                const pair = filteredNumbers.slice(i, i + 2);
-                const pairString = pair.join('');
-                const explanation = getExplanation(pairString);
-                matchedResults.push({
-                    numbers: pairString,
-                    explanation: explanation
-                });
-            }
-        } else if (consecutiveCount === 1) {
-            // Push the single number to matchedResults
-            matchedResults.push({
-                numbers: filteredNumbers[0].toString(),
-                explanation: '1 number ERROR'
+                // Display category values in the new section
+                const newCategoryRows = document.getElementById('newCategoryRows');
+                newCategoryRows.innerHTML = ''; // Clear previous entries
+                newCategoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
+                newCategoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
+                newCategoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
+                newCategoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+                newCategoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+                newCategoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
+
+                document.getElementById('newCategoryTable').classList.remove('hidden');
+
+                // Call the lookup function after category values are displayed
+                lookupConsecutiveNumbers();
             });
-        }
-    });
 
-    // Display matched results for 2-number and 1-number matchups only
-    const matchedResultsTable = document.getElementById('matchedResultsTable');
-    const matchedResultsRows = document.getElementById('matchedResultsRows');
-    matchedResultsRows.innerHTML = ''; // Clear previous entries
+            // Function to lookup consecutive numbers and display matched results
+            // Define a function to retrieve the Alphabert based on the matched numbers
+            function getAlphabert(matchedNumber) {
+                const alphaberts = {
+                    '14': 'S1-强',
+                    '41': 'S1-强',
+                    '67': 'S2-次强',
+                    '76': 'S2-次强',
+                    '39': 'S3-弱',
+                    '93': 'S3-弱',
+                    '28': 'S4',
+                    '82': 'S4',
+                    '13': 'T1-强',
+                    '31': 'T1-强',
+                    '68': 'T2-次强',
+                    '86': 'T2-次强',
+                    '49': 'T3-弱',
+                    '94': 'T3-弱',
+                    '27': 'T4',
+                    '72': 'T4',
+                    '19': 'Y1-强',
+                    '91': 'Y1-强',
+                    '78': 'Y2-次强',
+                    '87': 'Y2-次强',
+                    '34': 'Y3-弱',
+                    '43': 'Y3-弱',
+                    '26': 'Y4',
+                    '62': 'Y4',
+                    '17': 'H1-强',
+                    '71': 'H1-强',
+                    '89': 'H2-次强',
+                    '98': 'H2-次强',
+                    '46': 'H3-弱',
+                    '64': 'H3-弱',
+                    '23': 'H4',
+                    '32': 'H4',
+                    '16': 'L1-强',
+                    '61': 'L1-强',
+                    '47': 'L2-次强',
+                    '74': 'L2-次强',
+                    '38': 'L3-弱',
+                    '83': 'L3-弱',
+                    '29': 'L4',
+                    '92': 'L4',
+                    '18': 'W1-强',
+                    '81': 'W1-强',
+                    '79': 'W2-次强',
+                    '97': 'W2-次强',
+                    '36': 'W3-弱',
+                    '63': 'W3-弱',
+                    '24': 'W4',
+                    '42': 'W4',
+                    '12': 'J1-强',
+                    '21': 'J1-强',
+                    '69': 'J2-次强',
+                    '96': 'J2-次强',
+                    '48': 'J3-弱',
+                    '84': 'J3-弱',
+                    '37': 'J4',
+                    '73': 'J4'
+                };
 
-    matchedResults.forEach(result => {
-        // Only display 2-number and 1-number matchups
-        if (result.numbers.length <= 2) {
-            matchedResultsRows.innerHTML += `
+                return alphaberts[matchedNumber] || 'No alphabert found';
+            }
+
+            // Update the function to display matched results with alphaberts
+            function lookupConsecutiveNumbers() {
+                const categoryValues = document.querySelectorAll('#categoryRows td:nth-child(2)');
+                let matchedResults = [];
+
+                categoryValues.forEach((value) => {
+                    const valueText = value.textContent.trim().replace(/,/g, ''); // Remove commas
+                    const numbers = valueText.split('').map(Number); // Convert string to array of numbers
+
+                    // Filter out zero, 5, and double numbers
+                    const filteredNumbers = numbers.filter((num, i) => {
+                        if (
+                            num === 0 ||
+                            num === 5 ||
+                            num === numbers[i + 1] || num === numbers[i - 1] ||
+                            num === numbers[i + 2] || num === numbers[i - 2]
+                        ) {
+                            // If the number is part of a double number, only remove one instance
+                            if (num === numbers[i + 1] || num === numbers[i - 1]) {
+                                return i > 0 ? numbers[i - 1] !== num : true;
+                            }
+                            return false;
+                        }
+                        return true;
+                    });
+
+                    // Determine number of consecutive numbers found
+                    const consecutiveCount = filteredNumbers.length;
+
+                    if (consecutiveCount >= 2) {
+                        // Create all possible pairs of consecutive numbers
+                        for (let i = 0; i < filteredNumbers.length - 1; i++) {
+                            const pair = filteredNumbers.slice(i, i + 2);
+                            const pairString = pair.join('');
+                            const alphabert = getAlphabert(pairString);
+                            matchedResults.push({
+                                numbers: pairString,
+                                alphabert: alphabert
+                            });
+                        }
+                    } else if (consecutiveCount === 1) {
+                        // Push the single number to matchedResults
+                        matchedResults.push({
+                            numbers: filteredNumbers[0].toString(),
+                            alphabert: '1 number ERROR'
+                        });
+                    }
+                });
+
+                // Display matched results for 2-number and 1-number matchups only
+                const matchedResultsTable = document.getElementById('matchedResultsTable');
+                const matchedResultsRows = document.getElementById('matchedResultsRows');
+                matchedResultsRows.innerHTML = ''; // Clear previous entries
+
+                matchedResults.forEach(result => {
+                    // Only display 2-number and 1-number matchups
+                    if (result.numbers.length <= 2) {
+                        const explanation = lookupExplanation(result.alphabert);
+                        matchedResultsRows.innerHTML += `
                 <tr>
                     <td>${result.numbers}</td>
-                    <td>${result.explanation}</td>
+                    <td rowspan="2" style="text-align: left;">${explanation}</td>
+                </tr>
+                <tr>
+                    <td>${result.alphabert}</td>
                 </tr>
             `;
-        }
-    });
+                    }
+                });
 
-    matchedResultsTable.classList.remove('hidden');
-}
+                matchedResultsTable.classList.remove('hidden');
+                // Call the lookup function after category values are displayed
+                lookupExplanation();
+            }
+
+            // Define a function to retrieve the Explaination based on the alphabert
+            function lookupExplanation(alphabert) {
+                // Predefined data for alphaberts and their corresponding explanations
+                const alphabertExplanations = {
+                    'S1-强': [
+                        '性格：	乐观开朗，不计较，不强求，喜欢帮人，人缘好，无主见，上进心，比较懒，被朋友骗，朋友多，人缘好',
+                        '财运：	贵人来财，意外之财，中彩，把钱花在朋友身上，留不住钱',
+                        '事业：	贵人多，服务业，公关人际关系行业，拉关系，上进心不足',
+                        '婚姻：	随缘，不强求，不计较，婚姻甜蜜，关系和谐',
+                        '健康：	肠胃问题，生病不愿看医生',
+                        '状态：	生气勃勃，起死回生，开荒牛，谈资，有磁场，EQ高，弹性大'
+                    ],
+                    'S2-次强': [
+                        '性格：	乐观开朗，不计较，不强求，喜欢帮人，人缘好，无主见，上进心，比较懒，被朋友骗，朋友多，人缘好',
+                        '财运：	贵人来财，意外之财，中彩，把钱花在朋友身上，留不住钱',
+                        '事业：	贵人多，服务业，公关人际关系行业，拉关系，上进心不足',
+                        '婚姻：	随缘，不强求，不计较，婚姻甜蜜，关系和谐',
+                        '健康：	肠胃问题，生病不愿看医生',
+                        '状态：	生气勃勃，起死回生，开荒牛，谈资，有磁场，EQ高，弹性大'
+                    ],
+                    'S3-弱': [
+                        '性格：	乐观开朗，不计较，不强求，喜欢帮人，人缘好，无主见，上进心，比较懒，被朋友骗，朋友多，人缘好',
+                        '财运：	贵人来财，意外之财，中彩，把钱花在朋友身上，留不住钱',
+                        '事业：	贵人多，服务业，公关人际关系行业，拉关系，上进心不足',
+                        '婚姻：	随缘，不强求，不计较，婚姻甜蜜，关系和谐',
+                        '健康：	肠胃问题，生病不愿看医生',
+                        '状态：	生气勃勃，起死回生，开荒牛，谈资，有磁场，EQ高，弹性大'
+                    ],
+                    'S4': [
+                        '性格：	乐观开朗，不计较，不强求，喜欢帮人，人缘好，无主见，上进心，比较懒，被朋友骗，朋友多，人缘好',
+                        '财运：	贵人来财，意外之财，中彩，把钱花在朋友身上，留不住钱',
+                        '事业：	贵人多，服务业，公关人际关系行业，拉关系，上进心不足',
+                        '婚姻：	随缘，不强求，不计较，婚姻甜蜜，关系和谐',
+                        '健康：	肠胃问题，生病不愿看医生',
+                        '状态：	生气勃勃，起死回生，开荒牛，谈资，有磁场，EQ高，弹性大'
+                    ],
+                    'T1-强': [
+                        '性格：	性格：	聪明，善良，心胸开朗，好帮助人，单纯，无心机，易被骗',
+                        '财运：	正财，偏财，横财等八方财运，花钱大方',
+                        '事业：	可成大事，老板命或老板得力助手，业绩好，喜欢宗教命理，第六感强',
+                        '婚姻：	正桃花，良缘，甜蜜，恩爱',
+                        '健康：	血压，血液，眼耳鼻问题，富人病，三高',
+                        '状态：	天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘'
+                    ],
+                    'T2-次强': [
+                        '性格：	性格：	聪明，善良，心胸开朗，好帮助人，单纯，无心机，易被骗',
+                        '财运：	正财，偏财，横财等八方财运，花钱大方',
+                        '事业：	可成大事，老板命或老板得力助手，业绩好，喜欢宗教命理，第六感强',
+                        '婚姻：	正桃花，良缘，甜蜜，恩爱',
+                        '健康：	血压，血液，眼耳鼻问题，富人病，三高',
+                        '状态：	天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘'
+                    ],
+                    'T3-弱': [
+                        '性格：	性格：	聪明，善良，心胸开朗，好帮助人，单纯，无心机，易被骗',
+                        '财运：	正财，偏财，横财等八方财运，花钱大方',
+                        '事业：	可成大事，老板命或老板得力助手，业绩好，喜欢宗教命理，第六感强',
+                        '婚姻：	正桃花，良缘，甜蜜，恩爱',
+                        '健康：	血压，血液，眼耳鼻问题，富人病，三高',
+                        '状态：	天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘'
+                    ],
+                    'T4': [
+                        '性格：	性格：	聪明，善良，心胸开朗，好帮助人，单纯，无心机，易被骗',
+                        '财运：	正财，偏财，横财等八方财运，花钱大方',
+                        '事业：	可成大事，老板命或老板得力助手，业绩好，喜欢宗教命理，第六感强',
+                        '婚姻：	正桃花，良缘，甜蜜，恩爱',
+                        '健康：	血压，血液，眼耳鼻问题，富人病，三高',
+                        '状态：	天公仔，随和，慷慨，大财，老板命，天生聪明，有良缘'
+                    ],
+                    'Y1-强': [
+                        '性格：	责任心，敢于担当，大男/女人主义，心地善良，强势，固执，认死理，自我',
+                        '财运：	辛苦赚钱，比较守财。精打细算，铁公鸡',
+                        '事业：	专业能力，领导和技术，亲历亲为，劳碌，压力大，纪律部队',
+                        '婚姻：	专一专注，眼光高，宁缺毋滥，一家之主',
+                        '健康：	积劳成病，易有颈椎，腰等病痛，睡眠不好，容易掉发',
+                        '状态：	将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力'
+                    ],
+                    'Y2-次强': [
+                        '性格：	责任心，敢于担当，大男/女人主义，心地善良，强势，固执，认死理，自我',
+                        '财运：	辛苦赚钱，比较守财。精打细算，铁公鸡',
+                        '事业：	专业能力，领导和技术，亲历亲为，劳碌，压力大，纪律部队',
+                        '婚姻：	专一专注，眼光高，宁缺毋滥，一家之主',
+                        '健康：	积劳成病，易有颈椎，腰等病痛，睡眠不好，容易掉发',
+                        '状态：	将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力'
+                    ],
+                    'Y3-弱': [
+                        '性格：	责任心，敢于担当，大男/女人主义，心地善良，强势，固执，认死理，自我',
+                        '财运：	辛苦赚钱，比较守财。精打细算，铁公鸡',
+                        '事业：	专业能力，领导和技术，亲历亲为，劳碌，压力大，纪律部队',
+                        '婚姻：	专一专注，眼光高，宁缺毋滥，一家之主',
+                        '健康：	积劳成病，易有颈椎，腰等病痛，睡眠不好，容易掉发',
+                        '状态：	将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力'
+                    ],
+                    'Y4': [
+                        '性格：	责任心，敢于担当，大男/女人主义，心地善良，强势，固执，认死理，自我',
+                        '财运：	辛苦赚钱，比较守财。精打细算，铁公鸡',
+                        '事业：	专业能力，领导和技术，亲历亲为，劳碌，压力大，纪律部队',
+                        '婚姻：	专一专注，眼光高，宁缺毋滥，一家之主',
+                        '健康：	积劳成病，易有颈椎，腰等病痛，睡眠不好，容易掉发',
+                        '状态：	将军命，有纪律，做事有原则，固执，注重流程，做事小心，忠诚，事业心重，独当一面，生命力强，意志力强，领导力'
+                    ],
+                    'H1-强': [
+                        '性格：	能说会道，说话直，嘴硬，好面子，说大话，脾气暴，抱怨，三分钟热度，EQ低',
+                        '财运：	开口来财，向人要钱，钱财留不住，口舌破财',
+                        '销售，饮食，讲师，主持人，律师，政治家',
+                        '婚姻：	开始会甜言蜜语，说话不留情面，容易吵架离婚',
+                        '健康：	呼吸系统问题，易疲劳，开刀开口，伤疤，胎记，车祸',
+                        '状态：	能言善道，脾气不好，健康问题，口才好，开口来财，负面情绪，易得罪人'
+                    ],
+                    'H2-次强': [
+                        '性格：	能说会道，说话直，嘴硬，好面子，说大话，脾气暴，抱怨，三分钟热度，EQ低',
+                        '财运：	开口来财，向人要钱，钱财留不住，口舌破财',
+                        '销售，饮食，讲师，主持人，律师，政治家',
+                        '婚姻：	开始会甜言蜜语，说话不留情面，容易吵架离婚',
+                        '健康：	呼吸系统问题，易疲劳，开刀开口，伤疤，胎记，车祸',
+                        '状态：	能言善道，脾气不好，健康问题，口才好，开口来财，负面情绪，易得罪人'
+                    ],
+                    'H3-弱': [
+                        '性格：	能说会道，说话直，嘴硬，好面子，说大话，脾气暴，抱怨，三分钟热度，EQ低',
+                        '财运：	开口来财，向人要钱，钱财留不住，口舌破财',
+                        '销售，饮食，讲师，主持人，律师，政治家',
+                        '婚姻：	开始会甜言蜜语，说话不留情面，容易吵架离婚',
+                        '健康：	呼吸系统问题，易疲劳，开刀开口，伤疤，胎记，车祸',
+                        '状态：	能言善道，脾气不好，健康问题，口才好，开口来财，负面情绪，易得罪人'
+                    ],
+                    'H4': [
+                        '性格：	能说会道，说话直，嘴硬，好面子，说大话，脾气暴，抱怨，三分钟热度，EQ低',
+                        '财运：	开口来财，向人要钱，钱财留不住，口舌破财',
+                        '销售，饮食，讲师，主持人，律师，政治家',
+                        '婚姻：	开始会甜言蜜语，说话不留情面，容易吵架离婚',
+                        '健康：	呼吸系统问题，易疲劳，开刀开口，伤疤，胎记，车祸',
+                        '状态：	能言善道，脾气不好，健康问题，口才好，开口来财，负面情绪，易得罪人'
+                    ],
+                    'L1-强': [
+                        '性格：	亲和力，人缘好，交际一流，思维细腻，情感丰富，审美力强遇事优柔寡断，爱幻想，疑心重，爱美，适合闪亮的东西',
+                        '财运：	靠人际关系来财，把钱花在家人女人身上，守不住财',
+                        '事业：	外交官，交际高手，处理关系',
+                        '婚姻：	心思敏感，异性缘强，婚外情，三角恋，偏桃花，婚姻不顺，桃花多，异性纠葛多',
+                        '健康：	皮肤肠胃问题，易忧郁症，躁郁症',
+                        '状态：	公共关系很好，气氛带动者，公共焦点人物，长辈缘，，守不住财，矛盾，容易失控'
+                    ],
+                    'L2-次强': [
+                        '性格：	亲和力，人缘好，交际一流，思维细腻，情感丰富，审美力强遇事优柔寡断，爱幻想，疑心重，爱美，适合闪亮的东西',
+                        '财运：	靠人际关系来财，把钱花在家人女人身上，守不住财',
+                        '事业：	外交官，交际高手，处理关系',
+                        '婚姻：	心思敏感，异性缘强，婚外情，三角恋，偏桃花，婚姻不顺，桃花多，异性纠葛多',
+                        '健康：	皮肤肠胃问题，易忧郁症，躁郁症',
+                        '状态：	公共关系很好，气氛带动者，公共焦点人物，长辈缘，，守不住财，矛盾，容易失控'
+                    ],
+                    'L3-弱': [
+                        '性格：	亲和力，人缘好，交际一流，思维细腻，情感丰富，审美力强遇事优柔寡断，爱幻想，疑心重，爱美，适合闪亮的东西',
+                        '财运：	靠人际关系来财，把钱花在家人女人身上，守不住财',
+                        '事业：	外交官，交际高手，处理关系',
+                        '婚姻：	心思敏感，异性缘强，婚外情，三角恋，偏桃花，婚姻不顺，桃花多，异性纠葛多',
+                        '健康：	皮肤肠胃问题，易忧郁症，躁郁症',
+                        '状态：	公共关系很好，气氛带动者，公共焦点人物，长辈缘，，守不住财，矛盾，容易失控'
+                    ],
+                    'L4': [
+                        '性格：	亲和力，人缘好，交际一流，思维细腻，情感丰富，审美力强遇事优柔寡断，爱幻想，疑心重，爱美，适合闪亮的东西',
+                        '财运：	靠人际关系来财，把钱花在家人女人身上，守不住财',
+                        '事业：	外交官，交际高手，处理关系',
+                        '婚姻：	心思敏感，异性缘强，婚外情，三角恋，偏桃花，婚姻不顺，桃花多，异性纠葛多',
+                        '健康：	皮肤肠胃问题，易忧郁症，躁郁症',
+                        '状态：	公共关系很好，气氛带动者，公共焦点人物，长辈缘，，守不住财，矛盾，容易失控'
+                    ],
+                    'W1-强': [
+                        '性格：	聪明，鬼子多，想法多，创意多，反应快，疑心重，不易相信别人',
+                        '财运：	偏财，暗财，快财，来的快去的快，引发负债',
+                        '事业：	偏门，美业，创意行业，艺术家，，演员',
+                        '婚姻：	感情多变不安分，外遇，三角关系，外国情缘，离婚',
+                        '健康：	心脏，突发性疾病，血光之灾',
+                        '状态	善变，解决问题，极端，多灾难'
+                    ],
+                    'W2-次强': [
+                        '性格：	聪明，鬼子多，想法多，创意多，反应快，疑心重，不易相信别人',
+                        '财运：	偏财，暗财，快财，来的快去的快，引发负债',
+                        '事业：	偏门，美业，创意行业，艺术家，，演员',
+                        '婚姻：	感情多变不安分，外遇，三角关系，外国情缘，离婚',
+                        '健康：	心脏，突发性疾病，血光之灾',
+                        '状态	善变，解决问题，极端，多灾难'
+                    ],
+                    'W3-弱': [
+                        '性格：	聪明，鬼子多，想法多，创意多，反应快，疑心重，不易相信别人',
+                        '财运：	偏财，暗财，快财，来的快去的快，引发负债',
+                        '事业：	偏门，美业，创意行业，艺术家，，演员',
+                        '婚姻：	感情多变不安分，外遇，三角关系，外国情缘，离婚',
+                        '健康：	心脏，突发性疾病，血光之灾',
+                        '状态	善变，解决问题，极端，多灾难'
+                    ],
+                    'W4': [
+                        '性格：	聪明，鬼子多，想法多，创意多，反应快，疑心重，不易相信别人',
+                        '财运：	偏财，暗财，快财，来的快去的快，引发负债',
+                        '事业：	偏门，美业，创意行业，艺术家，，演员',
+                        '婚姻：	感情多变不安分，外遇，三角关系，外国情缘，离婚',
+                        '健康：	心脏，突发性疾病，血光之灾',
+                        '状态	善变，解决问题，极端，多灾难'
+                    ],
+                    'J1-强': [
+                        '性格：	重情义，相信朋友，乐于助人，敢冒险，胆大，易冲动，易被骗',
+                        '财运：	喜欢投资容易失败亏本，努力拼搏，留不住钱，出钱快，容易负债',
+                        '事业：	投资，策划公司',
+                        '婚姻：	不重视对方，容易离婚（女）',
+                        '健康：	肝肾问题，糖尿病，易引发车祸，开刀，死亡',
+                        '状态	大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，起伏大，贫富两级化'
+                    ],
+                    'J2-次强': [
+                        '性格：	重情义，相信朋友，乐于助人，敢冒险，胆大，易冲动，易被骗',
+                        '财运：	喜欢投资容易失败亏本，努力拼搏，留不住钱，出钱快，容易负债',
+                        '事业：	投资，策划公司',
+                        '婚姻：	不重视对方，容易离婚（女）',
+                        '健康：	肝肾问题，糖尿病，易引发车祸，开刀，死亡',
+                        '状态	大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，起伏大，贫富两级化'
+                    ],
+                    'J3-弱': [
+                        '性格：	重情义，相信朋友，乐于助人，敢冒险，胆大，易冲动，易被骗',
+                        '财运：	喜欢投资容易失败亏本，努力拼搏，留不住钱，出钱快，容易负债',
+                        '事业：	投资，策划公司',
+                        '婚姻：	不重视对方，容易离婚（女）',
+                        '健康：	肝肾问题，糖尿病，易引发车祸，开刀，死亡',
+                        '状态	大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，起伏大，贫富两级化'
+                    ],
+                    'J4': [
+                        '性格：	重情义，相信朋友，乐于助人，敢冒险，胆大，易冲动，易被骗',
+                        '财运：	喜欢投资容易失败亏本，努力拼搏，留不住钱，出钱快，容易负债',
+                        '事业：	投资，策划公司',
+                        '婚姻：	不重视对方，容易离婚（女）',
+                        '健康：	肝肾问题，糖尿病，易引发车祸，开刀，死亡',
+                        '状态	大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，起伏大，贫富两级化'
+                    ],
+                    // Add more alphaberts and their explanations as needed
+                };
+                 // Lookup explanation based on the matched number value
+                const explanations = alphabertExplanations[alphabert];
+                if (explanations) {
+                    return explanations.join('<br>'); // Join paragraphs with line breaks
+                }
+                
+                // Lookup explanation based on the alphabert value
+                const explanation = alphabertExplanations[alphabert] || 'No explanation found';
+                return explanation;
+            }
 
 
-</script>
-    
+        </script>
 </body>
+
 </html>
