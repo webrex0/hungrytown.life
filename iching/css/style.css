@@ -32,3 +32,6 @@ td {
 .table tr td {
     font-size: 12px;
 }
+.find-button {
+    float: right;
+}

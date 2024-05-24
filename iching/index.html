@@ -6,19 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fancybox.min.css">
     <title>Malaysian Identity Number Numerology 马来西亚身份证易经数</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <h3 class="text-center">Malaysian Identity Number Numerology <br>马来西亚身份证易经数</h3>
+        
         <form id="icForm">
             <div class="form-group">
                 <label for="icNumber">Enter Malaysian Identity Number (880213045257):</label>
                 <input type="text" id="icNumber" name="icNumber" class="form-control" pattern="\d{12}" required>
             </div>
             <button type="submit" class="btn btn-primary">Format</button>
+            <div class="find-button">
+                <button type="button" class="btn btn-primary" id="findNumberBtn" data-fancybox data-src="#lookupModal">Find No.</button>
+                </div>
         </form>
+        
+        <div style="display: none;" id="lookupModal">
+            <h2>Lookup Number</h2>
+            <input type="text" id="lookupNumberInput" placeholder="Enter a number">
+            <button type="button" class="btn btn-primary" id="lookupBtn">Lookup</button>
+            <div id="lookupResult"></div>
+        </div>
+        
+
 
         <!-- Formatted IC Table -->
         <div class="table-responsive">
@@ -155,10 +170,12 @@
         </div>
     </div>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js"
         integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/iching.js"></script>
+    <script src="./js/fancybox.min.js"></script>
     <script>
         document.getElementById('icForm').addEventListener('submit', function (event) {
             event.preventDefault();
@@ -260,11 +277,15 @@
             lookupConsecutiveNumbers();
         });
 
-        // Function to lookup consecutive numbers and display matched results
-        // Define a function to retrieve the Alphabert based on the matched numbers
-        function getAlphabert(matchedNumber) {
-            const alphaberts = {
-                '14': 'S1-强',
+        
+
+
+    </script>
+    <script>
+        document.getElementById('lookupBtn').addEventListener('click', function() {
+    const lookupNumber = document.getElementById('lookupNumberInput').value;
+    const alphaberts = {
+        '14': 'S1-强',
                 '41': 'S1-强',
                 '67': 'S2-次强',
                 '76': 'S2-次强',
@@ -321,90 +342,9 @@
                 '37': 'J4',
                 '73': 'J4'
             };
-
-            return alphaberts[matchedNumber] || 'No alphabert found';
-        }
-
-        // Update the function to display matched results with alphaberts
-        function lookupConsecutiveNumbers() {
-            const categoryValues = document.querySelectorAll('#categoryRows td:nth-child(2)');
-            let matchedResults = [];
-
-            categoryValues.forEach((value) => {
-                const valueText = value.textContent.trim().replace(/,/g, ''); // Remove commas
-                const numbers = valueText.split('').map(Number); // Convert string to array of numbers
-
-                // Filter out zero, 5, and double numbers
-                const filteredNumbers = numbers.filter((num, i) => {
-                    if (
-                        num === 0 ||
-                        num === 5 ||
-                        num === numbers[i + 1] || num === numbers[i - 1] ||
-                        num === numbers[i + 2] || num === numbers[i - 2]
-                    ) {
-                        // If the number is part of a double number, only remove one instance
-                        if (num === numbers[i + 1] || num === numbers[i - 1]) {
-                            return i > 0 ? numbers[i - 1] !== num : true;
-                        }
-                        return false;
-                    }
-                    return true;
-                });
-
-                // Determine number of consecutive numbers found
-                const consecutiveCount = filteredNumbers.length;
-
-                if (consecutiveCount >= 2) {
-                    // Create all possible pairs of consecutive numbers
-                    for (let i = 0; i < filteredNumbers.length - 1; i++) {
-                        const pair = filteredNumbers.slice(i, i + 2);
-                        const pairString = pair.join('');
-                        const alphabert = getAlphabert(pairString);
-                        matchedResults.push({
-                            numbers: pairString,
-                            alphabert: alphabert
-                        });
-                    }
-                } else if (consecutiveCount === 1) {
-                    // Push the single number to matchedResults
-                    matchedResults.push({
-                        numbers: filteredNumbers[0].toString(),
-                        alphabert: '1 number ERROR'
-                    });
-                }
-            });
-
-            // Display matched results for 2-number and 1-number matchups only
-            const matchedResultsTable = document.getElementById('matchedResultsTable');
-            const matchedResultsRows = document.getElementById('matchedResultsRows');
-            matchedResultsRows.innerHTML = ''; // Clear previous entries
-
-            matchedResults.forEach(result => {
-                // Only display 2-number and 1-number matchups
-                if (result.numbers.length <= 2) {
-                    const explanation = lookupExplanation(result.alphabert);
-                    matchedResultsRows.innerHTML += `
-                <tr>
-                    <td>${result.numbers}</td>
-                    <td rowspan="2" style="text-align: left;">${explanation}</td>
-                </tr>
-                <tr>
-                    <td>${result.alphabert}</td>
-                </tr>
-            `;
-                }
-            });
-
-            matchedResultsTable.classList.remove('hidden');
-            // Call the lookup function after category values are displayed
-            lookupExplanation();
-        }
-
-        // Define a function to retrieve the Explaination based on the alphabert
-        function lookupExplanation(alphabert) {
-            // Predefined data for alphaberts and their corresponding explanations
-            const alphabertExplanations = {
-                'S1-强': [
+    
+    const alphabertExplanations = {
+        'S1-强': [
                     '性格：	乐观开朗，不计较，不强求，喜欢帮人，人缘好，无主见，上进心，比较懒，被朋友骗，朋友多，人缘好',
                     '财运：	贵人来财，意外之财，中彩，把钱花在朋友身上，留不住钱',
                     '事业：	贵人多，服务业，公关人际关系行业，拉关系，上进心不足',
@@ -628,21 +568,40 @@
                     '健康：	肝肾问题，糖尿病，易引发车祸，开刀，死亡',
                     '状态	大胆，大企业家，易冲动，讲义气，大哥大个性，不容易相信人，起伏大，贫富两级化'
                 ],
-                // Add more alphaberts and their explanations as needed
-            };
-            // Lookup explanation based on the matched number value
-            const explanations = alphabertExplanations[alphabert];
-            if (explanations) {
-                return explanations.join('<br>'); // Join paragraphs with line breaks
-            }
+        // Add explanations for other alphaberts as needed
+    };
 
-            // Lookup explanation based on the alphabert value
-            const explanation = alphabertExplanations[alphabert] || 'No explanation found';
-            return explanation;
+    // Lookup the number
+    const matchedData = alphaberts[lookupNumber];
+
+    // Display the matched data
+    const lookupResultDiv = document.getElementById('lookupResult');
+    if (matchedData) {
+        lookupResultDiv.innerHTML = `<p>Matched Data: ${matchedData}</p>`;
+
+        // Lookup the explanation
+        const explanation = alphabertExplanations[matchedData];
+        if (explanation) {
+            // Display the explanation directly
+            lookupResultDiv.innerHTML += "<p>Explanation:</p>";
+            explanation.forEach(exp => {
+                lookupResultDiv.innerHTML += `<p style="font-size:11px">${exp}</p>`;
+            });
+        } else {
+            // If no explanation is found
+            lookupResultDiv.innerHTML += "<p>No explanation found for the matched data.</p>";
         }
+    } else {
+        // If no match is found
+        lookupResultDiv.innerHTML = "<p>No matching data found.</p>";
+    }
+});
+
+
 
 
     </script>
+    
 </body>
 
 </html>
