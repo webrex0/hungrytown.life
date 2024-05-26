@@ -89,7 +89,7 @@ class SpecialHeader extends HTMLElement {
                                     </svg>
                                 </span>
                             </a>
-                            <a class="header-action-btn live-icon" href="live.html">
+                            <a class="header-action-btn live-icon" href="member-page.html">
                                 <span class="icon">
                                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -225,11 +225,11 @@ class SpecialAppnav extends HTMLElement {
                 <i class="ri-mail-open-fill appnav__icon"></i>
                 <span class="appnav__text" data-localize="menu.msg">NOTIFICATION</span>
             </a>
-            <a href="#" class="appnav__link">
+            <a href="member-page.html" class="appnav__link">
                 <i class="ri-live-fill appnav__icon"></i>
                 <span class="appnav__text" data-localize="menu.live">LIVE</span>
             </a>
-            <a href="careline.html" class="appnav__link ">
+            <a href="#" class="appnav__link ">
                 <i class="ri-chat-smile-2-fill appnav__icon"></i>
                 <span class="appnav__text" data-localize="menu.careline">CARELINE</span>
             </a>
