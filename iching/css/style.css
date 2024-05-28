@@ -42,3 +42,6 @@ td {
     background-color: #364958;
     font-size: 15px;
 }
+.convert-lunar {
+    display: none;
+}
