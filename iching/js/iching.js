@@ -225,6 +225,44 @@ document.getElementById('icForm').addEventListener('submit', function(event) {
 
     document.getElementById('lunarConverterTable').classList.remove('hidden');
 
+    // Extract Lunar numbers and display in the new table
+    const lunarNumbersRows = document.getElementById('lunarNumbersRows');
+    const lunarMonth = lunarDate.getMonth().toString().padStart(2, '0');
+    const lunarDay = lunarDate.getDay().toString().padStart(2, '0');
+    lunarNumbersRows.innerHTML = `
+        <tr>
+            <td>${elevenString.charAt(0)}</td>
+            <td>${elevenString.charAt(1)}</td>
+            <td>${lunarMonth.charAt(0)}</td>
+            <td>${lunarMonth.charAt(1)}</td>
+            <td>${lunarDay.charAt(0)}</td>
+            <td>${lunarDay.charAt(1)}</td>
+        </tr>
+    `;
+    document.getElementById('lunarNumbersTable').classList.remove('hidden');
+
+    // Calculate and display Lunar Age Range values
+    const lunarAgeRangeRows = document.getElementById('lunarAgeRangeRows');
+    const lunarNumbers = {
+        L1: elevenString.charAt(0),
+        L2: elevenString.charAt(1),
+        L3: lunarMonth.charAt(0),
+        L4: lunarMonth.charAt(1),
+        L5: lunarDay.charAt(0),
+        L6: lunarDay.charAt(1)
+    };
+    lunarAgeRangeRows.innerHTML = ''; // Clear previous entries
+
+    // Display all age ranges
+    lunarAgeRangeRows.innerHTML += `<tr><td>Age 13-22</td><td>${lunarNumbers.L1},${lunarNumbers.L2}</td></tr>`;
+    lunarAgeRangeRows.innerHTML += `<tr><td>Age 23-32</td><td>${lunarNumbers.L2},${lunarNumbers.L3}</td></tr>`;
+    lunarAgeRangeRows.innerHTML += `<tr><td>Age 33-42</td><td>${lunarNumbers.L3},${lunarNumbers.L4}</td></tr>`;
+    lunarAgeRangeRows.innerHTML += `<tr><td>Age 43-52</td><td>${lunarNumbers.L4},${lunarNumbers.L5}</td></tr>`;
+    lunarAgeRangeRows.innerHTML += `<tr><td>Age 53-62</td><td>${lunarNumbers.L5},${lunarNumbers.L6}</td></tr>`;
+    lunarAgeRangeRows.innerHTML += `<tr><td>Age 63-72</td><td>${lunarNumbers.L6},${lunarNumbers.L1}</td></tr>`;
+
+    document.getElementById('lunarAgeRangeTable').classList.remove('hidden');
+
 });
 
 // Function to lookup consecutive numbers and display matched results
@@ -607,3 +645,5 @@ document.getElementById('icForm').addEventListener('submit', function(event) {
             const explanation = alphabertExplanations[alphabert] || 'No explanation found';
             return explanation;
         }
+        
+         
