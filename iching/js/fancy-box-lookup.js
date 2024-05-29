@@ -353,7 +353,7 @@ document.getElementById('lookupBtn').addEventListener('click', function() {
             });
         } else {
             // If no explanation is found
-            lookupResultDiv.innerHTML += "<p>No explanation found for the matched data.</p>";
+            lookupResultDiv.innerHTML += "<p>No data found</p>";
         }
     } else {
         // If no match is found
