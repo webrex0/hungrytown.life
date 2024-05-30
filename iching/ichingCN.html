@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="my">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fancybox.min.css">
     <link rel="stylesheet" href="css/flag-icon.css">
-    <title>Malaysian Identity Number Numerology 马来西亚身份证易经数</title>
+    <title>Chinese Identity Number Numerology 中国身份证易经数</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -17,7 +17,7 @@
         <!-- Language Selector Dropdown -->
         <div class="language-dropdown-container">
             <button class="language-dropdown-button">
-                <span class="flag-icon flag-icon-mys"></span> Malaysia ID
+                <span class="flag-icon flag-icon-chn"></span> China ID
             </button>
             <div class="language-dropdown-list">
                 <a href="index.html" onclick="changeLanguage('my')"><span class="flag-icon flag-icon-mys"></span> Malaysia
@@ -27,14 +27,13 @@
             </div>
         </div>
     </div>
-
     <div class="container">
-        <h3 class="text-center">Malaysian Identity Number Numerology <br>马来西亚身份证易经数</h3>
+        <h3 class="text-center">Chinese Identity Number Numerology <br>中国身份证易经数</h3>
 
         <form id="icForm">
             <div class="form-group">
-                <label for="icNumber">Enter Malaysian Identity Number (880213045257):</label>
-                <input type="text" id="icNumber" name="icNumber" class="form-control" pattern="\d{12}" required>
+                <label for="icNumber">Enter Chinese Identity Number (e.g., 11010519491231002X):</label>
+                <input type="text" id="icNumber" name="icNumber" class="form-control" pattern="\d{17}[\dXx]" required>
             </div>
             <button type="submit" class="btn btn-primary">Format</button>
             <div class="find-button">
@@ -61,12 +60,12 @@
                         <th class="separator">M</th>
                         <th>D</th>
                         <th class="separator">D</th>
-                        <th>R</th>
-                        <th class="separator">R</th>
                         <th>N</th>
                         <th class="separator">N</th>
                         <th>N</th>
-                        <th>N</th>
+                        <th class="separator">N</th>
+                        <th>Y</th>
+                        <th>Y</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -244,7 +243,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js"
         integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./js/iching.js"></script>
+    <script src="./js/ichingCN.js"></script>
     <script src="./js/fancy-box-lookup.js"></script>
     <script src="./js/fancybox.min.js"></script>
     <script>
@@ -252,12 +251,13 @@
     event.preventDefault();
 
     const icNumber = document.getElementById('icNumber').value;
-    const datePart = icNumber.slice(0, 6);
-    const rrPart = icNumber.slice(6, 8);
-    const nnPart = icNumber.slice(8, 12);
+    const datePart = icNumber.slice(8, 14);
+    const nnPart = icNumber.slice(14, 18);
+    const backPart = icNumber.slice(8, 10);
     const yearPart = datePart.slice(0, 2);
     const monthPart = datePart.slice(2, 4);
     const dayPart = datePart.slice(4, 6);
+    const yyPart = backPart.slice(0, 2);
     const currentYear = new Date().getFullYear();
     let birthYear = parseInt(yearPart);
 
@@ -283,17 +283,17 @@
         M2: datePart.charAt(3),
         D1: datePart.charAt(4),
         D2: datePart.charAt(5),
-        R1: rrPart.charAt(0),
-        R2: rrPart.charAt(1),
         N1: nnPart.charAt(0),
         N2: nnPart.charAt(1),
         N3: nnPart.charAt(2),
-        N4: nnPart.charAt(3)
+        N4: nnPart.charAt(3),
+        Y3: yyPart.charAt(0),
+        Y4: yyPart.charAt(1)
     };
 
     const formattedRow = document.getElementById('formattedRow');
     formattedRow.innerHTML = Object.entries(formattedData).map(([key, value]) => {
-        const separatorClass = ['Y2', 'M2', 'D2', 'R2', 'N2'].includes(key) ? 'class="separator"' : '';
+        const separatorClass = ['Y2', 'M2', 'D2', 'N2','N4'].includes(key) ? 'class="separator"' : '';
         return `<td ${separatorClass}>${value}</td>`;
     }).join('');
 
@@ -318,16 +318,16 @@
         categoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
     }
     if (age >= 33 && age <= 42) {
-        categoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.D2},${formattedData.N1},${formattedData.N2}</td></tr>`;
     }
     if (age >= 43 && age <= 52) {
-        categoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
     }
     if (age >= 53 && age <= 62) {
-        categoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
     }
     if (age >= 63 && age <= 72) {
-        categoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
+        categoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.Y2},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
     }
 
     document.getElementById('categoryTable').classList.remove('hidden');
@@ -337,10 +337,10 @@
     newCategoryRows.innerHTML = ''; // Clear previous entries
     newCategoryRows.innerHTML += `<tr><td>Age 13-22</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2}</td></tr>`;
     newCategoryRows.innerHTML += `<tr><td>Age 23-32</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2}</td></tr>`;
-    newCategoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2},${formattedData.R1},${formattedData.R2}</td></tr>`;
-    newCategoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2},${formattedData.R1},${formattedData.R2},${formattedData.N1},${formattedData.N2}</td></tr>`;
-    newCategoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2},${formattedData.R1},${formattedData.R2},${formattedData.N1},${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
-    newCategoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2},${formattedData.R1},${formattedData.R2},${formattedData.N1},${formattedData.N2},${formattedData.N3},${formattedData.N4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 33-42</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2},${formattedData.N1},${formattedData.N2}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 43-52</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2},${formattedData.N1},${formattedData.N2},${formattedData.N3},${formattedData.N4}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 53-62</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2},${formattedData.N1},${formattedData.N2},${formattedData.N3},${formattedData.N4},${formattedData.Y3},${formattedData.Y4}</td></tr>`;
+    newCategoryRows.innerHTML += `<tr><td>Age 63-72</td><td>${formattedData.Y1},${formattedData.Y2},${formattedData.M1},${formattedData.M2},${formattedData.D1},${formattedData.D2},${formattedData.N1},${formattedData.N2},${formattedData.N3},${formattedData.N4},${formattedData.Y3},${formattedData.Y4},${formattedData.Y1},${formattedData.Y2}</td></tr>`;
 
     document.getElementById('newCategoryTable').classList.remove('hidden');
 

@@ -48,3 +48,107 @@ td {
 .long-number {
     display: none;
 }
+* Dropdown styling */
+.has-label.dropdown select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #333;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Styling the dropdown arrow */
+.has-label.dropdown select::-ms-expand {
+  display: none;
+}
+
+.has-label.dropdown select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+  padding-right: 30px;
+}
+
+/* Hover effect */
+.has-label.dropdown select:hover {
+  background-color: #eaeaea;
+}
+
+/* Focus effect */
+.has-label.dropdown select:focus {
+  border-color: #6a0dad;
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+
+/* Selected option */
+.has-label.dropdown select option:checked {
+  background-color: #6a0dad;
+  color: #fff;
+}
+
+.language-dropdown-container {
+  display: inline-block;
+  position: relative;
+  text-align: left; /* Align the text to the left */
+  margin-left: 220px;
+}
+
+.language-dropdown-button {
+  font-size: 16px;
+  padding: 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.language-dropdown-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  width: 150px;
+}
+
+.language-dropdown-list a {
+  display: block;
+  z-index: 2;
+  padding: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+}
+
+.flag-icon {
+  margin-right: 5px;
+}
+
+/* Hover styles for better user experience */
+.language-dropdown-button:hover,
+.language-dropdown-list a:hover {
+  background-color: #f1f1f1;
+}
+
+.language-dropdown-container:hover .language-dropdown-list {
+  display: block;
+}
+/* Override styles for screens with a minimum width of 769 pixels (PC view) */
+@media only screen and (min-width: 769px) {
+  .language-dropdown-container {
+    margin-left: 350px; /* Adjusted margin for PC view */
+  }
+}
