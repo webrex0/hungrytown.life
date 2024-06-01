@@ -152,3 +152,15 @@ td {
     margin-left: 350px; /* Adjusted margin for PC view */
   }
 }
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+.col {
+  /* Other styles */
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}

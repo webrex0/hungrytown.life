@@ -264,6 +264,8 @@ document.getElementById('icForm').addEventListener('submit', function(event) {
     document.getElementById('lunarAgeRangeTable').classList.remove('hidden');
 
 });
+        
+         
 
 // Function to lookup consecutive numbers and display matched results
         // Define a function to retrieve the Alphabert based on the matched numbers
@@ -645,5 +647,3 @@ document.getElementById('icForm').addEventListener('submit', function(event) {
             const explanation = alphabertExplanations[alphabert] || 'No explanation found';
             return explanation;
         }
-        
-         

@@ -32,7 +32,7 @@
 
         <form id="icForm">
             <div class="form-group">
-                <label for="icNumber">Enter Chinese Identity Number (e.g., 11010519491231002X):</label>
+                <label for="icNumber">Enter Chinese Identity Number (e.g., 91112419810803002X):</label>
                 <input type="text" id="icNumber" name="icNumber" class="form-control" pattern="\d{17}[\dXx]" required>
             </div>
             <button type="submit" class="btn btn-primary">Format</button>
@@ -203,7 +203,72 @@
 
 
         <!-- Lunar Numbers -->
-        <h5 class="text-center">Lunar Numbers 农历数字</h5>
+        <div>
+            <h5 class="text-center">Lunar Numbers 农历数字</h5>
+            <!-- New FancyBox Button for Lunar Convert -->
+        <div class="input-lunar-convert-button text-center">
+            <button type="button" class="btn btn-click" id="inputLunarConvert" data-fancybox
+                data-src="#lookupLunarConvert">Find Lunar</button>
+        </div>
+        
+        
+        <!-- Lunar Convert Modal -->
+        <div style="display: none;" id="lookupLunarConvert">
+            <h2>Input Year,Month and Day</h2>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="lunarYear">Year:</label>
+                    <input type="number" id="lunarYear" name="lunarYear" class="form-control" min="11" max="99" required>
+                </div>
+                <div class="form-group col">
+                    <label for="lunarMonth">Month:</label>
+                    <input type="number" id="lunarMonth" name="lunarMonth" class="form-control" min="1" max="12" required>
+                </div>
+                <div class="form-group col">
+                    <label for="lunarDay">Day:</label>
+                    <input type="number" id="lunarDay" name="lunarDay" class="form-control" min="1" max="31" required>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="lookupLunarConvertBtn">Convert</button>
+            <div id="lunarConvertResult"></div>
+            
+        
+            <!-- Lunar Numbers -->
+            <div class="table-responsive pb-5">
+                <table id="lunarNumbersTable2" class="table hidden">
+                    <thead>
+                        <tr>
+                            <th>L1</th>
+                            <th>L2</th>
+                            <th>L3</th>
+                            <th>L4</th>
+                            <th>L5</th>
+                            <th>L6</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lunarNumbersRows2">
+                        <!-- Lunar numbers will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Lunar Age Range -->
+            <div class="table-responsive pb-5">
+                <table id="lunarAgeRangeTable2" class="table hidden">
+                    <thead>
+                        <tr>
+                            <th>Age Range</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lunarAgeRangeRows2">
+                        <!-- Lunar age range values will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+        
         <div class="table-responsive pb-5">
             <table id="lunarNumbersTable" class="table hidden">
                 <thead>
@@ -222,6 +287,7 @@
             </table>
         </div>
 
+        
         <!-- Lunar Age Range -->
         <h5 class="text-center">Lunar Age Range Analysis 农历年龄范围分析</h5>
         <div class="table-responsive pb-5">
@@ -238,6 +304,7 @@
             </table>
         </div>
 
+        
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js"
@@ -245,6 +312,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/ichingCN.js"></script>
     <script src="./js/fancy-box-lookup.js"></script>
+    <script src="./js/fancy-box-lunar.js"></script>
     <script src="./js/fancybox.min.js"></script>
     <script>
         document.getElementById('icForm').addEventListener('submit', function (event) {
@@ -379,7 +447,6 @@ function filterAgeRangeCategories() {
 
     document.getElementById('ageRangeFilterTable').classList.remove('hidden');
 }
-
 
     </script>
 </body>
