@@ -362,6 +362,9 @@
     // Call the lookup function after category values are displayed
     lookupConsecutiveNumbers();
 
+    // Call the lookup function after user input for take note section
+    lookupConsecNumbers();
+
     document.getElementById('consecutiveNumberTable').classList.remove('hidden');
 
     // Filter age range categories and display results
@@ -394,7 +397,7 @@ function filterAgeRangeCategories() {
 
     document.getElementById('ageRangeFilterTable').classList.remove('hidden');
 }
-function lookupConsecutiveNumbers() {
+function lookupConsecNumbers() {
         // Predefined data for consecutive numbers
         const predefinedData = {
             '246': '靠嘴赚钱，业务能力强，适合做服务行业，做销售。',
@@ -448,9 +451,9 @@ function lookupConsecutiveNumbers() {
         // Check for consecutive numbers
         for (let i = 0; i < icNumber.length - 1; i++) {
             for (let j = i + 2; j <= icNumber.length; j++) {
-                const consecutiveNumber = icNumber.substring(i, j);
-                if (predefinedData[consecutiveNumber]) {
-                    takeNoteRows.innerHTML += `<tr><td>${consecutiveNumber}</td><td>${predefinedData[consecutiveNumber]}</td></tr>`;
+                const consecNumber = icNumber.substring(i, j);
+                if (predefinedData[consecNumber]) {
+                    takeNoteRows.innerHTML += `<tr><td>${consecNumber}</td><td>${predefinedData[consecNumber]}</td></tr>`;
                 }
             }
         }
