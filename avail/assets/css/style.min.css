@@ -90,7 +90,7 @@ a:hover {
   text-decoration: none;
 }
 a:hover {
-  color: #ff6565;
+  color:  #1daa81;
 }
 button,
 input[type="submit"] {
@@ -519,7 +519,6 @@ hr {
   }
 }
 .header-action {
-  align-items: center;
   display: flex;
 }
 .header-action .header-action-btn {
@@ -530,6 +529,10 @@ hr {
   width: 30px;
   height: 30px;
   margin-left: 59px;
+}
+.header-icon {
+  font-size: 25px;
+  vertical-align: middle;
 }
 @media only screen and (max-width: 767px),
   only screen and (min-width: 768px) and (max-width: 991px),
@@ -563,6 +566,7 @@ hr {
   margin: 2px 0 0 6px;
   padding: 0;
   display: none;
+  margin-top: 15px;
 }
 @media only screen and (max-width: 767px),
   only screen and (min-width: 768px) and (max-width: 991px) {
@@ -742,7 +746,7 @@ hr {
     overflow: hidden;
     white-space: nowrap;
     font-family: sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     color: #1f493d;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
@@ -975,10 +979,17 @@ hr {
   .page-header-style2-area {
     padding: 48px 0 82px;
   }
+  .shop-top-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
 }
 .page-header-content {
   margin-top: 40px;
 }
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .page-header-content {
     margin-top: 0;
@@ -2592,7 +2603,7 @@ background-color: #1daa81;
   padding: 0 5px;
   vertical-align: top;
   margin-left: 15px;
-  margin-top: -30px;
+  margin-top: -40px;
 }
 #lblLive {
   font-size: 12px;
@@ -2601,7 +2612,7 @@ background-color: #1daa81;
   padding: 0 5px;
   vertical-align: top;
   margin-left: 10px;
-  margin-top: -30px;
+  margin-top: -40px;
 }
 #lblAppnavLive {
   font-size: 12px;
@@ -7024,7 +7035,6 @@ background-color: #c67605;
 .admin-sidebar{
   background-color:#1f493d ;
   color: #fff;
-  height: 1200px;
     
 }
 .admin-sidebar-menu-nav {
@@ -7753,7 +7763,7 @@ background-color: #c67605;
 	text-transform:uppercase;
 }
 .login-html .tab{
-	font-size:22px;
+	font-size:18px;
   font-weight: 600;
   color: lightslategray;
 	margin-right:15px;
@@ -7881,6 +7891,7 @@ background-color: #c67605;
   border-radius: 20px;
 }
 .statement-title {
+font-size: 15px;
   background-color: #1f493d;
   color: #fff;
   padding: 20px ;
@@ -7893,18 +7904,4 @@ background-color: #c67605;
 .boxhead{
   background-color: #b6c4b6;
   font-weight: 700;
-}
-.copy-link{
-  display: inline-block;
-  background-color: #1ca881;
-  border-radius: 25px;
-}
-.copy-link .btn{
-  letter-spacing: 0px !important;
-  width: 100%;
-  text-align: center;
-  font-size: 12px;
-}
-.three-bv ul li img {
-  max-width: 60px;
 }

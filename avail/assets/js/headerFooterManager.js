@@ -76,32 +76,12 @@ class SpecialHeader extends HTMLElement {
                         <div class="header-action justify-content-end">
                             <a class="header-action-btn shop-icon" href="products.html">
                                 <span class="icon">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <rect class="icon-rect" width="30" height="30" fill="url(#pattern1)" />
-                                        <defs>
-                                            <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                <use xlink:href="#image0_504:7" transform="scale(0.0333333)" />
-                                            </pattern>
-                                            <image id="image0_504:7" width="30" height="30"
-                                                xlink:href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 6h6a3 3 0 1 0-6 0M7 6a5 5 0 0 1 10 0h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zM5 8v12h14V8zm4 2a3 3 0 1 0 6 0h2a5 5 0 0 1-10 0z'/%3E%3C/svg%3E"/>
-                                        </defs>
-                                    </svg>
+                                <i class="ri-shopping-bag-4-line header-icon"></i>
                                 </span>
                             </a>
                             <a class="header-action-btn live-icon" href="member-page.html">
                                 <span class="icon">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <rect class="icon-rect" width="30" height="30" fill="url(#pattern4)" />
-                                        <defs>
-                                            <pattern id="pattern4" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                <use xlink:href="#image0_504:8" transform="scale(0.0333333)" />
-                                            </pattern>
-                                            <image id="image0_504:8" width="30" height="30"
-                                                xlink:href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M16 4a1 1 0 0 1 1 1v4.2l5.213-3.65a.5.5 0 0 1 .787.41v12.08a.5.5 0 0 1-.787.41L17 14.8V19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm-1 2H3v12h12zM7.4 8.829a.4.4 0 0 1 .215.062l4.355 2.771a.4.4 0 0 1 0 .675L7.615 15.11A.4.4 0 0 1 7 14.77V9.23a.4.4 0 0 1 .4-.4m13.6.01l-4 2.8v.718l4 2.8z'/%3E%3C/svg%3E"/>
-                                        </defs>
-                                    </svg>
+                                <i class="ri-live-line header-icon"></i>
                                     <span class='badge badge-warning' id='lblLive'> LIVE </span>
                                 </span>
                             </a>
@@ -109,34 +89,14 @@ class SpecialHeader extends HTMLElement {
                             <button class="header-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart"
                                 aria-controls="AsideOffcanvasCart">
                                 <span class="icon">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <rect class="icon-rect" width="30" height="30" fill="url(#pattern2)" />
-                                        <defs>
-                                            <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                <use xlink:href="#image0_504:9" transform="scale(0.0333333)" />
-                                            </pattern>
-                                            <image id="image0_504:9" width="30" height="30"
-                                                xlink:href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M4.004 6.417L.762 3.174L2.176 1.76l3.243 3.243H20.66a1 1 0 0 1 .958 1.287l-2.4 8a1 1 0 0 1-.958.713H6.004v2h11v2h-12a1 1 0 0 1-1-1zm1.5 16.586a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3m12 0a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3'/%3E%3C/svg%3E" />
-                                        </defs>
-                                    </svg>
+                                <i class="ri-shopping-cart-2-fill header-icon"></i>
                                     <span class='badge badge-warning' id='lblCartCount'> 5 </span>
                                 </span>
                             </button>
                     
                             <a class="header-action-btn" href="login.html">
                                 <span class="icon">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)" />
-                                        <defs>
-                                            <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                <use xlink:href="#image0_504:10" transform="scale(0.0333333)" />
-                                            </pattern>
-                                            <image id="image0_504:10" width="30" height="30"
-                                                xlink:href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M20 22H4v-2a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5zm-8-9a6 6 0 1 1 0-12a6 6 0 0 1 0 12'/%3E%3C/svg%3E" />
-                                        </defs>
-                                    </svg>
+                                <i class="ri-user-fill header-icon"></i>
                                 </span>
                             </a>
                     

@@ -565,14 +565,7 @@ hr {
     display: inline-block;
   }
 }
-.header-menu-btn span {
-  background-color: #000;
-  width: 20px;
-  height: 2px;
-  display: block;
-  margin-bottom: 4px;
-  border-radius: 50px;
-}
+
 .header-menu-btn span:last-child {
   margin-bottom: 0;
 }
