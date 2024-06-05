@@ -515,7 +515,7 @@
 }
 
 .area-bg {
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5)), url("/assets/images/photos/login-bg.png");
+  background-image: url(../images/photos/member-bg.png);
   width: 100%;
 }
 .area-bg 
