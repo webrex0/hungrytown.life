@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="css/flag-icon.css">
     <title>Chinese Identity Number Numerology 中国身份证易经数</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .input-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: flex-end;
+        }
+        .input-prefix, .input-number .tel-button{
+            flex: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,6 +88,21 @@
                 </tbody>
             </table>
         </div>
+
+       <!-- Take Note Table -->
+       <div class="table-responsive pb-5">
+        <table id="takeNoteTable" class="table hidden">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Take Note 注意</th>
+                </tr>
+            </thead>
+            <tbody id="takeNoteRows">
+                <!-- Matched notes will be inserted here -->
+            </tbody>
+        </table>
+    </div>
 
         <!-- Special Number Table -->
         <div class="table-responsive">
@@ -287,10 +315,25 @@
             </table>
         </div>
 
+        <!-- Lunar Note Section -->
+<div class="table-responsive pb-5">
+    <table id="lunarNoteTable" class="table hidden">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Take Note 注意</th>
+            </tr>
+        </thead>
+        <tbody id="lunarNoteRows">
+            <!-- Lunar notes will be inserted here -->
+        </tbody>
+    </table>
+</div>
+
         
         <!-- Lunar Age Range -->
-        <h5 class="text-center">Lunar Age Range Analysis 农历年龄范围分析</h5>
-        <div class="table-responsive pb-5">
+        <h5 class="text-center">Lunar Age Range Analysis 农历年龄分析</h5>
+        <div class="table-responsive ">
             <table id="lunarAgeRangeTable" class="table hidden">
                 <thead>
                     <tr>
@@ -304,19 +347,97 @@
             </table>
         </div>
 
+        <!-- Telephone Formatting -->
+        <hr><div class="container">
+            <h5 class="text-center">Phone Numbers 手机号数字</h5>
+            <form id="telephoneForm">
+                <div class="input-row">
+                    <div class="form-group input-prefix">
+                        <label for="telephonePrefix">TelPrefix:</label>
+                        <input type="tel" max="999" id="telephonePrefix" name="telephonePrefix" class="form-control" pattern="\d{3,4}">
+                    </div>
+                    <div class="form-group input-number">
+                        <label for="telephoneNumber">Phone Number:</label>
+                        <input type="tel" max="99999999" id="telephoneNumber" name="telephoneNumber" class="form-control" pattern="\d{6,8}" required>
+                    </div>
+                    <div class="form-group tel-button">
+                    <button type="submit" class="btn btn-primary">Format</button>
+                    </div>
+                </div>
+                
+            </form>
+
+            <div class="table-responsive">
+                <table id="formattedTelephoneTable" class="table telephone-table hidden">
+                    <thead>
+                        <tr>
+                            <th>T1</th>
+                            <th>T2</th>
+                            <th>T3</th>
+                            <th>T4</th>
+                            <th>T5</th>
+                            <th>T6</th>
+                            <th>T7</th>
+                            <th>T8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="formattedTelephoneNumberRows">
+                            <!-- Telephone numbers will be inserted here -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         
+        
+        <!-- Tel Age Range -->
+        
+        <div class="table-responsive long-telnumber">
+            <table id="ageRangeTelNumberTable" class="table hidden">
+                <thead>
+                    <tr>
+                        <th>Age Range</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="ageRangeTelNumberRows">
+                    <!-- Tel age range values will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- New table to display filtered telephone numbers -->
+        <h5 class="text-center">Phone Age Range Analysis 手机号年龄分析</h5>
+        <div class="table-responsive pb-5">
+            <table id="filteredNumbersTable">
+                <thead>
+                    <tr>
+                        <th>Age Range</th>
+                        <th>Filtered Numbers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Filtered results will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.js"
         integrity="sha512-fS2RQklOT+Mgu5s5XdyhA0XZ1Uyyd75eMGTGX/RkadeeYoug7WYHOYiIvSGHeUx0+Bb35DwwqpNdIuZFohPv0A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/ichingCN.js"></script>
+    <script src="./js/phoneLookup.js"></script>
+    <script src="./js/takeNote.js"></script>
     <script src="./js/fancy-box-lookup.js"></script>
     <script src="./js/fancy-box-lunar.js"></script>
     <script src="./js/fancybox.min.js"></script>
     <script>
-        document.getElementById('icForm').addEventListener('submit', function (event) {
+    document.getElementById('icForm').addEventListener('submit', function (event) {
     event.preventDefault();
+    
 
     const icNumber = document.getElementById('icNumber').value;
     const datePart = icNumber.slice(8, 14);
@@ -419,6 +540,13 @@
 
     // Filter age range categories and display results
     filterAgeRangeCategories();
+
+    // Call the lookup function after user input for take note section
+    lookupConsecNumbers();
+
+    // Add the lookupLunarNotes function call at the end
+    lookupLunarNotes();
+    
 });
 
 function filterAgeRangeCategories() {
@@ -447,8 +575,5 @@ function filterAgeRangeCategories() {
 
     document.getElementById('ageRangeFilterTable').classList.remove('hidden');
 }
-
     </script>
-</body>
-
 </html>

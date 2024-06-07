@@ -48,6 +48,9 @@ td {
 .long-number {
     display: none;
 }
+.long-telnumber {
+  display: none;
+}
 * Dropdown styling */
 .has-label.dropdown select {
   width: 100%;
