@@ -114,18 +114,18 @@ class SpecialAppnav extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <appnav class="appnav">
-            <a href="index.html" class="appnav__link ">
-                <i class="ri-home-smile-line appnav__icon"></i>
-                <span class="nav__text" data-localize="menu.home">MNCHAT</span>
+            <a href="#" class="appnav__link">
+                <img src="assets/images/icons/mnchat.png" alt="Home" class="mnchat appnav__icon">
+                <span class="appnav__text" data-localize="nav.mnchat">MNCHAT</span>
             </a>
             <a href="#" class="appnav__link">
                 <i class="ri-cpu-line appnav__icon"></i>
-                <span class="appnav__text" data-localize="menu.products">AI ADS</span>
+                <span class="appnav__text" data-localize="nav.ai">AI ADS</span>
             </a>
             <a href="login.html" class="appnav__link">
                 <span class="got-mail">●</span>
                 <i class="ri-user-line appnav__icon"></i>
-                <span class="appnav__text" data-localize="menu.msg">ME</span>
+                <span class="appnav__text" data-localize="nav.me">ME</span>
             </a>
         </appnav>
         `

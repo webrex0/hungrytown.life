@@ -140,7 +140,7 @@ hr {
     display: block;
     z-index: 1001;
     height: 20px;
-    background-color: #177f62;
+    background-color: #17593e;
 }
 .section-space {
   padding-top: 50px;
@@ -766,14 +766,17 @@ hr {
     margin-top: 0px;
     z-index: -9999;
   }
-  
+   .mnchat {
+    height: 55px;
+    padding: 10px;
+   }
   .appnav__link:hover {
     background-color: #efefef;
     color: #40c706;
   }
   
   .appnav__link--active {
-    color: #40c706;
+    color: #17593e;
   }
   
   .appnav__icon {
@@ -8221,6 +8224,9 @@ color: #dcdcdc;
 }
 .border-menu{
   border-bottom: 1.5px solid #dcdcdc;
+}
+.member-menu{
+  color: #17593e;
 }
 .subscription-card-body {
 
