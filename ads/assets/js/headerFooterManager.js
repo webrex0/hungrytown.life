@@ -123,7 +123,6 @@ class SpecialAppnav extends HTMLElement {
                 <span class="appnav__text" data-localize="nav.ai">AI ADS</span>
             </a>
             <a href="login.html" class="appnav__link">
-                <span class="got-mail">●</span>
                 <i class="ri-user-line appnav__icon"></i>
                 <span class="appnav__text" data-localize="nav.me">ME</span>
             </a>
