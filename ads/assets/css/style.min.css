@@ -771,7 +771,7 @@ hr {
     padding: 10px;
    }
   .appnav__link:hover {
-    background-color: #efefef;
+    background-color: rgb(40 129 41 / 11%);
     color: #40c706;
   }
   
@@ -8279,6 +8279,11 @@ color: #dcdcdc;
 
 .member-container {
   max-width: 576px;
+}
+.member-container a:hover{
+  background-color: rgb(40 129 41 / 11%);
+  color: #144f37;
+  border-radius: 15px;
 }
 
 .ads-row{

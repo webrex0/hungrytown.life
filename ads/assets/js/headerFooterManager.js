@@ -124,7 +124,7 @@ class SpecialAppnav extends HTMLElement {
                 <img src="assets/images/icons/mnchat.png" alt="Home" class="mnchat appnav__icon">
                 <span class="appnav__text" data-localize="nav.mnchat">MNCHAT</span>
             </a>
-            <a href="#" class="appnav__link">
+            <a href="index.html" class="appnav__link">
                 <i class="ri-cpu-line appnav__icon"></i>
                 <span class="appnav__text" data-localize="nav.ai">AI ADS</span>
             </a>
