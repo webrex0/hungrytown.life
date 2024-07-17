@@ -120,7 +120,7 @@ class SpecialAppnav extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <appnav class="appnav">
-            <a href="https://play.google.com/store/apps/details?id=com.magicnumber.mnchat" class="appnav__link">
+            <a href="https://play.google.com/store/apps/details?id=com.magicnumber.mnchat" target="_blank" class="appnav__link">
                 <img src="assets/images/icons/mnchat.png" alt="Home" class="mnchat appnav__icon">
                 <span class="appnav__text" data-localize="nav.mnchat">MNCHAT</span>
             </a>
