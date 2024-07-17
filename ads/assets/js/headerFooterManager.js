@@ -37,10 +37,16 @@ class SpecialHeader extends HTMLElement {
                     </div>
                     <div class="col-5 col-sm- col-lg-3">
                         <div class="header-action justify-content-end">
-                    
+                        
                             <a class="header-action-btn" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal" href="#">
                                 <span class="icon">
                                 <i class="ri-phone-fill header-icon"></i>
+                                </span>
+                            </a>
+                    
+                            <a class="header-action-btn" href="login.html">
+                                <span class="icon">
+                                <i class="ri-user-line header-icon"></i>
                                 </span>
                             </a>
                     
@@ -102,7 +108,7 @@ class SpecialFooter extends HTMLElement {
             <div class="footer-bottom">
                 <div class="container pt-0 pb-0">
                     <div class="footer-bottom-content">
-                        <p class="copyright">© 2024 AvailBeauty.com. All rights reserved.©</a></p>
+                        <p class="copyright">© 2024 ADS Company Sdn Bhd. All rights reserved.©</a></p>
                     </div>
                 </div>
             </div>
@@ -114,7 +120,7 @@ class SpecialAppnav extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <appnav class="appnav">
-            <a href="#" class="appnav__link">
+            <a href="https://play.google.com/store/apps/details?id=com.magicnumber.mnchat" class="appnav__link">
                 <img src="assets/images/icons/mnchat.png" alt="Home" class="mnchat appnav__icon">
                 <span class="appnav__text" data-localize="nav.mnchat">MNCHAT</span>
             </a>
