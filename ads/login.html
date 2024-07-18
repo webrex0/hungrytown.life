@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MNC AI</title>
+    <title>ADS - Login</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="col-12 col-md-12">
-                    <div class="login-wrap ">
+                    <div class="login-wrap pb-5">
                         <div class="login-html">
                             <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">LOGIN</label>
                             <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Register</label>
@@ -72,7 +72,7 @@
                                 <div class="sign-in-htm">
                                     <div class="group">
                                         <label for="user" class="label">Email Adress</label>
-                                        <input id="user" type="text" class="input">
+                                        <input id="user" type="text" class="input" >
                                     </div>
                                     <div class="group">
                                         <label for="pass" class="label">Password</label>
@@ -95,24 +95,8 @@
                                 </div>
                                 <div class="sign-up-htm">
                                     <div class="group">
-                                        <label for="pass" class="label">Email Address</label>
-                                        <input id="pass" type="text" class="input">
-                                    </div>
-                                    <div class="group">
-                                        <label for="user" class="label">ID Name</label>
-                                        <input id="user" type="text" class="input">
-                                    </div>
-                                    <div class="group">
-                                        <label for="pass" class="label">Password</label>
-                                        <input id="pass" type="password" class="input" data-type="password">
-                                    </div>
-                                    <div class="group">
-                                        <label for="pass" class="label">Repeat Password</label>
-                                        <input id="pass" type="password" class="input" data-type="password">
-                                    </div>
-                                    <div class="group">
-                                        <label for="pass" class="label">Country</label>
-                                        <select class="form-select country-box" id="inputGroupSelect01">
+                                        <label for="country">Country</label>
+                                        <select class="form-control country-box" id="country">
                                             <option value="0">Select Country</option>
                                             <option value="1">Malaysia</option>
                                             <option value="2">Singapore</option>
@@ -125,15 +109,36 @@
                                             <option value="9">Taiwan</option>
                                           </select>
                                     </div>
-                                    <div class="group ">
-                                        <label for="gender" class="label">Gender</label>
-                                        <select class="form-select country-box" id="inputGroupSelect01">
+                                    <div class="group">
+                                        <label for="email" class="label">Email Address</label>
+                                        <input id="email" type="text" class="input">
+                                    </div>
+                                    <div class="group">
+                                        <label for="user" class="label">ID Name</label>
+                                        <input id="user" type="text" class="input">
+                                    </div>
+                                    <div class="group">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control country-box" id="gender">
                                             <option value="1">Select Gender</option>
                                             <option value="1">Male</option>
                                             <option value="2">Female</option>
                                           </select>
                                     </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Password</label>
+                                        <input id="pass" type="password" class="input" data-type="password">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Repeat Password</label>
+                                        <input id="pass" type="password" class="input" data-type="password">
+                                    </div>
                                     
+                                    
+                                    <div class="group">
+                                        <label for="user" class="label">Invitation Code</label>
+                                        <input id="user" type="text" class="input" placeholder="MY12345678">
+                                    </div>
                                     <div class="group mb-5">
                                         <input type="submit" class="button" value="Register">
                                     </div>

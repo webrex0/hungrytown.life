@@ -8072,6 +8072,8 @@ background-color: #c67605;
     border-radius: 10px;
     background: rgba(255, 255, 255);
     margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
 }
 .country-box .list{
   width: 100%;
@@ -8346,4 +8348,19 @@ color: #dcdcdc;
 .red-text{
   color: red;
   line-height: normal !important;
+}
+.merchant-form {
+  padding: 0px 15px;
+  text-align: left;
+}
+label {
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+label:hover {
+  filter: grayscale(0);
+}
+input[type="radio"]:checked + label {
+  filter: grayscale(0);
 }
