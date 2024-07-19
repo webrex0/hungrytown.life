@@ -2117,9 +2117,9 @@ progress {
 .form-control:focus {
   color: #364958;
   background-color: #fff;
-  border-color: #ffb2b2;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem hsla(0, 100%, 70%, 0.25);
+  border-color: rgb(40 129 41 / 11%);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(40 129 41 / 11%);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.75em;
@@ -7665,6 +7665,9 @@ fieldset:disabled .btn {
 }
 .fs-6 {
   font-size: 1rem !important;
+}
+.fs-8{
+  font-size: 0.8rem !important;
 }
 .fst-italic {
   font-style: italic !important;
