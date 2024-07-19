@@ -90,7 +90,7 @@ a:hover {
   text-decoration: none;
 }
 a:hover {
-  color:  #6486ac;
+  color:  #008016;
 }
 button,
 input[type="submit"] {
@@ -544,6 +544,7 @@ hr {
 .header-icon {
   font-size: 25px;
   vertical-align: middle;
+  color: #17593e;
 }
 @media only screen and (max-width: 767px),
   only screen and (min-width: 768px) and (max-width: 991px),
@@ -739,7 +740,7 @@ hr {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 80px;
+    height: 70px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     display: flex;
@@ -757,7 +758,7 @@ hr {
     overflow: hidden;
     white-space: nowrap;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 12px;
     color: #17593e;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
@@ -767,7 +768,7 @@ hr {
     z-index: -9999;
   }
    .mnchat {
-    height: 55px;
+    height: 46px;
     padding: 10px;
    }
   .appnav__link:hover {
@@ -780,7 +781,7 @@ hr {
   }
   
   .appnav__icon {
-    font-size: 30px;
+    font-size: 25px;
   }
   @media (min-width: 992px) {
     .appnav {
@@ -1499,11 +1500,13 @@ hr {
 }
 .btn {
   box-shadow: none;
-  border-radius: 50px;
+  border-radius: 10px;
   color: #fff;
   display: inline-block;
   font-size: 15px;
   height: 50px;
+  width: 50%;
+  
 }
 .cart .btn {
   border-radius: 10px;
@@ -1534,8 +1537,8 @@ background-color: #6486ac;
   }
 }
 .btn:hover {
-  background-color: #177f62;
-  border-color: #177f62;
+  background-color: #40c706;
+  border-color: #40c706;
   color: #fff;
 }
 .btn.btn-border-primary {
@@ -1750,7 +1753,6 @@ background-color: #6486ac;
   -ms-transform-origin: inherit;
   -o-transform-origin: inherit;
   margin: 0;
-  right: 0;
   line-height: 1;
 }
 .nice-select.open:after {
@@ -8015,7 +8017,7 @@ background-color: #c67605;
 	font-size:12px;
 }
 .login-form .group .button{
-	background:#40c706;
+	background:#008016;
   color: #fff;
   font-weight: 400;
 }
@@ -8066,6 +8068,16 @@ background-color: #c67605;
 	transform:rotate(0);
 }
 .country-box{
+  border: none;
+  width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+.gender-box{
   border: none;
   width: 100%;
     padding: 15px 20px;
@@ -8153,7 +8165,7 @@ font-size: 15px;
 .member-details {
   display: flex;
   align-items: center;
-  background-color: #30a452;
+  background-color: #008016;
   color: white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -8296,7 +8308,7 @@ color: #dcdcdc;
 }
 
 .member-details-card {
-  background-color: #30a452;
+  background-color: #008016;
   color: white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -8304,7 +8316,7 @@ color: #dcdcdc;
 
 .user-bal {
     display: flex;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     justify-content: space-between;
     padding: 0px 25px;
@@ -8315,52 +8327,58 @@ color: #dcdcdc;
   padding: 0px 25px;
 }
 
-.content-card-green {
+.content-card-white {
   text-align: center;
-  background-color: rgb(40 129 41 / 11%);
   -webkit-box-shadow: 0 3px 15px 5px rgba(0, 0, 0, .1);
     box-shadow: 0 3px 15px 5px rgba(0, 0, 0, .1);
 }
 .btn-menu-primary{
-  border-radius: 10px;
-  border: solid 1px #144f37;
-  width: 45%;
-  color: #17593e;
-  font-weight: 700;
-  -webkit-box-shadow: 0 3px 15px 5px rgba(0, 0, 0, .1);
+  display: flex;
+    border-radius: 10px;
+    border: solid 1px #144f37;
+    width: 150px;
+    color: #17593e;
+    font-size: 13px;
+    font-weight: 700;
+    -webkit-box-shadow: 0 3px 15px 5px rgba(0, 0, 0, .1);
     box-shadow: 0 3px 15px 5px rgba(0, 0, 0, .1);
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-menu-primary i{
+  font-size: 20px;
 }
 .btn-menu-primary img{
   width: 15px;
-  padding-top: 5px;
+  padding-top: 2px;
 }
 
 .qrcode-img {
-  width: 200px;
+  width: 150px;
   padding-bottom: 20px;
+}
+.qr-content span{
+  font-size: 13px;
 }
 
 .green-text{
-  color: green;
+  color: #144f37;
   font-weight: 600;
   line-height: normal !important;
 }
 .red-text{
   color: red;
   line-height: normal !important;
+  font-size: 13px;
 }
 .merchant-form {
   padding: 0px 15px;
   text-align: left;
 }
-label {
-  cursor: pointer;
-  filter: grayscale(100%);
-}
 
-label:hover {
-  filter: grayscale(0);
+.col-form-label{
+  color: #008016;
 }
-input[type="radio"]:checked + label {
-  filter: grayscale(0);
+.form-check .form-check-label{
+  line-height: normal;
 }

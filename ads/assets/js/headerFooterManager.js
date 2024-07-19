@@ -38,10 +38,21 @@ class SpecialHeader extends HTMLElement {
                     <div class="col-5 col-sm- col-lg-3">
                         <div class="header-action justify-content-end">
                         
-                            <a class="header-action-btn" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal" href="#">
+                            <a class="header-action-btn" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="icon">
-                                <i class="ri-phone-fill header-icon"></i>
+                                <i class="ri-global-line header-icon"></i>
                                 </span>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                          <a class="dropdown-item" href="#">Malaysia</a>
+                                          <a class="dropdown-item" href="#">Singapore</a>
+                                          <a class="dropdown-item" href="#">China</a>
+                                          <a class="dropdown-item" href="#">India</a>
+                                          <a class="dropdown-item" href="#">Indonesia</a>
+                                          <a class="dropdown-item" href="#">Thailand</a>
+                                          <a class="dropdown-item" href="#">Vietnam</a>
+                                          <a class="dropdown-item" href="#">Hong Kong</a>
+                                          <a class="dropdown-item" href="#">Taiwan</a>
+                                        </div>
                             </a>
                     
                             <a class="header-action-btn" href="login.html">
