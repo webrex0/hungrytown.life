@@ -8315,6 +8315,32 @@ color: #dcdcdc;
   border-top-right-radius: 15px;
 }
 
+
+.content-details-card-dark {
+  background-color: #144f37;
+  color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.content-details-card-medium {
+  background-color: rgb(40 129 41 / 65%);
+  color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.content-details-card-light {
+  background-color: rgb(40 129 41 / 30%);
+  color: #144f37;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.content-details-card-lite {
+  background-color: rgb(40 129 41 / 11%);
+  color: #144f37;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
 .user-bal {
     display: flex;
     font-size: 15px;
@@ -8328,7 +8354,13 @@ color: #dcdcdc;
   padding: 0px 25px;
   font-size: 13px;
 }
-
+.statement-box {
+  display: flex;
+  font-size: 13px;
+  font-weight: 600;
+  justify-content: space-between;
+  padding: 0px 25px;
+}
 .content-card-white {
   text-align: center;
   -webkit-box-shadow: 0 3px 15px 5px rgba(0, 0, 0, .1);
@@ -8383,4 +8415,23 @@ color: #dcdcdc;
 }
 .form-check .form-check-label{
   line-height: normal;
+}
+.exchange-icon{
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding-left: 20px;
+}
+
+.vl {
+  border-left: 1px solid white;
+  height: 25px;
+  position: absolute;
+    margin-left: 50%;
+}
+.vl-green {
+  border-left: 1px solid #008016;
+  height: 25px;
+  position: absolute;
+    margin-left: 50%;
 }
