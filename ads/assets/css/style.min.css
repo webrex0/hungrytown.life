@@ -8423,6 +8423,15 @@ color: #dcdcdc;
     padding-left: 20px;
 }
 
+@media only screen and (min-width: 992px) {
+  .vl {
+      margin-left: 20% !important;
+  }
+  .vl-green {
+      margin-left: 20% !important;
+  }
+}
+
 .vl {
   border-left: 1px solid white;
   height: 25px;
