@@ -19,6 +19,23 @@ body {
   color: #364958;
   background-color: #efefef;
 }
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-out, visibility 0s linear .5s;
+  z-index: 99999;
+}
+#spinner.show {
+  transition: opacity .5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+.spin-green{
+  color: rgb(144 198 66) !important;
+}
+.sp-img{
+  width: 5rem;
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   body {
     font-size: 15px;
@@ -815,7 +832,7 @@ hr {
   }
 }
 .footer-main .widget-title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 35px;
   color: #fff;
@@ -837,7 +854,7 @@ hr {
 
 .footer-main .widget-nav li {
   color: #364958;
-  font-size: 16px;
+  font-size: 13px;
   position: relative;
   transition: all 0.5s ease 0s;
   margin-bottom: 20px;
@@ -3076,7 +3093,7 @@ background-color: #c67605;
     font-weight: 500;
     color: grey;
     text-transform: uppercase;
-    margin-left: -1rem;
+    margin-left: -0.5rem;
 
 }
 @media only screen and (max-width: 479px) {
@@ -3153,44 +3170,17 @@ background-color: #c67605;
 .swiper-slide {
   text-align: center;
   font-size: 18px;
+  background: #fff;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper-slide img {
   display: block;
-  width: 90%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.autoplay-progress {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  z-index: 10;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: var(--swiper-theme-color);
-}
-
-.autoplay-progress svg {
-  --progress: 0;
-  position: absolute;
-  left: 0;
-  top: 0px;
-  z-index: 10;
   width: 100%;
   height: 100%;
-  stroke-width: 4px;
-  stroke: var(--swiper-theme-color);
-  fill: none;
-  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
-  stroke-dasharray: 125.6;
-  transform: rotate(-90deg);
+  object-fit: cover;
 }
 -----------endswiper------------
 
@@ -7635,7 +7625,6 @@ background-color: #c67605;
   display: block;
   text-transform: capitalize;
   position: relative;
-  font-size: 17px;
   font-weight: 600;
   padding: 15px 0;
   line-height: 1;
@@ -7827,16 +7816,14 @@ background-color: #c67605;
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  height: 100%;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  -webkit-transition: all .3s;
-  transition: all .3s;
 }
 .ads-tiles-container .ads-tiles-items .ads-tiles-image {
   width: 100%;
   height: 250px;
+  padding-bottom: 100%;
+  position: relative;
   overflow: hidden;
+  
 }
 .ads-tiles-container .ads-tile-row2, .ads-tiles-container .ads-tile-row4 {
   -webkit-box-orient: horizontal;
@@ -7844,10 +7831,15 @@ background-color: #c67605;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
 }
+.ads-tiles-detail{
+  padding: 25px 20px 40px;
+}
+
 @media (max-width: 1013px) {
   .ads-tiles-container .ads-tiles-items .ads-tiles-image {
-      width: 50%;
-      height: 100%;
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%;
   }
 }
 
@@ -7873,7 +7865,7 @@ background-color: #c67605;
 }
 @media (max-width: 767px) {
   .ads-tiles-container .ads-tiles-items .ads-tiles-detail {
-      min-height: 200px;
+      font-size: 12px;
   }
 }
 @media (max-width: 1013px) {

@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
 
+    <!-- Libraries Stylesheet -->
+    <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+
     <!-- Plugins CSS (All Plugins Files) -->
     <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
@@ -41,6 +44,13 @@
 </head>
 
 <body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border position-relative spin-green" style="width: 6rem; height: 6rem;" role="status"></div>
+        <img class="position-absolute top-50 start-50 translate-middle sp-img" src="assets/images/logo-top.png" alt="Icon">
+    </div>
+    <!-- Spinner End -->
+
     <div class="top-green-bar"></div>
     <!--== Wrapper Start ==-->
     <div class="wrapper bg-blue-gradient">
@@ -57,26 +67,19 @@
                 <!-- Swiper -->
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="assets/images/bigbanner/banner1.jpg" class="d-block w-100" alt="..."></div>
-                        <div class="swiper-slide"><img src="assets/images/bigbanner/banner2.jpg" class="d-block w-100" alt="..."></div>
-                        <div class="swiper-slide"><img src="assets/images/bigbanner/banner3.jpg" class="d-block w-100" alt="..."></div>
-                        <div class="swiper-slide"><img src="assets/images/bigbanner/banner1.jpg" class="d-block w-100" alt="..."></div>
-                        <div class="swiper-slide"><img src="assets/images/bigbanner/banner2.jpg" class="d-block w-100" alt="..."></div>
-                        <div class="swiper-slide"><img src="assets/images/bigbanner/banner3.jpg" class="d-block w-100" alt="..."></div>
+                      <div class="swiper-slide"><img src="assets/images/bigbanner/banner1.jpg" alt="slide1"></div>
+                      <div class="swiper-slide"><img src="assets/images/bigbanner/banner2.jpg" alt="slide2"></div>
+                      <div class="swiper-slide"><img src="assets/images/bigbanner/banner3.jpg" alt="slide3"></div>
+                      <div class="swiper-slide"><img src="assets/images/bigbanner/banner4.jpg" alt="slide1"></div>
+                      <div class="swiper-slide"><img src="assets/images/bigbanner/banner5.jpg" alt="slide2"></div>
                     </div>
                     <div class="swiper-pagination"></div>
-                    <div class="autoplay-progress">
-                        <svg viewBox="0 0 48 48">
-                            <circle cx="24" cy="24" r="20"></circle>
-                        </svg>
-                        <span></span>
-                    </div>
-                </div>
+                  </div>
                 </section>
             <!--== End Hero Area Wrapper ==-->
 
  <!--== Start Catergory Swiper Wrapper ==-->
- <div class="section-space pt-0">
+ <div class="section-space pt-0 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="catagories-nav-1">
             <!-- Slider main container -->
@@ -144,7 +147,7 @@
                     <div class="ads-row g-3">
                         <div class="ads-tiles-container">
             
-                            <a href="#" class="ads-tiles-items aos-init ads-tile-row1 aos-animate" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500" style="background-color: #d9d9d9; color: #000;">
+                            <a href="#" class="ads-tiles-items aos-init ads-tile-row1 wow fadeInUp" data-wow-delay="0.1s" style="background-color: rgb(40 129 41 / 11%); color: #000;border-radius: 15px;">
                               
                               <div class="ads-tiles-image">
                                 <img src="assets/images/sqBanner/banner1.jpg" loading="lazy">
@@ -156,7 +159,7 @@
                               </div>
                             </a>
                           
-                            <a href="#" class="ads-tiles-items aos-init ads-tile-row2 aos-animate" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" style="background-color:  #8d8e97; color: #fff;">
+                            <a href="#" class="ads-tiles-items aos-init ads-tile-row2 wow fadeInUp" data-wow-delay="0.3s" style="background-color:  #8d8e97; color: #fff;border-radius: 15px;">
                               
                               <div class="ads-tiles-image">
                                 <img src="assets/images/sqBanner/banner2.jpg" loading="lazy">
@@ -168,7 +171,7 @@
                               </div>
                             </a>
                           
-                            <a href="#" class="ads-tiles-items aos-init ads-tile-row3 aos-animate" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1500" style="background-color: #51809f; color: #fff;">
+                            <a href="#" class="ads-tiles-items aos-init ads-tile-row3 wow fadeInUp" data-wow-delay="0.5s" style="background-color: #51809f; color: #fff;border-radius: 15px;">
                               
                               <div class="ads-tiles-image">
                                 <img src="assets/images/sqBanner/banner3.jpg" loading="lazy">
@@ -180,7 +183,7 @@
                               </div>
                             </a>
                           
-                            <a href="#" class="ads-tiles-items aos-init ads-tile-row4 aos-animate" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="2000" style="background-color: #74a6a5; color: #fff;">
+                            <a href="#" class="ads-tiles-items aos-init ads-tile-row4 wow fadeInUp" data-wow-delay="0.7s" style="background-color: #74a6a5; color: #fff;border-radius: 15px;">
                               
                               <div class="ads-tiles-image">
                                 <img src="assets/images/sqBanner/banner4.jpg" loading="lazy">
@@ -200,7 +203,7 @@
             <!--== Start Small Banner Area Wrapper ==-->
             <div class="section-space pt-0">
                 <div class="container">
-                    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade wow fadeInUp" data-wow-delay="0.9s">
                         <div class="carousel-inner">
                           <div class="carousel-item active">
                             <img src="assets/images/shop/banner/long-banner1.png" class="d-block w-100" alt="Slide 1">
@@ -234,55 +237,7 @@
         <!--== Scroll Top Button ==-->
         <div id="scroll-to-top" class="scroll-to-top"><span class="fa fa-angle-up"></span></div>
 
-        <!--== Start Product Quick Wishlist Modal ==-->
-        <aside class="product-action-modal modal fade" id="action-WishlistModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="product-action-view-content">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <div class="modal-action-messages">
-                                <i class="fa fa-check-square-o"></i> Added to wishlist successfully!
-                            </div>
-                            <div class="modal-action-product">
-                                <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
-                                </div>
-                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-        <!--== End Product Quick Wishlist Modal ==-->
 
-        <!--== Start Product Quick Add Cart Modal ==-->
-        <aside class="product-action-modal modal fade" id="action-CartAddModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="product-action-view-content">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <div class="modal-action-messages">
-                                <i class="fa fa-check-square-o"></i> Added to cart successfully!
-                            </div>
-                            <div class="modal-action-product">
-                                <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
-                                </div>
-                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-        <!--== End Product Quick Add Cart Modal ==-->
 
         <!--== Start Aside Search Form ==-->
         <aside class="aside-search-box-wrapper offcanvas offcanvas-top" tabindex="-1" id="AsideOffcanvasSearch" aria-labelledby="offcanvasTopLabel">
@@ -461,34 +416,26 @@
     <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
      <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- JavaScript Libraries -->
+  <script src="./assets/lib/wow/wow.min.js"></script>
+  <script src="./assets/lib/easing/easing.min.js"></script>
 
     <!-- Initialize Swiper -->
-    <script>
-    const progressCircle = document.querySelector(".autoplay-progress svg");
-    const progressContent = document.querySelector(".autoplay-progress span");
+  <script>
     var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-        delay: 2500,
-        disableOnInteraction: false
-        },
-        pagination: {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
         el: ".swiper-pagination",
-        clickable: true
-        },
-        navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-        },
-        on: {
-        autoplayTimeLeft(s, time, progress) {
-            progressCircle.style.setProperty("--progress", 1 - progress);
-            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-        }
-        }
+        clickable: true,
+      },
     });
-    </script>
+  </script>
+
     <!-- Plugins JS -->
     <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
     <script src="./assets/js/plugins/fancybox.min.js"></script>
@@ -499,6 +446,8 @@
 
     <!-- Custom Main JS -->
     <script src="./assets/js/main.js"></script>
+
+    
 
 </body>
 
