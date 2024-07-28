@@ -97,8 +97,8 @@ class SpecialFooter extends HTMLElement {
                                 <h4 class="widget-title" style="color:#fff;">Information</h4>
                                 <ul class="widget-nav" >
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="about-us.html">About us</a></li>
+                                    <li><a href="https://play.google.com/store/apps/details?id=com.magicnumber.mnchat" target="_blank">MNChat</a></li>
+                                    <li><a href="about-us.html">About Us</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="faq.html">Privacy</a></li>
                                     <li><a href="faq.html">FAQs</a></li>

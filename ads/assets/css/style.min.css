@@ -278,7 +278,7 @@ hr {
   only screen and (min-width: 1200px) and (max-width: 1549px) {
   .main-nav > li > a {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     height: 80px;
     line-height: 80px;
   }
@@ -498,10 +498,10 @@ hr {
 }
 .main-nav li.active a,
 .main-nav li.active ul li.active a {
-  color: #6486ac;
+  color: #68d23a;
 }
 .main-nav li.active ul li.active ul li.active a {
-  color: #6486ac !important;
+  color: #68d23a !important;
 }
 .sticky-header {
   transition: all 0.4s ease-out;
@@ -3105,11 +3105,18 @@ background-color: #c67605;
 }
 .product-cat-name{
   margin-top: -20px;
+  font-size: 1rem;
     font-weight: 500;
     color: grey;
     text-transform: uppercase;
     margin-left: -0.5rem;
 
+}
+@media only screen and (min-width: 479px) {
+  .product-cat-name{
+      font-size: 15px;
+      padding-top: 10px;
+  }
 }
 @media only screen and (max-width: 479px) {
   .product-category-item {
@@ -3123,8 +3130,8 @@ background-color: #c67605;
 .product-category-item .icon {
   margin-bottom: 10%;
   transition: all 0.8s ease 0s;
-  padding-left: 30%;
-  padding-right: 30%;
+  padding-left: 35%;
+  padding-right: 35%;
 }
 @media only screen and (max-width: 479px) {
   .product-category-item .icon {
@@ -3251,7 +3258,8 @@ background-color: #c67605;
   }
 }
 .product-category-item:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background-color: rgb(40 129 41 / 5%);
 }
 .product-category-item:hover img {
   transform: rotateY(1turn);
@@ -7827,6 +7835,12 @@ background-color: #c67605;
       flex-flow: row wrap;
   }
 }
+@media only screen and (min-width: 1013px) {
+  .ads-tiles-items{
+    margin-left: 10px;
+  }
+}
+
 .ads-tiles-container .ads-tiles-items .ads-tiles-image img {
   width: 100%;
   -o-object-fit: cover;
