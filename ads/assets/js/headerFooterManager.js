@@ -83,7 +83,7 @@ class SpecialFooter extends HTMLElement {
                         <div class="col-md-6 col-lg-4">
                             <div class="widget-item">
                                 <div class="widget-about">
-                                    <a class="widget-logo" href="index.html">
+                                    <a class="widget-logo wow slideInRight" data-wow-duration="1s" href="index.html">
                                         <img src="assets/images/logo-footer.png" width="110" height="68" alt="Logo">
                                     </a>
                                     <p class="desc">No. 1, Jalan AI Road,
