@@ -57,7 +57,7 @@ class SpecialHeader extends HTMLElement {
             </div>
         </div>
 
-        <a class="header-action-btn" href="login.html">
+        <a class="header-action-btn user-login-btn" href="login.html">
             <span class="icon">
                 <i class="ri-user-line header-icon"></i>
             </span>

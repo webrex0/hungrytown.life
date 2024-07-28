@@ -808,9 +808,15 @@ hr {
   .appnav__icon {
     font-size: 25px;
   }
+  .user-login-btn{
+    display: none;
+  }
   @media (min-width: 992px) {
     .appnav {
       display: none;
+    }
+    .user-login-btn{
+      display: block;
     }
 }
 .appnav__link span {
@@ -3136,8 +3142,8 @@ background-color: #c67605;
 @media only screen and (max-width: 479px) {
   .product-category-item .icon {
     margin-bottom: 25px;
-    padding-left: 25%;
-  padding-right: 30%;
+    padding-left: 30%;
+  padding-right: 35%;
   }
 }
 .product-category-item .title {
@@ -3183,6 +3189,37 @@ background-color: #c67605;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
 }
+
+------------Glass Button------------
+.glass-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.glass-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 80px;
+  margin-right: 2em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+
+.glass-btn:hover {
+  background-color: whitesmoke;
+  transform: translateY(-5px);
+  transition: all 0.3s;
+}
+
+
+
 ------------swiper------------
 .swiper {
   width: 100%;
@@ -3759,101 +3796,7 @@ background-color: #c67605;
   font-size: 16px;
   color: #000;
 }
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .product-details-qty-list .form-check-label {
-    font-size: 13px;
-  }
-}
-.product-details-qty-list .form-check-label b {
-  font-weight: 600;
-}
-.product-details-qty-list .extra-offer {
-  display: block;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 13px;
-  color: #898989;
-  line-height: 1;
-  margin-top: 2px;
-}
-.product-details-pro-qty {
-  border-bottom: 1px solid #e3e3e3;
-  padding-bottom: 34px;
-  margin-bottom: 32px;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .product-details-pro-qty {
-    padding-bottom: 25px;
-    margin-bottom: 22px;
-  }
-}
-.pro-qty {
-  display: inline-block;
-  position: relative;
-}
-.pro-qty input {
-  width: 170px;
-  height: 50px;
-  font-size: 13px;
-  border: 2px solid #6486ac;
-  border-radius: 50px;
-  color: #231942;
-  font-weight: 700;
-  padding: 0 55px;
-  text-align: center;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .pro-qty input {
-    width: 163px;
-    height: 44px;
-    padding: 0 48px;
-  }
-}
-.pro-qty .qty-btn {
-  cursor: pointer;
-  position: absolute;
-  line-height: 21px;
-  color: #555;
-  height: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 28px;
-  width: 53px;
-  text-align: center;
-  transition: all 0.5s ease 0s;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .pro-qty .qty-btn {
-    font-size: 22px;
-    width: 43px;
-  }
-}
-.pro-qty .qty-btn:hover {
-  color: #ff6565;
-}
-.pro-qty .dec {
-  left: 0;
-  border-right: 1px solid #cdcdcd;
-  padding-left: 5px;
-  line-height: 22px;
-}
-.pro-qty .inc {
-  right: 0;
-  border-left: 1px solid #cdcdcd;
-  padding-right: 5px;
-}
+
 .product-details-shipping-cost .form-check-input {
   cursor: pointer;
   box-shadow: none;
@@ -3909,92 +3852,8 @@ background-color: #c67605;
     font-size: 13px;
   }
 }
-.product-details-action {
-  align-items: center;
-  display: flex;
-  margin-top: 50px;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .product-details-action {
-    margin-top: 30px;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .product-details-action {
-    flex-wrap: wrap;
-  }
-}
-@media only screen and (max-width: 479px) {
-  .product-details-action {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-.product-details-action .price {
-  font-size: 50px;
-  font-weight: 400;
-  margin-bottom: 0;
-  line-height: 1;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .product-details-action .price {
-    font-size: 40px;
-  }
-}
-.product-details-cart-wishlist {
-  display: flex;
-  margin-left: 55px;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .product-details-cart-wishlist {
-    margin-left: 26px;
-  }
-}
-@media only screen and (max-width: 479px) {
-  .product-details-cart-wishlist {
-    margin-left: 0;
-    margin-top: 30px;
-  }
-}
-.product-details-cart-wishlist .btn-wishlist {
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  background: #6486ac;
-  border: 2px solid #6486ac;
-  font-size: 20px;
-  border-radius: 50%;
-  line-height: 2.3;
-  margin-right: 30px;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .product-details-cart-wishlist .btn-wishlist {
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
-    margin-right: 11px;
-  }
-}
-.product-details-cart-wishlist .btn {
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px),
-  only screen and (min-width: 992px) and (max-width: 1199px) {
-  .product-details-cart-wishlist .btn {
-    height: 45px;
-    line-height: 32px;
-  }
-}
+
+
 .product-details-nav {
   display: flex;
   margin-bottom: 49px;
@@ -4164,32 +4023,7 @@ background-color: #c67605;
 .product-quick-view-content .product-details-content .product-details-pro-qty {
   margin-bottom: 0;
 }
-.product-quick-view-content .product-details-content .product-details-action {
-  margin-top: 30px;
-}
-.product-quick-view-content
-  .product-details-content
-  .product-details-action
-  .price {
-  font-size: 44px;
-}
-@media only screen and (max-width: 767px),
-  only screen and (min-width: 768px) and (max-width: 991px) {
-  .product-quick-view-content
-    .product-details-content
-    .product-details-action
-    .price {
-    font-size: 34px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .product-quick-view-content
-    .product-details-content
-    .product-details-action
-    .price {
-    font-size: 28px;
-  }
-}
+
 .product-quick-view-content
   .product-details-content
   .product-details-cart-wishlist {
