@@ -3299,7 +3299,7 @@ background-color: #c67605;
   background-color: rgb(40 129 41 / 5%);
 }
 .product-category-item:hover img {
-  transform: rotateY(1turn);
+  transform: scale(1.3);
 }
 .product-banner-item {
   border-radius: 10px;
@@ -7661,6 +7661,13 @@ background-color: #c67605;
   -ms-flex-align: stretch;
   align-items: stretch;
 }
+.ads-tiles-items {
+  border-radius: 15px;
+}
+.ads-tiles-container a:hover{
+  transform: scale(1.08);
+}
+
 @media (max-width: 1013px) {
   .ads-tiles-container {
       -webkit-box-orient: horizontal;
