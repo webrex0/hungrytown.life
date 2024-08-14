@@ -289,6 +289,19 @@ h6,
 
 
 /*** Facts ***/
+@media (max-width: 991.98px) {
+    .lang-select{
+        margin-left: 20px;
+        margin-top: -20px;
+    }
+    .dropdown-menu.show {
+        margin-left: 20px;
+    }
+    .fact-wrapper {
+        margin-top: 50px;
+    }
+}
+
 .fact-item .fact-icon {
     width: 120px;
     height: 120px;

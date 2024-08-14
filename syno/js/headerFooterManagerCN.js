@@ -15,7 +15,7 @@ class SpecialHeader extends HTMLElement {
         
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+            <a href="zh-home.html" class="navbar-brand ms-4 ms-lg-0">
                 <h1 class="text-primary m-0"><img class="me-3" src="img/icons/icon-1.png" alt="Icon">信诺集团</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -30,7 +30,7 @@ class SpecialHeader extends HTMLElement {
                     <a href="zh-contact.html" class="nav-item nav-link">联系我们</a>
                 </div>
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle lang-select" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         中文
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -68,8 +68,8 @@ class SpecialFooter extends HTMLElement {
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-light mb-4">服务</h3>
-                        <a class="btn btn-link text-white" href="portfolio.html">投资组合</a>
-                        <a class="btn btn-link text-white" href="business.html">商业提案</a>
+                        <a class="btn btn-link text-white" href="zh-portfolio.html">投资组合</a>
+                        <a class="btn btn-link text-white" href="zh-business.html">商业提案</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-light mb-4">快捷链接</h3>

@@ -30,7 +30,7 @@ class SpecialHeader extends HTMLElement {
                     <a href="contact-us.html" class="nav-item nav-link">Contact Us</a>
                 </div>
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle lang-select" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         English
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
