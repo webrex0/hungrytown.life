@@ -6,86 +6,93 @@
     <title>Astro</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
     <style>
         body {
             padding: 20px;
         }
+    
+        .noto-sans-sc {
+            font-family: "Noto Sans SC", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+    
         .question-block {
             margin-bottom: 20px;
         }
+    
         .answer {
-            font-weight: bold;
+            font-family: "Noto Sans SC", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 600;
             color: #ff3131;
             margin-top: 10px;
             z-index: 1;
         }
+    
         .bg-green1 {
-  background-color: rgb(224, 255, 224);
-  font-size: 20px;
-}
-.bg-green2 {
-  background-color: rgb(173, 217, 173);
-  font-size: 20px;
-}
-.bg-green3 {
-  background-color: rgb(132, 174, 132);
-  font-size: 20px;
-}
-.bg-green4 {
-  background-color: rgb(84, 108, 84);
-  font-size: 20px;
-  color: white;
-}
-.bg-green5 {
-  background-color: rgb(55, 86, 55);
-  font-size: 20px;
-  color: white;
-}
-
-.flexion {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-}
-.w-100px {
-    position: relative;
-  width: 28% !important;
-  z-index: 9999;
-}
+            background-color: rgb(224, 255, 224);
+            font-size: 20px;
+            font-family: "Noto Sans SC", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+    
+        .bg-green2 {
+            background-color: rgb(173, 217, 173);
+            font-size: 15px;
+        }
+    
+        .bg-green3 {
+            background-color: rgb(132, 174, 132);
+            font-size: 15px;
+        }
+    
+        .bg-green4 {
+            background-color: rgb(84, 108, 84);
+            font-size: 15px;
+            color: white;
+        }
+    
+        .bg-green5 {
+            background-color: rgb(55, 86, 55);
+            font-size: 15px;
+            color: white;
+        }
+    
+        .flexion {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    
+        .w-100px {
+            position: relative;
+            width: 28% !important;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1 class="text-center mt-5 mb-5"><b>紫微斗数 </b><br>Purple Star Astrology</h1>
+    <h1 class="text-center mt-3 mb-5"><b>紫微斗数 </b><br>Purple Star Astrology</h1>
 
     <!-- First Set -->
     <div id="app1">
-        <h2 class="text-center pb-4 bg-green1 pt-4">分析 Analysis 1</h2>
-        <div class="mb-4">
-            <label for="topicSelect1" class="form-label">选择宫位 Select Palace:</label>
-            <select id="topicSelect1" class="form-select">
-                <option selected disabled>选择 Select...</option>
-                <option value="1">命宫</option>
-                <option value="2">兄弟宫</option>
-                <option value="3">夫妻宫</option>
-                <option value="4">子女宫</option>
-                <option value="5">财帛宫</option>
-                <option value="6">疾恶宫</option>
-                <option value="7">迁移宫</option>
-                <option value="8">交友宫</option>
-                <option value="9">事业宫</option>
-                <option value="10">田宅宫</option>
-                <option value="11">福德宫</option>
-                <option value="12">父母宫</option>
-            </select>
+        <h2 class="text-center bg-green1" >命宫 Life</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect1" id="topicSelect1" value="1" checked>
+            <label class="form-check-label" for="topicSelect1">命宫 Life</label>
         </div>
-
         <div class="mb-4">
-            <label for="numColumns1" class="form-label">选择列数 Select number of column</label>
-            <select id="numColumns1" class="form-select" disabled>
+            <select id="numColumns1" class="form-select">
                 <option selected disabled>选择 Select...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -100,30 +107,15 @@
     </div>
     <hr>
     <!-- Second Set -->
-    <div id="app2" class="mt-5">
-        <h2 class="text-center pb-4 bg-green2 pt-4">分析 Analysis 2</h2>
-        <div class="mb-4">
-            <label for="topicSelect2" class="form-label">选择宫位 Select Palace:</label>
-            <select id="topicSelect2" class="form-select">
-                <option selected disabled>选择 Select...</option>
-                <option value="1">命宫</option>
-                <option value="2">兄弟宫</option>
-                <option value="3">夫妻宫</option>
-                <option value="4">子女宫</option>
-                <option value="5">财帛宫</option>
-                <option value="6">疾恶宫</option>
-                <option value="7">迁移宫</option>
-                <option value="8">交友宫</option>
-                <option value="9">事业宫</option>
-                <option value="10">田宅宫</option>
-                <option value="11">福德宫</option>
-                <option value="12">父母宫</option>
-            </select>
+    <div id="app2" class="mt-4">
+        <h2 class="text-center bg-green1" >兄弟宫 Siblings</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect2" id="topicSelect2" value="2" checked>
+            <label class="form-check-label" for="topicSelect2">兄弟宫 Siblings</label>
         </div>
 
         <div class="mb-4">
-            <label for="numColumns2" class="form-label">选择列数 Select number of column</label>
-            <select id="numColumns2" class="form-select" disabled>
+            <select id="numColumns2" class="form-select">
                 <option selected disabled>选择 Select...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -138,30 +130,15 @@
     </div>
     <hr>
     <!-- Three Set -->
-    <div id="app3" class="mt-5">
-        <h2 class="text-center pb-4 bg-green3 pt-4">分析 Analysis 3</h2>
-        <div class="mb-4">
-            <label for="topicSelect3" class="form-label">选择宫位 Select Palace:</label>
-            <select id="topicSelect3" class="form-select">
-                <option selected disabled>选择 Select...</option>
-                <option value="1">命宫</option>
-                <option value="2">兄弟宫</option>
-                <option value="3">夫妻宫</option>
-                <option value="4">子女宫</option>
-                <option value="5">财帛宫</option>
-                <option value="6">疾恶宫</option>
-                <option value="7">迁移宫</option>
-                <option value="8">交友宫</option>
-                <option value="9">事业宫</option>
-                <option value="10">田宅宫</option>
-                <option value="11">福德宫</option>
-                <option value="12">父母宫</option>
-            </select>
+    <div id="app3" class="mt-4">
+        <h2 class="text-center bg-green1">夫妻宫 Spouse</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect3" id="topicSelect3" value="3">
+            <label class="form-check-label" for="topicSelect3">夫妻宫 Spouse</label>
         </div>
 
         <div class="mb-4">
-            <label for="numColumns3" class="form-label">选择列数 Select number of column</label>
-            <select id="numColumns3" class="form-select" disabled>
+            <select id="numColumns3" class="form-select">
                 <option selected disabled>选择 Select...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -176,30 +153,15 @@
     </div>
     <hr>
     <!-- Forth Set -->
-    <div id="app4" class="mt-5">
-        <h2 class="text-center pb-4 bg-green4 pt-4">分析 Analysis 4</h2>
-        <div class="mb-4">
-            <label for="topicSelect4" class="form-label">选择宫位 Select Palace:</label>
-            <select id="topicSelect4" class="form-select">
-                <option selected disabled>选择 Select...</option>
-                <option value="1">命宫</option>
-                <option value="2">兄弟宫</option>
-                <option value="3">夫妻宫</option>
-                <option value="4">子女宫</option>
-                <option value="5">财帛宫</option>
-                <option value="6">疾恶宫</option>
-                <option value="7">迁移宫</option>
-                <option value="8">交友宫</option>
-                <option value="9">事业宫</option>
-                <option value="10">田宅宫</option>
-                <option value="11">福德宫</option>
-                <option value="12">父母宫</option>
-            </select>
+    <div id="app4" class="mt-4">
+        <h2 class="text-center bg-green1">子女宫 Children</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect4" id="topicSelect4" value="4">
+            <label class="form-check-label" for="topicSelect4">子女宫 Children</label>
         </div>
 
         <div class="mb-4">
-            <label for="numColumns4" class="form-label">选择列数 Select number of column</label>
-            <select id="numColumns4" class="form-select" disabled>
+            <select id="numColumns4" class="form-select">
                 <option selected disabled>选择 Select...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -214,30 +176,15 @@
     </div>
     <hr>
     <!-- Fifth Set -->
-    <div id="app5" class="mt-5">
-        <h2 class="text-center pb-4 bg-green5 pt-4">分析 Analysis 5</h2>
-        <div class="mb-4">
-            <label for="topicSelect5" class="form-label">选择宫位 Select Palace:</label>
-            <select id="topicSelect5" class="form-select">
-                <option selected disabled>选择 Select...</option>
-                <option value="1">命宫</option>
-                <option value="2">兄弟宫</option>
-                <option value="3">夫妻宫</option>
-                <option value="4">子女宫</option>
-                <option value="5">财帛宫</option>
-                <option value="6">疾恶宫</option>
-                <option value="7">迁移宫</option>
-                <option value="8">交友宫</option>
-                <option value="9">事业宫</option>
-                <option value="10">田宅宫</option>
-                <option value="11">福德宫</option>
-                <option value="12">父母宫</option>
-            </select>
+    <div id="app5" class="mt-4">
+        <h2 class="text-center bg-green1">财帛宫 Wealth</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect5" id="topicSelect5" value="5">
+            <label class="form-check-label" for="topicSelect5">财帛宫 Wealth</label>
         </div>
 
         <div class="mb-4">
-            <label for="numColumns5" class="form-label">选择列数 Select number of column</label>
-            <select id="numColumns5" class="form-select" disabled>
+            <select id="numColumns5" class="form-select">
                 <option selected disabled>选择 Select...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -249,6 +196,167 @@
         </div>
 
         <div id="questionArea5" class="row"></div>
+    </div>
+    <hr>
+    <!-- Six Set -->
+    <div id="app6" class="mt-4">
+        <h2 class="text-center bg-green1">疾恶宫 Health</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect6" id="topicSelect6" value="6">
+            <label class="form-check-label" for="topicSelect6">疾恶宫 Health</label>
+        </div>
+        <div class="mb-4">
+            <select id="numColumns6" class="form-select">
+                <option selected disabled>选择 Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+
+        <div id="questionArea6" class="row"></div>
+    </div>
+    <hr>
+    <!-- Seven Set -->
+    <div id="app7" class="mt-4">
+        <h2 class="text-center bg-green1">迁移宫 Travel</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect7" id="topicSelect7" value="7">
+            <label class="form-check-label" for="topicSelect7">迁移宫 Travel</label>
+        </div>
+
+        <div class="mb-4">
+            <select id="numColumns7" class="form-select">
+                <option selected disabled>选择 Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+
+        <div id="questionArea7" class="row"></div>
+    </div>
+    <hr>
+    <!-- Eight Set -->
+    <div id="app8" class="mt-4">
+        <h2 class="text-center bg-green1">交友宫 Friends</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect8" id="topicSelect8" value="8">
+            <label class="form-check-label" for="topicSelect8">交友宫 Friends</label>
+        </div>
+
+
+        <div class="mb-4">
+            <select id="numColumns8" class="form-select">
+                <option selected disabled>选择 Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+
+        <div id="questionArea8" class="row"></div>
+    </div>
+    <hr>
+    <!-- Nine Set -->
+    <div id="app9" class="mt-4">
+        <h2 class="text-center bg-green1">事业宫 Career</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect9" id="topicSelect9" value="9">
+            <label class="form-check-label" for="topicSelect9">事业宫 Career Palace</label>
+        </div>
+
+        <div class="mb-4">
+            <select id="numColumns9" class="form-select">
+                <option selected disabled>选择 Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+
+        <div id="questionArea9" class="row"></div>
+    </div>
+    <hr>
+    <!-- Ten Set -->
+    <div id="app10" class="mt-4">
+        <h2 class="text-center bg-green1">田宅宫 Property</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect10" id="topicSelect10" value="10">
+            <label class="form-check-label" for="topicSelect10">田宅宫 Property</label>
+        </div>
+
+        <div class="mb-4">
+            <select id="numColumns10" class="form-select">
+                <option selected disabled>选择 Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+
+        <div id="questionArea10" class="row"></div>
+    </div>
+    <hr>
+    <!-- Elven Set -->
+    <div id="app11" class="mt-4">
+        <h2 class="text-center bg-green1">福德宫 Fortune</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect11" id="topicSelect11" value="11">
+            <label class="form-check-label" for="topicSelect11">福德宫 Fortune</label>
+        </div>
+
+        <div class="mb-4">
+            <select id="numColumns11" class="form-select">
+                <option selected disabled>选择 Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+
+        <div id="questionArea11" class="row"></div>
+    </div>
+    <hr>
+    <!-- Twelve Set -->
+    <div id="app12" class="mt-4">
+        <h2 class="text-center bg-green1">父母宫 Parents Palace</h2>
+        <div class="form-check d-none">
+            <input class="form-check-input" type="radio" name="topicSelect12" id="topicSelect12" value="12">
+            <label class="form-check-label" for="topicSelect12">父母宫 Parents Palace</label>
+        </div>
+
+        <div class="mb-4">
+            <select id="numColumns12" class="form-select">
+                <option selected disabled>选择 Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+
+        <div id="questionArea12" class="row"></div>
     </div>
 
 </div>
