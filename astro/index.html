@@ -17,6 +17,7 @@
             font-weight: bold;
             color: #ff3131;
             margin-top: 10px;
+            z-index: 1;
         }
         .bg-green1 {
   background-color: rgb(224, 255, 224);
@@ -42,10 +43,16 @@
 }
 
 .flexion {
-  display: flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 .w-100px {
-  width: 80px;
+    position: relative;
+  width: 28% !important;
+  z-index: 9999;
 }
     </style>
 </head>
@@ -129,7 +136,7 @@
 
         <div id="questionArea2" class="row"></div>
     </div>
-<hr>
+    <hr>
     <!-- Three Set -->
     <div id="app3" class="mt-5">
         <h2 class="text-center pb-4 bg-green3 pt-4">分析 Analysis 3</h2>
