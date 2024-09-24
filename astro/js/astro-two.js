@@ -554,11 +554,11 @@ function initializeApp(newappId) {
         }
 
         questionBlocks.forEach(block => questionAreaNew.appendChild(block));
-        updateAvailableQuestions();
+        updateAvailableQuestionsNew();
     });
 }
 
-function updateAvailableQuestions() {
+function updateAvailableQuestionsNew() {
     // Collect selected questions from all 12 sets
     const selectedQuestionsNew = [];
     for (let i = 1; i <= 12; i++) {
@@ -595,5 +595,5 @@ initializeApp(4);
 
 // Add event listeners to update available questions when any question area changes
 for (let i = 1; i <= 12; i++) {
-    document.querySelector(`#questionArea${i}`).addEventListener('change', updateAvailableQuestions);
+    document.querySelector(`#questionAreaNew${i}`).addEventListener('change', updateAvailableQuestionsNew);
 }
