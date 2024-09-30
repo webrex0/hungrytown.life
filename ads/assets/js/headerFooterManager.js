@@ -1,3 +1,35 @@
+class SpecialAsideMenu extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+        <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h1 class="d-none" id="offcanvasExampleLabel">Aside Menu</h1>
+                <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i class="fa fa-chevron-left"></i></button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="offcanvasNav" class="offcanvas-menu-nav">
+                    <ul>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.html">home</a></li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">About Us</a></li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">ADS Space</a>
+                            <ul>
+                                <li><a href="#" class="offcanvas-nav-item">ADS Exchange</a></li>
+                                <li><a href="food&beverage.html" class="offcanvas-nav-item">Food & Beverage</a></li>
+                                <li><a href="health&supp.html" class="offcanvas-nav-item">Health & Supplement</a></li>
+                                <li><a href="tech&home.html" class="offcanvas-nav-item">Tech & Home</a></li>
+                                <li><a href="fashion&beauty.html" class="offcanvas-nav-item">Fashion & Beauty</a></li>
+                                <li><a href="others.html" class="offcanvas-nav-item">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        `
+    }
+}
+
 class SpecialHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -21,13 +53,14 @@ class SpecialHeader extends HTMLElement {
                         <div class="header-navigation">
                             <ul class="main-nav justify-content-center">
                                 <li class="has-submenu"><a href="index.html">HOME</a></li>
-                                <li class="has-submenu"><a href="products.html">CATERGORY</a>
+                                <li class="has-submenu"><a href="#/">CATEGORY</a>
                                     <ul class="submenu-nav">
-                                        <li><a href="#/">Food</a></li>
-                                        <li><a href="#/">Beverage</a></li>
-                                        <li><a href="#/">Gadget</a></li>
-                                        <li><a href="#/">Beauty</a></li>
-                                        <li><a href="#/">Household Care</a></li>
+                                        <li><a href="#/">ADS Exchange</a></li>
+                                        <li><a href="food&beverage.html">Food & Beverage</a></li>
+                                        <li><a href="health&supp.html">Health & Supplement</a></li>
+                                        <li><a href="tech&home.html">Tech & Home</a></li>
+                                        <li><a href="fashion&beauty.html">Fashion & Beauty</a></li>
+                                        <li><a href="others.html">Others</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="about-us.html">ABOUT US</a></li>
@@ -57,7 +90,7 @@ class SpecialHeader extends HTMLElement {
             </div>
         </div>
 
-        <a class="header-action-btn user-login-btn" href="login.html">
+        <a class="header-action-btn user-login-btn" href="https://app.ads13s.com/home/default.aspx">
             <span class="icon">
                 <i class="ri-user-line header-icon"></i>
             </span>
@@ -73,6 +106,72 @@ class SpecialHeader extends HTMLElement {
     }
 }
 
+class SpecialCategory extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+        <div class="section-space pt-0 wow slideInRight" data-wow-duration="1s">
+                <div class="container">
+                    <div class="catagories-nav-1">
+                        <!-- Slider main container -->
+                        <div class="swiper brand-logo-slider-container">
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 4"
+                                    style="margin-right: 12px;">
+                                    <a href="#" class="product-category-item">
+                                        <img class="icon" src="assets/images/caticon/1-ADS.png" width="80" height="80"
+                                            alt="Image-HasTech">
+                                        <div class="product-cat-name">ADS Exchange</div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 4"
+                                    style="margin-right: 12px;">
+                                    <a href="food&beverage.html" class="product-category-item">
+                                        <img class="icon" src="assets/images/caticon/2-food.png" width="80" height="80"
+                                            alt="Image-HasTech">
+                                        <div class="product-cat-name">Food & Beverage</div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide" role="group" aria-label="3 / 4" style="margin-right: 12px;">
+                                    <a href="tech&home.html" class="product-category-item">
+                                        <img class="icon" src="assets/images/caticon/1-gadget.png" width="80" height="80"
+                                            alt="Image-HasTech">
+                                        <div class="product-cat-name">Tech & Home</div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 4"
+                                    style="margin-right: 12px;">
+                                    <a href="health&supp.html" class="product-category-item">
+                                        <img class="icon" src="assets/images/caticon/3-health.png" width="80" height="80"
+                                            alt="Image-HasTech">
+                                        <div class="product-cat-name">Health & Supplement</div>
+                                    </a>
+                                </div>
+            
+                                <div class="swiper-slide" role="group" aria-label="4 / 4" style="margin-right: 12px;">
+                                    <a href="fashion&beauty.html" class="product-category-item">
+                                        <img class="icon" src="assets/images/caticon/4-beauty.png" width="80" height="80"
+                                            alt="Image-HasTech">
+                                        <div class="product-cat-name">Fashion & Beauty</div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide " role="group" aria-label="4 / 4" style="margin-right: 12px;">
+                                    <a href="others.html" class="product-category-item" data-bg-color="#FFF">
+                                        <img class="icon" src="assets/images/caticon/10-others.png" width="80" height="80"
+                                            alt="Image-HasTech">
+                                        <div class="product-cat-name">Others</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        `
+    }
+}
+
 class SpecialFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -83,12 +182,12 @@ class SpecialFooter extends HTMLElement {
                         <div class="col-md-6 col-lg-4">
                             <div class="widget-item">
                                 <div class="widget-about">
-                                    <a class="widget-logo wow slideInRight" data-wow-duration="1s" href="index.html">
+                                    <a class="widget-logo wow slideInRight" data-wow-duration="1s" href="https://ads13s.com/">
                                         <img src="assets/images/logo-footer.png" width="110" height="68" alt="Logo">
                                     </a>
-                                    <p class="desc">No. 1, Jalan AI Road,
-                                        Bandar Teknology AI,
-                                        47100 Puchong, Selangor Darul Ehsan, Malaysia.</p>
+                                    <p class="desc">B-7-1, Northpoint, Mid Valley City,
+                                    <br>No.1, Medan Syed Putra Utara,
+                                    <br>59200 Kuala Lumpur</p>
                                 </div>
                             </div>
                         </div>
@@ -98,8 +197,8 @@ class SpecialFooter extends HTMLElement {
                                 <ul class="widget-nav" >
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="https://play.google.com/store/apps/details?id=com.magicnumber.mnchat" target="_blank">MNChat</a></li>
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="https://ads13s.com/about-us">About Us</a></li>
+                                    <li><a href="https://ads13s.com/contact">Contact</a></li>
                                     <li><a href="faq.html">Privacy</a></li>
                                     <li><a href="faq.html">FAQs</a></li>
                                 </ul>
@@ -109,9 +208,11 @@ class SpecialFooter extends HTMLElement {
                             <div class="widget-item">
                                 <h4 class="widget-title">FOLLOW US</h4>
                                 <div class="widget-social">
-                                    <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
-                                    <a href="#" target="_blank" rel="noopener"><i class="fa fa-youtube"></i></a>
+                                    <a href="https://www.facebook.com/people/ADS-Innovative-Solutions/61562256423591/" target="_blank" rel="noopener"><i class="ri-facebook-fill"></i></a>
+                                    <a href="https://www.instagram.com/ads_innovative_solutions/" target="_blank" rel="noopener"><i class="ri-instagram-line"></i></a>
+                                    <a href="https://x.com/ADS_I_S" target="_blank" rel="noopener"><i class="ri-twitter-x-fill"></i></a>
+                                    <a href="https://www.tiktok.com/@ads.i.s" target="_blank" rel="noopener"><i class="ri-tiktok-fill"></i></a>
+                                    <a href="https://www.youtube.com/@ADS13S" target="_blank" rel="noopener"><i class="ri-youtube-line"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +222,7 @@ class SpecialFooter extends HTMLElement {
             <div class="footer-bottom">
                 <div class="container pt-0 pb-0">
                     <div class="footer-bottom-content">
-                        <p class="copyright">© 2024 ADS Company Sdn Bhd. All rights reserved.©</a></p>
+                        <p class="copyright">© 2024 ADS Platform. All rights reserved.©</a></p>
                     </div>
                 </div>
             </div>
@@ -141,7 +242,7 @@ class SpecialAppnav extends HTMLElement {
                 <i class="ri-cpu-line appnav__icon"></i>
                 <span class="appnav__text" data-localize="nav.ai">AI ADS</span>
             </a>
-            <a href="login.html" class="appnav__link">
+            <a href="https://app.ads13s.com/home/default.aspx" class="appnav__link">
                 <i class="ri-user-line appnav__icon"></i>
                 <span class="appnav__text" data-localize="nav.me">ME</span>
             </a>
@@ -150,6 +251,10 @@ class SpecialAppnav extends HTMLElement {
     }
 }
 
+
+
+customElements.define('special-aside', SpecialAsideMenu)
 customElements.define('special-header', SpecialHeader)
+customElements.define('special-category', SpecialCategory)
 customElements.define('special-footer', SpecialFooter)
 customElements.define('special-appnav', SpecialAppnav)

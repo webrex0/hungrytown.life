@@ -1,0 +1,714 @@
+.title-item-product {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+}
+
+.desc-item-product{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    max-width: 14vw !important;
+}
+
+.poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px;
+    color: white;
+}
+
+.poster-text-white {
+    color: white;
+}
+.poster-text-black {
+    color:#596962;
+}
+/* == LOGO - All posters == */
+.poster-logo{
+    max-width: 20% ;
+    height: 20%;
+    position: absolute;
+    border-radius: 5vw;
+    z-index: 2;
+    border: 1px solid rgb(255 255 255 / 20%);
+}
+/* == Discount Price - All posters == */
+.poster-discount-price {
+    position: absolute;
+    font-size: 1vw !important;
+    margin-left: 1vw !important;
+    bottom: 0vw !important;
+    z-index: 2;
+}
+@media (max-width: 1800px) {
+    .poster-discount-price  {
+        font-size: 1vw !important;
+        margin-left: 2vw !important;
+        bottom: 0vw !important;
+    }
+}
+@media (max-width: 1366px) {
+    .title-item-product {
+        font-size: 1.5vw !important;
+    }
+    .poster-discount-price  {
+        font-size: 1vw !important;
+        margin-left: 1vw !important;
+        bottom: 0vw !important;
+    }
+}
+@media (max-width: 1200px) {
+    .poster-discount-price  {
+        font-size: 1vw !important;
+        margin-left: 2vw !important;
+        bottom: 0vw !important;
+    }
+    .poster-pic {
+        top: 0;
+    }
+}
+@media (max-width: 1024px) {
+    .title-item-product {
+        font-size: 2vw !important;
+    }
+    .desc-item-product{
+        font-size: 1.2vw;
+        max-width: 50vw !important;
+    } 
+    .poster-discount-price  {
+        font-size: 1.2vw !important;
+        margin-left: 0.5vw !important;
+        bottom: 0vw !important;
+    }
+}
+@media (max-width: 960px) {
+    .desc-item-product{
+        font-size: 13px;
+        max-width: 20vw !important;
+    } 
+    .poster-discount-price  {
+        font-size: 1vw !important;
+        margin-left: 1vw !important;
+        bottom: 0vw !important;
+    }
+}
+@media (max-width: 768px) {
+    .title-item-product {
+        font-size: 2.5vw !important;
+    }
+    .desc-item-product{
+        font-size: 10px;
+        max-width: 20vw !important;
+    } 
+    .poster-discount-price  {
+        font-size: 1.3vw !important;
+        margin-left: 1vw !important;
+        bottom: 0vw !important;
+    }
+}
+@media (max-width: 764px) {
+    .title-item-product {
+        font-size: 3vw !important;
+    }
+    .desc-item-product{
+        font-size: 2.2vw;
+        max-width: 50vw !important;
+    } 
+    .poster-discount-price  {
+        font-size: 1.8vw !important;
+        margin-left: 1vw !important;
+        bottom: 0.5vw !important;
+    }
+}
+@media (max-width: 480px) {
+    .title-item-product {
+        font-size: 4.5vw !important;
+    }
+    .desc-item-product{
+        font-size: 3vw;
+        max-width: 50vw !important;
+    } 
+    .poster-discount-price  {
+    font-size: 2.5vw !important;
+    margin-left: 4vw !important;
+    bottom: 0vw !important;
+}
+
+}
+
+/* == Contact and Location - All posters == */
+.poster-contact {
+    font-size: 0.8vw;
+    position: absolute;
+    right: 0;
+    bottom: 3.5vw; /* Position relative to viewport */
+    margin-right: 1.6vw; /* Adjust margin with relative units */
+    font-family: 'Roboto', sans-serif;
+    z-index: 5;
+    background-color:rgb(229 229 229 / 73%);
+    border-radius: 100px;
+    padding: 0px 10px;
+    color: black;
+}
+
+.poster-location {
+    font-size: 0.7vw;
+    font-weight: 400;
+    position: absolute;
+    bottom: 1.4vw; 
+    right: 1.5vw;
+    bottom: 2vw; /* Position relative to viewport */
+    font-family: 'Roboto', sans-serif;
+    z-index: 5;
+    background-color: rgb(53 53 53 / 70%);
+    border-radius: 100px;
+    padding: 0px 10px;
+    
+}
+@media (max-width: 1800px) {
+    .poster-contact {
+        font-size: 1vw;
+    }
+
+    .poster-location {
+        font-size: 1vw !important;
+    }
+}
+@media (max-width: 1366px) {
+    .poster-contact {
+        font-size: 1vw;
+        bottom: 3.8vw;
+    }
+
+    .poster-location {
+        font-size: 1w !important;
+        bottom: 2vw;
+    }
+}
+@media (max-width: 1200px) {
+    .poster-contact {
+        font-size: 1.3vw;
+    }
+
+    .poster-location {
+        font-size: 1.3vw !important;
+    }
+}
+@media (max-width: 1024px) {
+    .poster-contact {
+        font-size: 1.3vw;
+        right: 0.5vw;
+        bottom: 4.5vw !important;
+    }
+
+    .poster-location {
+        font-size: 1.3vw !important;
+        right: 2vw;
+        bottom: 2.5vw !important;
+    }
+}
+@media (max-width: 960px) {
+    .poster-contact {
+        font-size: 1vw !important;
+        right: 0vw;
+        bottom: 4vw !important;
+    }
+
+    .poster-location {
+        font-size: 1vw !important;
+        right: 2vw;
+        bottom: 3vw !important;
+    }
+}
+
+@media (max-width: 768px){
+    .poster-contact {
+        font-size: 1.4vw !important;
+        right: 0;
+        bottom: 4.5vw !important;
+    }
+
+    .poster-location {
+        font-size: 1.2vw !important;
+        right: 2vw;
+        bottom: 3vw !important;
+    }
+}
+@media (max-width: 764px) {
+    .poster-contact {
+        font-size: 1.4vw !important;
+        right: 0;
+        bottom: 4.5vw !important;
+    }
+
+    .poster-location {
+        font-size: 1.2vw !important;
+        right: 2vw;
+        bottom: 3vw !important;
+    }
+}
+@media (max-width: 480px) {
+    .poster-contact {
+        font-size: 2.5vw !important;
+        right: 3vw;
+        bottom: 9vw !important;
+        
+    }
+
+    .poster-location {
+        font-size: 2.5vw !important;
+        right: 5vw;
+        bottom: 5vw !important;
+        
+    }
+}
+
+/* ---------------------------------- Poster Style 1 --------------------------------------- */
+
+/* == Poster1 Logo */
+.poster1 .poster-logo {
+    right: 1vw; /* Use viewport width units for responsive positioning */
+    top: 1.2vw !important;
+}
+
+/* == Poster1 Title */
+.poster1 .poster-title {
+    font-size: 1.2vw !important; /* Font size relative to the viewport width */
+    margin-left: 2vw;
+    margin-top: 1vw;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    z-index: 2;
+}
+
+/* == Poster1 Product Image */
+.poster1 .poster-pic {
+    width: 15vw !important; /* Adjust width for responsiveness */
+    height: 60% !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    border-radius: 10px;
+    object-fit: cover; /* Ensure the image covers the entire area */
+    object-position: center; /* Ensure the image is centered */
+}
+/* Media Queries for Large Screens */
+@media (max-width: 1368px) {
+    .poster1 .poster-title {
+        font-size: 4vw; /* Larger font size on smaller screens */
+        margin-left: 2vw;
+        margin-top: 1.5vw;
+    }
+
+    .poster1 .poster-logo {
+        right: 2vw !important;
+        top: 0.5vw;
+    }
+
+    .poster1 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
+    .poster1 .poster-title {
+        font-size: 1.4vw !important; /* Larger font size on smaller screens */
+        margin-left: 2vw;
+        margin-top: 1.3vw;
+    }
+    .poster1 .poster-logo {
+        top: 2vw;
+    }
+
+    .poster1 .poster-pic {
+        width: 18vw !important; /* Adjust product image size */
+    }
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .poster1 .poster-title {
+        font-size: 1.5vw !important; /* Larger font size on smaller screens */
+        margin-left: 32w;
+        margin-top: 1.3vw;
+    }
+    .poster1 .poster-logo {
+        top: 1vw;
+    }
+
+    .poster1 .poster-pic {
+        width: 20vw !important; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Extra Small Screens */
+@media (max-width: 480px) {
+    .poster1 .poster-title {
+        font-size: 3vw !important; /* Further increase font size */
+        margin-top: 3vw !important;
+    }
+
+    .poster1 .poster-logo {
+        top: 3vw !important;
+    }
+
+    .poster1 .poster-pic {
+        width: 40vw !important; /* Make product image larger */
+    }
+}
+
+/* ---------------------------------- Poster Style 2 --------------------------------------- */
+
+.poster2 .poster-template {
+    z-index: 1;
+}
+
+/* == Poster2 Logo */
+.poster2 .poster-logo {
+    right: 3vw; /* Use viewport width units for responsive positioning */
+    top: 2vw;
+}
+
+/* == Poster2 Title */
+.poster2 .poster-title {
+    position: absolute;
+    font-size: 1.2vw !important; /* Font size relative to the viewport width */
+    line-height: 1.5vw;
+    right: 0;
+    margin-top: 6vw;
+    margin-right: 2vw;
+    font-family: "Roboto Slab", serif;
+    font-weight: 500;
+    max-width: 100px; /* Set the desired maximum width */
+    word-wrap: break-word; /* Ensure long words are wrapped */
+    text-align: center;
+    z-index: 2;
+}
+
+
+/* == Poster2 Product Image */
+.poster2 .poster-pic {
+    width: initial;
+    height: initial;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+}
+.poster2 .poster-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Scale and crop the image to fit */
+    object-position: center; /* Center the image */
+}
+
+/* Media Queries for Large Screens */
+@media (max-width: 1368px) {
+    .poster2 .poster-title {
+        font-size: 3vw; /* Larger font size on smaller screens */
+        margin-left: 10vw;
+        margin-top: 6vw;
+    }
+
+    .poster2 .poster-logo {
+        top: 2vw;
+    }
+
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
+    .poster2 .poster-title {
+        font-size: 1.4vw !important; /* Larger font size on smaller screens */
+        margin-left: 13vw !important;
+        margin-top: 7vw;
+    }
+
+    .poster2 .poster-logo {
+        top: 2.5vw;
+    }
+
+    .poster2 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 940px) {
+    .poster2 .poster-title {
+        font-size: 4vw; /* Larger font size on smaller screens */
+        margin-left: 15vw !important;
+        margin-top: 6vw;
+    }
+
+    .poster2 .poster-logo {
+        top: 2vw;
+    }
+
+    .poster2 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .poster2 .poster-title {
+        font-size: 1.6vw !important; /* Larger font size on smaller screens */
+        margin-left: 18vw !important;
+        margin-top: 8vw;
+    }
+
+    .poster2 .poster-logo {
+        top: 2vw;
+    }
+
+    .poster2 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Extra Small Screens */
+@media (max-width: 480px) {
+    .poster2 .poster-title {
+        font-size: 3vw !important; /* Further increase font size */
+        line-height: 4vw;
+        right: 0;
+        margin-top: 16vw;
+        margin-right: 4vw;
+        max-width: 70px; /* Set the desired maximum width */
+    }
+
+    .poster2 .poster-logo {
+        margin-top: 4vw;
+        margin-right: 4vw;
+    }
+
+}
+
+
+/* ---------------------------------- Poster Style 3 --------------------------------------- */
+
+.poster3 .poster-template {
+    z-index: 1;
+}
+
+/* == poster3 Logo */
+.poster3 .poster-logo {
+    right: 1vw; /* Use viewport width units for responsive positioning */
+    top: 3vw;
+}
+
+/* == poster3 Title */
+.poster3 .poster-title {
+    position: absolute;
+    font-size: 1.2vw !important; /* Font size relative to the viewport width */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center using translate */
+    margin-top: 0.7vw; /* Keep your vertical margin */
+    font-family: "Roboto Slab", serif;
+    font-weight: 500;
+    text-align: center;
+    z-index: 2;
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide overflow text if it exceeds the container width */
+    text-overflow: ellipsis; /* Optionally add ellipsis if text is too long */
+}
+
+
+/* == poster3 Product Image */
+.poster3 .poster-pic {
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+}
+.poster3 .poster-pic img {
+    width: 10px;
+    height: 10px;
+    object-fit: cover; /* Scale and crop the image to fit */
+    object-position: center; /* Center the image */
+}
+/* Media Queries for Large Screens */
+@media (max-width: 1368px) {
+    .poster3 .poster-title {
+        font-size: 1vw !important; /* Larger font size on smaller screens */
+        margin-top: 1vw;
+    }
+
+    .poster3 .poster-logo {
+        top: 3vw;
+    }
+
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
+    .poster3 .poster-title {
+        font-size: 1.5vw !important; /* Larger font size on smaller screens */
+        margin-top: 0.8vw;
+    }
+
+    .poster3 .poster-logo {
+        top: 5vw;
+    }
+
+    .poster3 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 940px) {
+    .poster3 .poster-title {
+        font-size: 4vw; /* Larger font size on smaller screens */
+    }
+
+
+    .poster3 .poster-logo {
+        top: 2vw;
+    }
+
+    .poster3 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .poster3 .poster-title {
+        font-size: 1.8vw !important; /* Larger font size on smaller screens */
+        margin-top: 0.8vw;
+    }
+
+    .poster3 .poster-logo {
+        top: 4vw;
+    }
+
+    .poster3 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Extra Small Screens */
+@media (max-width: 480px) {
+    .poster3 .poster-title {
+        font-size: 3vw !important; /* Further increase font size */
+        margin-top: 2vw;
+    }
+
+    .poster3 .poster-logo {
+        margin-top: 7vw;
+        margin-right: 2vw;
+    }
+
+}
+
+/* ---------------------------------- Poster Style 4 --------------------------------------- */
+
+/* == poster4 Logo */
+.poster4 .poster-logo {
+    right: 2vw; /* Use viewport width units for responsive positioning */
+    top: 5vw;
+    
+}
+
+/* == poster4 Title */
+.poster4 .poster-title {
+    position: absolute;
+    font-size: 1.2vw !important; /* Font size relative to the viewport width */
+    font-weight: 700;
+    line-height: 1.5vw;
+    top: 50%;
+    right: 8%;
+    max-width: 50%; /* Set the desired maximum width */
+    word-wrap: break-word; /* Ensure long words are wrapped */
+    text-align: right;
+    z-index: 2;
+}
+
+/* == poster4 Product Image */
+.poster4 .poster-pic {
+    width: 10vw !important; /* Adjust width for responsiveness */
+    height: 80%;
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    border-radius: 15px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: cover; /* Ensure the image covers the entire area */
+    object-position: center; /* Ensure the image is centered */
+}
+/* Media Queries for Large Screens */
+@media (max-width: 1368px) {
+    .poster4 .poster-title {
+        font-size: 4vw; /* Larger font size on smaller screens */
+        margin-left: 2vw;
+        margin-top: 0vw;
+    }
+
+    .poster4 .poster-logo {
+        top: 4vw;
+    }
+
+    .poster4 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
+    .poster4 .poster-title {
+        font-size: 1.5vw !important; /* Larger font size on smaller screens */
+        margin-left: 9vw;
+        margin-top: 1vw;
+    }
+
+
+    .poster4 .poster-logo {
+        top: 6vw;
+    }
+
+    .poster4 .poster-pic {
+        width: 12vw !important; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .poster4 .poster-title {
+        font-size: 1.7vw !important; /* Larger font size on smaller screens */
+        margin-left: 9vw !important;
+        margin-top: 1vw;
+    }
+
+
+    .poster4 .poster-logo {
+        top: 6vw;
+    }
+
+    .poster4 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Extra Small Screens */
+@media (max-width: 480px) {
+    .poster4 .poster-title {
+        font-size: 3.5vw !important; /* Further increase font size */
+        margin-top: 1px !important;
+        line-height: 3vw !important;
+    }
+
+    .poster4 .poster-logo {
+        top: 10vw !important;
+        right: 5vw;
+    }
+
+    .poster4 .poster-pic {
+        width: 25vw !important; /* Make product image larger */
+    }
+}

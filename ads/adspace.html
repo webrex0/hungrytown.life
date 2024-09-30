@@ -12,7 +12,7 @@
     <meta name="author" content="codecarnival" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/android-chrome-512x512.png">
 
     <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
@@ -76,7 +76,7 @@
                             <div class="pt-3 pb-5">
                                 
                                 <div class="merchant-form">
-                                    <h6 class="green-text">Submission of Merchant</h6>
+                                    <h6 class="green-text text-center pb-5">Submission of Merchant (office use only)</h6>
                                     <form>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Company Name:</label>
@@ -84,9 +84,9 @@
                                                 <input type="text" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="form-group pt-3">
-                                            <label class="col-sm-4">Upload Company SSM:</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                        <div class="form-group flex pt-3">
+                                            <div class="col-sm-4">Upload Company SSM:</div>
+                                            <input type="file" class="form-control-file ps-2" id="exampleFormControlFile1">
                                           </div>
                                         <div class="form-group row pt-3">
                                             <label class="col-sm-4 col-form-label">Director Name:</label>
@@ -94,9 +94,9 @@
                                                 <input type="text" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="form-group pt-3">
-                                            <label class="col-sm-4">Upload Director's NRIC / Passport Front & Back:</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                        <div class="form-group flex pt-3">
+                                            <div class="col-sm-4">Upload Director's NRIC / Passport Front & Back:</div>
+                                            <input type="file" class="form-control-file ps-2" id="exampleFormControlFile1">
                                           </div>
 
                                           <div class="form-group row pt-3">
@@ -112,7 +112,7 @@
                                             </div>
                                         </div><hr>
 
-                                        <h6 class="green-text pt-3 pb-3">Merchant Advertising Template</h6>
+                                        <h6 class="green-text pt-3 pb-3 text-center ">Merchant Advertising Template</h6>
                                         <div class="templates-img">
                                             <img src="assets/images/backend/templates.png">
                                         </div>
@@ -145,35 +145,61 @@
                                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4"
                                                             value="option4">
                                                         <label class="form-check-label" for="gridRadios4">
-                                                            Template 4
+                                                            Custom
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <div class="form-group pt-3">
+
+                                        
+                                        <div class="form-group pt-3 flex">
                                             <label class="col-sm-4">Upload Company Logo (PNG):</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            <input type="file" class="form-control-file ps-2" id="exampleFormControlFile1">
                                         </div>
                                         
-
+                                        
+                                        <div class="form-group pt-3 flex">
+                                            <label class="col-sm-4">Upload Product Photo (JPEG):</label>
+                                            <input type="file" class="form-control-file ps-2" id="exampleFormControlFile1">
+                                        </div>
                                         <div class="form-group row pt-3">
-                                            <label class="col-sm-4 col-form-label">Product Name:</label>
+                                            <label class="col-sm-4 col-form-label">Brand Name:</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="form-group pt-3">
-                                            <label class="col-sm-4">Upload Product Photo (JPEG):</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                        
+                                        <div class="form-group row pt-3">
+                                            <label class="col-sm-4 col-form-label">Contact No.:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control">
+                                            </div>
                                         </div>
                                         <div class="form-group row pt-3">
-                                            <label class="col-sm-4 col-form-label">Product Description:</label>
+                                            <label class="col-sm-4 col-form-label">Exclusive Rebate (%):</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pt-3">
+                                            <label class="col-sm-4 col-form-label">Product's Short Introduction:</label>
                                             <div class="col-sm-8">
                                                 <textarea rows="10" style="line-height: normal;" class="form-control"></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+
+                                        <div class="form-group row pt-3 flex">
+                                            <label class="col-sm-4 col-form-label">Template Preview:</label>
+                                            <div class="col-sm-8">
+                                                <img src="./assets/images/sqBanner/m2.png">
+                                            </div>
+                                        </div>
+                                        
+                                        <hr>
+                                        <h6 class="green-text pt-3 pb-3 text-center ">Merchant Social Media Links</h6>
+                                        <div class="form-group row pb-5">
                                             <label class="col-sm-4 col-form-label">Facebook Link:</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control">
@@ -195,7 +221,7 @@
                                                 <input type="text" class="form-control">
                                             </div>
                                         </div>
-
+                                        <hr>
                                         <div class="form-group row pt-5">
                                             <div class="col-sm-4" style="font-weight: 600;">Declaration:</div>
                                             <div class="col-sm-8">
@@ -237,7 +263,7 @@
                         </div>
                     </div>
                 </footer>
-
+        </main>
         <!--== Start Message Quick View Modal ==-->
         <aside class="product-cart-view-modal modal fade" id="action-QuickViewModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -344,34 +370,7 @@
         <!--== End Message Quick View Modal ==-->
 
         <!--== Start Aside Menu ==-->
-        <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <h1 class="d-none" id="offcanvasExampleLabel">Aside Menu</h1>
-                <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i class="fa fa-chevron-left"></i></button>
-            </div>
-            <div class="offcanvas-body">
-                <div id="offcanvasNav" class="offcanvas-menu-nav">
-                    <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.html">home</a></li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Catergory</a>
-                            <ul>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Beverage</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Gadget</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Beauty</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Apperal</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Electrical</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Services</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Property</a></li>
-                            </ul>
-                        </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">About Us</a></li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </aside>
+        <special-aside></special-aside>
         <!--== End Aside Menu ==-->
 
         <!-- app nav -->

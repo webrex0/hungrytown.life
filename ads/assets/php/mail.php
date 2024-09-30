@@ -1,33 +1,32 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
-    // Only process POST reqeusts.
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form fields and remove whitespace.
-        $name = strip_tags(trim($_POST["con_name"]));
-        $name = str_replace(array("\r","\n"),array(" "," "),$name);
-        $email = filter_var(trim($_POST["con_email"]), FILTER_SANITIZE_EMAIL);
-        $phone = trim($_POST["con_phone"]);
-        $message = trim($_POST["con_message"]);
+// Only process POST requests.
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the form fields and remove whitespace.
+    $name = strip_tags(trim($_POST["con_name"]));
+    $name = str_replace(array("\r", "\n"), array(" ", " "), $name);
+    $email = filter_var(trim($_POST["con_email"]), FILTER_SANITIZE_EMAIL);
+    $message = trim($_POST["con_message"]);
 
-        // Check that data was sent to the mailer.
-        if ( empty($name) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // Set a 400 (bad request) response code and exit.
-            http_response_code(400);
-            echo "Please complete the form and try again.";
-            exit;
-        }
+    // Check that data was sent to the mailer.
+    if (empty($name) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Set a 400 (bad request) response code and exit.
+        http_response_code(400);
+        echo "Please complete the form and try again.";
+        exit;
+    }
 
         // Set the recipient email address.
-        $recipient = "your@email.here";
+    $recipient = "ads_care@ads13s.com";
 
-        // Set the email subject.
-        $subject = "Brancy - Test Mail From $name";
+    // Set the email subject.
+    $subject = "ADS - Mail From $name";
 
         // Build the email content.
         $email_content = 
         '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-        <html lang="zxx">
+        <html lang="en">
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -220,16 +219,6 @@ header("Access-Control-Allow-Origin: *");
                                                     <td height="30" style="font-size:10px; line-height:10px;">&nbsp;</td>
                                                 </tr>
                                                 <!--== End Separator ==-->
-                        
-                                                <!--== Start Phone Field Item ==-->
-                                                <tr>
-                                                    <td width="100%" class="mobile" align="left" valign="middle">
-                                                        <h3>Phone or Mobile:</h3>
-                                                        <hr>
-                                                        <h2>'. $phone .'</h2>
-                                                    </td>
-                                                </tr>
-                                                <!--== End Phone Field Item ==-->
                                                 
                                                 <!--== Start Separator ==-->
                                                 <tr>
@@ -296,7 +285,7 @@ header("Access-Control-Allow-Origin: *");
         // Build the email headers.
         $email_headers = "MIME-Version: 1.0" . "\r\n";
         $email_headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $email_headers .= 'From:' . $name . ' ' . 'noreply@yourdomain.com' . "\r\n";
+        $email_headers .= 'From:' . $name . ' ' . 'ads_care@ads13s.com' . "\r\n";
         $email_headers .= 'Reply-To:' . $email . "\r\n";
 
         // Send the email.
