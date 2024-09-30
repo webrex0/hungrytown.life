@@ -8452,7 +8452,14 @@ label {
 .merchant-form label {
   margin-left: 0px;
 }
-
+.upload-btn {
+  display: flex;
+}
+@media only screen and (max-width: 768px) {
+.merchant-form .upload-btn {
+  display: block !important;
+}
+}
 .col-form-label{
   color: #008016;
 }
