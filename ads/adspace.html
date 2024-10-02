@@ -102,13 +102,13 @@
                                           <div class="form-group row pt-3">
                                             <label class="col-sm-4 col-form-label">Company Address:</label>
                                             <div class="col-sm-8">
-                                                <textarea rows="3" style="line-height: normal;" class="form-control"></textarea>
+                                                <textarea rows="3" style="line-height: normal;" class="form-control"maxlength="200" placeholder="Fill in address..."></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Nature of Business:</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" maxlength="20" placeholder="etc..services,creative,health.."></input>
                                             </div>
                                         </div><hr>
 
@@ -136,50 +136,55 @@
                                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
                                                         <label class="form-check-label" for="gridRadios4">Upload Your Own Poster</label>
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                         </fieldset>
 
-                                        
+                                        <div class="form-group pt-3 upload-btn">
+                                            <label class="col-sm-4">Upload Company Logo (PNG):</label>
+                                            <input type="file" class="form-control-file ps-2">
+                                        </div>
+                                        <div class="form-group row pt-3">
+                                            <label class="col-sm-4 col-form-label">Poster Title:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" maxlength="20" placeholder="Limited to 20 characters only....">
+                                            </div>
+                                        </div>
+                                         <div class="form-group pt-3 upload-btn">
+                                            <label class="col-sm-4">Upload Product Photo (JPEG):</label>
+                                            <input type="file" class="form-control-file ps-2">
+                                        </div>
+
                                         <!-- Fields to hide/show -->
                                         <div id="additional-fields">
-                                            <div class="form-group pt-3 upload-btn">
-                                                <label class="col-sm-4">Upload Company Logo (PNG):</label>
-                                                <input type="file" class="form-control-file ps-2">
-                                            </div>
-                                        
-                                            <div class="form-group pt-3 upload-btn">
-                                                <label class="col-sm-4">Upload Product Photo (JPEG):</label>
-                                                <input type="file" class="form-control-file ps-2">
-                                            </div>
-                                        
-                                            <div class="form-group row pt-3">
-                                                <label class="col-sm-4 col-form-label">Brand Name:</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                        
                                             <div class="form-group row pt-3">
                                                 <label class="col-sm-4 col-form-label">Contact No.:</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" maxlength="8" placeholder="+8612345678">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row pt-3">
+                                                <label class="col-sm-4 col-form-label">Location:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" maxlength="15" placeholder="etc..Subang Jaya, Kajang, Klang Valley"></input>
                                                 </div>
                                             </div>
                                         </div>
-
-
+                                        
+                                         <!-- Continue Other fields -->
+                                         
                                         <div class="form-group row pt-3">
                                             <label class="col-sm-4 col-form-label">Exclusive Rebate (%):</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" maxlength="3" placeholder="etc..50%">
                                             </div>
                                         </div>
 
                                         <div class="form-group row pt-3">
                                             <label class="col-sm-4 col-form-label">Product's Short Introduction:</label>
                                             <div class="col-sm-8">
-                                                <textarea rows="10" style="line-height: normal;" class="form-control"></textarea>
+                                                <textarea rows="10" style="line-height: normal; width: 100%;" class="form-control;" maxlength="200" placeholder="Limited to 200 characters only...."></textarea>
                                             </div>
                                         </div>
 
@@ -189,7 +194,13 @@
                                                 <img src="./assets/images/sqBanner/m2.png">
                                             </div>
                                         </div>
-                                        
+                                        <hr>
+                                        <h6 class="green-text pt-3 pb-3 text-center">Video for Merchant's Page</h6>
+                                        <div class="form-group pt-3 pb-5 upload-btn">
+                                            <label class="col-sm-4">Upload Video (MP4, WebM, AVI, MPEG, FLV, OGG, MOV, 3GP and other video files
+                                                Max file size: 200MB):</label>
+                                            <input type="file" class="form-control-file ps-2">
+                                        </div>
                                         <hr>
                                         <h6 class="green-text pt-3 pb-3 text-center">Merchant Social Media Links</h6>
                                         
@@ -294,10 +305,10 @@
                                                             <strong>All Custom Posters must include:</strong><br>
                                                             <ol type="a">
                                                                 <li><strong>Logo:</strong> Clear and visible.</li>
-                                                                <li><strong>Title / Brand Name:</strong> Display your brand.</li>
+                                                                <li><strong>Title Name:</strong> Display your brand.</li>
                                                                 <li><strong>Product / Service Offered:</strong> Show the product or service.</li>
                                                                 <li><strong>Contact Information:</strong> Provide a phone number.</li>
-                                                                <li><strong>Location:</strong> Add your store or area.</li>
+                                                                <li><strong>Location:</strong> Add your store or area (etc..Subang Jaya, Kajang, Klang Valley).</li>
                                                             </ol>
                                                         </li>
                                                         <li>
