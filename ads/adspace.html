@@ -113,9 +113,29 @@
                                         </div><hr>
 
                                         <h6 class="green-text pt-3 pb-3 text-center">Merchant Advertising Template</h6>
-                                        <div class="templates-img">
-                                            <img src="assets/images/backend/templates.png">
+
+                                        <!-- Container for category dropdown -->
+                                        <div class="form-group row pb-5">
+                                            <label class="col-sm-4 col-form-label">Select Category:</label>
+                                            <div class="col-sm-8 d-flex align-items-end">
+                                                <select id="categorySelect" class="form-control me-2">
+                                                    <option value="">-- Select Category --</option>
+                                                    <option value="cat-1">Food & Beverage</option>
+                                                    <option value="cat-2">Health & Supplement</option>
+                                                    <option value="cat-3">Tech & Home</option>
+                                                    <option value="cat-4">Fashion & Beauty</option>
+                                                    <option value="cat-5">Others</option>
+                                                </select>
+                                            </div>
                                         </div>
+                                        
+                                        <!-- Container for changing image -->
+                                        <div class="templates-img">
+                                            <img id="categoryImage" src="assets/images/backend/templates1.png" alt="Template Image" />
+                                        </div>
+                                        
+                                        <!-- END Container for category dropdown -->
+
                                         <fieldset class="form-group pt-3">
                                             <div class="row">
                                                 <legend class="col-form-label col-sm-4 pt-0">Choose ONE of above template:</legend>
@@ -177,7 +197,7 @@
                                         <div class="form-group row pt-3">
                                             <label class="col-sm-4 col-form-label">Exclusive Rebate (%):</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" maxlength="3" placeholder="etc..50%">
+                                                <input type="text" class="form-control" maxlength="3" placeholder="etc..min 5%">
                                             </div>
                                         </div>
 
@@ -187,7 +207,11 @@
                                                 <textarea rows="10" style="line-height: normal; width: 100%;" class="form-control;" maxlength="200" placeholder="Limited to 200 characters only...."></textarea>
                                             </div>
                                         </div>
-
+                                        <div class="form-group row pt-5 pb-5">
+                                            <div class="col-sm-12 text-center">
+                                                <button type="submit" class="btn btn-primary">Preview My Template</button>
+                                            </div>
+                                        </div>
                                         <div class="form-group row pt-3 flex">
                                             <label class="col-sm-4 col-form-label">Template Preview:</label>
                                             <div class="col-sm-8">
@@ -195,11 +219,23 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <h6 class="green-text pt-3 pb-3 text-center">Video for Merchant's Page</h6>
+                                        <h6 class="green-text pt-3 pb-3 text-center">AI Video for Merchant's Page</h6>
+                                        <div class="form-group row pt-3">
+                                            <label class="col-sm-4 col-form-label">Poster Title:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" maxlength="20" placeholder="Limited to 20 characters only....">
+                                            </div>
+                                        </div>
                                         <div class="form-group pt-3 pb-5 upload-btn">
                                             <label class="col-sm-4">Upload Video (MP4, WebM, AVI, MPEG, FLV, OGG, MOV, 3GP and other video files
                                                 Max file size: 200MB):</label>
                                             <input type="file" class="form-control-file ps-2">
+                                        </div>
+                                        <div class="form-group row pt-3">
+                                            <label class="col-sm-4 col-form-label">Product's Long Introduction:</label>
+                                            <div class="col-sm-8">
+                                                <textarea rows="10" style="line-height: normal; width: 100%;" class="form-control;" placeholder="Write you product description here.."></textarea>
+                                            </div>
                                         </div>
                                         <hr>
                                         <h6 class="green-text pt-3 pb-3 text-center">Merchant Social Media Links</h6>
@@ -444,6 +480,30 @@
             };
         });
     </script>
+
+<script>
+    document.getElementById("categorySelect").addEventListener("change", function () {
+        const selectedValue = this.value;
+        const categoryImage = document.getElementById("categoryImage");
+
+        // Map of category values to corresponding image paths
+        const imageMap = {
+            "cat-1": "assets/images/backend/templates1.png",
+            "cat-2": "assets/images/backend/templates2.png",
+            "cat-3": "assets/images/backend/templates3.png",
+            "cat-4": "assets/images/backend/templates4.png",
+            "cat-5": "assets/images/backend/templates5.png"
+        };
+
+        // If a valid category is selected, update the image source
+        if (imageMap[selectedValue]) {
+            categoryImage.src = imageMap[selectedValue];
+        } else {
+            // If no category is selected, reset to a default image
+            categoryImage.src = "assets/images/backend/templates1.png";
+        }
+    });
+</script>
 
 
     <!-- Vendors JS -->

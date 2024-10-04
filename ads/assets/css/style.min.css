@@ -3467,7 +3467,7 @@ background-color: #c67605;
   left: -280px;
 }
 .product-cart-view-modal .modal-dialog {
-  max-width: 1180px;
+  min-height: calc(100% - 3.5rem);
 }
 .product-cart-view-modal .modal-body {
   padding: 30px 15px;
@@ -8323,6 +8323,8 @@ color: #dcdcdc;
 .guidelines-section strong {
   color: #144f37;
 }
+
+
 
 
 .socialMedia-dropdown-container{

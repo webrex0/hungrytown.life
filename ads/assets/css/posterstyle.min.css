@@ -712,3 +712,229 @@
         width: 25vw !important; /* Make product image larger */
     }
 }
+
+/* ---------------------------------- Poster Style Custom --------------------------------------- */
+
+.poster5 .poster-template {
+    z-index: 1;
+}
+
+/* == poster5 Logo */
+.poster5 .poster-logo {
+    right: 1vw; /* Use viewport width units for responsive positioning */
+    top: 3vw;
+}
+
+/* == poster5 Title */
+.poster5 .poster-title {
+    position: absolute;
+    font-size: 1.2vw !important; /* Font size relative to the viewport width */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center using translate */
+    margin-top: 0.7vw; /* Keep your vertical margin */
+    font-family: "Roboto Slab", serif;
+    font-weight: 500;
+    text-align: center;
+    z-index: 2;
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide overflow text if it exceeds the container width */
+    text-overflow: ellipsis; /* Optionally add ellipsis if text is too long */
+}
+
+
+/* == poster5 Product Image */
+.poster5 .poster-pic {
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+}
+.poster5 .poster-pic img {
+    width: 10px;
+    height: 10px;
+    object-fit: cover; /* Scale and crop the image to fit */
+    object-position: center; /* Center the image */
+}
+/* Media Queries for Large Screens */
+@media (max-width: 1368px) {
+    .poster5 .poster-title {
+        font-size: 1vw !important; /* Larger font size on smaller screens */
+        margin-top: 1vw;
+    }
+
+    .poster5 .poster-logo {
+        top: 3vw;
+    }
+
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
+    .poster5 .poster-title {
+        font-size: 1.5vw !important; /* Larger font size on smaller screens */
+        margin-top: 0.8vw;
+    }
+
+    .poster5 .poster-logo {
+        top: 5vw;
+    }
+
+    .poster5 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+/* Media Queries for Smaller Screens */
+@media (max-width: 940px) {
+    .poster5 .poster-title {
+        font-size: 4vw; /* Larger font size on smaller screens */
+    }
+
+
+    .poster5 .poster-logo {
+        top: 2vw;
+    }
+
+    .poster5 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .poster5 .poster-title {
+        font-size: 1.8vw !important; /* Larger font size on smaller screens */
+        margin-top: 0.8vw;
+    }
+
+    .poster5 .poster-logo {
+        top: 4vw;
+    }
+
+    .poster5 .poster-pic {
+        width: 80vw; /* Adjust product image size */
+    }
+}
+
+/* Media Queries for Extra Small Screens */
+@media (max-width: 480px) {
+    .poster5 .poster-title {
+        font-size: 3vw !important; /* Further increase font size */
+        margin-top: 2vw;
+    }
+
+    .poster5 .poster-logo {
+        margin-top: 7vw;
+        margin-right: 2vw;
+    }
+
+}
+
+
+  /* ---------------------------------- Merchant Page Banner --------------------------------------- */
+
+  
+  
+  .ads-merchant-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 100%;
+    
+}
+.ads-merchant-container .ads-merchant-items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+}
+  .ads-merchant-container .ads-merchant-items .ads-merchant-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.ads-merchant-detail {
+    padding: 25px 20px 40px;
+}
+
+.ads-merchant-detail .desc-item-product{
+    max-width: 30vw !important;
+}
+
+@media (min-width: 1366px) {
+    .ads-merchant-image{
+        max-width: 30%;
+      }
+    .ads-merchant-detail h4{
+        font-size: 3vw;
+    }
+    .ads-merchant-detail p{
+        font-size: 1.5vw !important;
+    }
+    .ads-merchant-detail .desc-item-product {
+        max-width: 100% !important;
+    }
+}
+@media (max-width: 1024px) {
+    .ads-merchant-image{
+        max-width: 25%;
+      }
+    .ads-merchant-detail h4{
+        font-size: 3.5vw !important;
+    }
+    .ads-merchant-detail p{
+        font-size: 2vw !important;
+    }
+    .ads-merchant-detail .desc-item-product {
+        max-width: 100% !important;
+    }
+}
+@media (max-width: 1013px) {
+}
+@media (max-width: 960px) {
+    
+}
+@media (max-width: 768px) {
+    .ads-merchant-container .ads-merchant-items .ads-merchant-detail {
+        padding: 25px 10px 40px;
+        min-height: 11pc;
+    }
+    .ads-merchant-image{
+        max-width: 25%;
+      }
+      .ads-merchant-detail h4{
+        font-size: 3.5vw !important;
+    }
+    .ads-merchant-detail p{
+        font-size: 2vw !important;
+    }
+      .ads-merchant-detail .desc-item-product {
+        max-width: 100% !important;
+    }
+}
+@media (max-width: 480px) {
+    .ads-merchant-container .ads-merchant-items .ads-merchant-detail {
+        padding: 25px 10px 40px;
+        width: 50%;
+        min-height: 11pc;
+        
+    }
+    .ads-merchant-image{
+        max-width: 50%;
+      }
+}
+
+
+
+
