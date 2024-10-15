@@ -7799,6 +7799,14 @@ background-color: #c67605;
     grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
     gap: 1rem; /* Adjust the spacing between the tiles */
   }
+  
+}
+
+@media (min-width: 1024px) {
+  .previewtem .ads-tiles-container {
+    display: block;
+      width: 250px;
+  }
 }
 
 @media (max-width: 1013px) {

@@ -12,7 +12,7 @@
     <meta name="author" content="codecarnival" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/android-chrome-512x512.png">
 
     <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
 
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
     <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
@@ -75,7 +76,14 @@
                         
                         <div class="content-card-white pt-2 pb-2">
                             <div class="pt-3 pb-5">
-                                <div class="search-form">Search by Date</div><hr>
+                                <div class="datepicker-container">
+                                <div>Search Date :</div>
+                                <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <input class="form-control" type="text" readonly />
+                                    <span class="input-group-addon"><i class="ri-calendar-2-line"></i></span>
+                                </div>
+                                </div>
+                                <hr>
                                 <div class="merchant-form">
                                     <h6 class="green-text">Transactions</h6>
                                         <table class="table table-striped table-bordered ">
@@ -86,22 +94,22 @@
                                                     <td class="text-center text-white">Qty</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-center fs-8">23-Jul</td>
+                                                    <td class="text-center fs-8">21/08/2024 7:45 PM</td>
+                                                    <td class="second text-center fs-8">Lucky Slot Bonus(+):27.00</td>
+                                                    <td class="third text-center fs-8">145.77</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center fs-8">21/08/2024 7:45 PM</td>
+                                                    <td class="second text-center fs-8">Bonus(+):19.77 (MY1575067) 20/08/2024</td>
+                                                    <td class="third text-center fs-8">118.77</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center fs-8">21/08/2024 7:45 PM</td>
                                                     <td class="second text-center fs-8">Puchased Package A</td>
                                                     <td class="third text-center fs-8">10.00</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-center fs-8">23-Jul</td>
-                                                    <td class="second text-center fs-8">Puchased Package A</td>
-                                                    <td class="third text-center fs-8">10.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center fs-8">23-Jul</td>
-                                                    <td class="second text-center fs-8">Puchased Package A</td>
-                                                    <td class="third text-center fs-8">10.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center fs-8">23-Jul</td>
+                                                    <td class="text-center fs-8">21/08/2024 7:45 PM</td>
                                                     <td class="second text-center fs-8">Puchased Package B</td>
                                                     <td class="third text-center fs-8">20.00</td>
                                                 </tr>
@@ -128,12 +136,12 @@
                     <div class="footer-bottom">
                         <div class="container pt-0 pb-0">
                             <div class="footer-bottom-content">
-                                <p class="copyright">© 2024 ADS Company Sdn Bhd. All rights reserved.©</a></p>
+                                <p class="copyright">© 2024 ADS Platform. All rights reserved.©</a></p>
                             </div>
                         </div>
                     </div>
                 </footer>
-
+        </main>
         <!--== Start Message Quick View Modal ==-->
         <aside class="product-cart-view-modal modal fade" id="action-QuickViewModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -240,34 +248,7 @@
         <!--== End Message Quick View Modal ==-->
 
         <!--== Start Aside Menu ==-->
-        <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <h1 class="d-none" id="offcanvasExampleLabel">Aside Menu</h1>
-                <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i class="fa fa-chevron-left"></i></button>
-            </div>
-            <div class="offcanvas-body">
-                <div id="offcanvasNav" class="offcanvas-menu-nav">
-                    <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.html">home</a></li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Catergory</a>
-                            <ul>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Beverage</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Gadget</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Beauty</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Apperal</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Electrical</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Services</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Property</a></li>
-                            </ul>
-                        </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">About Us</a></li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </aside>
+        <special-aside></special-aside>
         <!--== End Aside Menu ==-->
 
         <!-- app nav -->
@@ -289,11 +270,16 @@
     <script src="./assets/js/plugins/fancybox.min.js"></script>
     <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
 
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
     <!-- HeaderFooterManager JS-->
     <script src="./assets/js/headerFooterManager.js"></script>
 
     <!-- Custom Main JS -->
     <script src="./assets/js/main.js"></script>
+    
 
     <script type="text/javascript">
         $(function() {
@@ -320,6 +306,13 @@
         
             cb(start, end);
         
+        });
+
+        $(function () {
+        $("#datepicker").datepicker({ 
+                autoclose: true, 
+                todayHighlight: true
+        }).datepicker('update', new Date());
         });
         </script>
 </body>

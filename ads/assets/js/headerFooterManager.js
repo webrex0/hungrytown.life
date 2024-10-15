@@ -251,6 +251,56 @@ class SpecialAppnav extends HTMLElement {
     }
 }
 
+class SpecialBarBanner extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+        <div class="section-space pb-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-title text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="top-title">Great Deals</h5>
+                <h3 class="title green-text">Latest Promotion</h3>
+              </div>
+            </div>
+            <!-- Carousel-->
+            <div id="carouselExampleInterval" class="carousel slide wow fadeInUp" data-wow-delay="0.1s"
+              data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                  <img src="assets/images/bar-banner/Business Reminding.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img src="assets/images/bar-banner/Keep Reminding.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <a href="https://play.google.com/store/apps/details?id=com.magicnumber.mnchat" target="_blank"> <img src="assets/images/bar-banner/ADS Care .gif" class="d-block w-100" alt="..."></a>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img src="assets/images/bar-banner/No War.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img src="assets/images/bar-banner/Remind.gif" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+        `
+    }
+}
+
 
 
 customElements.define('special-aside', SpecialAsideMenu)
@@ -258,3 +308,4 @@ customElements.define('special-header', SpecialHeader)
 customElements.define('special-category', SpecialCategory)
 customElements.define('special-footer', SpecialFooter)
 customElements.define('special-appnav', SpecialAppnav)
+customElements.define('special-barbanner', SpecialBarBanner)
