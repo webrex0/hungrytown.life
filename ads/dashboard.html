@@ -12,7 +12,7 @@
     <meta name="author" content="codecarnival" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/android-chrome-512x512.png">
 
     <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
@@ -79,32 +79,37 @@
                             <tr></tr>
                             <tr>
                                 <td style="padding-left:25px;font-weight: 500;">Status</td>
+                                <td class="status-amount">Premium</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left:25px;font-weight: 500;">Total Incentive</td>
                                 <td class="status-amount">1000</td>
                             </tr>
                             <tr>
                                 <td style="padding-left:25px;font-weight: 500;">Total Group Sales</td>
-                                <td class="status-amount">10000</td>
+                                <td class="status-amount">10.00</td>
                             </tr>
                             <tr>
                                 <td style="padding-left:25px;font-weight: 500;">Total Big Community</td>
-                                <td class="status-amount">9500</td>
+                                <td class="status-amount">6,400.00</td>
                             </tr>
                             <tr>
                                 <td style="padding-left:25px;font-weight: 500;">Total New Sales</td>
-                                <td class="status-amount">500</td>
+                                <td class="status-amount">5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left:25px;font-weight: 500;">Matrix Quota</td>
+                                <td class="status-amount">0/10</td>
                             </tr>
                             <tr>
                                 <td style="padding-left:25px;font-weight: 500;">Maximum Cap</td>
-                                <td class="status-amount">500</td>
+                                <td class="status-amount">500.00</td>
                             </tr>
                             <tr>
                                 <td style="padding-left:25px;font-weight: 500;">Equity</td>
                                 <td class="status-amount">0.00</td>
                             </tr>
-                            <tr>
-                                <td style="padding-left:25px;font-weight: 500;"></td>
-                                <td class="status-amount"></td>
-                            </tr>
+                            <tr><td></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -116,6 +121,13 @@
 
                         <div class="row p-3 ">
                             <div class="member-container">
+                                <a href="#" id="card-body" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div>
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-register.png"></div>Register
+                                    </div>
+                                    <div class="mt-9px icon-arrow"><img src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
                                 <a href="usdt.html" id="card-body" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
                                     <div>
                                         <div class="member-menu-icon"><img src="assets/images/icons/icons8-tether.png"></div>USDT
@@ -123,9 +135,46 @@
                                     <div class="mt-9px icon-arrow"><img src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
                                     </div>
                                 </a>
+                                <a href="usdt.html" id="card-body" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div>
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-uu.png"></div>USDT Transfer
+                                    </div>
+                                    <div class="mt-9px icon-arrow"><img src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
+                                <a href="incentive.html" id="card-body" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div>
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-incentive.png"></div>Incentive
+                                    </div>
+                                    <div class="mt-9px icon-arrow"><img src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
+                                <a href="#" id="card-body" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div>
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-transfer.png"></div>Incentive Transfer to USDT
+                                    </div>
+                                    <div class="mt-9px icon-arrow"><img src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
+                                <a href="incentive-allocation.html" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div >
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-cash-96.png"></div>Incentive Allocation
+                                    </div>
+                                    <div class="mt-9px icon-arrow"><img 
+                                            src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
                                 <a href="adspace.html" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
                                     <div >
-                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-ads-96.png"></div>Advertising Space
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-withdrawal.png"></div>Withdrawal
+                                    </div>
+                                    <div class="mt-9px icon-arrow"><img 
+                                            src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
+                                <a href="listing.html" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div >
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-board-96.png"></div>Advertising Space
                                     </div>
                                     <div class="mt-9px icon-arrow"><img 
                                             src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
@@ -155,17 +204,25 @@
                                     <div class="mt-9px icon-arrow"><img src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
                                     </div>
                                 </a>
-                                <a href="incentive.html" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
-                                    <div >
-                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-cash-96.png"></div>Incentive Allocation
+                                <a href="#" id="card-body" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div>
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-placement.png"></div>Placement Tier System
                                     </div>
-                                    <div class="mt-9px icon-arrow"><img 
-                                            src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    <div class="mt-9px icon-arrow"><img src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
                                     </div>
                                 </a>
                                 <a href="https://play.google.com/store/apps/details?id=com.magicnumber.mnchat" target="_blank" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
                                     <div >
-                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-customer-service-64.png"></div>Customer Service
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-news.png"></div>News & Promotion
+                                    </div>
+                                    <div  class="mt-9px icon-arrow"><img 
+                                            src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
+                                
+                                <a href="https://play.google.com/store/apps/details?id=com.magicnumber.mnchat" target="_blank" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div >
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-customer-service-64.png"></div>ADS Cares
                                     </div>
                                     <div  class="mt-9px icon-arrow"><img 
                                             src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
@@ -210,6 +267,23 @@
                                             src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
                                     </div>
                                 </a>
+                                <a href="profile.html" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div >
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-pass.png"></div>Change Login Password
+                                    </div>
+                                    <div  class="mt-9px icon-arrow"><img 
+                                            src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
+                                
+                                <a href="profile.html" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div >
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-security.png"></div>Change Security Password
+                                    </div>
+                                    <div  class="mt-9px icon-arrow"><img 
+                                            src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
                                 <a href="#" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
                                     <div >
                                         <div class="member-menu-icon"><img src="assets/images/icons/icons8-language-100.png"></div>Language
@@ -218,6 +292,15 @@
                                             src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
                                     </div>
                                 </a>
+                                <a href="profile.html" class="flex justify-between border-t-0 border-r-0 border-l-0 border-dcdcdc-line cursor-pointer pb-9px pt-14px border-menu">
+                                    <div >
+                                        <div class="member-menu-icon"><img src="assets/images/icons/icons8-logout.png"></div>Logout
+                                    </div>
+                                    <div  class="mt-9px icon-arrow"><img 
+                                            src="assets/images/icons/right-chevron.svg" alt="icon arrow" class="inline-flex align-middle float-right">
+                                    </div>
+                                </a>
+                                
                                 <!---->
                             </div>
                         </div>
@@ -233,11 +316,42 @@
                     <div class="footer-bottom">
                         <div class="container pt-0 pb-0">
                             <div class="footer-bottom-content">
-                                <p class="copyright">© 2024 ADS Company Sdn Bhd. All rights reserved.©</a></p>
+                                <p class="copyright">© 2024 ADS Platform. All rights reserved.©</a></p>
                             </div>
                         </div>
                     </div>
                 </footer>
+
+                </main>
+
+        <!--== Start News & Promotion FancyBox ==-->
+        <aside class="product-cart-view-modal modal fade" id="newsPromotionModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="product-quick-view-content">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                <span class="fa fa-close"></span>
+                            </button>
+                            <div class="container">
+                                <div class="row clearfix">
+                                    <div class="col-md-12 col-lg-12 col-xl-12">
+                                        <div class="qr-content text-center pt-5 pb-5">
+                                            <h4 class="green-text pb-5">Latest News and Promotion</h4>
+                                            <div class="embed-responsive embed-responsive-16by9 wow slideInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: slideInUp;">
+                                                <iframe width="560" height="560" src="./assets/video/ads-promo.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--== End News & Promotion FancyBox ==-->
+
 
         <!--== Start Message Quick View Modal ==-->
         <aside class="product-cart-view-modal modal fade" id="action-QuickViewModal" tabindex="-1" aria-hidden="true">
@@ -270,34 +384,7 @@
         <!--== End Message Quick View Modal ==-->
 
         <!--== Start Aside Menu ==-->
-        <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <h1 class="d-none" id="offcanvasExampleLabel">Aside Menu</h1>
-                <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i class="fa fa-chevron-left"></i></button>
-            </div>
-            <div class="offcanvas-body">
-                <div id="offcanvasNav" class="offcanvas-menu-nav">
-                    <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.html">home</a></li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Catergory</a>
-                            <ul>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Beverage</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Gadget</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Beauty</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Apperal</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Electrical</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Services</a></li>
-                                <li><a href="#" class="offcanvas-nav-item">Property</a></li>
-                            </ul>
-                        </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">About Us</a></li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </aside>
+        <special-aside></special-aside>
         <!--== End Aside Menu ==-->
 
         <!-- app nav -->
@@ -308,6 +395,16 @@
     <!--== Wrapper End ==-->
 
     <!-- JS Vendor, Plugins & Activation Script Files -->
+    <!-- Add this script before the closing </body> tag or in your main.js file -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var myModal = new bootstrap.Modal(document.getElementById('newsPromotionModal'), {
+                keyboard: false // Change this to true if you want to allow closing the modal with keyboard
+            });
+            myModal.show();
+        });
+    </script>
+
 
     <!-- Vendors JS -->
     <script src="./assets/js/vendor/modernizr-3.11.7.min.js"></script>
