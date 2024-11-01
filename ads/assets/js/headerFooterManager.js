@@ -13,7 +13,7 @@ class SpecialAsideMenu extends HTMLElement {
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">About Us</a></li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">ADS Space</a>
                             <ul>
-                                <li><a href="#" class="offcanvas-nav-item">ADS Exchange</a></li>
+                                <li><a href="ads-exchange.html" class="offcanvas-nav-item">ADS Exchange</a></li>
                                 <li><a href="food&beverage.html" class="offcanvas-nav-item">Food & Beverage</a></li>
                                 <li><a href="health&supp.html" class="offcanvas-nav-item">Health & Supplement</a></li>
                                 <li><a href="tech&home.html" class="offcanvas-nav-item">Tech & Home</a></li>
@@ -55,7 +55,7 @@ class SpecialHeader extends HTMLElement {
                                 <li class="has-submenu"><a href="index.html">HOME</a></li>
                                 <li class="has-submenu"><a href="#/">CATEGORY</a>
                                     <ul class="submenu-nav">
-                                        <li><a href="#/">ADS Exchange</a></li>
+                                        <li><a href="ads-exchange.html">ADS Exchange</a></li>
                                         <li><a href="food&beverage.html">Food & Beverage</a></li>
                                         <li><a href="health&supp.html">Health & Supplement</a></li>
                                         <li><a href="tech&home.html">Tech & Home</a></li>
@@ -118,7 +118,7 @@ class SpecialCategory extends HTMLElement {
                                 <!-- Slides -->
                                 <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 4"
                                     style="margin-right: 12px;">
-                                    <a href="#" class="product-category-item">
+                                    <a href="ads-exchange.html" class="product-category-item">
                                         <img class="icon" src="assets/images/caticon/1-ADS.png" width="80" height="80"
                                             alt="Image-HasTech">
                                         <div class="product-cat-name">ADS Exchange</div>

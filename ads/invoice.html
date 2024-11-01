@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ADS - Merchant</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="bootstrap, ecommerce, ecommerce html, beauty, cosmetic shop, beauty products, cosmetic, beauty shop, cosmetic store, shop, beauty store, spa, cosmetic, cosmetics, beauty salon" />
+    <meta name="author" content="codecarnival" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/android-chrome-512x512.png">
+
+    <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
+
+    <!-- Font CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Libraries Stylesheet -->
+    <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    
+
+    <!-- Style CSS -->
+  <link rel="stylesheet" href="./assets/css/style.min.css?version=1.7">
+  <link rel="stylesheet" href="./assets/css/posterstyle.min.css?version=1.7">
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border position-relative spin-green" style="width: 6rem; height: 6rem;" role="status"></div>
+        <img class="position-absolute top-50 start-50 translate-middle sp-img" src="assets/images/logo-top.png" alt="Icon">
+    </div>
+    <!-- Spinner End -->
+
+    <div class="top-green-bar"></div>
+    <!--== Wrapper Start ==-->
+    <div class="wrapper bg-blue-gradient">
+
+        <!--== Start Header Wrapper ==-->
+        <special-header></special-header>
+        <!--== End Header Wrapper ==-->
+
+        <main class="main-content">
+
+            <!--== Start Shopping Checkout Area Wrapper ==-->
+            <section class="section-space mb-5">
+                <div class="container">
+                    <div class="checkout-order-details-wrap">
+                        <div class="order-details-table-wrap table-responsive">
+                            <div class="row">
+                                <div class="invoice-logo col-xs-4 mb-5">
+                                <img src="assets/images/logo-top.png">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="invoice-title">
+                                        <h2>Invoice</h2>
+                                        <h3 class="pull-right">Order # 12345</h3>
+                                    </div>
+                                    <hr>
+                                    <div class="flex justify-content-between">
+                                        <div class="col-xs-6">
+                                            <address>
+                                                <strong>Bill & Shipped To:</strong><br>
+                                                Jane Smith<br>
+                                                1234 Main<br>
+                                                Apt. 4B<br>
+                                                Springfield, ST 54321
+                                            </address>
+                                        </div>
+                                        <div class="col-xs-6 text-right text-end">
+                                            <address>
+                                                <strong>Order Date:</strong><br>
+                                                March 7, 2014<br><br>
+                                            </address>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <address>
+                                                <strong>Payment Method:</strong><br>
+                                                USDT<br>
+                                                jsmith@email.com
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"><strong>Order summary</strong></h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-condensed">
+                                                    <thead>
+                                                        <tr>
+                                                            <td><strong>Item</strong></td>
+                                                            <td class="text-center"><strong>Price</strong></td>
+                                                            <td class="text-center"><strong>Quantity</strong></td>
+                                                            <td class="text-right"><strong>Totals</strong></td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                                        <tr>
+                                                            <td>AI Video Package</td>
+                                                            <td class="text-center">$100</td>
+                                                            <td class="text-center">1</td>
+                                                            <td class="text-right">$100</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="thick-line"></td>
+                                                            <td class="thick-line"></td>
+                                                            <td class="thick-line text-center"><strong>Total</strong></td>
+                                                            <td class="thick-line text-right">$100</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+            
+                </div>
+                <div class="text-center mt-5">
+                    <a href="index.html" class="btn btn-primary py-2">Back to homepage</a>
+                </div>
+            </section>
+            <!--== End Shopping Checkout Area Wrapper ==-->
+
+        </main>
+
+        <!--== Start Footer Area Wrapper ==-->
+            <special-footer></special-footer>
+        <!--== End Footer Area Wrapper ==-->
+
+        <!--== Scroll Top Button ==-->
+        <div id="scroll-to-top" class="scroll-to-top"><span class="fa fa-angle-up"></span></div>
+
+
+
+        <!--== Start Aside Search Form ==-->
+        <aside class="aside-search-box-wrapper offcanvas offcanvas-top" tabindex="-1" id="AsideOffcanvasSearch" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+                <h5 class="d-none" id="offcanvasTopLabel">Aside Search</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container pt--0 pb--0">
+                    <div class="search-box-form-wrap">
+                        <div class="search-note">
+                            <p>Start typing and press Enter to search</p>
+                        </div>
+                        <form action="#" method="post">
+                            <div class="aside-search-form position-relative">
+                                <label for="SearchInput" class="visually-hidden">Search</label>
+                                <input id="SearchInput" type="search" class="form-control" placeholder="Search entire store…">
+                                <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--== End Aside Search Form ==-->
+
+        <!--== Start Aside Menu ==-->
+        <special-aside></special-aside>
+        <!--== End Aside Menu ==-->
+
+        <!-- app nav -->
+        <special-appnav></special-appnav>
+        <!-- /app nav -->
+
+    </div>
+    <!--== Wrapper End ==-->
+
+    <!-- JS Vendor, Plugins & Activation Script Files -->
+
+    <!-- Vendors JS -->
+    <script src="./assets/js/vendor/modernizr-3.11.7.min.js"></script>
+    <script src="./assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+     <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- JavaScript Libraries -->
+  <script src="./assets/lib/wow/wow.min.js"></script>
+  <script src="./assets/lib/easing/easing.min.js"></script>
+  
+    <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+
+    <!-- Plugins JS -->
+    <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="./assets/js/plugins/fancybox.min.js"></script>
+    <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
+
+    <!-- HeaderFooterManager JS-->
+    <script src="./assets/js/headerFooterManager.js"></script>
+
+    <!-- Custom Main JS -->
+    <script src="./assets/js/main.js"></script>
+
+    
+
+</body>
+
+</html>

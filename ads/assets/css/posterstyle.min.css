@@ -400,10 +400,13 @@
 
 /* == Poster2 Product Image */
 .poster2 .poster-pic {
-    width: initial;
-    height: initial;
     overflow: hidden; /* Hide overflow */
-    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the full area */
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .poster2 .poster-pic img {
     width: 100%;
@@ -526,13 +529,19 @@
 /* == poster3 Product Image */
 .poster3 .poster-pic {
     overflow: hidden; /* Hide overflow */
-    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the full area */
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .poster3 .poster-pic img {
     width: 10px;
     height: 10px;
     object-fit: cover; /* Scale and crop the image to fit */
     object-position: center; /* Center the image */
+    
 }
 /* Media Queries for Large Screens */
 @media (max-width: 1368px) {
@@ -590,6 +599,7 @@
 
     .poster3 .poster-pic {
         width: 80vw; /* Adjust product image size */
+        height: 180px;
     }
 }
 
@@ -881,6 +891,20 @@
     }
     .ads-merchant-detail p{
         font-size: 1.5vw !important;
+    }
+    .ads-merchant-detail .desc-item-product {
+        max-width: 100% !important;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1365px) {
+    .ads-merchant-image {
+        max-width: 25%;
+    }
+    .ads-merchant-detail h4 {
+        font-size: 3.5vw !important;
+    }
+    .ads-merchant-detail p {
+        font-size: 2vw !important;
     }
     .ads-merchant-detail .desc-item-product {
         max-width: 100% !important;

@@ -3201,13 +3201,13 @@ background-color: #c67605;
 
 @media only screen and (max-width: 767px) {
   .contact-icons{
-    padding: 0px 10px; !important
+    padding: 0px 10px !important;
   }
 }
 
 @media only screen and (max-width: 575px) {
   .contact-icons{
-    padding: 0px 50px; !important
+    padding: 0px 50px !important;
   }
 }
 
@@ -3299,8 +3299,7 @@ background-color: #c67605;
   position: relative;
   display: block;
   width: 100%;
-  height: auto;
-  padding: 0;
+  padding-top: 60%;
   overflow: hidden;
 }
 
@@ -3328,6 +3327,19 @@ background-color: #c67605;
   padding-top: 56.25%; /* 16:9 aspect ratio */
 }
 
+/*----------------------------------------*/
+/*  Video Resposive
+/*----------------------------------------*/
+.subscribe-price {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+}
+.subscribe-price span {
+  border: 1px solid #008016;
+  border-radius: 10px;
+  padding: 15px 60px;
+}
 
 /*----------------------------------------*/
 /*  Swiper
@@ -5636,8 +5648,8 @@ background-color: #c67605;
   padding: 18px 20px 16px;
   margin-top: 32px;
   font-size: 16px;
-  background-color: #6486ac;
-  border-color: #6486ac;
+  background-color: #008016;
+  border-color: #008016;
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
@@ -5646,8 +5658,8 @@ background-color: #c67605;
   .order-details-table-wrap
   .shop-payment-method
   .btn-place-order:hover {
-  background-color: #177f62;
-  border-color: #177f62;
+  background-color: #40c706;
+  border-color: #40c706;
 }
 .checkout-page-coupon-wrap {
   margin-bottom: 45px;
@@ -5666,7 +5678,7 @@ background-color: #c67605;
 }
 .checkout-page-coupon-wrap .coupon-accordion .card h3 {
   background-color: #eeeff2;
-  border-top: 2px solid #1e85be;
+  border-top: 2px solid #40c706;
   color: #000;
   font-weight: 400;
   font-size: 14px;
@@ -5675,7 +5687,7 @@ background-color: #c67605;
 }
 .checkout-page-coupon-wrap .coupon-accordion .card h3 i {
   font-size: 14px;
-  color: #1e85be;
+  color: #40c706;
   margin-right: 12px;
 }
 .checkout-page-coupon-wrap .coupon-accordion .card h3 a {
@@ -8640,4 +8652,25 @@ label {
   height: 25px;
   position: absolute;
     margin-left: 50%;
+}
+
+
+.invoice-logo{
+  width: 150px;
+}
+
+.order-details-table-wrap .invoice-title h2, .invoice-title h3 {
+  display: inline-block;
+}
+
+.order-details-table-wrap .table > tbody > tr > .no-line {
+  border-top: none;
+}
+
+.order-details-table-wrap .table > thead > tr > .no-line {
+  border-bottom: none;
+}
+
+.order-details-table-wrap .table > tbody > tr > .thick-line {
+  border-top: 2px solid;
 }

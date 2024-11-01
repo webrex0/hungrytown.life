@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ADS - Merchant</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="bootstrap, ecommerce, ecommerce html, beauty, cosmetic shop, beauty products, cosmetic, beauty shop, cosmetic store, shop, beauty store, spa, cosmetic, cosmetics, beauty salon" />
+    <meta name="author" content="codecarnival" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/android-chrome-512x512.png">
+
+    <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
+
+    <!-- Font CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Libraries Stylesheet -->
+    <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    
+
+    <!-- Style CSS -->
+  <link rel="stylesheet" href="./assets/css/style.min.css?version=1.7">
+  <link rel="stylesheet" href="./assets/css/posterstyle.min.css?version=1.7">
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border position-relative spin-green" style="width: 6rem; height: 6rem;" role="status"></div>
+        <img class="position-absolute top-50 start-50 translate-middle sp-img" src="assets/images/logo-top.png" alt="Icon">
+    </div>
+    <!-- Spinner End -->
+
+    <div class="top-green-bar"></div>
+    <!--== Wrapper Start ==-->
+    <div class="wrapper bg-blue-gradient">
+
+        <!--== Start Header Wrapper ==-->
+        <special-header></special-header>
+        <!--== End Header Wrapper ==-->
+
+        <main class="main-content">
+
+            <!--== Start Shopping Checkout Area Wrapper ==-->
+            <section class="shopping-checkout-wrap section-space">
+                <div class="container">
+                    <div class="checkout-page-coupon-wrap">
+                        <!--== Start Checkout Coupon Accordion ==-->
+                        <div class="coupon-accordion" id="CouponAccordion">
+                            <div class="card">
+                                <h3>
+                                    <i class="fa fa-info-circle"></i>
+                                    DISCLAIMER :
+                                    <p class="mt-4"> Video production team require clients to attend recording sessions at our studio within 14 days of scheduling. Final videos will be delivered within 7 working days upon submission of all required documents. </p>
+                                </h3>
+                            </div>
+                        </div>
+                        <!--== End Checkout Coupon Accordion ==-->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!--== Start Billing Accordion ==-->
+                            <div class="checkout-billing-details-wrap">
+                                <h2 class="title">Billing details</h2>
+                                <div class="billing-form-wrap">
+                                    <form action="#" method="post">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="pic_name">Name (Person in charge)</label>
+                                                    <input id="pic_name" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="com_name">Company name (optional)</label>
+                                                    <input id="com_name" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-4">
+                                                <div class="form-group">
+                                                    <label for="country">Country <abbr class="required" title="required">*</abbr></label>
+                                                    <select id="country" class="form-control wide">
+                                                        <option>Malaysia</option>
+                                                        <option>Singapore</option>
+                                                        <option>China</option>
+                                                        <option>India</option>
+                                                        <option>Indonesia</option>
+                                                        <option>Thailand</option>
+                                                        <option>Vietnam</option>
+                                                        <option>Hong Kong</option>
+                                                        <option>Taiwan</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="street-address">Street address <abbr class="required" title="required">*</abbr></label>
+                                                    <input id="street-address" type="text" class="form-control" placeholder="House number and street name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="street-address2" class="visually-hidden">Street address 2 <abbr class="required" title="required">*</abbr></label>
+                                                    <input id="street-address2" type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="town">Town / City <abbr class="required" title="required">*</abbr></label>
+                                                    <input id="town" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="pz-code">Postcode</label>
+                                                    <input id="pz-code" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="phone">Phone (optional)</label>
+                                                    <input id="phone" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="email">Email address <abbr class="required" title="required">*</abbr></label>
+                                                    <input id="email" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group mb-0">
+                                                    <label for="order-notes">Order notes (optional)</label>
+                                                    <textarea id="order-notes" class="form-control" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!--== End Billing Accordion ==-->
+                        </div>
+                        <div class="col-lg-6">
+                            <!--== Start Order Details Accordion ==-->
+                            <div class="checkout-order-details-wrap">
+                                <div class="order-details-table-wrap table-responsive">
+                                    <h2 class="title mb-25">Your order</h2>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-total">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-body">
+                                            <tr class="cart-item">
+                                                <td class="product-name">AI Video Package<span class="product-quantity"> × 1</span></td>
+                                                <td class="product-total">$100</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot class="table-foot">
+                                            
+                                            <tr class="pay-points">
+                                                <th>ADS Points</th>
+                                                <td>- $50</td>
+                                            </tr>
+                                            <tr class="order-total">
+                                                <th>Total Payable (USDT)</th>
+                                                <td>$50</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    <div class="shop-payment-method">
+                                        <div id="PaymentMethodAccordion">
+                                            <div class="card">
+                                                <div class="card-header" id="check_payments">
+                                                    <h5 class="title" data-bs-toggle="collapse" data-bs-target="#itemOne" aria-controls="itemOne" aria-expanded="true">Direct USDT transfer</h5>
+                                                </div>
+                                                <div id="itemOne" class="collapse show" aria-labelledby="check_payments" data-bs-parent="#PaymentMethodAccordion">
+                                                    <div class="card-body">
+                                                        <p>Make your payment directly into our USDT account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="p-text">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#/">privacy policy.</a></p>
+                                        <div class="agree-policy">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" id="privacy" class="custom-control-input visually-hidden">
+                                                <label for="privacy" class="custom-control-label">I have read and agree to the website terms and conditions <span class="required">*</span></label>
+                                            </div>
+                                        </div>
+                                        <a href="invoice.html" class="btn-place-order">PAY NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--== End Order Details Accordion ==-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--== End Shopping Checkout Area Wrapper ==-->
+
+        </main>
+
+        <!--== Start Footer Area Wrapper ==-->
+            <special-footer></special-footer>
+        <!--== End Footer Area Wrapper ==-->
+
+        <!--== Scroll Top Button ==-->
+        <div id="scroll-to-top" class="scroll-to-top"><span class="fa fa-angle-up"></span></div>
+
+
+
+        <!--== Start Aside Search Form ==-->
+        <aside class="aside-search-box-wrapper offcanvas offcanvas-top" tabindex="-1" id="AsideOffcanvasSearch" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+                <h5 class="d-none" id="offcanvasTopLabel">Aside Search</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container pt--0 pb--0">
+                    <div class="search-box-form-wrap">
+                        <div class="search-note">
+                            <p>Start typing and press Enter to search</p>
+                        </div>
+                        <form action="#" method="post">
+                            <div class="aside-search-form position-relative">
+                                <label for="SearchInput" class="visually-hidden">Search</label>
+                                <input id="SearchInput" type="search" class="form-control" placeholder="Search entire store…">
+                                <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--== End Aside Search Form ==-->
+
+        <!--== Start Aside Menu ==-->
+        <special-aside></special-aside>
+        <!--== End Aside Menu ==-->
+
+        <!-- app nav -->
+        <special-appnav></special-appnav>
+        <!-- /app nav -->
+
+    </div>
+    <!--== Wrapper End ==-->
+
+    <!-- JS Vendor, Plugins & Activation Script Files -->
+
+    <!-- Vendors JS -->
+    <script src="./assets/js/vendor/modernizr-3.11.7.min.js"></script>
+    <script src="./assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+     <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- JavaScript Libraries -->
+  <script src="./assets/lib/wow/wow.min.js"></script>
+  <script src="./assets/lib/easing/easing.min.js"></script>
+  
+    <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+
+    <!-- Plugins JS -->
+    <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="./assets/js/plugins/fancybox.min.js"></script>
+    <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
+
+    <!-- HeaderFooterManager JS-->
+    <script src="./assets/js/headerFooterManager.js"></script>
+
+    <!-- Custom Main JS -->
+    <script src="./assets/js/main.js"></script>
+
+    
+
+</body>
+
+</html>
